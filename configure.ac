@@ -65,12 +65,6 @@ fi
 GACUTIL_FLAGS='/package lastexit /gacdir $(libdir) /root $(DESTDIR)$(libdir)'
 AC_SUBST(GACUTIL_FLAGS)
 
-#ALL_LINGUAS=
-#GETTEXT_PACKAGE=lastexit
-#AC_SUBST(GETTEXT_PACKAGE)
-#AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
-#AM_GLIB_GNU_GETTEXT
-
 AC_OUTPUT([
 Makefile
 data/Makefile
