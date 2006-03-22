@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<gconfschemafile>
+  <schemalist>
+    <schema>
+      <key>/schemas/desktop/gnome/url-handlers/lastfm/enabled</key>
+      <applyto>/desktop/gnome/url-handlers/lastfm/enabled</applyto>
+      <owner>Last-Exit</owner>
+      <type>bool</type>
+      <default>true</default>
+      <locale name="C">
+	<short>Is the Last-FM handler enabled</short>
+   	<long>True if the command specified in the "command" key should handle "lastfm" URLs.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/desktop/gnome/url-handlers/lastfm/command</key>
+      <applyto>/desktop/gnome/url-handlers/lastfm/command</applyto>
+      <owner>Last-Exit</owner>
+      <type>string</type>
+      <default>last-exit "%s"</default>
+      <locale name="C">
+	<short>The handler for "lastfm" URLs</short>
+	<long>The command used to handle "lastfm" URLs, if enabled.</long>
+      </locale>
+    </schema>
+    
+    <schema>
+      <key>/schema/desktop/gnome/url-handlers/lastfm/needs_terminal</key>
+      <applyto>/desktop/gnome/url-handlers/lastfm/needs_terminal</applyto>
+      <owner>Last-Exit</owner>
+      <type>bool</type>
+      <default>false</default>
+      <locale name="C">
+	<short>Run the command in a terminal</short>
+	<long>True if the command used to handle "lastfm" URLs should be run in a terminal.</long>
+      </locale>
+    </schema>
+  </schemalist>
+</gconfschemafile>
