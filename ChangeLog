@@ -1,4 +1,8 @@
 2006-03-23  Iain <iain@gnome.org>
 
-	* src/RecentStations.cs (LoadRecent): Check if the file exists.
+	* src/RecentStations.cs (LoadRecent): Catch an XmlException for
+	malformed recent file.
 
+2006-03-23  Iain <iain@gnome.org>
+
+	* src/RecentStations.cs (LoadRecent): Check if the file exists.

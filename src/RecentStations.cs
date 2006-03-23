@@ -48,7 +48,11 @@ namespace LastExit {
 				return rs;
 			}
 
-			xml.Load (name);
+			try {
+				xml.Load (name);
+			} catch (XmlException) {
+				return rs;
+			}
 
 			XmlNodeList r = xml.GetElementsByTagName ("station");
 			if (r.Count == 0) {
