@@ -1,0 +1,4 @@
+2006-03-23  Iain <iain@gnome.org>
+
+	* src/RecentStations.cs (LoadRecent): Check if the file exists.
+

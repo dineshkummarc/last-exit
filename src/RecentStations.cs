@@ -43,7 +43,12 @@ namespace LastExit {
 			XmlDocument xml = new XmlDocument ();
 			ArrayList rs = new ArrayList ();
 
-			xml.Load (Driver.ConfigDirectory + "/recent.xml");
+			string name = Driver.ConfigDirectory + "/recent.xml";
+			if (File.Exists (name) == false) {
+				return rs;
+			}
+
+			xml.Load (name);
 
 			XmlNodeList r = xml.GetElementsByTagName ("station");
 			if (r.Count == 0) {
@@ -93,7 +98,6 @@ namespace LastExit {
 				root.AppendChild (elem);
 			}
 
-/* 			xml.Save (Driver.ConfigDirectory + "/recent.xml"); */
 			Stream stream = new FileStream (Driver.ConfigDirectory + "/recent.xml", FileMode.Create);
 			tw = new XmlTextWriter (stream, null);
 			tw.Formatting = Formatting.Indented;
