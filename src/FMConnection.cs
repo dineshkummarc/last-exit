@@ -67,6 +67,10 @@ namespace LastExit
 		public event GetUserInfoCompletedHandler GetUserInfoCompleted;
 
 		private string username;
+		public string Username {
+			get { return username; }
+		}
+
 		// password is stored as an MD5 hash
 		private string password;
 
@@ -87,11 +91,13 @@ namespace LastExit
 		}
 
 		// URL for updated client
-		private string update_url;
+		// private string update_url;
 		// Is this client banned from using the network?
-		private bool banned;
+		// private bool banned;
 
-		private bool framehack;
+		// I don't know what this is for
+		// private bool framehack;
+
 		private string base_url;
 		private string base_path;
 
@@ -131,7 +137,8 @@ namespace LastExit
 			this.connected = ConnectionState.Disconnected;
 		}
 
-		public string MakeUserRadio (string station) 
+		public static string MakeUserRadio (string username,
+						    string station) 
 		{
 			return "lastfm://user/" + username + station;
 		}
@@ -139,6 +146,11 @@ namespace LastExit
 		public static string MakeArtistRadio (string station)
 		{
 			return "lastfm://artist/" + station + "/similarartists";
+		}
+
+		public static string MakeFanRadio (string station)
+		{
+			return "lastfm://artist/" + station + "/fans";
 		}
 
 		public static string MakeTagRadio (string station)
@@ -224,11 +236,7 @@ namespace LastExit
 					break;
 
 				case "framehack":
-					if (opts[1] == "0") {
-						framehack = false;
-					} else {
-						framehack = true;
-					}
+					// Does anyone know what this is for?
 					break;
 
 				case "base_url":
@@ -240,15 +248,19 @@ namespace LastExit
 					break;
 					
 				case "update_url":
-					update_url = opts[1];
+					// Don't think this can be used at the
+					// moment.
+					//update_url = opts[1];
 					break;
 
 				case "banned":
+					/*
 					if (opts[1] == "0") {
 						banned = false;
 					} else {
 						banned = true;
 					}
+					*/
 					break;
 
 				default:
@@ -455,7 +467,7 @@ namespace LastExit
 					// It's a good enough size to scale
 					// to whatever size we need.
 				case "albumcover_medium":
-					song.CoverUrl = opts[1];
+					song.ImageUrl = opts[1];
 					break;
 
 				case "albumcover_large":
@@ -506,6 +518,10 @@ namespace LastExit
 				url = "http://" + base_url + "/1.0/tag/" + description + "/search.xml?showtop10=1";
 				break;
 
+			case FindStation.SearchType.FansOf:
+				url = "http://" + base_url + "1.0/artist" + description + "/fans.xml";
+				break;
+
 			default:
 				url = "";
 				break;
@@ -539,6 +555,14 @@ namespace LastExit
 
 					if (SearchCompleted != null) {
 						SearchCompleted ((object) tags, t);
+					}
+					break;
+
+				case FindStation.SearchType.FansOf:
+					ArrayList fans = ParseFans (content);
+
+					if (SearchCompleted != null) {
+						SearchCompleted ((object) fans, t);
 					}
 					break;
 				}
@@ -601,14 +625,14 @@ namespace LastExit
 		{
 			XmlDocument xml = new XmlDocument ();
 			XmlNodeList elemlist;
+			ArrayList tags = new ArrayList ();
 
 			xml.LoadXml (content);
 			elemlist = xml.GetElementsByTagName ("tags");
 			if (elemlist.Count == 0) {
-				return null;
+				return tags;
 			}
 
-			ArrayList tags = new ArrayList ();
 			elemlist = xml.GetElementsByTagName ("tag");
 			IEnumerator ienum = elemlist.GetEnumerator ();
 			while (ienum.MoveNext ()) {
@@ -622,6 +646,23 @@ namespace LastExit
 			}
 
 			return tags;
+		}
+
+		private ArrayList ParseFans (string content)
+		{
+			XmlDocument xml = new XmlDocument ();
+			XmlNodeList elemlist;
+			ArrayList fans = new ArrayList ();
+
+			xml.LoadXml (content);
+			elemlist = xml.GetElementsByTagName ("fans");
+			if (elemlist.Count == 0) {
+				return fans;
+			}
+
+			elemlist = xml.GetElementsByTagName ("user");
+
+			return fans;
 		}
 
 		public void GetUserInfo (string username)

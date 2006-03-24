@@ -48,7 +48,8 @@ namespace LastExit
 
 		public enum SearchType {
 			SoundsLike,
-			TaggedAs
+			TaggedAs,
+			FansOf
 		};
 
 		private ComboBox search_combo;
@@ -116,6 +117,7 @@ namespace LastExit
 			search_combo = ComboBox.NewText ();
 			search_combo.AppendText ("Music that sounds like");
 			search_combo.AppendText ("Music that is tagged as");
+			search_combo.AppendText ("Music from fans of");
 			search_combo.Active = 0;
 			
 			search_combo.Visible = true;
@@ -177,6 +179,10 @@ namespace LastExit
 
 			case 1:
 				t = SearchType.TaggedAs;
+				break;
+
+			case 2:
+				t = SearchType.FansOf;
 				break;
 
 			default:

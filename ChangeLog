@@ -1,3 +1,17 @@
+2006-03-24  Iain <iain@gnome.org>
+
+	* data/glade/PlayerWindow.glade: Shuffle some buttons around a bit
+
+	* src/Artist.cs:
+	  src/Song.cs: Derive from ImageLoader rather than creating one.
+
+	* src/FMConnection.cs:
+	  src/InfoWindow.cs:
+	  src/PlayerWindow.cs:
+	  src/RecentStations.cs:
+	  src/FindStations.cs: Update to use the new ImageLoader stuff and
+	  do general code cleanups.
+
 2006-03-23  Iain <iain@gnome.org>
 
 	* src/RecentStations.cs (LoadRecent): Catch an XmlException for

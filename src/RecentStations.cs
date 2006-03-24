@@ -32,7 +32,6 @@ namespace LastExit {
 			public string path;
 		};
 
-		private static ArrayList recent;
 		public static ArrayList Recent {
 			get { return RecentStations.LoadRecent (); }
 			set { RecentStations.SaveRecent (value); }

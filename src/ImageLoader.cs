@@ -27,27 +27,77 @@ using Gdk;
 
 namespace LastExit {
 	public class ImageLoader {
-		const int BUFFER_SIZE = 1024;
-		public byte[] BufferRead;
-		public PixbufLoader loader;
-		public HttpWebRequest Request;
-		public HttpWebResponse Response;
-		public Stream ResponseStream;
-		
-		private int width, height;
-
 		public delegate void ImageLoadedHandler (Pixbuf image);
 		public event ImageLoadedHandler ImageLoaded;
+
+		private string image_url;
+		public string ImageUrl {
+			set { image_url = value; }
+		}
+
+		private Pixbuf image;
+		public Pixbuf Image {
+			get { return image; }
+		}
+
+		private bool image_requested;
 		
 		public ImageLoader () {
+			image = null;
+			image_requested = false;
+			image_url = null;
+
 			BufferRead = new byte[BUFFER_SIZE];
 			Request = null;
 			ResponseStream = null;
 			width = -1;
 			height = -1;
 		}
-		
-		public void GetImage (string url, int w, int h) {
+
+		public void RequestImage (int w, int h)
+		{
+			if (image != null) {
+				// Already got the cover
+				if (ImageLoaded != null) {
+					ImageLoaded (image);
+				}
+
+				return;
+			}
+
+			if (image_url == null) {
+				// In an ideal bug free world where it isn't
+				// 1am, this would fire a signal with a No 
+				// Cover image...but I'm tired.
+				// Oh yeah, FIXME!
+				
+				return;
+			}
+
+			if (image_requested) {
+				return;
+			}
+
+			GetImage (image_url, w, h);
+			image_requested = true;
+		}
+
+		public void RequestImage () 
+		{
+			RequestImage (-1, -1);
+		}
+
+		private const int BUFFER_SIZE = 1024;
+		private byte[] BufferRead;
+		private PixbufLoader loader;
+		private HttpWebRequest Request;
+		private HttpWebResponse Response;
+		private Stream ResponseStream;
+
+		private int width, height;
+
+		private void GetImage (string url, int w, int h) 
+		{
 			HttpWebRequest request;
 
 			width = w;
@@ -57,11 +107,6 @@ namespace LastExit {
 			Request = request;
 			
 			request.BeginGetResponse (new AsyncCallback (ImageDownloadRequestCallback), this);
-		}
-
-		public void GetImage (string url) 
-		{
-			GetImage (url, -1, -1);
 		}
 
 		private void ImageDownloadRequestCallback (IAsyncResult result) {
@@ -105,6 +150,7 @@ namespace LastExit {
 				ImageLoaded (loader.Pixbuf);
 			}
 
+			image_requested = false;
 			return false;
 		}
 	}

@@ -200,12 +200,16 @@ namespace LastExit
 			// Create a store for the stations
 			stations = new StationStore (typeof (Gdk.Pixbuf), typeof (String), typeof (bool), typeof (String));
 
-			add_station (neighbour_image, "Neighbour Station", Driver.connection.MakeUserRadio ("/neighbours"), true);
+			add_station (neighbour_image, "Neighbour Station", 
+				     FMConnection.MakeUserRadio (Driver.connection.Username, 
+								 "/neighbours"), true);
 			add_station (user_image, "Personal Station", 
-				     Driver.connection.MakeUserRadio ("/personal"), 
+				     FMConnection.MakeUserRadio (Driver.connection.Username,
+								 "/personal"), 
 				     Driver.connection.Subscriber);
 			add_station (favourite_image, "Favourites Station", 
-				     Driver.connection.MakeUserRadio ("/loved"),
+				     FMConnection.MakeUserRadio (Driver.connection.Username,
+								 "/loved"),
 				     Driver.connection.Subscriber);
 
 			stations.AppendValues (null, "last-exit:separator", true, null);
@@ -265,8 +269,6 @@ namespace LastExit
 						 string path,
 						 bool sensitive)
 		{
-			TreeIter iter;
-			
 			if (custom_stations.Count == 0) {
 				stations.InsertValues (3, null, "last-exit:separator", true, null);
 			}
@@ -397,7 +399,6 @@ namespace LastExit
 			}
 
 			if (combo.GetActiveIter (out iter)) {
-				string station = (string) combo.Model.GetValue (iter, (int) Column.Name);
 				string path = (string) combo.Model.GetValue (iter, (int) Column.Path);
 				if (path != null) {
 					Driver.connection.ChangeStation (path);
@@ -536,11 +537,11 @@ namespace LastExit
 				set_station_title (station_id, song.Station);
 			}
 			
-			song.CoverLoaded += new Song.CoverLoadedHandler (OnCoverLoaded);
+			song.ImageLoaded += new Song.ImageLoadedHandler (OnCoverLoaded);
 			
 			song_label.Markup = "<span weight=\"bold\"><a href=\"" + song.TrackUrl + "\">" + StringUtils.EscapeForPango (song.Track) + "</a></span>";
 			artist_label.Markup = "<span size=\"smaller\">From <a href=\"" +song.AlbumUrl + "\">" + StringUtils.EscapeForPango (song.Album) + "</a> by <a href=\"" + song.ArtistUrl + "\">" + StringUtils.EscapeForPango (song.Artist) + "</a></span>";
-			song.RequestCover ();
+			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
 			
 			this.Title = song.Track + " by " + song.Artist;
 

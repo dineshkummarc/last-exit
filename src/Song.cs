@@ -27,10 +27,7 @@ using Gdk;
 
 namespace LastExit 
 {
-	public class Song {
-		public delegate void CoverLoadedHandler (Pixbuf cover);
-		public event CoverLoadedHandler CoverLoaded;
-
+        public class Song : ImageLoader {
 		private string artist;
 		public string Artist {
 			set { artist = value; }
@@ -91,24 +88,6 @@ namespace LastExit
 			get { return station_feed_url; }
 		}
 
-		private bool cover_requested;
-
-		private Pixbuf cover;
-		public Pixbuf Cover {
-			get { return cover; }
-		}
-
-		private string cover_url;
-		public string CoverUrl {
-			set { 
-				cover_url = value; 
-				// Having new cover_url means Cover is invalid
-				cover = null;
-				cover_requested = false;
-			}
-		}
-				
-
 		private int progress;
 		public int Progress {
 			set { progress = value; }
@@ -140,49 +119,6 @@ namespace LastExit
 		}
 
 		public Song () {
-			cover = null;
-			cover_requested = false;
-		}
-
-		public void RequestCover () {
-			if (cover != null) {
-				// Already got the cover
-				if (CoverLoaded != null) {
-					CoverLoaded (cover);
-				}
-
-				return;
-			}
-
-			if (cover_url == null) {
-				// In an ideal bug free world where it isn't
-				// 1am, this would fire a signal with a No 
-				// Cover image...but I'm tired.
-				// Oh yeah, FIXME!
-				
-				return;
-			}
-
-			if (cover_requested) {
-				return;
-			}
-
-			ImageLoader cl = new ImageLoader ();
-
-			cl.ImageLoaded += new ImageLoader.ImageLoadedHandler (OnCoverLoaded);
-			cl.GetImage (cover_url, Driver.CoverSize, Driver.CoverSize);
-			cover_requested = true;
-		}
-
-		private void OnCoverLoaded (Pixbuf cover) 
-		{
-			this.cover = cover;
-
-			if (CoverLoaded != null) {
-				CoverLoaded (cover);
-			}
-
-			cover_requested = false;
 		}
 	}
 }

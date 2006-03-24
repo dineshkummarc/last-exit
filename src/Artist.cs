@@ -25,10 +25,7 @@ using Gdk;
 
 namespace LastExit 
 {
-	public class Artist {
-		public delegate void ImageLoadedHandler (Pixbuf image);
-		public event ImageLoadedHandler ImageLoaded;
-
+        public class Artist : ImageLoader {
 		private string name;
 		public string Name {
 			get { return name; }
@@ -41,16 +38,6 @@ namespace LastExit
 			set { streamable = value; }
 		}
 
-		private Pixbuf artist_image;
-		public Pixbuf ArtistImage {
-			get { return artist_image; }
-		}
-
-		private string image_url;
-		public string ImageUrl {
-			set { image_url = value; }
-		}
-		
 		private string mbid;
 		public string Mbid {
 			get { return mbid; }
@@ -63,32 +50,15 @@ namespace LastExit
 		}
 
 		public Artist () {
-			artist_image = null;
 			similar_artists = new ArrayList ();
 		}
 
 		public void AddSimilarArtist (SimilarArtist artist) {
 			similar_artists.Add (artist);
 		}
-
-		public void RequestImage () 
-		{
-			ImageLoader il = new ImageLoader ();
-			il.ImageLoaded += new ImageLoader.ImageLoadedHandler (OnImageLoaded);
-			il.GetImage (image_url);
-		}
-
-		private void OnImageLoaded (Pixbuf image)
-		{
-			artist_image = image;
-
-			if (ImageLoaded != null) {
-				ImageLoaded (image);
-			}
-		}
 	}
 
-        public class SimilarArtist : IComparable{
+        public class SimilarArtist : IComparable {
 		private string name;
 		public string Name {
 			get { return name; }
