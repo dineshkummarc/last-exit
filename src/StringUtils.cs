@@ -43,6 +43,11 @@ namespace LastExit
 
 		public static string EscapeForPango (string s)
 		{
+			if (s == null) {
+				return null;
+			}
+
+			Console.WriteLine (s);
 			s = s.Replace ("&", "&amp;");
 			s = s.Replace ("<", "&lt;");
 

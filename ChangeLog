@@ -1,5 +1,11 @@
 2006-04-15  Iain <iain@gnome.org>
 
+	* src/PlayerWindow.cs: Don't escape strings if the string is null.
+
+	* src/StringUtils.cs: Ditto
+
+2006-04-15  Iain <iain@gnome.org>
+
 	* src/PlayerWindow.cs: Merge patch from Jason Quigley to turn on
 	subscriber only stations.
 

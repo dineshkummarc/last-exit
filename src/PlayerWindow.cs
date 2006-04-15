@@ -551,9 +551,15 @@ namespace LastExit
 			}
 			
 			song.ImageLoaded += new Song.ImageLoadedHandler (OnCoverLoaded);
+
+			if (song.Track != null) {
+				song_label.Markup = "<span weight=\"bold\"><a href=\"" + song.TrackUrl + "\">" + StringUtils.EscapeForPango (song.Track) + "</a></span>";
+			}
 			
-			song_label.Markup = "<span weight=\"bold\"><a href=\"" + song.TrackUrl + "\">" + StringUtils.EscapeForPango (song.Track) + "</a></span>";
-			artist_label.Markup = "<span size=\"smaller\">From <a href=\"" +song.AlbumUrl + "\">" + StringUtils.EscapeForPango (song.Album) + "</a> by <a href=\"" + song.ArtistUrl + "\">" + StringUtils.EscapeForPango (song.Artist) + "</a></span>";
+			if (song.Album != null && song.Artist != null) {
+				artist_label.Markup = "<span size=\"smaller\">From <a href=\"" +song.AlbumUrl + "\">" + StringUtils.EscapeForPango (song.Album) + "</a> by <a href=\"" + song.ArtistUrl + "\">" + StringUtils.EscapeForPango (song.Artist) + "</a></span>";
+			}
+
 			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
 			
 			this.Title = song.Track + " by " + song.Artist;
