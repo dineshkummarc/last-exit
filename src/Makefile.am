@@ -8,6 +8,7 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/Artist.cs			\
 	$(srcdir)/Config.cs			\
 	$(srcdir)/Driver.cs			\
+	$(srcdir)/Fan.cs			\
 	$(srcdir)/FindStation.cs		\
 	$(srcdir)/FirstRunDialog.cs		\
 	$(srcdir)/FMConnection.cs		\

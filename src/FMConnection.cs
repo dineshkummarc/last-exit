@@ -661,6 +661,17 @@ namespace LastExit
 			}
 
 			elemlist = xml.GetElementsByTagName ("user");
+			IEnumerator ienum = elemlist.GetEnumerator ();
+			while (ienum.MoveNext ()) {
+				XmlNode f_node = (XmlNode) ienum.Current;
+				string name = f_node.Attributes.GetNamedItem ("username").InnerText;
+				string url = get_node_text (f_node, "url");
+				string image = get_node_text (f_node, "image");
+				int weight = Int32.Parse (get_node_text (f_node, "weight"));
+
+				Fan f = new Fan (name, url, image, weight);
+				fans.Add (f);
+			}
 
 			return fans;
 		}

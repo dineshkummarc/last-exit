@@ -1,3 +1,9 @@
+2006-04-15  Iain <iain@gnome.org>
+
+	* src/FMConnection.cs: Add ability to search for fans...
+
+	* src/FindStation.cs: Add a fans of radio.
+
 2006-03-24  Iain <iain@gnome.org>
 
 	* data/glade/PlayerWindow.glade: Shuffle some buttons around a bit

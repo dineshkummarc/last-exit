@@ -41,6 +41,8 @@ namespace LastExit
 		[Glade.Widget] Label band_name_label;
 		[Glade.Widget] Label similar_artist_label;
 
+		[Glade.Widget] Label number_fans_label;
+
 		[Glade.Widget] ScrolledWindow tag_container;
 
 		private TagView tagview;
@@ -106,6 +108,10 @@ namespace LastExit
 						Driver.player.Stop ();
 						Driver.connection.ChangeStation (station);
 					}
+				} else if (search_combo.Active == 2) {
+					string station = FMConnection.MakeFanRadio (search_entry.Text);
+					Driver.player.Stop ();
+					Driver.connection.ChangeStation (station);
 				}
 			}
 			
@@ -159,10 +165,28 @@ namespace LastExit
 
 		private void OnSearchChanged (object obj, EventArgs args) 
 		{
-			if (search_entry.Text == "") {
-				search_button.Sensitive = false;
-			} else {
-				search_button.Sensitive = true;
+			switch (search_combo.Active) {
+			case 0:
+			case 1:
+				if (search_entry.Text == "") {
+					search_button.Sensitive = false;
+				} else {
+					search_button.Sensitive = true;
+				}
+				break;
+
+			case 2:
+				if (search_entry.Text == "") {
+					search_button.Sensitive = false;
+					this.SetResponseSensitive (ResponseType.Ok, false);
+				} else {
+					search_button.Sensitive = false;
+					this.SetResponseSensitive (ResponseType.Ok, true);
+				}
+				break;
+				
+			default:
+				break;
 			}
 		}
 
@@ -212,6 +236,13 @@ namespace LastExit
 				tag_container.Visible = true;
 				break;
 
+			case SearchType.FansOf:
+				/* Don't really know what I want to do with
+				   the fan details.... A Tile thing might 
+				   be cool to use ? */
+/* 				FillFansDetails ((ArrayList) o); */
+				break;
+				
 			default:
 				break;
 			}
