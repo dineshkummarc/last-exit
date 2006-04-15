@@ -476,6 +476,19 @@ namespace LastExit
 				info_button.Sensitive = connected;
 			}
 
+			string personal = FMConnection.MakeUserRadio (Driver.connection.Username, "/personal");
+			string loved = FMConnection.MakeUserRadio (Driver.connection.Username, "/loved");
+
+			TreeIter iter;
+			bool ret = stations.GetIterFirst (out iter);
+			while (ret) {
+				string p = (string) stations.GetValue (iter, (int) Column.Path);
+				if ( p == personal || p == loved ) {
+					stations.SetValue (iter, (int) Column.Sensitive, connected & Driver.connection.Subscriber);
+				}
+				ret = stations.IterNext (ref iter);
+			}
+
 			if (InitialStation != null) {
 				Driver.connection.ChangeStation (InitialStation);
 
