@@ -61,6 +61,7 @@ namespace LastExit {
 			my_tags.Visible = true;
 			my_tags_container.Add (my_tags);
 
+			
 			global_tags = new TagSelector ();
 			global_tags.Visible = true;
 			global_tags_container.Add (global_tags);

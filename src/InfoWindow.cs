@@ -74,7 +74,7 @@ namespace LastExit
 
 			this.AddButton ("Close", ResponseType.Close);
 
-			Driver.connection.GetUserInfoCompleted += new FMConnection.GetUserInfoCompletedHandler (OnGetUserInfoCompleted);
+			Driver.connection.GetUserInfoCompleted += new FMConnection.GetUserDataCompletedHandler (OnGetUserInfoCompleted);
 
 			SetSong (song);
 		}

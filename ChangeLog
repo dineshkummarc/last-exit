@@ -1,3 +1,8 @@
+2006-04-21  Iain <iain@gnome.org>
+
+	* src/PlayerWindow.cs: Apply patch from Adam Lofts to ellipsize the
+	labels.
+
 2006-04-15  Iain <iain@gnome.org>
 
 	* src/PlayerWindow.cs: Don't escape strings if the string is null.

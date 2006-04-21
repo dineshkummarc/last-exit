@@ -63,8 +63,9 @@ namespace LastExit
 		public delegate void ErrorHandler (int errno);
 		public event ErrorHandler Error;
 
-		public delegate void GetUserInfoCompletedHandler (string details);
-		public event GetUserInfoCompletedHandler GetUserInfoCompleted;
+		public delegate void GetUserDataCompletedHandler (string data);
+		public event GetUserDataCompletedHandler GetUserInfoCompleted;
+		public event GetUserDataCompletedHandler GetUserTagsCompleted;
 
 		private string username;
 		public string Username {
@@ -727,7 +728,32 @@ namespace LastExit
 			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (SkipCompleted);
 			fmr.DoRequest (url);
 		}			
+
+		public void GetUserTags ()
+		{
+			FMRequest fmr = new FMRequest ();
+			string url = "http://" + base_url + "/1.0/user/" + username + "/tags.xml";
+
+			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (UserTagsCompleted);
+			fmr.DoRequest (url);
+
+			DoOperationStarted ();
+		}
 			
+		private void UserTagsCompleted (FMRequest request) 
+		{
+			if (request.Data.Length > 1) {
+				string content;
+
+				content = request.Data.ToString ();
+				if (GetUserTagsCompleted != null) {
+					GetUserTagsCompleted (content);
+				}
+			}
+
+			DoOperationFinished ();
+		}
+		   
 		private class FMRequest {
 			const int BUFFER_SIZE = 1024;
 			public StringBuilder Data;

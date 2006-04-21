@@ -168,12 +168,14 @@ namespace LastExit
 
 			artist_label = new UrlLabel ();
 			artist_label.SetAlignment ((float) 0.0, (float) 0.5);
+			artist_label.Ellipsize = Pango.EllipsizeMode.End;
 			artist_label.UrlActivated += new UrlActivatedHandler (OnUrlActivated);
  			artist_label.Visible = true;
  			artist_label_container.Add (artist_label);
 
 			song_label = new UrlLabel ();
 			song_label.SetAlignment ((float) 0.0, (float) 0.5);
+			song_label.Ellipsize = Pango.EllipsizeMode.End;
 			song_label.UrlActivated += new UrlActivatedHandler (OnUrlActivated);
   			song_label.Visible = true;
   			title_label_container.Add (song_label);
@@ -554,10 +556,18 @@ namespace LastExit
 
 			if (song.Track != null) {
 				song_label.Markup = "<span weight=\"bold\"><a href=\"" + song.TrackUrl + "\">" + StringUtils.EscapeForPango (song.Track) + "</a></span>";
+			} else {
+				song_label.Markup = "<span weight=\"bold\"> </span>";
 			}
 			
 			if (song.Album != null && song.Artist != null) {
 				artist_label.Markup = "<span size=\"smaller\">From <a href=\"" +song.AlbumUrl + "\">" + StringUtils.EscapeForPango (song.Album) + "</a> by <a href=\"" + song.ArtistUrl + "\">" + StringUtils.EscapeForPango (song.Artist) + "</a></span>";
+			} else if (song.Album == null) {
+				artist_label.Markup = "<span size=\"smaller\">By <a href=\"" + song.ArtistUrl + "\">" + StringUtils.EscapeForPango (song.Artist) + "</a></span>";
+			} else if (song.Artist == null) {
+				artist_label.Markup = "<span size=\"smaller\">From <a href=\"" + song.AlbumUrl + "\">" + StringUtils.EscapeForPango (song.Album) + "</a></span>";
+			} else {
+				artist_label.Markup = "<span size=\"smaller\"> </span>";
 			}
 
 			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
