@@ -74,8 +74,6 @@ namespace LastExit
 
 			this.AddButton ("Close", ResponseType.Close);
 
-			Driver.connection.GetUserInfoCompleted += new FMConnection.GetUserDataCompletedHandler (OnGetUserInfoCompleted);
-
 			SetSong (song);
 		}
 
@@ -89,13 +87,37 @@ namespace LastExit
 			song.ImageLoaded += new Song.ImageLoadedHandler (OnCoverLoaded);
 			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
 			if (song.StationFeed != null) {
-				Driver.connection.GetUserInfo (song.StationFeed);
+				GetUserInfo (song.StationFeed);
 			}
 		}
 
 		private void OnCoverLoaded (Gdk.Pixbuf pixbuf)
 		{
 			cover_image.ChangePixbuf (pixbuf);
+		}
+
+		private void GetUserInfo (string username)
+		{
+			FMRequest fmr = new FMRequest ();
+			string base_url = Driver.connection.BaseUrl;
+			string url = "http://" + base_url + "/1.0/user/" + username + "/profile.xml";
+
+			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (GetUserCompleted);
+			fmr.DoRequest (url);
+
+			Driver.connection.DoOperationStarted ();
+		}
+			
+		private void GetUserCompleted (FMRequest request) 
+		{
+			if (request.Data.Length > 1) {
+				string content;
+
+				content = request.Data.ToString ();
+				OnGetUserInfoCompleted (content);
+			}
+
+			Driver.connection.DoOperationFinished ();
 		}
 
 		private string GetXmlString (XmlNode node)

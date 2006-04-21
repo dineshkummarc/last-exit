@@ -1,5 +1,13 @@
 2006-04-21  Iain <iain@gnome.org>
 
+	* src/FMRequest.cs: Moved this here from FMConnection.cs
+
+	* src/InfoWindow.cs: Moved the Request/Parsing code from FMC.cs
+
+	* src/FindStation.cs: Moved the Request/Parsing code from FMC.cs
+
+2006-04-21  Iain <iain@gnome.org>
+
 	* src/PlayerWindow.cs: Apply patch from Adam Lofts to ellipsize the
 	labels.
 

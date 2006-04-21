@@ -56,16 +56,10 @@ namespace LastExit
 		public delegate void MetadataCompletedHandler (Song song);
 		public event MetadataCompletedHandler MetadataLoaded;
 
-		public delegate void SearchCompletedHandler (object o,
-							     FindStation.SearchType t);
-		public event SearchCompletedHandler SearchCompleted;
-
 		public delegate void ErrorHandler (int errno);
 		public event ErrorHandler Error;
 
-		public delegate void GetUserDataCompletedHandler (string data);
-		public event GetUserDataCompletedHandler GetUserInfoCompleted;
-		public event GetUserDataCompletedHandler GetUserTagsCompleted;
+		public delegate void GetUserDataHandler (string data);
 
 		private string username;
 		public string Username {
@@ -100,7 +94,14 @@ namespace LastExit
 		// private bool framehack;
 
 		private string base_url;
+		public string BaseUrl {
+			get { return base_url; }
+		}
+
 		private string base_path;
+		public string BasePath {
+			get { return base_path; }
+		}
 
 		// Handshake was successful
 		private ConnectionState connected;
@@ -161,14 +162,14 @@ namespace LastExit
 
 		const int BUFFER_SIZE = 1024;
 
-		private void DoOperationStarted ()
+		public void DoOperationStarted ()
 		{
 			if (OperationStarted != null) {
 				OperationStarted ();
 			}
 		}
 
-		private void DoOperationFinished ()
+		public void DoOperationFinished ()
 		{
 			if (OperationFinished != null) {
 				OperationFinished ();
@@ -504,204 +505,6 @@ namespace LastExit
 			return ret;
 		}
 
-		public void Search (FindStation.SearchType type,
-				    string description) 
-		{
-			FMRequest fmr = new FMRequest ();
-			string url;
-
-			switch (type) {
-			case FindStation.SearchType.SoundsLike:
-				url = "http://" + base_url + "/1.0/get.php?resource=artist&document=similar&format=xml&artist=" + description;
-				break;
-
-			case FindStation.SearchType.TaggedAs:
-				url = "http://" + base_url + "/1.0/tag/" + description + "/search.xml?showtop10=1";
-				break;
-
-			case FindStation.SearchType.FansOf:
-				url = "http://" + base_url + "1.0/artist" + description + "/fans.xml";
-				break;
-
-			default:
-				url = "";
-				break;
-			}
-
-			fmr.Closure = (object) type;
-			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (FindStationCompleted);
-			fmr.DoRequest (url);
-
-			DoOperationStarted ();
-		}
-
-		private void FindStationCompleted (FMRequest request) 
-		{
-			FindStation.SearchType t = (FindStation.SearchType) request.Closure;
-			if (request.Data.Length > 1) {
-				string content;
-
-				content = request.Data.ToString ();
-				switch (t) {
-				case FindStation.SearchType.SoundsLike:
-					Artist artist = ParseSimilar (content);
-					
-					if (SearchCompleted != null) {
-						SearchCompleted ((object) artist, t);
-					}
-					break;
-
-				case FindStation.SearchType.TaggedAs:
-					ArrayList tags = ParseTag (content);
-
-					if (SearchCompleted != null) {
-						SearchCompleted ((object) tags, t);
-					}
-					break;
-
-				case FindStation.SearchType.FansOf:
-					ArrayList fans = ParseFans (content);
-
-					if (SearchCompleted != null) {
-						SearchCompleted ((object) fans, t);
-					}
-					break;
-				}
-			} else {
-				Console.WriteLine ("There was an error");
-				if (SearchCompleted != null) {
-					SearchCompleted (null, t);
-				}
-			}
-
-			DoOperationFinished ();
-		}
-
-		private string get_node_text (XmlNode node,
-					      string name)
-		{
-			return node[name].InnerText;
-		}
-
-		private Artist ParseSimilar (string content)
-		{
-			XmlDocument xml = new XmlDocument ();
-			XmlNodeList elemlist;
-			
-			xml.LoadXml (content);
-			elemlist = xml.GetElementsByTagName ("similarartists");
-			if (elemlist.Count == 0) {
-				return null;
-			}
-			
-			XmlNode artist_node = elemlist[0];
-			Artist artist = new Artist ();
-			artist.Name = artist_node.Attributes.GetNamedItem ("artist").InnerText;
-			artist.Streamable = (artist_node.Attributes.GetNamedItem ("streamable").InnerText == "1");
-			artist.ImageUrl = artist_node.Attributes.GetNamedItem ("picture").InnerText;
-			artist.Mbid = artist_node.Attributes.GetNamedItem ("mbid").InnerText;
-			
-			elemlist = xml.GetElementsByTagName ("artist");
-			
-			// Loop over all the artists adding them as
-			// similar artists
-			IEnumerator ienum = elemlist.GetEnumerator ();
-			while (ienum.MoveNext ()) {
-				XmlNode a_node = (XmlNode) ienum.Current;
-				SimilarArtist similar = new SimilarArtist ();
-				
-				similar.Name = get_node_text (a_node, "name");
-				similar.Streamable = (get_node_text (a_node, "streamable") == "0");
-				similar.Mbid = get_node_text (a_node, "mbid");
-				similar.Url = get_node_text (a_node, "url");
-				similar.Relevance = Int32.Parse (get_node_text (a_node, "match"));
-				
-				artist.AddSimilarArtist (similar);
-			}
-			
-			return artist;
-		}
-		
-		private ArrayList ParseTag (string content) 
-		{
-			XmlDocument xml = new XmlDocument ();
-			XmlNodeList elemlist;
-			ArrayList tags = new ArrayList ();
-
-			xml.LoadXml (content);
-			elemlist = xml.GetElementsByTagName ("tags");
-			if (elemlist.Count == 0) {
-				return tags;
-			}
-
-			elemlist = xml.GetElementsByTagName ("tag");
-			IEnumerator ienum = elemlist.GetEnumerator ();
-			while (ienum.MoveNext ()) {
-				XmlNode t_node = (XmlNode) ienum.Current;
-				string name = get_node_text (t_node, "name");
-				int id = Int32.Parse (get_node_text (t_node, "id"));
-				double match = Double.Parse (get_node_text (t_node, "match"));
-
-				Tag t = new Tag (id, name, match);
-				tags.Add (t);
-			}
-
-			return tags;
-		}
-
-		private ArrayList ParseFans (string content)
-		{
-			XmlDocument xml = new XmlDocument ();
-			XmlNodeList elemlist;
-			ArrayList fans = new ArrayList ();
-
-			xml.LoadXml (content);
-			elemlist = xml.GetElementsByTagName ("fans");
-			if (elemlist.Count == 0) {
-				return fans;
-			}
-
-			elemlist = xml.GetElementsByTagName ("user");
-			IEnumerator ienum = elemlist.GetEnumerator ();
-			while (ienum.MoveNext ()) {
-				XmlNode f_node = (XmlNode) ienum.Current;
-				string name = f_node.Attributes.GetNamedItem ("username").InnerText;
-				string url = get_node_text (f_node, "url");
-				string image = get_node_text (f_node, "image");
-				int weight = Int32.Parse (get_node_text (f_node, "weight"));
-
-				Fan f = new Fan (name, url, image, weight);
-				fans.Add (f);
-			}
-
-			return fans;
-		}
-
-		public void GetUserInfo (string username)
-		{
-			FMRequest fmr = new FMRequest ();
-			string url = "http://" + base_url + "/1.0/user/" + username + "/profile.xml";
-
-			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (GetUserCompleted);
-			fmr.DoRequest (url);
-
-			DoOperationStarted ();
-		}
-			
-		private void GetUserCompleted (FMRequest request) 
-		{
-			if (request.Data.Length > 1) {
-				string content;
-
-				content = request.Data.ToString ();
-				if (GetUserInfoCompleted != null) {
-					GetUserInfoCompleted (content);
-				}
-			}
-
-			DoOperationFinished ();
-		}
-
 		public void TagSong (Song song, 
 				     TagMode mode,
 				     string tag)
@@ -727,130 +530,6 @@ namespace LastExit
 
 			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (SkipCompleted);
 			fmr.DoRequest (url);
-		}			
-
-		public void GetUserTags ()
-		{
-			FMRequest fmr = new FMRequest ();
-			string url = "http://" + base_url + "/1.0/user/" + username + "/tags.xml";
-
-			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (UserTagsCompleted);
-			fmr.DoRequest (url);
-
-			DoOperationStarted ();
-		}
-			
-		private void UserTagsCompleted (FMRequest request) 
-		{
-			if (request.Data.Length > 1) {
-				string content;
-
-				content = request.Data.ToString ();
-				if (GetUserTagsCompleted != null) {
-					GetUserTagsCompleted (content);
-				}
-			}
-
-			DoOperationFinished ();
-		}
-		   
-		private class FMRequest {
-			const int BUFFER_SIZE = 1024;
-			public StringBuilder Data;
-			public byte[] BufferRead;
-			public HttpWebRequest Request;
-			public HttpWebResponse Response;
-			public Stream ResponseStream;
-			public object Closure;
-			public string PostData;
-
-			public delegate void RequestCompletedHandler (FMRequest req);
-			public event RequestCompletedHandler RequestCompleted;
-
-			public FMRequest () 
-			{
-				BufferRead = new byte[BUFFER_SIZE];
-				Data = new StringBuilder ("");
-				Request = null;
-				ResponseStream = null;
-			}
-
-			public void DoRequest (string url) 
-			{
-				HttpWebRequest request;
-				request = (HttpWebRequest) WebRequest.Create (url);
-				Request = request;
-			
-				// Start the handshake async
-				request.BeginGetResponse (new AsyncCallback (RequestCallback), this);
-			}
-
-			// POST version
-			public void DoRequest (string url, string data)
-			{
-				HttpWebRequest request;
-				request = (HttpWebRequest) WebRequest.Create (url);
-				Request = request;
-				PostData = data;
-
-				byte [] post_data = Encoding.UTF8.GetBytes (data);
-				request.Method = "POST";
-				request.ContentLength = post_data.Length;
-				request.ContentType = "application/x-www-form-urlencoded";
-
-				// Start the handshake async
-				request.BeginGetRequestStream (new AsyncCallback (PostRequestCallback), this);
-			}
-
-			private void PostRequestCallback (IAsyncResult result)
-			{
-				FMRequest req = (FMRequest) result.AsyncState;
-				Stream stream = Request.EndGetRequestStream (result);
-				
-				// Write the data to the stream.
-				byte [] data = Encoding.UTF8.GetBytes (req.PostData);
-				stream.Write(data, 0, PostData.Length);
-				stream.Close();
-
-				Request.BeginGetResponse (new AsyncCallback (RequestCallback), this);
-			}
-
-			private void RequestCallback (IAsyncResult result) 
-			{
-				FMRequest req = (FMRequest) result.AsyncState;
-				req.Response = (HttpWebResponse) req.Request.EndGetResponse (result);
-				
-				Stream stream = req.Response.GetResponseStream ();
-				req.ResponseStream = stream;
-				
-				stream.BeginRead (req.BufferRead, 0, BUFFER_SIZE, new AsyncCallback (ReadCallback), req);
-			}
-
-			private void ReadCallback (IAsyncResult result) 
-			{
-				FMRequest req = (FMRequest) result.AsyncState;
-				Stream stream = req.ResponseStream;
-				int read = stream.EndRead (result);
-				
-				if (read > 0) {
-					req.Data.Append (Encoding.UTF8.GetString (req.BufferRead, 0, read));
-					stream.BeginRead (req.BufferRead, 0, BUFFER_SIZE, new AsyncCallback (ReadCallback), req);
-					return;
-				} else {
-					stream.Close ();
-					
-					GLib.Idle.Add (new GLib.IdleHandler (request_completed_idle));
-				}
-			}
-
-			private bool request_completed_idle ()
-			{
-				if (RequestCompleted != null) {
-					RequestCompleted (this);
-				}
-
-				return false;
-			}
-		}
+		}					   
 	}
 }

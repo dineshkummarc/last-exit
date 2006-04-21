@@ -12,6 +12,7 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/FindStation.cs		\
 	$(srcdir)/FirstRunDialog.cs		\
 	$(srcdir)/FMConnection.cs		\
+	$(srcdir)/FMRequest.cs			\
 	$(srcdir)/IconEntry.cs			\
 	$(srcdir)/IconEntryPosition.cs		\
 	$(srcdir)/IconPressedHandler.cs		\

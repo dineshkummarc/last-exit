@@ -66,5 +66,30 @@ namespace LastExit {
 			global_tags.Visible = true;
 			global_tags_container.Add (global_tags);
 		}
+
+		private void GetUserTags ()
+		{
+			FMRequest fmr = new FMRequest ();
+			string base_url = Driver.connection.BaseUrl;
+			string username = Driver.connection.Username;
+			string url = "http://" + base_url + "/1.0/user/" + username + "/tags.xml";
+
+			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (UserTagsCompleted);
+			fmr.DoRequest (url);
+
+			Driver.connection.DoOperationStarted ();
+		}
+			
+		private void UserTagsCompleted (FMRequest request) 
+		{
+			if (request.Data.Length > 1) {
+				string content;
+
+				content = request.Data.ToString ();
+			}
+
+			Driver.connection.DoOperationFinished ();
+		}
+
 	}
 }
