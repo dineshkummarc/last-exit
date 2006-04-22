@@ -516,7 +516,14 @@ namespace LastExit
 
 		private void OnCoverLoaded (Gdk.Pixbuf cover_pb) 
 		{
-			cover_image.ChangePixbuf (cover_pb);
+			if (cover_pb != null) {
+				cover_image.ChangePixbuf (cover_pb);
+			} else {
+				Gdk.Pixbuf pb;
+
+				pb = new Gdk.Pixbuf (null, "unknown-cover.png");
+				cover_image.ChangePixbuf (pb);
+			}
 		}
 
 		private void OnMetadataCompleted (Song song) 

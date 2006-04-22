@@ -1,5 +1,11 @@
 2006-04-21  Iain <iain@gnome.org>
 
+	* src/ImageLoader.cs: Handle 404s in the image...useful old last.fm
+	returns a nonexistent cover image rather than just not setting an 
+	image.
+
+2006-04-21  Iain <iain@gnome.org>
+
 	* src/FMRequest.cs: Moved this here from FMConnection.cs
 
 	* src/InfoWindow.cs: Moved the Request/Parsing code from FMC.cs

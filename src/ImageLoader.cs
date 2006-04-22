@@ -105,13 +105,25 @@ namespace LastExit {
 
 			request = (HttpWebRequest) WebRequest.Create (url);
 			Request = request;
-			
-			request.BeginGetResponse (new AsyncCallback (ImageDownloadRequestCallback), this);
+
+			try {
+				request.BeginGetResponse (new AsyncCallback (ImageDownloadRequestCallback), this);
+			} catch (WebException e) {
+				loader = null;
+				GLib.Idle.Add (new GLib.IdleHandler (image_loaded_handler));
+			}
 		}
 
 		private void ImageDownloadRequestCallback (IAsyncResult result) {
 			ImageLoader cl = (ImageLoader) result.AsyncState;
-			cl.Response = (HttpWebResponse) cl.Request.EndGetResponse (result);
+
+			try {
+				cl.Response = (HttpWebResponse) cl.Request.EndGetResponse (result);
+			} catch (WebException e) {
+				loader = null;
+				GLib.Idle.Add (new GLib.IdleHandler (image_loaded_handler));
+				return;
+			}
 			
 			Stream stream = cl.Response.GetResponseStream ();
 			cl.loader = new PixbufLoader ();
@@ -147,7 +159,11 @@ namespace LastExit {
 		private bool image_loaded_handler () 
 		{
 			if (ImageLoaded != null) {
-				ImageLoaded (loader.Pixbuf);
+				if (loader != null) {
+					ImageLoaded (loader.Pixbuf);
+				} else {
+					ImageLoaded (null);
+				}
 			}
 
 			image_requested = false;
