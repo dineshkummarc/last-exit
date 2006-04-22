@@ -54,6 +54,9 @@ namespace LastExit
 
 
 			StockIcons.Initialize ();
+
+			SetDefaultWindowIcon ();
+
 			config = new Config ();
 
 			if (config.FirstRun) {
@@ -111,6 +114,12 @@ namespace LastExit
 		{
 			string [] argv = new string [] { "gnome-open", url };
 			InternalProcess.Spawn (argv);
+		}
+
+		private static void SetDefaultWindowIcon ()
+		{
+			Gdk.Pixbuf [] default_icon_list = { new Gdk.Pixbuf (null, "last-exit-16.png") };
+			Gtk.Window.DefaultIconList = default_icon_list;
 		}
 
 		[DllImport ("libc")]
