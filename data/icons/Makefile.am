@@ -4,6 +4,7 @@ EXTRA_DIST =				\
 	favourites-image.png		\
 	f-spot-favorite.png		\
 	f-spot-other.png		\
+	last-exit-16.png		\
 	people-image.png		\
 	person-image.png		\
 	secure.png			\
