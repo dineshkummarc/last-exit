@@ -106,6 +106,13 @@ namespace LastExit
 			Environment.Exit (0);
 		}
 
+		// FIXME: Needs to handle no gnome-open.
+		public static void OpenUrl (string url)
+		{
+			string [] argv = new string [] { "gnome-open", url };
+			InternalProcess.Spawn (argv);
+		}
+
 		[DllImport ("libc")]
 		private static extern int prctl (int option,  
 						 byte[] arg2,

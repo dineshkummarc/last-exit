@@ -19,6 +19,7 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/IconReleasedHandler.cs	\
 	$(srcdir)/ImageLoader.cs		\
 	$(srcdir)/InfoWindow.cs			\
+	$(srcdir)/InternalProcess.cs		\
 	$(srcdir)/MagicCoverImage.cs		\
 	$(srcdir)/Player.cs			\
 	$(srcdir)/PlayerWindow.cs		\

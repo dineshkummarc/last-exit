@@ -537,26 +537,28 @@ namespace LastExit
 			journal_button.Sensitive = true;
 			info_button.Sensitive = true;
 
-			if (known_stations.Contains (station_id) == false) {
-				string name;
-
-				if (station_id.StartsWith ("lastfm://play")) {
-					// This is a 30 second preview
-					// but the station name isn't very
-					// descriptive..Make it better.
+			if (station_id != null) {
+				if (known_stations.Contains (station_id) == false) {
+					string name;
 					
-					name = song.Artist + " (" + song.Station + ")";
+					if (station_id.StartsWith ("lastfm://play")) {
+						// This is a 30 second preview
+						// but the station name isn't very
+						// descriptive..Make it better.
+						
+						name = song.Artist + " (" + song.Station + ")";
+					} else {
+						name = song.Station;
+					}
+					
+					add_custom_station (null, name,
+							    station_id, true);
+					select_station (station_id);
 				} else {
-					name = song.Station;
+					// Irritating code to deal with 
+					// the payola adverts on last.fm now.
+					set_station_title (station_id, song.Station);
 				}
-
-				add_custom_station (null, name,
-						    station_id, true);
-				select_station (station_id);
-			} else {
-				// Irritating code to deal with the payola
-				// adverts on last.fm now.
-				set_station_title (station_id, song.Station);
 			}
 			
 			song.ImageLoaded += new Song.ImageLoadedHandler (OnCoverLoaded);
@@ -644,7 +646,7 @@ namespace LastExit
 
 		static void OnUrlActivated (object o, UrlActivatedArgs args)
 		{
-			Console.WriteLine (args.Url);
+			Driver.OpenUrl (args.Url);
 		}
 
 		private void OnOperationStarted ()

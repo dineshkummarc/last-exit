@@ -1,5 +1,13 @@
 2006-04-21  Iain <iain@gnome.org>
 
+	* src/InternalProcess.cs: Copied from f-spot.
+
+	* src/PlayerWindow.cs: Use gnome-open to show urls
+
+	* src/InfoWindow.cs: Ditto
+
+2006-04-21  Iain <iain@gnome.org>
+
 	* src/ImageLoader.cs: Handle 404s in the image...useful old last.fm
 	returns a nonexistent cover image rather than just not setting an 
 	image.

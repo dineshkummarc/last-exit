@@ -63,11 +63,13 @@ namespace LastExit
 			//cover_image.ChangePixbuf (cover);
 
 			user_name_label = new UrlLabel ();
+			user_name_label.UrlActivated += new UrlActivatedHandler (OnUrlActivated);
 			user_name_container.Add (user_name_label);
 			user_name_label.SetAlignment ((float) 0.0, (float) 0.5);
 			user_name_label.Visible = true;
 
 			real_name_label = new UrlLabel ();
+			real_name_label.UrlActivated += new UrlActivatedHandler (OnUrlActivated);
 			real_name_container.Add (real_name_label);
 			real_name_label.SetAlignment ((float) 0.0, (float) 0.5);
 			real_name_label.Visible = true;
@@ -106,6 +108,11 @@ namespace LastExit
 			fmr.DoRequest (url);
 
 			Driver.connection.DoOperationStarted ();
+		}
+
+		static void OnUrlActivated (object o, UrlActivatedArgs args)
+		{
+			Driver.OpenUrl (args.Url);
 		}
 			
 		private void GetUserCompleted (FMRequest request) 
