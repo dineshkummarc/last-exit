@@ -431,7 +431,7 @@ namespace LastExit
 
 		private void OnTagButtonClicked (object o, EventArgs args) 
 		{
-			TagDialog d = new TagDialog (this);
+			TagDialog d = new TagDialog (this, current_song);
 			d.Visible = true;
 		}
 

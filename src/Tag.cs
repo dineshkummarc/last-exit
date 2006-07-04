@@ -26,16 +26,29 @@ namespace LastExit {
 		private int id;
 		public int ID {
 			get { return id; }
+			set { id = value; }
 		}
 
 		private string name;
 		public string Name {
 			get { return name; }
+			set { name = value; }
 		}
 
 		private double match;
 		public double Match {
 			get { return match; }
+			set { match = value; }
+		}
+
+		private int count;
+		public int Count {
+			get { return count; }
+			set { count = value; }
+		}
+
+		public Tag ()
+		{
 		}
 
 		public Tag (int id, string name, double match) 

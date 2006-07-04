@@ -115,80 +115,41 @@ namespace LastExit
 			Driver.OpenUrl (args.Url);
 		}
 			
-		private void GetUserCompleted (FMRequest request) 
+
+		static void OnUserLoaded (User user)
 		{
-			if (request.Data.Length > 1) {
-				string content;
+			user_name_label.Markup = "<b>From the profile of <a href=\"" + user.Url + "\">" + StringUtils.EscapeForPango (user.Username) + "</a></b>";
 
-				content = request.Data.ToString ();
-				OnGetUserInfoCompleted (content);
-			}
-
-			Driver.connection.DoOperationFinished ();
-		}
-
-		private string GetXmlString (XmlNode node)
-		{
-			if (node != null) {
-				return node.InnerText;
-			} else {
-				return "";
-			}
-		}
-
-		private void OnGetUserInfoCompleted (string content) 
-		{
-			XmlDocument xml = new XmlDocument ();
-			XmlNodeList elemlist;
-
-			xml.LoadXml (content);
-			elemlist = xml.GetElementsByTagName ("profile");
-			if (elemlist.Count == 0) {
-				return;
-			}
-
-			XmlNode profile = elemlist[0];
-			string username = profile.Attributes.GetNamedItem("username").InnerText;
-
-			string url = GetXmlString (profile["url"]);
-			string realname = GetXmlString (profile["realname"]);
-			string homepage = GetXmlString (profile["homepage"]);
-			string registered = GetXmlString (profile["registered"]);
-			string age = GetXmlString (profile["age"]);
-			string gender = GetXmlString (profile["gender"]);
-			string country = GetXmlString (profile["country"]);
-			string playcount = GetXmlString (profile["playcount"]);
-			
-			user_name_label.Markup = "<b>From the profile of <a href=\"" + url + "\">" + StringUtils.EscapeForPango (username) + "</a></b>";
-			
-
-			if (realname == "") {
+			if (User.RealName == "") {
 				real_name_label.Visible = false;
 			} else {
-				if (homepage != "") {
-					real_name_label.Markup = "<a href=\"" + homepage + "\">" + StringUtils.EscapeForPango (realname) + "</a>";
+				if (User.Homepage != "") {
+					real_name_label.Markup = "<a href=\"" + User.Homepage + "\">" + StringUtils.EscapeForPango (User.RealName) + "</a>";
 				} else {
-					real_name_label.Markup = StringUtils.EscapeForPango (realname);
+					real_name_label.Markup = StringUtils.EscapeForPango (User.RealName);
 				}
 				real_name_label.Visible = true;
 			}
 
-			if (age != "" || gender != "" || country != "") {
+			if (User.age != 0 || 
+			    User.Gender != "" || 
+			    User.Country != "") {
 				StringBuilder asl = new StringBuilder ("");
-				if (age != "") {
+				if (age != 0) {
 					asl.Append (age + " years");
 				}
 				
-				if (gender != "") {
-					asl.Append (" / " + gender);
+				if (User.Gender != "") {
+					asl.Append (" / " + User.Gender);
 				}
 				
-				if (country != "") {
-					if (age != "" || gender != "") {
+				if (User.Country != "") {
+					if (User.Age != "" || 
+					    User.Gender != "") {
 						asl.Append ("\n");
 					}
 					
-					asl.Append (country);
+					asl.Append (User.Country);
 				}
 
 				age_location_label.Text = asl.ToString ();
@@ -197,8 +158,8 @@ namespace LastExit
 				age_location_label.Visible = false;
 			}
 
-			registered_label.Text = "Member since: " + registered;
-			track_count_label.Text = "Tracks played: " + playcount;
+			registered_label.Text = "Member since: " + User.Registered;
+			track_count_label.Text = "Tracks played: " + User.PlayCount;
 		}
 	}
 }

@@ -52,6 +52,8 @@ namespace LastExit
 		public enum SearchType {
 			SoundsLike,
 			TaggedAs,
+			Neighbour,
+			User,
 			FansOf
 		};
 
@@ -91,26 +93,47 @@ namespace LastExit
 		
 		protected override void OnResponse (ResponseType response_id) 
 		{
+			SearchType t;
+
+			t = (SearchType) search_combo.Active;
 			if (response_id == ResponseType.Ok) {
-				if (search_combo.Active == 0) {
+				switch (t) {
+				case SearchType.SoundsLike: {
 					string station = FMConnection.MakeArtistRadio (selected_artist.Name);
 					Driver.player.Stop ();
 					Driver.connection.ChangeStation (station);
-				} else if (search_combo.Active == 1) {
+					break;
+				}
+
+				case SearchType.TaggedAs: {
 					TreeSelection sel = tagview.Selection;
 					TreeModel m;
 					TreeIter iter;
-
+					
 					if (sel.GetSelected (out m, out iter)) {
 						string name = (string) m.GetValue (iter, (int) TagView.Column.Name);
 						string station = FMConnection.MakeTagRadio (name);
 						Driver.player.Stop ();
 						Driver.connection.ChangeStation (station);
 					}
-				} else if (search_combo.Active == 2) {
+					break;
+				}
+
+				case SearchType.FansOf: {
 					string station = FMConnection.MakeFanRadio (search_entry.Text);
 					Driver.player.Stop ();
 					Driver.connection.ChangeStation (station);
+					break;
+				}
+
+				case SearchType.User:
+					break;
+
+				case SearchType.Neighbour:
+					break;
+
+				default:
+					break;
 				}
 			}
 			
@@ -122,6 +145,8 @@ namespace LastExit
 			search_combo = ComboBox.NewText ();
 			search_combo.AppendText ("Music that sounds like");
 			search_combo.AppendText ("Music that is tagged as");
+			search_combo.AppendText ("A neighbours station");
+			search_combo.AppendText ("A users station");
 			search_combo.AppendText ("Music from fans of");
 			search_combo.Active = 0;
 			
@@ -164,9 +189,14 @@ namespace LastExit
 
 		private void OnSearchChanged (object obj, EventArgs args) 
 		{
-			switch (search_combo.Active) {
-			case 0:
-			case 1:
+			SearchType t;
+
+			t = (SearchType) search_combo.Active;
+			switch (t) {
+			case SearchType.SoundsLike:
+			case SearchType.TaggedAs:
+			case SearchType.User:
+				search_entry.Sensitive = true;
 				if (search_entry.Text == "") {
 					search_button.Sensitive = false;
 				} else {
@@ -174,7 +204,8 @@ namespace LastExit
 				}
 				break;
 
-			case 2:
+			case SearchType.FansOf:
+				search_entry.Sensitive = true;
 				if (search_entry.Text == "") {
 					search_button.Sensitive = false;
 					this.SetResponseSensitive (ResponseType.Ok, false);
@@ -183,7 +214,13 @@ namespace LastExit
 					this.SetResponseSensitive (ResponseType.Ok, true);
 				}
 				break;
-				
+
+			case SearchType.Neighbour:
+				search_button.Sensitive = false;
+				search_entry.Sensitive = false;
+				this.SetResponseSensitive (ResponseType.Ok, false);
+				break;
+
 			default:
 				break;
 			}
@@ -195,23 +232,7 @@ namespace LastExit
 
 			search_button.Sensitive = false;
 
-			switch  (search_combo.Active) {
-			case 0:
-				t = SearchType.SoundsLike;
-				break;
-
-			case 1:
-				t = SearchType.TaggedAs;
-				break;
-
-			case 2:
-				t = SearchType.FansOf;
-				break;
-
-			default:
-				t = SearchType.SoundsLike;
-				break;
-			}
+			t = (SearchType) search_combo.Active;
 
 			Search (t, search_entry.Text);
 		}
@@ -232,8 +253,8 @@ namespace LastExit
 				url = "http://" + base_url + "/1.0/tag/" + description + "/search.xml?showtop10=1";
 				break;
 
-			case FindStation.SearchType.FansOf:
-				url = "http://" + base_url + "1.0/artist" + description + "/fans.xml";
+			case FindStation.SearchType.User:
+				url = "http://" + base_url + "1.0/user/" + description + "/profile.xml";
 				break;
 
 			default:
@@ -256,22 +277,29 @@ namespace LastExit
 
 				content = request.Data.ToString ();
 				switch (t) {
-				case FindStation.SearchType.SoundsLike:
+				case SearchType.SoundsLike:
 					Artist artist = ParseSimilar (content);
 					
 					OnSearchCompleted ((object) artist, t);
 					break;
 
-				case FindStation.SearchType.TaggedAs:
+				case SearchType.TaggedAs:
 					ArrayList tags = ParseTag (content);
 
 					OnSearchCompleted ((object) tags, t);
 					break;
 
-				case FindStation.SearchType.FansOf:
+				case SearchType.FansOf:
 					ArrayList fans = ParseFans (content);
 
 					OnSearchCompleted ((object) fans, t);
+					break;
+
+				case SearchType.User:
+					
+					break;
+
+				default:
 					break;
 				}
 			} else {

@@ -41,7 +41,8 @@ namespace LastExit
 					return;
 				}
 
-				foreach (string s in value) {
+				foreach (Tag t in value) {
+					string s = "<b>" + t.Name + "</b>\n<span size=\"smaller\"><i>Tagged " + t.Count + " items</i></span>";
 					tagstore.AppendValues (false, s);
 				}
 			}
@@ -59,7 +60,7 @@ namespace LastExit
 			this.AppendColumn ("sel", new CellRendererToggle (),
 					   "active", (int) Column.Selected);
 			this.AppendColumn ("name", new CellRendererText (),
-					   "text", (int) Column.Name);
+					   "markup", (int) Column.Name);
 		}
 	}
 }
