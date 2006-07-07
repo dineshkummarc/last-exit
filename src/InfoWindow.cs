@@ -48,6 +48,8 @@ namespace LastExit
 		private UrlLabel user_name_label;
 		private UrlLabel real_name_label;
 
+		private User user;
+
 	        public InfoWindow (Song song, Window w) : base ("", w, DialogFlags.DestroyWithParent) {
 		 	this.HasSeparator = false;
 
@@ -89,7 +91,8 @@ namespace LastExit
 			song.ImageLoaded += new Song.ImageLoadedHandler (OnCoverLoaded);
 			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
 			if (song.StationFeed != null) {
-				GetUserInfo (song.StationFeed);
+				user = new User (song.StationFeed);
+				user.UserLoaded += new User.UserLoadedHandler (OnUserLoaded);
 			}
 		}
 
@@ -98,58 +101,46 @@ namespace LastExit
 			cover_image.ChangePixbuf (pixbuf);
 		}
 
-		private void GetUserInfo (string username)
-		{
-			FMRequest fmr = new FMRequest ();
-			string base_url = Driver.connection.BaseUrl;
-			string url = "http://" + base_url + "/1.0/user/" + username + "/profile.xml";
-
-			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (GetUserCompleted);
-			fmr.DoRequest (url);
-
-			Driver.connection.DoOperationStarted ();
-		}
-
 		static void OnUrlActivated (object o, UrlActivatedArgs args)
 		{
 			Driver.OpenUrl (args.Url);
 		}
 			
 
-		static void OnUserLoaded (User user)
+		void OnUserLoaded (User user)
 		{
 			user_name_label.Markup = "<b>From the profile of <a href=\"" + user.Url + "\">" + StringUtils.EscapeForPango (user.Username) + "</a></b>";
 
-			if (User.RealName == "") {
+			if (user.RealName == "") {
 				real_name_label.Visible = false;
 			} else {
-				if (User.Homepage != "") {
-					real_name_label.Markup = "<a href=\"" + User.Homepage + "\">" + StringUtils.EscapeForPango (User.RealName) + "</a>";
+				if (user.Homepage != "") {
+					real_name_label.Markup = "<a href=\"" + user.Homepage + "\">" + StringUtils.EscapeForPango (user.RealName) + "</a>";
 				} else {
-					real_name_label.Markup = StringUtils.EscapeForPango (User.RealName);
+					real_name_label.Markup = StringUtils.EscapeForPango (user.RealName);
 				}
 				real_name_label.Visible = true;
 			}
 
-			if (User.age != 0 || 
-			    User.Gender != "" || 
-			    User.Country != "") {
+			if (user.Age != 0 || 
+			    user.Gender != "" || 
+			    user.Country != "") {
 				StringBuilder asl = new StringBuilder ("");
-				if (age != 0) {
-					asl.Append (age + " years");
+				if (user.Age != 0) {
+					asl.Append (user.Age + " years");
 				}
 				
-				if (User.Gender != "") {
-					asl.Append (" / " + User.Gender);
+				if (user.Gender != "") {
+					asl.Append (" / " + user.Gender);
 				}
 				
-				if (User.Country != "") {
-					if (User.Age != "" || 
-					    User.Gender != "") {
+				if (user.Country != "") {
+					if (user.Age != 0 || 
+					    user.Gender != "") {
 						asl.Append ("\n");
 					}
 					
-					asl.Append (User.Country);
+					asl.Append (user.Country);
 				}
 
 				age_location_label.Text = asl.ToString ();
@@ -158,8 +149,8 @@ namespace LastExit
 				age_location_label.Visible = false;
 			}
 
-			registered_label.Text = "Member since: " + User.Registered;
-			track_count_label.Text = "Tracks played: " + User.PlayCount;
+			registered_label.Text = "Member since: " + user.Registered;
+			track_count_label.Text = "Tracks played: " + user.PlayCount;
 		}
 	}
 }

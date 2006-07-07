@@ -49,7 +49,7 @@ namespace LastExit
 		}
 
 		private string url;
-		publc string Url {
+		public string Url {
 			get { return url; }
 			set { url = value; }
 		}

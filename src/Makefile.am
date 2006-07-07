@@ -35,6 +35,7 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/TagView.cs			\
 	$(srcdir)/UrlActivatedHandler.cs	\
 	$(srcdir)/UrlLabel.cs			\
+	$(srcdir)/User.cs			\
 	$(srcdir)/VolumeButton.cs
 
 LASTEXIT_ASSEMBLIES =				\
