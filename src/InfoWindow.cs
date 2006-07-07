@@ -48,8 +48,6 @@ namespace LastExit
 		private UrlLabel user_name_label;
 		private UrlLabel real_name_label;
 
-		private User user;
-
 	        public InfoWindow (Song song, Window w) : base ("", w, DialogFlags.DestroyWithParent) {
 		 	this.HasSeparator = false;
 
@@ -91,8 +89,9 @@ namespace LastExit
 			song.ImageLoaded += new Song.ImageLoadedHandler (OnCoverLoaded);
 			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
 			if (song.StationFeed != null) {
-				user = new User (song.StationFeed);
+				User user = new User (song.StationFeed);
 				user.UserLoaded += new User.UserLoadedHandler (OnUserLoaded);
+				user.RequestInfo ();
 			}
 		}
 

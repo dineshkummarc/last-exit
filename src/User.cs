@@ -86,10 +86,12 @@ namespace LastExit
 
 		public User (string name) {
 			this.username = name;
+		}
 
+		public void RequestInfo () {
 			FMRequest fmr = new FMRequest ();
 			string base_url = Driver.connection.BaseUrl;
-			string url = "http://" + base_url + "/1.0/user/" + name + "/profile.xml";
+			string url = "http://" + base_url + "/1.0/user/" + username + "/profile.xml";
 			
 			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (GetUserCompleted);
 			fmr.DoRequest (url);
@@ -130,16 +132,19 @@ namespace LastExit
 			}
 			
 			XmlNode profile = elemlist[0];
-			string username = profile.Attributes.GetNamedItem("username").InnerText;
 			
-			string url = GetXmlString (profile["url"]);
-			string realname = GetXmlString (profile["realname"]);
-			string homepage = GetXmlString (profile["homepage"]);
-			string registered = GetXmlString (profile["registered"]);
-			string age = GetXmlString (profile["age"]);
-			string gender = GetXmlString (profile["gender"]);
-			string country = GetXmlString (profile["country"]);
-			string playcount = GetXmlString (profile["playcount"]);
+			url = GetXmlString (profile["url"]);
+			realname = GetXmlString (profile["realname"]);
+			homepage = GetXmlString (profile["homepage"]);
+			registered = GetXmlString (profile["registered"]);
+			age = Int32.Parse (GetXmlString (profile["age"]));
+			gender = GetXmlString (profile["gender"]);
+			country = GetXmlString (profile["country"]);
+			playcount = Int32.Parse (GetXmlString (profile["playcount"]));
+
+			if (UserLoaded != null) {
+				UserLoaded (this);
+			}
 		}			
 		
 	}
