@@ -137,10 +137,20 @@ namespace LastExit
 			realname = GetXmlString (profile["realname"]);
 			homepage = GetXmlString (profile["homepage"]);
 			registered = GetXmlString (profile["registered"]);
-			age = Int32.Parse (GetXmlString (profile["age"]));
+			try {
+				age = Int32.Parse (GetXmlString (profile["age"]));
+			} catch {
+				age = -1;
+			}
+
 			gender = GetXmlString (profile["gender"]);
 			country = GetXmlString (profile["country"]);
-			playcount = Int32.Parse (GetXmlString (profile["playcount"]));
+
+			try {
+				playcount = Int32.Parse (GetXmlString (profile["playcount"]));
+			} catch {
+				playcount = 0;
+			}
 
 			if (UserLoaded != null) {
 				UserLoaded (this);

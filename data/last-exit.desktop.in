@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+_Name=Last-Exit
+_Comment=Last.fm player
+Exec=last-exit
+Icon=last-exit-24
+Terminal=false
+Type=Application
+Encoding=UTF-8
+StartupNotify=true
+Categories=GTK;Application;AudioVideo;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=last-exit
+X-GNOME-Bugzilla-Component=General
+
