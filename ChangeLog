@@ -1,5 +1,10 @@
 2006-07-08  Iain <iain@gnome.org>
 
+	* src/PlayerWindow.cs: Open the browser at the journal page for the 
+	currently playing song.
+
+2006-07-08  Iain <iain@gnome.org>
+
 	* Applied patch from Brian Pepple to add a .desktop file.
 
 2006-07-08  Iain <iain@gnome.org>
