@@ -28,8 +28,8 @@ namespace LastExit
 {
         public class TagSelector : TreeView {
 		public enum Column {
-			Selected,
-			Name
+			Name,
+			Text
 		};
 
 		private ListStore tagstore;
@@ -43,24 +43,22 @@ namespace LastExit
 
 				foreach (Tag t in value) {
 					string s = "<b>" + t.Name + "</b>\n<span size=\"smaller\"><i>Tagged " + t.Count + " items</i></span>";
-					tagstore.AppendValues (false, s);
+					tagstore.AppendValues (t.Name, s);
 				}
 			}
 		}
 
 	        public TagSelector ()
 		{
-			tagstore = new ListStore (typeof (bool),
+			tagstore = new ListStore (typeof (string),
 						  typeof (string));
 
 			this.Model = tagstore;
 			this.HeadersVisible = false;
 			this.RulesHint = true;
 
-			this.AppendColumn ("sel", new CellRendererToggle (),
-					   "active", (int) Column.Selected);
 			this.AppendColumn ("name", new CellRendererText (),
-					   "markup", (int) Column.Name);
+					   "markup", (int) Column.Text);
 		}
 	}
 }

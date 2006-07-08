@@ -27,18 +27,14 @@ using Gtk;
 
 namespace LastExit {
         public class TagDialog : Dialog {
-		enum ResponseType {
-			Tag = 10
-		};
-
 		[Glade.Widget] private VBox tag_contents;
 
 		[Glade.Widget] private ComboBox tag_type_combo;
 		[Glade.Widget] private ScrolledWindow my_tags_container;
-		[Glade.Widget] private ScrolledWindow global_tags_container;
+		[Glade.Widget] private ComboBoxEntry extra_tags;
+		[Glade.Widget] private Button tag_button;
 
 		private TagSelector my_tags;
-		private TagSelector global_tags;
 
 		private Song song;
 
@@ -53,10 +49,9 @@ namespace LastExit {
 
 			SetupUI ();
 
-			this.AddButton ("New Tag", (int) ResponseType.Tag);
-			this.AddButton ("Cancel", Gtk.ResponseType.Cancel);
-			// FIXME: This really needs a better label
-			this.AddButton ("Tag", Gtk.ResponseType.Ok);
+			GetTagsForSong (song);
+
+			this.AddButton ("Close", Gtk.ResponseType.Close);
 
 			tag_contents.Visible = true;
 		}
@@ -68,13 +63,10 @@ namespace LastExit {
 			my_tags_container.Add (my_tags);
 			GetUserTags ();
 
-			global_tags = new TagSelector ();
-			global_tags.Visible = true;
-			global_tags_container.Add (global_tags);
-			GetGlobalTags ();
-
 			tag_type_combo.Changed += new EventHandler (OnTagTypeChanged);
 			tag_type_combo.Active = 0;
+
+			tag_button.Clicked += new EventHandler (OnTagButtonClicked);
 		}
 
 		private void OnTagTypeChanged (object o, EventArgs args)
@@ -95,6 +87,8 @@ namespace LastExit {
 			default:
 				break;
 			}
+
+			GetTagsForSong (song);
 		}
 
 		private void GetUserTags ()
@@ -116,7 +110,7 @@ namespace LastExit {
 				string content;
 
 				content = request.Data.ToString ();
-				my_tags.Tags = ParseUserTags (content);
+/* 				my_tags.Tags = ParseUserTags (content); */
 			}
 
 			Driver.connection.DoOperationFinished ();
@@ -154,58 +148,120 @@ namespace LastExit {
 			return tags;
 		}
 
-		private void GetGlobalTags ()
-		{
+		private void GetTagsForSong (Song s) {
 			FMRequest fmr = new FMRequest ();
 			string base_url = Driver.connection.BaseUrl;
 			string username = Driver.connection.Username;
-			string url = "http://" + base_url + "/1.0/tag/toptags.xml";
 
-			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (GlobalTagsCompleted);
+			string mode;
+
+			switch (tag_type_combo.Active) {
+			case 0:
+				mode = "/tracktags.xml?artist=" + s.Artist + "&track=" + s.Track;
+				break;
+
+			case 1:
+				mode = "/albumtags.xml?artist=" + s.Artist + "&album=" + s.Album;
+				break;
+
+			case 2:
+				mode = "/artisttags.xml?artist=" + s.Artist;
+				break;
+
+			default:
+				mode = "error";
+				break;
+			}
+			
+ 			string url = "http://" + base_url + "/1.0/user/" + username + mode;
+
+			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (SongTagsCompleted);
 			fmr.DoRequest (url);
 
 			Driver.connection.DoOperationStarted ();
 		}
-			
-		private void GlobalTagsCompleted (FMRequest request) 
+
+		private void SongTagsCompleted (FMRequest request) 
 		{
 			if (request.Data.Length > 1) {
 				string content;
 
 				content = request.Data.ToString ();
-				global_tags.Tags = ParseGlobalTags (content);
+				my_tags.Tags = ParseSongTags (content);
 			}
 
 			Driver.connection.DoOperationFinished ();
 		}
 
-		// Audioscrobbler rant #94 - They present the same data
-		// in two completely different formats.
-		private ArrayList ParseGlobalTags (string content)
+		private ArrayList ParseSongTags (string content)
 		{
 			XmlDocument xml = new XmlDocument ();
 			XmlNodeList elemlist;
 			ArrayList tags = new ArrayList ();
 			
 			xml.LoadXml (content);
-			elemlist = xml.GetElementsByTagName ("toptags");
-			if (elemlist.Count == 0) {
-				return tags;
-			}
 
 			elemlist = xml.GetElementsByTagName ("tag");
 			IEnumerator ienum = elemlist.GetEnumerator ();
 			while (ienum.MoveNext ()) {
-				XmlNode t_node = (XmlNode) ienum.Current;
+				XmlNode f_node = (XmlNode) ienum.Current;
 				
 				Tag t = new Tag ();
-				t.Name = t_node.Attributes.GetNamedItem ("name").InnerText;
-				t.Count =  Int32.Parse (t_node.Attributes.GetNamedItem ("count").InnerText);
+				t.Name = get_node_text (f_node, "name");
+				t.Count =  Int32.Parse (get_node_text (f_node, "count"));
 				tags.Add (t);
 			}
 
 			return tags;
 		}
 
+		private string make_mode_string () {
+			string mode;
+
+			switch (tag_type_combo.Active) {
+			case 0:
+				mode = "track=" + song.Track + "&artist=" + song.Artist;
+				break;
+
+			case 1:
+				mode = "album=" + song.Album + "&artist=" + song.Artist;
+				break;
+
+			case 2:
+				mode = "artist=" + song.Artist;
+				break;
+
+			default:
+				mode = "error";
+				break;
+			}
+
+			return mode;
+		}
+
+		private void OnTagButtonClicked (object o, EventArgs args) {
+			string tagname = extra_tags.Entry.Text;
+			string base_url = Driver.connection.BaseUrl;
+			string url = "http://" + base_url + "/player/tag.php";
+
+			string mode = make_mode_string ();
+			string token = "s=" + Driver.connection.Session + "&tag=" + tagname + "&" + mode;
+			
+			FMRequest fmr = new FMRequest ();
+			
+			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (SetTagCompleted);
+
+			Console.WriteLine (url + "    " + token);
+			fmr.DoRequest (url, token);
+
+			Driver.connection.DoOperationStarted ();
+
+		}
+
+		private void SetTagCompleted (FMRequest request) {
+			Driver.connection.DoOperationFinished ();
+			// Update the list
+			GetTagsForSong (song);
+		}
 	}
 }

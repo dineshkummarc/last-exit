@@ -1,3 +1,7 @@
+2006-07-08  Iain <iain@gnome.org>
+
+	* src/TagDialog.cs: Tag stuff.
+
 2006-04-21  Iain <iain@gnome.org>
 
 	* src/InternalProcess.cs: Copied from f-spot.
