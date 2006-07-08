@@ -1,5 +1,7 @@
-AC_INIT(last-exit, 0.2)
+AC_INIT(last-exit, 0.3, iain@gnome.org)
+AC_PREREQ(2.50)
 AC_CONFIG_SRCDIR(src/Driver.cs)
+AC_COPYRIGHT([Copyright 2005-2006 Iain Holmes])
 
 AM_CONFIG_HEADER(config.h)
 
