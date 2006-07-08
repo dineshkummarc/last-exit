@@ -31,10 +31,11 @@ namespace LastExit {
 
 		[Glade.Widget] private ComboBox tag_type_combo;
 		[Glade.Widget] private ScrolledWindow my_tags_container;
-		[Glade.Widget] private ComboBoxEntry extra_tags;
+		[Glade.Widget] private VBox extra_tags_container;
 		[Glade.Widget] private Button tag_button;
 
 		private TagSelector my_tags;
+		private ComboBoxEntry extra_tags;
 
 		private Song song;
 
@@ -51,9 +52,13 @@ namespace LastExit {
 
 			GetTagsForSong (song);
 
-			this.AddButton ("Close", Gtk.ResponseType.Close);
+			this.AddButton ("Close", ResponseType.Close);
 
 			tag_contents.Visible = true;
+		}
+
+		protected override void OnResponse (ResponseType response_id) {
+			this.Destroy ();
 		}
 
 		private void SetupUI ()
@@ -67,6 +72,10 @@ namespace LastExit {
 			tag_type_combo.Active = 0;
 
 			tag_button.Clicked += new EventHandler (OnTagButtonClicked);
+
+			extra_tags = ComboBoxEntry.NewText ();
+			extra_tags.Visible = true;
+			extra_tags_container.Add (extra_tags);
 		}
 
 		private void OnTagTypeChanged (object o, EventArgs args)
@@ -110,7 +119,10 @@ namespace LastExit {
 				string content;
 
 				content = request.Data.ToString ();
-/* 				my_tags.Tags = ParseUserTags (content); */
+				foreach (Tag t in ParseUserTags (content)) {
+					extra_tags.AppendText (t.Name);
+				}
+				
 			}
 
 			Driver.connection.DoOperationFinished ();

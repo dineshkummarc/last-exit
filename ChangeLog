@@ -1,5 +1,9 @@
 2006-07-08  Iain <iain@gnome.org>
 
+	* src/TagDialog.cs: Close the dialog and fill the combo with tags
+
+2006-07-08  Iain <iain@gnome.org>
+
 	* src/TagDialog.cs: Tag stuff.
 
 2006-04-21  Iain <iain@gnome.org>
