@@ -141,7 +141,7 @@ namespace LastExit
 		}
 
 		private void SetupButtons () {
-			toggle_play_button.Clicked += new EventHandler (OnTogglePlayButtonClicked);
+			toggle_play_button.Toggled += new EventHandler (OnTogglePlayButtonClicked);
 			next_button.Clicked += new EventHandler (OnNextButtonClicked);
 			love_button.Clicked += new EventHandler (OnLoveButtonClicked);
 			hate_button.Clicked += new EventHandler (OnHateButtonClicked);
@@ -362,6 +362,7 @@ namespace LastExit
 			ToggleButton t = o as ToggleButton;
 			TreeIter iter;
 
+			Console.WriteLine ("toggled");
 			if (internal_toggle == true) {
 				internal_toggle = false;
 				return;
@@ -504,8 +505,10 @@ namespace LastExit
 
 		private void OnStationChanged (string station_id) 
 		{
- 			internal_toggle = true;
- 			toggle_play_button.Toggle ();
+			if (toggle_play_button.Active == false) {
+				internal_toggle = true;
+				toggle_play_button.Active = true;
+			}
 
 			Driver.player.Location = Driver.connection.StreamUrl + "=" + Driver.connection.Session;
 			Console.WriteLine (Driver.connection.StreamUrl + "=" + Driver.connection.Session);
