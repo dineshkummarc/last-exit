@@ -1,5 +1,9 @@
 2006-07-08  Iain <iain@gnome.org>
 
+	* src/RecentStations.cs: Limit the stations to the 10 most recent
+
+2006-07-08  Iain <iain@gnome.org>
+
 	* src/PlayerWindow.cs: Open the browser at the journal page for the 
 	currently playing song.
 

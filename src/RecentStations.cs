@@ -59,6 +59,13 @@ namespace LastExit {
 			}
 
 			IEnumerator ienum = r.GetEnumerator ();
+			// Only load the most recent 10
+			int count = r.Count - 10;
+			while (count > 0) {
+				ienum.MoveNext ();
+				count--;
+			}
+				
 			while (ienum.MoveNext ()) {
 				XmlNode r_node = (XmlNode) ienum.Current;
 				Station s = new Station ();
