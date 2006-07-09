@@ -39,7 +39,8 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/VolumeButton.cs
 
 LASTEXIT_ASSEMBLIES =				\
-	-r:Mono.Posix
+	-r:Mono.Posix				\
+	-r:System.Web
 
 LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/glade/FindStation.glade	\

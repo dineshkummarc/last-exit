@@ -1,3 +1,7 @@
+2006-07-09  Iain <iain@gnome.org>
+
+	* Url encode artist names before sending them gfor tagging
+
 2006-07-08  Iain <iain@gnome.org>
 
 	* src/PlayerWindow.cs: Make the play/pause button work correctly.

@@ -22,6 +22,7 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Web;
 
 using Gdk;
 
@@ -32,6 +33,9 @@ namespace LastExit
 		public string Artist {
 			set { artist = value; }
 			get { return artist; }
+		}
+		public string SafeArtist {
+			get { return HttpUtility.UrlEncode (artist); }
 		}
 
 		private string artist_url;
@@ -45,6 +49,9 @@ namespace LastExit
 			set { album = value; }
 			get { return album; }
 		}
+		public string SafeAlbum {
+			get { return HttpUtility.UrlEncode (album); }
+		}
 
 		private string album_url;
 		public string AlbumUrl {
@@ -57,7 +64,10 @@ namespace LastExit
 			set { track = value; }
 			get { return track; }
 		}
-
+		public string SafeTrack {
+			get { return HttpUtility.UrlEncode (track); }
+		}
+		
 		private string track_url;
 		public string TrackUrl {
 			set { track_url = value; }

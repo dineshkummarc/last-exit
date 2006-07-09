@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections;
+using System.Web;
 using System.Xml;
 
 using Gtk;
@@ -169,15 +170,15 @@ namespace LastExit {
 
 			switch (tag_type_combo.Active) {
 			case 0:
-				mode = "/tracktags.xml?artist=" + s.Artist + "&track=" + s.Track;
+				mode = "/tracktags.xml?artist=" + s.SafeArtist + "&track=" + s.SafeTrack;
 				break;
 
 			case 1:
-				mode = "/albumtags.xml?artist=" + s.Artist + "&album=" + s.Album;
+				mode = "/albumtags.xml?artist=" + s.SafeArtist + "&album=" + s.SafeAlbum;
 				break;
 
 			case 2:
-				mode = "/artisttags.xml?artist=" + s.Artist;
+				mode = "/artisttags.xml?artist=" + s.SafeArtist;
 				break;
 
 			default:
@@ -232,15 +233,15 @@ namespace LastExit {
 
 			switch (tag_type_combo.Active) {
 			case 0:
-				mode = "track=" + song.Track + "&artist=" + song.Artist;
+				mode = "track=" + song.SafeTrack + "&artist=" + song.SafeArtist;
 				break;
 
 			case 1:
-				mode = "album=" + song.Album + "&artist=" + song.Artist;
+				mode = "album=" + song.SafeAlbum + "&artist=" + song.SafeArtist;
 				break;
 
 			case 2:
-				mode = "artist=" + song.Artist;
+				mode = "artist=" + song.SafeArtist;
 				break;
 
 			default:
@@ -257,13 +258,12 @@ namespace LastExit {
 			string url = "http://" + base_url + "/player/tag.php";
 
 			string mode = make_mode_string ();
-			string token = "s=" + Driver.connection.Session + "&tag=" + tagname + "&" + mode;
+			string token = "s=" + Driver.connection.Session + "&tag=" + HttpUtility.UrlEncode (tagname) + "&" + mode;
 			
 			FMRequest fmr = new FMRequest ();
 			
 			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (SetTagCompleted);
 
-			Console.WriteLine (url + "    " + token);
 			fmr.DoRequest (url, token);
 
 			Driver.connection.DoOperationStarted ();
