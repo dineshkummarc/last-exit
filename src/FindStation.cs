@@ -143,14 +143,19 @@ namespace LastExit
 					break;
 				}
 
-				case SearchType.User:
+				case SearchType.User: {
+					string station = FMConnection.MakeUserRadio (search_entry.Text, "/personal");
+					Driver.player.Stop ();
+					Driver.connection.ChangeStation (station);
 					break;
+				}
 
-				case SearchType.Neighbour:
+				case SearchType.Neighbour: {
 					string station = FMConnection.MakeUserRadio (selneighbour, "/personal");
 					Driver.player.Stop ();
 					Driver.connection.ChangeStation (station);
 					break;
+				}
 
 				default:
 					break;
@@ -235,7 +240,6 @@ namespace LastExit
 			switch (t) {
 			case SearchType.SoundsLike:
 			case SearchType.TaggedAs:
-			case SearchType.User:
 				search_entry.Sensitive = true;
 				if (search_entry.Text == "") {
 					search_button.Sensitive = false;
@@ -244,6 +248,7 @@ namespace LastExit
 				}
 				break;
 
+			case SearchType.User:
 			case SearchType.FansOf:
 				search_entry.Sensitive = true;
 				if (search_entry.Text == "") {

@@ -1,5 +1,9 @@
 2006-07-09  Iain <iain@gnome.org>
 
+	* FindStation.cs: Find user station works
+
+2006-07-09  Iain <iain@gnome.org>
+
 	* FindStation.cs: Add Neighbour searching
 
 	* NeighbourView.cs: View to show neighbours
