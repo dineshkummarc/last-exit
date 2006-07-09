@@ -42,7 +42,7 @@ namespace LastExit
 		[Glade.Widget] Label band_name_label;
 		[Glade.Widget] Label similar_artist_label;
 
-		[Glade.Widget] Label number_fans_label;
+		//[Glade.Widget] Label number_fans_label;
 
 		[Glade.Widget] ScrolledWindow tag_container;
 

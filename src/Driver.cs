@@ -32,7 +32,7 @@ namespace LastExit
 		// The size of the cover images.
 		public static int CoverSize = 66;
 
-		private static Actions actions;
+		//private static Actions actions;
 		private static PlayerWindow player_window;
 
 		public static FMConnection connection;
@@ -93,7 +93,7 @@ namespace LastExit
 
 			player = new Player ();
 
-			actions = new Actions ();
+			//actions = new Actions ();
 			player_window = new PlayerWindow ();
 
 			if (args.Length > 0) {

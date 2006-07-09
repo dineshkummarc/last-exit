@@ -504,32 +504,5 @@ namespace LastExit
 
 			return ret;
 		}
-
-		public void TagSong (Song song, 
-				     TagMode mode,
-				     string tag)
-		{
-			string modestr;
-			
-			switch (mode) {
-			case TagMode.Artist:
-				modestr = "artist=" + song.Artist;
-				break;
-
-			case TagMode.Song:
-				modestr = "track=" + song.Track + "&artist=" + song.Artist;
-				break;
-
-			case TagMode.Album:
-				modestr = "album=" + song.Album + "&artist=" + song.Artist;
-				break;
-			}
-
-			FMRequest fmr = new FMRequest ();
-			string url = "http://" + base_url + "/" + base_path + "/control.php?session=" + session + "&command=skip&debug=0";
-
-			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (SkipCompleted);
-			fmr.DoRequest (url);
-		}					   
 	}
 }

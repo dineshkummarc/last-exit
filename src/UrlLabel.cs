@@ -54,7 +54,7 @@ namespace LastExit {
 		}
 
 		private static void OverrideUrlActivated (GLib.GType gtype)
-		{
+                        {
 			if (UrlActivatedVMCallback == null)
 				UrlActivatedVMCallback = new UrlActivatedVMDelegate (urlactivated_cb);
 			OverrideVirtualMethod (gtype, "url_activated", UrlActivatedVMCallback);

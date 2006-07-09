@@ -29,7 +29,7 @@ namespace LastExit
       public class PlayerWindow : Window {
 		// Widgets
 		[Glade.Widget] private VBox player_contents;
-		[Glade.Widget] private Box menu_bar_box;
+		//[Glade.Widget] private Box menu_bar_box;
 
 		[Glade.Widget] private Container volume_button_container;
 		[Glade.Widget] private Container cover_image_container;
