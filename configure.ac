@@ -67,6 +67,9 @@ fi
 GACUTIL_FLAGS='/package lastexit /gacdir $(libdir) /root $(DESTDIR)$(libdir)'
 AC_SUBST(GACUTIL_FLAGS)
 
+ALL_LINGUAS=
+AM_GLIB_GNU_GETTEXT
+
 AC_OUTPUT([
 Makefile
 data/Makefile
@@ -75,4 +78,5 @@ data/icons/Makefile
 data/ui/Makefile
 liblast-exit/Makefile
 src/Makefile
+po/Makefile.in
 ])

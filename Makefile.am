@@ -1,7 +1,8 @@
 SUBDIRS = 			\
 	data			\
 	liblast-exit		\
-	src
+	src			\
+	po
 
 EXTRA_DIST = config.rpath mkinstalldirs 			\
 	intltool-extract.in	\
