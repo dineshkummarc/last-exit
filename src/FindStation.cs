@@ -49,6 +49,10 @@ namespace LastExit
 		private TagView tagview;
 		private Image band_image;
 
+		private VBox user_container;
+		private ScrolledWindow neighbour_container;
+		private NeighbourView neighbour_view;
+
 		public enum SearchType {
 			SoundsLike,
 			TaggedAs,
@@ -61,6 +65,7 @@ namespace LastExit
 		private IconEntry search_entry;
 
 		private Artist selected_artist;
+		private string selneighbour;
 
 	        public FindStation (Window w) : base ("Find A Station", w, DialogFlags.DestroyWithParent) {
 			this.HasSeparator = false;
@@ -79,6 +84,18 @@ namespace LastExit
 			tag_container.Visible = false;
 			results_container.Add (tag_container);
 
+			neighbour_container = new ScrolledWindow ();
+			neighbour_view = new NeighbourView ();
+			neighbour_view.Visible = true;
+
+			TreeSelection selection = neighbour_view.Selection;
+			selection.Changed += OnNeighbourChanged;
+
+			neighbour_container.Add (neighbour_view);
+			neighbour_container.Visible = false;
+
+			results_container.Add (neighbour_container);
+			
 			this.AddButton ("Cancel", ResponseType.Cancel);
 			this.AddButton ("Change Station", ResponseType.Ok);
 			this.SetResponseSensitive (ResponseType.Ok, false);
@@ -130,6 +147,9 @@ namespace LastExit
 					break;
 
 				case SearchType.Neighbour:
+					string station = FMConnection.MakeUserRadio (selneighbour, "/personal");
+					Driver.player.Stop ();
+					Driver.connection.ChangeStation (station);
 					break;
 
 				default:
@@ -173,7 +193,19 @@ namespace LastExit
 			tagview.Visible = true;
 			tag_container.Add (tagview);
 		}
-		
+
+		private void OnNeighbourChanged (object obj, EventArgs args) {
+			TreeIter iter;
+			TreeModel model;
+
+			if (((TreeSelection)obj).GetSelected (out model, out iter)) {
+				selneighbour = (string) model.GetValue (iter, (int) NeighbourView.Column.Name);
+				this.SetResponseSensitive (ResponseType.Ok, true);
+			} else {
+				this.SetResponseSensitive (ResponseType.Ok, false);
+			}
+		}
+
 		private void OnComboChanged (object obj, EventArgs args)
 		{
 			selected_artist = null;
@@ -181,8 +213,16 @@ namespace LastExit
 
 			search_entry.Text = "";
 
+			if ((SearchType) search_combo.Active == SearchType.Neighbour) {
+				Search (SearchType.Neighbour, "");
+				search_entry.Sensitive = false;
+			} else {
+				search_entry.Sensitive = true;
+			}
+
 			similar_contents.Visible = false;
 			tag_container.Visible = false;
+			neighbour_container.Visible = false;
 
 			this.SetResponseSensitive (ResponseType.Ok, false);
 		}
@@ -254,7 +294,11 @@ namespace LastExit
 				break;
 
 			case FindStation.SearchType.User:
-				url = "http://" + base_url + "1.0/user/" + description + "/profile.xml";
+				url = "http://" + base_url + "/1.0/user/" + description + "/profile.xml";
+				break;
+				
+			case FindStation.SearchType.Neighbour:
+				url = "http://" + base_url + "/1.0/user/" + Driver.connection.Username + "/neighbours.xml";
 				break;
 
 			default:
@@ -297,6 +341,12 @@ namespace LastExit
 
 				case SearchType.User:
 					
+					break;
+					
+				case SearchType.Neighbour:
+					ArrayList neighbours = ParseNeighbours (content);
+
+					OnSearchCompleted ((object) neighbours, t);
 					break;
 
 				default:
@@ -411,6 +461,32 @@ namespace LastExit
 			return fans;
 		}
 
+		private ArrayList ParseNeighbours (string content) {
+			XmlDocument xml = new XmlDocument ();
+			XmlNodeList elemlist;
+			ArrayList neighbours = new ArrayList ();
+
+			xml.LoadXml (content);
+			elemlist = xml.GetElementsByTagName ("neighbours");
+			if (elemlist.Count == 0) {
+				return neighbours;
+			}
+
+			elemlist = xml.GetElementsByTagName ("user");
+			IEnumerator ienum = elemlist.GetEnumerator ();
+			while (ienum.MoveNext ()) {
+				XmlNode n_node = (XmlNode) ienum.Current;
+				string name = n_node.Attributes.GetNamedItem ("username").InnerText;
+				string url = get_node_text (n_node, "url");
+				string image = get_node_text (n_node, "image");
+
+				Fan f = new Fan (name, url, image, 0);
+				neighbours.Add (f);
+			}
+
+			return neighbours;
+		}
+
 		private void OnSearchCompleted (object o, SearchType t)
 		{
 			switch (t) {
@@ -419,6 +495,7 @@ namespace LastExit
 
 				similar_contents.Visible = true;
 				tag_container.Visible = false;
+				neighbour_container.Visible = false;
 				break;
 
 			case SearchType.TaggedAs:
@@ -428,6 +505,7 @@ namespace LastExit
 				sel.Changed += new EventHandler (OnSelectionChanged);
 				similar_contents.Visible = false;
 				tag_container.Visible = true;
+				neighbour_container.Visible = false;
 				break;
 
 			case SearchType.FansOf:
@@ -437,6 +515,13 @@ namespace LastExit
 /* 				FillFansDetails ((ArrayList) o); */
 				break;
 				
+			case SearchType.Neighbour:
+				FillNeighbourDetails ((ArrayList) o);
+				similar_contents.Visible = false;
+				tag_container.Visible = false;
+				neighbour_container.Visible = true;
+				break;
+
 			default:
 				break;
 			}
@@ -511,6 +596,10 @@ namespace LastExit
 			tagview.Tags = tags;
 		}
 
+		private void FillNeighbourDetails (ArrayList neighbours) {
+			neighbour_view.Neighbours = neighbours;
+		}
+				
 		private void OnImageLoaded (Gdk.Pixbuf image)
 		{
 			band_image.FromPixbuf = image;
