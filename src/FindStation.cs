@@ -138,6 +138,7 @@ namespace LastExit
 
 				case SearchType.FansOf: {
 					string station = FMConnection.MakeFanRadio (search_entry.Text);
+					Console.WriteLine (station);
 					Driver.player.Stop ();
 					Driver.connection.ChangeStation (station);
 					break;
@@ -275,9 +276,15 @@ namespace LastExit
 		{
 			SearchType t;
 
-			search_button.Sensitive = false;
-
 			t = (SearchType) search_combo.Active;
+			
+			if (t == SearchType.User ||
+			    t == SearchType.FansOf) {
+				OnResponse (ResponseType.Ok);
+				return;
+			}
+
+			search_button.Sensitive = false;
 
 			Search (t, search_entry.Text);
 		}

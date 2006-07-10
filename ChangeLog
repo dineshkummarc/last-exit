@@ -1,3 +1,7 @@
+2006-07-10  Iain <iain@gnome.org>
+
+	* FindStation.cs: If Enter is pressed for user or fans of, don't crash
+
 2006-07-09  Iain <iain@gnome.org>
 
 	* FindStation.cs: Find user station works
