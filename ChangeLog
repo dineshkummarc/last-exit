@@ -1,3 +1,8 @@
+2006-07-11  Iain <iain@gnome.org>
+
+	* src/NotificationArea.cs:
+	  src/TrayIcon.cs: Patch from Baris Cicek to add a tray icon
+
 2006-07-10  Iain <iain@gnome.org>
 
 	* src/last-exit.in: Require bash, cos exec -a isn't POSIX and breaks

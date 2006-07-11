@@ -67,7 +67,8 @@ namespace LastExit
 		private Song current_song;
 
 		private InfoWindow i_window = null;
-
+       
+		private TrayIcon trayicon; 
 		enum Column {
 			Pixbuf,
 			Name,
@@ -113,6 +114,7 @@ namespace LastExit
 			Gtk.Drag.DestSet (this, DestDefaults.All, drag_entries, Gdk.DragAction.Copy);
 
 			SetupButtons ();
+			trayicon = new TrayIcon (this);
 			SetupUI ();
 		}
 
@@ -157,8 +159,10 @@ namespace LastExit
 
 			volume_button.Volume = Driver.config.Volume;
 		}
+
 		
 		private void SetupUI () {
+	
 			Driver.connection.ConnectionChanged += new FMConnection.ConnectionChangedHandler (OnConnectionChanged);
 			Driver.connection.OperationStarted += new FMConnection.OperationHandler (OnOperationStarted);
 			Driver.connection.OperationFinished += new FMConnection.OperationHandler (OnOperationFinished);
@@ -375,6 +379,7 @@ namespace LastExit
 				song_label.Markup = "";
 				this.Title = "Last Exit";
 
+				trayicon.SetShowPopup (false);
 				// FIXME: Need a blank cover.
 				Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
 				cover_image.ChangePixbuf (cover);
@@ -566,9 +571,10 @@ namespace LastExit
 					set_station_title (station_id, song.Station);
 				}
 			}
+
+			trayicon.FillPopup (song);
 			
 			song.ImageLoaded += new Song.ImageLoadedHandler (OnCoverLoaded);
-
 			if (song.Track != null) {
 				song_label.Markup = "<span weight=\"bold\"><a href=\"" + song.TrackUrl + "\">" + StringUtils.EscapeForPango (song.Track) + "</a></span>";
 			} else {

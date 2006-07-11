@@ -22,6 +22,7 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/InternalProcess.cs		\
 	$(srcdir)/MagicCoverImage.cs		\
 	$(srcdir)/NeighbourView.cs		\
+	$(srcdir)/NotificationArea.cs		\
 	$(srcdir)/Player.cs			\
 	$(srcdir)/PlayerWindow.cs		\
 	$(srcdir)/RecentStations.cs		\
@@ -34,6 +35,7 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/TagDialog.cs			\
 	$(srcdir)/TagSelector.cs		\
 	$(srcdir)/TagView.cs			\
+	$(srcdir)/TrayIcon.cs			\
 	$(srcdir)/UrlActivatedHandler.cs	\
 	$(srcdir)/UrlLabel.cs			\
 	$(srcdir)/User.cs			\
