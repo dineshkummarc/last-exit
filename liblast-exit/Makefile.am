@@ -17,3 +17,4 @@ liblastexit_la_SOURCES = 				\
 	sexy-url-label.h
 
 liblastexit_la_LIBADD = $(LASTEXIT_LIBS)
+liblastexit_la_LDFLAGS = -avoid-version 

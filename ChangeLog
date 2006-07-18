@@ -1,3 +1,8 @@
+2006-07-18  Ross Burton  <ross@burtonini.com>
+
+	* liblast-exit/Makefile.am:
+	Add -avoid-version to remove the .0.0.0 symlinks.
+
 2006-07-11  Iain <iain@gnome.org>
 
 	* src/NotificationArea.cs:
