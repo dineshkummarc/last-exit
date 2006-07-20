@@ -33,7 +33,8 @@ namespace LastExit
 	{
 		public enum ConnectionState {
 			Connected,
-			Disconnected
+			Disconnected,
+			InvalidPassword
 		};
 
 		public enum TagMode {
@@ -64,10 +65,24 @@ namespace LastExit
 		private string username;
 		public string Username {
 			get { return username; }
+			set { username = value; }
 		}
 
 		// password is stored as an MD5 hash
 		private string password;
+		public string Password {
+			set {
+				MD5 hasher = MD5.Create ();
+				byte[] hash = hasher.ComputeHash (Encoding.Default.GetBytes (value));
+				StringBuilder shash = new StringBuilder ();
+				
+				for (int i = 0; i < hash.Length; ++i) {
+					shash.Append (hash[i].ToString ("x2"));
+				}
+				
+				password = shash.ToString ();
+			}
+		}
 
 		private string session;
 		public string Session {
@@ -125,17 +140,8 @@ namespace LastExit
 			// Default to not subscribed
 			subscriber = false;
 			this.username = username;
-
-			MD5 hasher = MD5.Create ();
-			byte[] hash = hasher.ComputeHash (Encoding.Default.GetBytes (password));
-			StringBuilder shash = new StringBuilder ();
-
-			for (int i = 0; i < hash.Length; ++i) {
-				shash.Append (hash[i].ToString ("x2"));
-			}
-
-			this.password = shash.ToString ();
-
+			this.Password = password;
+			
 			this.connected = ConnectionState.Disconnected;
 		}
 
@@ -215,7 +221,7 @@ namespace LastExit
 					if (opts[1].ToLower () == "failed") {
 						// Handshake failed
 						session = "";
-						connected = ConnectionState.Disconnected;
+						connected = ConnectionState.InvalidPassword;
 						Console.WriteLine ("Failed to connect");
 						// don't need to parse anymore
 						return false;

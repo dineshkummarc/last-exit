@@ -18,6 +18,7 @@
  *
  */
 
+#define _GNU_SOURCE
 #include <config.h>
 #include <string.h>
 #include <math.h>
@@ -263,13 +264,15 @@ player_set_location (Player *player,
 void
 player_play (Player *player)
 {
-	gst_element_set_state (GST_ELEMENT (player->priv->play), GST_STATE_PLAYING);
+	gst_element_set_state (GST_ELEMENT (player->priv->play), 
+			       GST_STATE_PLAYING);
 }
 
 void
 player_stop (Player *player)
 {
-	gst_element_set_state (GST_ELEMENT (player->priv->play), GST_STATE_READY);
+	gst_element_set_state (GST_ELEMENT (player->priv->play), 
+			       GST_STATE_READY);
 }
 
 void

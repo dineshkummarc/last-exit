@@ -33,8 +33,16 @@ namespace LastExit {
 
 		public bool FirstRun {
 			get { 
+				object o;
 				// Check it exists, then a default if not
-				object o = config.Get (GConfFirstRun);
+				try {
+					o = config.Get (GConfFirstRun);
+				} catch (GConf.NoSuchKeyException) {
+					config.Set (GConfFirstRun, 
+						    (object) true);
+					return true;
+				}
+
 				if (o == null) {
 					return true;
 				} else {
@@ -45,17 +53,49 @@ namespace LastExit {
 		}
 
 		public string Username {
-			get { return (string) config.Get (GConfUsername); }
+			get { 
+				object o;
+				try {
+					o = config.Get (GConfUsername);
+				} catch (GConf.NoSuchKeyException) {
+					config.Set (GConfUsername, 
+						    (object) "username");
+					return "username";
+				}
+
+				return (string) o; 
+			}
 			set { config.Set (GConfUsername, (object) value); }
 		}
 
 		public string Password {
-			get { return (string) config.Get (GConfPassword); }
+			get { 
+				object o;
+				try {
+					o = config.Get (GConfPassword);
+				} catch (GConf.NoSuchKeyException) {
+					config.Set (GConfPassword, 
+						    (object) "password");
+					return "password";
+				}
+
+				return (string) o;
+			}
 			set { config.Set (GConfPassword, (object) value); }
 		}
 
 		public int Volume {
-			get { return (int) config.Get (GConfVolume); }
+			get { 
+				object o;
+				try {
+					o = config.Get (GConfVolume); 
+				} catch (GConf.NoSuchKeyException) {
+					config.Set (GConfVolume, (object) 50);
+					return 50;
+				}
+
+				return (int) o;
+			}
 			set { config.Set (GConfVolume, (object) value); }
 		}
 

@@ -1,3 +1,14 @@
+2006-07-21  Iain Holmes  <iain@gnome.org>
+
+	* src/TrayIcon.cs: Patch from Baris to add song image.
+
+	* src/PlayerWindow.cs: Set the tooltip image from Baris.
+	Reshow the password dialog on wrong password.
+	
+	* src/Config.cs: Have support for missing config values
+
+	* src/FMConnection.cs: Support reporting bad password
+
 2006-07-18  Ross Burton  <ross@burtonini.com>
 
 	* liblast-exit/Makefile.am:

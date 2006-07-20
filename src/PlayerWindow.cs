@@ -386,7 +386,7 @@ namespace LastExit
 				
 				return;
 			}
-			
+
 			if (station_combo.GetActiveIter (out iter)) {
 				string path = (string) station_combo.Model.GetValue (iter, (int) Column.Path);
 				if (path != null) {
@@ -475,6 +475,36 @@ namespace LastExit
 		{
 			bool connected = (state == FMConnection.ConnectionState.Connected);
 
+			if (state == FMConnection.ConnectionState.InvalidPassword) {
+				this.Visible = false;
+
+				FirstRunDialog frd = new FirstRunDialog ();
+
+				int response = frd.Run ();
+				
+				frd.Visible = false;
+				switch (response) {
+				case (int) ResponseType.Reject:
+					Environment.Exit (0);
+					break;
+					
+				case (int) ResponseType.Ok:
+					Driver.config.Username = frd.Username;
+					Driver.config.Password = frd.Password;
+					break;
+					
+				default:
+					break;
+				}
+				
+				Driver.connection.Username = Driver.config.Username;
+				Driver.connection.Password = Driver.config.Password;
+				Driver.connection.Handshake ();
+
+				frd.Destroy ();
+				this.Visible = true;
+			}
+			
 			station_combo.Sensitive = connected;
 			toggle_play_button.Sensitive = connected;
 			next_button.Sensitive = connected;
@@ -529,11 +559,13 @@ namespace LastExit
 		{
 			if (cover_pb != null) {
 				cover_image.ChangePixbuf (cover_pb);
+				trayicon.UpdateCover (cover_pb);
 			} else {
 				Gdk.Pixbuf pb;
 
 				pb = new Gdk.Pixbuf (null, "unknown-cover.png");
 				cover_image.ChangePixbuf (pb);
+				trayicon.UpdateCover (pb);
 			}
 		}
 
