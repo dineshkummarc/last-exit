@@ -58,7 +58,7 @@ namespace LastExit
 			TaggedAs,
 			Neighbour,
 			User,
-			FansOf
+			FansOf,
 		};
 
 		private ComboBox search_combo;

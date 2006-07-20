@@ -1,5 +1,11 @@
 2006-07-21  Iain Holmes  <iain@gnome.org>
 
+	* src/FMConnection.cs: Support setting recommended radio
+
+	* src/PlayerWindow.cs: Add recommended radio to the main list
+
+2006-07-21  Iain Holmes  <iain@gnome.org>
+
 	* src/TrayIcon.cs: Patch from Baris to add song image.
 
 	* src/PlayerWindow.cs: Set the tooltip image from Baris.

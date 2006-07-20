@@ -166,6 +166,11 @@ namespace LastExit
 			return "lastfm://globaltags/" + station;
 		}
 
+		public static string MakeRecommendedRadio (string username,
+							   int percent) {
+			return "lastfm://user/" + username + "/recommended/" + percent;
+		}
+
 		const int BUFFER_SIZE = 1024;
 
 		public void DoOperationStarted ()

@@ -217,7 +217,8 @@ namespace LastExit
 				     FMConnection.MakeUserRadio (Driver.connection.Username,
 								 "/loved"),
 				     Driver.connection.Subscriber);
-
+			add_station (null, "Recommended Music Station",
+				     FMConnection.MakeRecommendedRadio (Driver.connection.Username, 100), true);
 			stations.AppendValues (null, "last-exit:separator", true, null);
 			stations.AppendValues (null, "Other Station...", 
 					       true, null);
@@ -276,14 +277,16 @@ namespace LastExit
 						 bool sensitive)
 		{
 			if (custom_stations.Count == 0) {
-				stations.InsertValues (3, null, "last-exit:separator", true, null);
+				stations.InsertValues (4, null, "last-exit:separator", true, null);
 			}
 
-			stations.InsertValues (4 + custom_stations.Count,
-					       image, name, sensitive, path);
+			if (known_stations.Contains (path) == false) {
+				stations.InsertValues (5 + custom_stations.Count,
+						       image, name, sensitive, path);
+				custom_stations.Add (path);
 
-			custom_stations.Add (path);
-			known_stations.Add (path, name);
+				known_stations.Add (path, name);
+			}
 		}
 
 		private void select_station (string path)
