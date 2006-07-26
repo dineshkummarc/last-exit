@@ -30,6 +30,9 @@ namespace LastExit
 		private Pixbuf current;
 		private Pixbuf next;
 
+		public delegate void CoverImageChangedHandler (MagicCoverImage mci);
+		public event CoverImageChangedHandler CoverImageChanged;
+
 		private TimeSpan start;
 
 		const double FADE_DURATION = 1500.0;
@@ -46,6 +49,9 @@ namespace LastExit
 			} else {
 				next = pb;
 				start_fade ();
+			}
+			if (CoverImageChanged != null) {
+				CoverImageChanged (this);
 			}
 		}
 

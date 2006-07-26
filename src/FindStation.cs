@@ -23,6 +23,7 @@ using System;
 using System.Collections;
 using System.Text;
 using System.Xml;
+using System.Globalization;
 
 using Gtk;
 
@@ -436,7 +437,10 @@ namespace LastExit
 				XmlNode t_node = (XmlNode) ienum.Current;
 				string name = get_node_text (t_node, "name");
 				int id = Int32.Parse (get_node_text (t_node, "id"));
-				double match = Double.Parse (get_node_text (t_node, "match"));
+
+				NumberFormatInfo match_fmt = new NumberFormatInfo();
+				match_fmt.NumberDecimalSeparator = ".";
+				double match = Double.Parse (get_node_text (t_node, "match"), match_fmt);
 
 				Tag t = new Tag (id, name, match);
 				tags.Add (t);

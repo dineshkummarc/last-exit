@@ -1,3 +1,38 @@
+2006-07-26  Brandon Hale  <brandon@ubuntu.com>
+
+	* src/PlayerWindow.cs: Add basic keyboard support.
+	L: Love Track, H: Hate Track, N: Next, Escape: Hide to Tray.
+
+2006-07-26  Iain Holmes  <iain@gnome.org>
+
+	* src/PlayerWindow.cs:
+	  data/glade/PlayerWindow.glade: Add tooltips, patch by Peter Oliver
+
+2006-07-26  Iain Holmes  <iain@gnome.org>
+
+	* src/MagicCoverImage.cs: Add a cover changed handler
+	  src/PlayerWindow.cs: Don't allow the window to be resized vertically
+	  	Patch from Tom Parker.
+
+2006-07-26  Iain Holmes  <iain@gnome.org>
+
+	* data/lastfm.schemas: Patch to fix typo by Arif Lukito
+
+2006-07-26  Iain Holmes  <iain@gnome.org>
+
+	* src/FindStation.cs: Set . as the number separator. Patch from
+	  Damien Collard
+
+2006-07-26  Iain Holmes  <iain@gnome.org>
+
+	* liblastexit/lastexit.xml:
+	  liblastexit/lastexit-dbus.[ch]: D-Bus patch from Baris Cicek.
+
+	* liblastexit/Makefile.am: Build the D-Bus glue.
+
+	* src/Driver.cs:
+	  src/DBus.cs: Modified D-Bus patch from Baris Cicek.
+
 2006-07-21  Iain Holmes  <iain@gnome.org>
 
 	* src/FMConnection.cs: Support setting recommended radio

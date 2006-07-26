@@ -45,6 +45,10 @@ namespace LastExit
 		
 		public static Config config;
 
+		public static void DBusChangeStation (string station) {
+			connection.ChangeStation (station);
+		}
+
 		public static void Main (string[] args) {
 			string username;
 			string password;
@@ -52,7 +56,22 @@ namespace LastExit
 			Driver.SetProcessName ("last-exit");
 			new Gnome.Program ("last-exit", "0.1", Gnome.Modules.UI, args);
 
+			switch (DBus.CheckInstance ()) {
+			case DBus.DBusState.Error:
+				Console.WriteLine ("Error contacting other instance.");
+				break;
 
+			case DBus.DBusState.AlreadyRunning:
+				if (args.Length > 0) {
+					DBus.ChangeStation (args[0]);
+				}
+				return;
+				
+			case DBus.DBusState.NotRunning:
+				DBus.Init (new DBus.StationChangeHandler (DBusChangeStation));
+				break;
+			}
+				
 			StockIcons.Initialize ();
 
 			SetDefaultWindowIcon ();

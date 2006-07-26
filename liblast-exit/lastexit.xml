@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="/org/gnome/LastExit">
+	<interface name="org.gnome.LastExit.interface">
+		<annotation name="org.freedesktop.DBus.GLib.CSymbol" value="lastexit"/>
+		<method name="change_station">
+			<arg type="s"/>
+		</method>
+	</interface>
+</node>

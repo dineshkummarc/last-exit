@@ -7,6 +7,7 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/Actions.cs			\
 	$(srcdir)/Artist.cs			\
 	$(srcdir)/Config.cs			\
+	$(srcdir)/DBus.cs			\
 	$(srcdir)/Driver.cs			\
 	$(srcdir)/Fan.cs			\
 	$(srcdir)/FindStation.cs		\

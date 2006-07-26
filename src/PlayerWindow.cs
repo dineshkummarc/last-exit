@@ -27,6 +27,8 @@ using Gtk;
 namespace LastExit
 {
       public class PlayerWindow : Window {
+		Glade.XML glade_xml;
+
 		// Widgets
 		[Glade.Widget] private VBox player_contents;
 		//[Glade.Widget] private Box menu_bar_box;
@@ -104,7 +106,7 @@ namespace LastExit
 			SetupPlayer ();
 
 			// Build the interface
-			Glade.XML glade_xml = new Glade.XML (null, "PlayerWindow.glade", "player_contents", null);
+			glade_xml = new Glade.XML (null, "PlayerWindow.glade", "player_contents", null);
 			glade_xml.Autoconnect (this);
 			base.Add (player_contents);
 
@@ -150,6 +152,7 @@ namespace LastExit
 			tag_button.Clicked += new EventHandler (OnTagButtonClicked);
 			journal_button.Clicked += new EventHandler (OnJournalButtonClicked);
 			info_button.Clicked += new EventHandler (OnInfoButtonClicked);
+            KeyPressEvent += OnKeyPressEvent;
 
 			// Volume
 			volume_button = new VolumeButton ();
@@ -186,6 +189,7 @@ namespace LastExit
 
 			cover_image = new MagicCoverImage ();
 			cover_image_container.Add (cover_image);
+			cover_image.CoverImageChanged += new MagicCoverImage.CoverImageChangedHandler (set_height_limit);
 			cover_image.Visible = true;
 
 			love_image = new Image ();
@@ -262,6 +266,23 @@ namespace LastExit
 			cover_image.ChangePixbuf (cover);
 		}
 		
+		private void set_height_limit (MagicCoverImage mci) {
+			int height = 0;
+			int width = 0;
+
+			GetSize (out width, out height);
+			
+			Gdk.Geometry limits = new Gdk.Geometry ();
+			limits.MinHeight = height;
+			limits.MaxHeight = height;
+			limits.MinWidth = SizeRequest ().Width;
+			limits.MaxWidth = Gdk.Screen.Default.Width;
+
+			SetGeometryHints (this, limits, 
+					  Gdk.WindowHints.MaxSize |
+					  Gdk.WindowHints.MinSize);
+		}
+
 		private void add_station (Gdk.Pixbuf image,
 					  string name,
 					  string path,
@@ -710,5 +731,32 @@ namespace LastExit
 
 			w.Cursor = null;
 		}
+
+        private void OnKeyPressEvent(object o, Gtk.KeyPressEventArgs args)
+        {
+            switch(args.Event.Key) {
+                case Gdk.Key.n:
+                case Gdk.Key.N:
+                    Driver.connection.Skip ();
+                    break;
+                case Gdk.Key.Escape:
+                   this.Visible = !this.Visible;
+                   break;
+                case Gdk.Key.h:
+                case Gdk.Key.H:
+                    current_song.Hated = true;
+                    love_button.Sensitive = false;
+                    hate_button.Sensitive = false;
+                    Driver.connection.Hate ();
+                    break;
+                case Gdk.Key.l:
+                case Gdk.Key.L:
+                    current_song.Loved = true;
+                    love_button.Sensitive = false;
+                    hate_button.Sensitive = false;
+                    Driver.connection.Love ();
+                    break;
+            }
+        }
 	}
 }
