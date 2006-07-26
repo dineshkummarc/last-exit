@@ -86,8 +86,7 @@ namespace LastExit
 			album_label.Markup = StringUtils.EscapeForPango (song.Album);
 			artist_label.Markup = StringUtils.EscapeForPango (song.Artist);
 
-			song.ImageLoaded += new Song.ImageLoadedHandler (OnCoverLoaded);
-			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
+			cover_image.ChangePixbuf (song.Image);
 			if (song.StationFeed != null) {
 				User user = new User (song.StationFeed);
 				user.UserLoaded += new User.UserLoadedHandler (OnUserLoaded);

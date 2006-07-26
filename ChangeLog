@@ -1,5 +1,11 @@
 2006-07-26  Iain Holmes  <iain@gnome.org>
 
+	* src/InfoWindow.cs: Don't re-request the image.
+
+	* src/ImageLoader.cs: When the image is loaded, store it.
+
+2006-07-26  Iain Holmes  <iain@gnome.org>
+
 	* src/TrayIcon.cs: Add notify support
 
 2006-07-26  Brandon Hale  <brandon@ubuntu.com>

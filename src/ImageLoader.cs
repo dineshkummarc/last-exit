@@ -160,8 +160,10 @@ namespace LastExit {
 		{
 			if (ImageLoaded != null) {
 				if (loader != null) {
+					image = loader.Pixbuf;
 					ImageLoaded (loader.Pixbuf);
 				} else {
+					image = null;
 					ImageLoaded (null);
 				}
 			}
