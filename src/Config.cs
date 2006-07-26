@@ -29,6 +29,8 @@ namespace LastExit {
 		private const string GConfPassword = "/apps/lastexit/password";
 		private const string GConfVolume = "/apps/lastexit/volume";
 
+		private const string GConfShowNotifications = "/apps/lastexit/show_notifications";
+
 		public static Client config;
 
 		public bool FirstRun {
@@ -97,6 +99,26 @@ namespace LastExit {
 				return (int) o;
 			}
 			set { config.Set (GConfVolume, (object) value); }
+		}
+
+		public bool ShowNotifications {
+			get { 
+				object o;
+				// Check it exists, then a default if not
+				try {
+					o = config.Get (GConfShowNotifications);
+				} catch (GConf.NoSuchKeyException) {
+					config.Set (GConfShowNotifications, 
+						    (object) true);
+					return true;
+				}
+
+				if (o == null) {
+					return true;
+				} else {
+					return (bool) o;
+				}
+			}
 		}
 
 		public Config () {

@@ -1,3 +1,7 @@
+2006-07-26  Iain Holmes  <iain@gnome.org>
+
+	* src/TrayIcon.cs: Add notify support
+
 2006-07-26  Brandon Hale  <brandon@ubuntu.com>
 
 	* src/PlayerWindow.cs: Add basic keyboard support.

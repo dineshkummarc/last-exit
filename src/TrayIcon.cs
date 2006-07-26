@@ -18,8 +18,10 @@
  *
  */
 
-using Gtk;
 using System;
+using System.Runtime.InteropServices;
+
+using Gtk;
 
 namespace LastExit
 {
@@ -31,6 +33,12 @@ namespace LastExit
 		private TrackInfoPopup popup;
 		private bool can_show_popup = false;
 		private bool cursor_over_trayicon = false;
+		private Song current_song = null;
+
+		private static bool show_notifications = true;
+		public static bool ShowNotifications {
+			set { show_notifications = value; }
+		}
 		
 		private void OnNotificationAreaIconClick (object o, 
 							  ButtonPressEventArgs args) {
@@ -108,6 +116,8 @@ namespace LastExit
 		}
 		
 		public void FillPopup (Song song) {
+			current_song = song;
+
 			if (song.Track != null) {
 				popup.TrackTitle = "<span weight=\"bold\">" + StringUtils.EscapeForPango (song.Track) + "</span>";
 			} else {
@@ -129,6 +139,18 @@ namespace LastExit
 		
 		public void UpdateCover (Gdk.Pixbuf newcover) { 
 			popup.Cover = newcover;
+			
+			string byline;
+
+			if (current_song.Artist != null) {
+				byline = StringUtils.EscapeForPango (current_song.Track) + " by " + StringUtils.EscapeForPango (current_song.Artist);
+			} else {
+				byline = StringUtils.EscapeForPango (current_song.Track);
+			}
+
+			// Wait til cover is set before we notify :)
+			Notify ("Now playing",
+				byline, newcover, event_box);
 		}
 		
 		public void SetShowPopup (bool value) { 
@@ -154,6 +176,62 @@ namespace LastExit
 			event_box.EnterNotifyEvent += OnEnterNotifyEvent;
 			event_box.LeaveNotifyEvent += OnLeaveNotifyEvent;
 		}
+
+		[DllImport("notify")]
+		private static extern bool notify_init(string app_name);
+
+		[DllImport("notify")]
+		private static extern void notify_uninit();
+
+		[DllImport("notify")]
+		private static extern IntPtr notify_notification_new(string summary, string message,
+								     string icon, IntPtr widget);
+
+		[DllImport("notify")]
+		private static extern void notify_notification_set_timeout(IntPtr notification,
+									   int timeout);
+		
+		[DllImport("notify")]
+		private static extern void notify_notification_set_urgency(IntPtr notification,
+									   int urgency);
+
+		[DllImport("notify")]
+		private static extern void notify_notification_set_icon_from_pixbuf(IntPtr notification, IntPtr icon);
+		
+		[DllImport("notify")]
+		private static extern bool notify_notification_show(IntPtr notification, IntPtr error);
+
+		[DllImport("libgobject-2.0-0.dll")]
+		private static extern void g_object_unref(IntPtr o);
+
+		private static void Notify (string summary, string message,
+					    Gdk. Pixbuf image, Widget widget) {
+			if (show_notifications == false) {
+				return;
+			}
+
+			try {
+				if (!notify_init ("Last-Exit")) {
+					return;
+				}
+
+				IntPtr notif = notify_notification_new 
+					(summary, message, null, widget.Handle);
+				notify_notification_set_timeout (notif, 4000);
+				notify_notification_set_urgency (notif, 0);
+				if (image != null) {
+					image = image.ScaleSimple (42, 42, Gdk.InterpType.Bilinear);
+					notify_notification_set_icon_from_pixbuf(notif, image.Handle);
+				}
+
+				notify_notification_show (notif, IntPtr.Zero);
+				g_object_unref (notif);
+				notify_uninit ();
+			} catch (Exception) {
+				show_notifications = false;
+			}
+		}
+									
 	}
 	
 	public class TrackInfoPopup : Gtk.Window {

@@ -27,5 +27,5 @@ liblastexit_la_SOURCES = 				\
 liblastexit_la_LIBADD = $(LASTEXIT_LIBS)
 liblastexit_la_LDFLAGS = -avoid-version 
 
-BUILT_SOURCES = $(DBUS_GENERATED)
-CLEANFILES = $(DBUS_GENERATED)
+BUILT_SOURCES = $(DBUS_GENERATED_H)
+CLEANFILES = $(DBUS_GENERATED_H)

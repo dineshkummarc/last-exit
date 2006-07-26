@@ -49,5 +49,17 @@
       </locale>
     </schema>
 
+    <schema>
+      <key>/schemas/apps/lastexit/show_notifications</key>
+      <applyto>/apps/lastexit/show_notifications</applyto>
+      <owner>last-exit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short>Show Notifications</short>
+	<long>Whether Last-Exit shows notifications when the song changes</long>
+      </locale>
+    </schema>
+
   </schemalist>
 </gconfschemafile>

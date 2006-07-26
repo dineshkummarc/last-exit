@@ -104,6 +104,8 @@ namespace LastExit
 
 			Driver.SetUpConfigDirectory ();
 
+			TrayIcon.ShowNotifications = config.ShowNotifications;
+			
 			username = config.Username;
 			password = config.Password;
 
