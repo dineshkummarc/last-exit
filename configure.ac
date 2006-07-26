@@ -1,4 +1,4 @@
-AC_INIT(last-exit, 2.0, iain@gnome.org)
+AC_INIT(last-exit, 3.0, iain@gnome.org)
 AC_PREREQ(2.50)
 AC_CONFIG_SRCDIR(src/Driver.cs)
 AC_COPYRIGHT([Copyright 2005-2006 Iain Holmes])
