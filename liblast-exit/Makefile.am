@@ -29,3 +29,4 @@ liblastexit_la_LDFLAGS = -avoid-version
 
 BUILT_SOURCES = $(DBUS_GENERATED_H)
 CLEANFILES = $(DBUS_GENERATED_H)
+EXTRA_DIST = lastexit.xml
