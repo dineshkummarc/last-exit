@@ -1,3 +1,11 @@
+2006-07-27  Iain Holmes  <iain@gnome.org>
+
+	* src/PlayerWindow.cs: More keyboard support from Brandon
+	P: play, +/-/0: Change Volume and mute.
+	Buttons respond to their keypress as well.
+
+	* src/VolumeButton.cs: Add ToggleMute to store/restore volume
+
 2006-07-26  Iain Holmes  <iain@gnome.org>
 
 	* src/InfoWindow.cs: Don't re-request the image.

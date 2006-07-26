@@ -152,7 +152,7 @@ namespace LastExit
 			tag_button.Clicked += new EventHandler (OnTagButtonClicked);
 			journal_button.Clicked += new EventHandler (OnJournalButtonClicked);
 			info_button.Clicked += new EventHandler (OnInfoButtonClicked);
-            KeyPressEvent += OnKeyPressEvent;
+			KeyPressEvent += OnKeyPressEvent;
 
 			// Volume
 			volume_button = new VolumeButton ();
@@ -732,31 +732,39 @@ namespace LastExit
 			w.Cursor = null;
 		}
 
-        private void OnKeyPressEvent(object o, Gtk.KeyPressEventArgs args)
-        {
-            switch(args.Event.Key) {
-                case Gdk.Key.n:
-                case Gdk.Key.N:
-                    Driver.connection.Skip ();
-                    break;
-                case Gdk.Key.Escape:
-                   this.Visible = !this.Visible;
-                   break;
-                case Gdk.Key.h:
-                case Gdk.Key.H:
-                    current_song.Hated = true;
-                    love_button.Sensitive = false;
-                    hate_button.Sensitive = false;
-                    Driver.connection.Hate ();
-                    break;
-                case Gdk.Key.l:
-                case Gdk.Key.L:
-                    current_song.Loved = true;
-                    love_button.Sensitive = false;
-                    hate_button.Sensitive = false;
-                    Driver.connection.Love ();
-                    break;
-            }
-        }
-	}
+		private void OnKeyPressEvent(object o, Gtk.KeyPressEventArgs args) {
+			switch(args.Event.Key) {
+			case Gdk.Key.n:
+			case Gdk.Key.N:
+				next_button.Activate();
+				break;
+			case Gdk.Key.Escape:
+				this.Visible = !this.Visible;
+				break;
+			case Gdk.Key.h:
+			case Gdk.Key.H:
+				hate_button.Activate();
+				break;
+			case Gdk.Key.l:
+			case Gdk.Key.L:
+				love_button.Activate();
+				break;
+			case Gdk.Key.p:
+			case Gdk.Key.P:
+				toggle_play_button.Activate();
+				break;
+			case Gdk.Key.plus:
+				volume_button.Volume += 5;
+				break;
+			case Gdk.Key.minus:
+				volume_button.Volume -= 5;
+				break;
+			case Gdk.Key.Key_0:
+				volume_button.ToggleMute ();
+				break;
+			default:
+				break;
+			}
+		}
+      }
 }

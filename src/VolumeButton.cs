@@ -83,6 +83,16 @@ namespace LastExit
 			get { return volume; }
 		}
 
+		int last_vol = -1;
+		public void ToggleMute () {
+			if (volume == 0) {
+				Volume = last_vol;
+			} else {
+				last_vol = volume;
+				Volume = 0;
+			}
+		}
+
 		// Methods
 		// Methods :: Private
 		// Methods :: Private :: ShowScale
