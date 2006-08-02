@@ -1,3 +1,8 @@
+2006-08-01  Iain Holmes  <iain@gnome.org>
+
+	* About.cs
+	  TrayIcon.cs: Patch from Brandon to add menu to the tray icon
+
 2006-07-27  Iain Holmes  <iain@gnome.org>
 
 	* configure.ac: Bump version to 3

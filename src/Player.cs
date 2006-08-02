@@ -32,19 +32,20 @@ namespace LastExit
 	}
 
 	public class Player : GLib.Object {
-
+		
 		public delegate void NewSongHandler ();
 		public event NewSongHandler NewSong;
-
+		
 		private SignalUtils.SignalDelegate new_song_cb;
+		private bool playing;
 
 		// Constructor
 		[DllImport ("liblastexit")]
-			private static extern IntPtr player_new ();
+		private static extern IntPtr player_new ();
 
 		public Player () : base (IntPtr.Zero) {
 			Raw = player_new ();
-
+			playing = false;
 			new_song_cb = new SignalUtils.SignalDelegate (OnNewSong);
 			SignalUtils.SignalConnect (Raw, "new-song", new_song_cb);
 		}
@@ -54,35 +55,47 @@ namespace LastExit
 		}
 
 		[DllImport ("liblastexit")]
-			private static extern bool player_set_location (IntPtr player, 
-									string filename);
+		private static extern bool player_set_location (IntPtr player, 
+								string filename);
 		public string Location {
 			set {
 				player_set_location (Raw, value);
 			}
 		}
 
+		public bool Playing {
+			set { 
+				playing = value;
+				Driver.PlayerWindow.UpdatePlayingUI ();
+			}
+			get { return playing; }
+		}
+
 		[DllImport ("liblastexit")]
-			private static extern void player_play (IntPtr player);
+		private static extern void player_play (IntPtr player);
 		
 		public void Play () {
 			player_play (Raw);
+			playing = true;
+			Driver.PlayerWindow.UpdatePlayingUI ();
 		}
-
+		
 		[DllImport ("liblastexit")]
-			private static extern void player_stop (IntPtr player);
+		private static extern void player_stop (IntPtr player);
 
 		public void Stop () {
 			player_stop (Raw);
+			playing = false;
+			Driver.PlayerWindow.UpdatePlayingUI ();
 		}
 
 		[DllImport ("liblastexit")]
-			private static extern void player_set_volume (IntPtr player, int volume);
+		private static extern void player_set_volume (IntPtr player, int volume);
 
 		public int Volume {
 			set { player_set_volume (Raw, value); }
 		}
-
+		
 		private void OnNewSong (IntPtr obj) {
 			if (NewSong != null) {
 				NewSong ();
@@ -90,5 +103,4 @@ namespace LastExit
 		}
 	}
 }
-			
-								    
+

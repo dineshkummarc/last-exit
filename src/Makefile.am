@@ -40,7 +40,8 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/UrlActivatedHandler.cs	\
 	$(srcdir)/UrlLabel.cs			\
 	$(srcdir)/User.cs			\
-	$(srcdir)/VolumeButton.cs
+	$(srcdir)/VolumeButton.cs \
+	$(srcdir)/About.cs
 
 LASTEXIT_ASSEMBLIES =				\
 	-r:Mono.Posix				\
@@ -61,7 +62,9 @@ LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/icons/people-image.png	\
 	-resource:$(top_srcdir)/data/icons/person-image.png	\
 	-resource:$(top_srcdir)/data/icons/secure.png		\
-	-resource:$(top_srcdir)/data/icons/unknown-cover.png
+	-resource:$(top_srcdir)/data/icons/unknown-cover.png \
+	-resource:$(top_srcdir)/data/icons/last-exit.svg \
+	-resource:$(top_srcdir)/data/ui/TrayIcon.xml,TrayIcon.xml
 
 $(WRAPPER): $(srcdir)/$(WRAPPER).in
 	sed -e"s|\@prefix\@|$(prefix)|g"		\

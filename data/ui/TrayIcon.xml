@@ -1,0 +1,13 @@
+<ui>
+  <popup name="Menu">
+    <menuitem action="TogglePlay" />
+    <menuitem action="ToggleVisible" />
+    <separator />
+    <menuitem action="Next" />
+    <menuitem action="Love" />
+    <menuitem action="Hate" />
+    <separator />
+    <menuitem action="About" />
+    <menuitem action="Quit" />
+  </popup>
+</ui>

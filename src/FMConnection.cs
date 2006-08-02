@@ -295,6 +295,7 @@ namespace LastExit
 
 			fmr.DoRequest (url);
 			DoOperationStarted ();
+                        Driver.player.Playing = true;
 		}
 
 		private void StationChangeCompleted (FMRequest request) 

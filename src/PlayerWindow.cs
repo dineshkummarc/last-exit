@@ -88,12 +88,44 @@ namespace LastExit
 		private static TargetEntry [] drag_entries = {
 			uri_list, netscape,
 		};
-
+        
+		private int last_x = -1;
+		private int last_y = -1;
+		private bool window_visible;
+		
+		public bool WindowVisible {
+			get { return window_visible; }
+		}
+		
+		public void SetWindowVisible (bool visible, uint time) {
+			window_visible = visible;
+			
+			if (window_visible) {
+				if (!Visible && last_x >= 0 && last_y >= 0)
+					Move (last_x, last_y);
+				Show ();
+				GdkWindow.Focus (time);
+			} else {
+				GetPosition (out last_x, out last_y);
+				Visible = false;
+			}
+			UpdateWindowVisibilityUI ();
+		}
+		
+		public void UpdateWindowVisibilityUI () {
+			((ToggleAction) Driver.Actions ["ToggleVisible"]).Active = Visible;
+		}
+		
+		public void UpdatePlayingUI () {
+			((ToggleAction) Driver.Actions ["TogglePlay"]).Active = Driver.player.Playing;
+			Console.WriteLine("playing?: {0}", Driver.player.Playing);
+		}
+		
 		// Hack to stop the player playing when we change the combo.
 		private bool internal_change;
-
+		
 		public String InitialStation;
-
+		
 		public PlayerWindow () : base (WindowType.Toplevel) {
 			Title = "Last Exit";
 
@@ -122,19 +154,20 @@ namespace LastExit
 
 		public void Run () {
 			Show ();
+			SetWindowVisible (true, 0);
 		}
-
+		
 		public void Quit () {
 			ArrayList recent = new ArrayList ();
-
+			
 			foreach (string path in custom_stations) {
 				RecentStations.Station s = new RecentStations.Station ();
 				s.path = path;
 				s.name = (string) known_stations[path];
-
+				
 				recent.Add (s);
 			}
-
+			
 			Driver.config.Volume = volume_button.Volume;
 			RecentStations.Recent = recent;
 			Driver.Exit ();
@@ -397,8 +430,7 @@ namespace LastExit
 			}
 
 			if (t.Active == false) {
-				Driver.player.Stop ();
-
+                                Driver.player.Stop ();
 				artist_label.Markup = "";
 				song_label.Markup = "";
 				this.Title = "Last Exit";
@@ -418,10 +450,25 @@ namespace LastExit
 				} else {
 					FindStation dialog = new FindStation (this);
 					dialog.Visible = true;
-				}					
+				}				
 			}
 		}
 
+                public void TogglePlayButton ()
+                {
+			toggle_play_button.Activate ();
+                }
+		
+                public void ActivateLoveButton ()
+                {
+			love_button.Activate ();
+                }
+
+                public void ActivateHateButton ()
+                {
+			hate_button.Activate ();
+                }
+ 
 		private void OnStationComboChanged (object o, EventArgs args) {
 			ComboBox combo = o as ComboBox;
 			TreeIter iter;
@@ -444,19 +491,19 @@ namespace LastExit
 		private void OnNextButtonClicked (object o, EventArgs args) {
 			Driver.connection.Skip ();
 		}
-
+		
 		private void OnLoveButtonClicked (object o, EventArgs args) {
-			current_song.Loved = true;
 			love_button.Sensitive = false;
 			hate_button.Sensitive = false;
-			Driver.connection.Love ();
+                        CurrentSong.Loved = true;
+                        Driver.connection.Love ();
 		}
 
 		private void OnHateButtonClicked (object o, EventArgs args) {
-			current_song.Hated = true;
 			love_button.Sensitive = false;
 			hate_button.Sensitive = false;
-			Driver.connection.Hate ();
+                        CurrentSong.Hated = true;
+                        Driver.connection.Hate ();
 		}
 
 		private void OnTagButtonClicked (object o, EventArgs args) 
@@ -468,7 +515,6 @@ namespace LastExit
 		private void OnJournalButtonClicked (object o, EventArgs args) 
 		{
 			string url = "http://www.last.fm/user/" + Driver.connection.Username + "/journal/&action=create&artistname=" + current_song.Artist + "&trackname=" + current_song.Track;
-
 			Driver.OpenUrl (url);
 		}
 
@@ -731,6 +777,11 @@ namespace LastExit
 
 			w.Cursor = null;
 		}
+
+                public Song CurrentSong
+                { 
+			get { return current_song; }
+                }
 
 		private void OnKeyPressEvent(object o, Gtk.KeyPressEventArgs args) {
 			switch(args.Event.Key) {

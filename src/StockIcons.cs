@@ -32,8 +32,14 @@ namespace LastExit
                         "stock_volume-0",
                         "stock_volume-min",
                         "stock_volume-med",
-                        "stock_volume-max"
+                        "stock_volume-max",
+                        "stock_media-next"
 		};
+
+                private static readonly string [] stock_icons = {
+                        "face-sad",
+                        "face-smile"
+                };
 
 		// Methods
 		// Methods :: Public
@@ -51,6 +57,27 @@ namespace LastExit
 				iconset.AddSource (iconsource);
 				factory.Add (name, iconset);
 			}
+
+                        foreach (string name in stock_icons) {
+                                Pixbuf  pixbuf  = new Pixbuf  (null, name + ".png");
+                                IconSet iconset = new IconSet (pixbuf);
+
+                                // Add menu variant if we have it
+                                Assembly a = Assembly.GetCallingAssembly ();
+
+                                Stream menu_stream = a.GetManifestResourceStream (name + "-16.png");
+
+                                if (menu_stream != null) {
+                                        IconSource source = new IconSource ();
+                                        source.Pixbuf = new Pixbuf (menu_stream);
+                                        source.Size = IconSize.Menu;
+                                        source.SizeWildcarded = false;
+
+                                        iconset.AddSource (source);
+                                }
+
+                                factory.Add (name, iconset);
+                        }
 		}
 	}
 }

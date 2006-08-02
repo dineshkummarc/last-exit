@@ -6,6 +6,7 @@ config.guess
 config.h
 config.h.in
 config.log
+config.rpath
 config.status
 config.sub
 configure
@@ -20,4 +21,6 @@ intltool-update.in
 libtool
 ltmain.sh
 missing
-stamp-h1
+mkinstalldirs
+stamp-h1.in
+stamp-h2.in

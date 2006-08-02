@@ -32,7 +32,7 @@ namespace LastExit
 		// The size of the cover images.
 		public static int CoverSize = 66;
 
-		//private static Actions actions;
+		private static Actions actions;
 		private static PlayerWindow player_window;
 
 		public static FMConnection connection;
@@ -47,6 +47,7 @@ namespace LastExit
 
 		public static void DBusChangeStation (string station) {
 			connection.ChangeStation (station);
+                        player.Playing = true;
 		}
 
 		public static void Main (string[] args) {
@@ -114,7 +115,7 @@ namespace LastExit
 
 			player = new Player ();
 
-			//actions = new Actions ();
+			actions = new Actions ();
 			player_window = new PlayerWindow ();
 
 			if (args.Length > 0) {
@@ -166,5 +167,13 @@ namespace LastExit
 			
 			dinfo.Create ();
 		}
+
+                public static Actions Actions {
+                        get { return actions; }
+                }
+
+                public static PlayerWindow PlayerWindow {
+                        get { return player_window; }
+                }
 	}
 }

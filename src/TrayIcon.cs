@@ -34,21 +34,69 @@ namespace LastExit
 		private bool can_show_popup = false;
 		private bool cursor_over_trayicon = false;
 		private Song current_song = null;
+                private Menu menu;
 
-		private static bool show_notifications = true;
+                private int menu_x;
+                private int menu_y;
+
+                private static bool show_notifications = true;
 		public static bool ShowNotifications {
 			set { show_notifications = value; }
 		}
+		
+                private void PositionMenu (Menu menu, out int x, out int y, out bool push_in) {
+			x = menu_x;
+			y = menu_y;
+			
+                        int           monitor = ((Widget) menu).Screen.GetMonitorAtPoint  (x, y   );
+			Gdk.Rectangle rect    = ((Widget) menu).Screen.GetMonitorGeometry (monitor);
+			
+                        int space_above = y - rect.Y;
+                        int space_below = rect.Y + rect.Height - y;
+			
+                        Requisition requisition = menu.SizeRequest ();
+			
+                        if (requisition.Height <= space_above ||
+			    requisition.Height <= space_below) {
+				
+				if (requisition.Height <= space_below)
+					y += event_box.Allocation.Height;
+				else
+					y -= requisition.Height;
+				
+                        } else if (requisition.Height > space_below &&
+				   requisition.Height > space_above) {
+				
+				if (space_below >= space_above)
+					y = rect.Y + rect.Height - requisition.Height;
+				else
+					y = rect.Y;
+				
+                        } else {
+                                y = rect.Y;
+                        }
+			
+                        push_in = true;
+                }
 		
 		private void OnNotificationAreaIconClick (object o, 
 							  ButtonPressEventArgs args) {
 			switch (args.Event.Button) {
 			case 1:
-				player_window.Visible = !player_window.Visible;
+				Driver.PlayerWindow.SetWindowVisible (!Driver.PlayerWindow.WindowVisible, args.Event.Time);
 				break;
 			case 3:
+				//icon.State = StateType.Active;
+				menu_x = (int) args.Event.XRoot - (int) args.Event.X;
+				menu_y = (int) args.Event.YRoot - (int) args.Event.Y;
+				menu.Popup (null, null, new MenuPositionFunc (PositionMenu),
+					    args.Event.Button, args.Event.Time);
 				break;
 			}
+		}
+		
+                private void OnMenuDeactivated (object o, EventArgs args) {
+			//icon.State = StateType.Normal
 		}
 		
 		private void PositionWidget (Widget widget, 
@@ -56,12 +104,12 @@ namespace LastExit
 					     out int y, 
 					     int yPadding) {
 			int button_y, panel_width, panel_height;
-
+			
 			Gtk.Requisition requisition = widget.SizeRequest ();
-
+			
 			event_box.GdkWindow.GetOrigin (out x, out button_y);
 			(event_box.Toplevel as Gtk.Window).GetSize(out panel_width, out panel_height);
-
+			
 			y = (button_y + panel_height + requisition.Height >= event_box.Screen.Height) 
 				? button_y - requisition.Height - yPadding
 				: button_y + panel_height + yPadding;
@@ -74,14 +122,14 @@ namespace LastExit
 			
 			event_box_req = event_box.SizeRequest();
 			Gtk.Requisition popup_req = popup.SizeRequest();
-
+			
 			PositionWidget(popup, out x, out y, 5);
-
+			
 			x = x - (popup_req.Width / 2) + (event_box_req.Width / 2);     
 			if (x + popup_req.Width >= event_box.Screen.Width) { 
 				x = event_box.Screen.Width - popup_req.Width - 5;
 			}
-
+			
 			popup.Move (x, y);
 		}
 		
@@ -169,6 +217,10 @@ namespace LastExit
 			event_box.Add (trayicon_image);
 			trayicon_image.Visible = true;
 			trayicon.Add(event_box);
+
+			Driver.Actions.UIManager.AddUiFromResource ("TrayIcon.xml");
+			menu = (Menu) Driver.Actions.UIManager.GetWidget ("/Menu");
+			menu.Deactivated += new EventHandler (OnMenuDeactivated);
 			trayicon.ShowAll();
 			
 			// Setting callback procs 
@@ -176,10 +228,10 @@ namespace LastExit
 			event_box.EnterNotifyEvent += OnEnterNotifyEvent;
 			event_box.LeaveNotifyEvent += OnLeaveNotifyEvent;
 		}
-
+		
 		[DllImport("notify")]
 		private static extern bool notify_init(string app_name);
-
+		
 		[DllImport("notify")]
 		private static extern void notify_uninit();
 
@@ -209,12 +261,12 @@ namespace LastExit
 			if (show_notifications == false) {
 				return;
 			}
-
+			
 			try {
 				if (!notify_init ("Last-Exit")) {
 					return;
 				}
-
+				
 				IntPtr notif = notify_notification_new 
 					(summary, message, null, widget.Handle);
 				notify_notification_set_timeout (notif, 4000);
@@ -223,7 +275,7 @@ namespace LastExit
 					image = image.ScaleSimple (42, 42, Gdk.InterpType.Bilinear);
 					notify_notification_set_icon_from_pixbuf(notif, image.Handle);
 				}
-
+				
 				notify_notification_show (notif, IntPtr.Zero);
 				g_object_unref (notif);
 				notify_uninit ();
@@ -231,7 +283,7 @@ namespace LastExit
 				show_notifications = false;
 			}
 		}
-									
+		
 	}
 	
 	public class TrackInfoPopup : Gtk.Window {
@@ -247,20 +299,20 @@ namespace LastExit
 		public TrackInfoPopup () : base (Gtk.WindowType.Popup) {
 			BorderWidth = 8;
 			AppPaintable = true;
-/* 			Resizable = true; */
+			/* 			Resizable = true; */
 			
 			containerbox = new HBox ();
 			containerbox.Spacing = 3;
 			cover_image = new MagicCoverImage ();
 			containerbox.PackStart (cover_image, false, false, 0);
 			cover_image.Visible = true;
-
+			
 			Alignment al = new Alignment ((float) 0.0, 
 						      (float) 0.5, 
 						      (float) 1.0, 
 						      (float) 0.0);
 			containerbox.Add (al);
-
+			
 			box = new VBox ();
 			box.Spacing = 2;
 			
