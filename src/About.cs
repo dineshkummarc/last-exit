@@ -35,7 +35,7 @@ namespace LastExit
 			Catalog.GetString ("Last Exit");
 
 		private static readonly string string_copyright =
-			Catalog.GetString ("Copyright © 2006 Iain");
+			Catalog.GetString ("Copyright © 2006 Iain Holmes");
 
 		private static readonly string string_description =
 			Catalog.GetString ("A last.fm radio player");

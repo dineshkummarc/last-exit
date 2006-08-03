@@ -166,6 +166,11 @@ namespace LastExit
 			return "lastfm://globaltags/" + station;
 		}
 
+		public static string MakeGroupRadio (string station)
+		{
+			return "lastfm://group/" + station;
+		}
+
 		public static string MakeRecommendedRadio (string username,
 							   int percent) {
 			return "lastfm://user/" + username + "/recommended/" + percent;

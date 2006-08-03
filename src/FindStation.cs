@@ -60,6 +60,7 @@ namespace LastExit
 			Neighbour,
 			User,
 			FansOf,
+			Group,
 		};
 
 		private ComboBox search_combo;
@@ -159,6 +160,13 @@ namespace LastExit
 					break;
 				}
 
+				case SearchType.Group: {
+					string station = FMConnection.MakeGroupRadio (search_entry.Text);
+					Driver.player.Stop ();
+					Driver.connection.ChangeStation (station);
+					break;
+				}
+
 				default:
 					break;
 				}
@@ -175,6 +183,7 @@ namespace LastExit
 			search_combo.AppendText ("A neighbours station");
 			search_combo.AppendText ("A users station");
 			search_combo.AppendText ("Music from fans of");
+			search_combo.AppendText ("A group station");
 			search_combo.Active = 0;
 			
 			search_combo.Visible = true;
@@ -252,6 +261,7 @@ namespace LastExit
 
 			case SearchType.User:
 			case SearchType.FansOf:
+			case SearchType.Group:
 				search_entry.Sensitive = true;
 				if (search_entry.Text == "") {
 					search_button.Sensitive = false;
@@ -280,7 +290,8 @@ namespace LastExit
 			t = (SearchType) search_combo.Active;
 			
 			if (t == SearchType.User ||
-			    t == SearchType.FansOf) {
+			    t == SearchType.FansOf || 
+			    t == SearchType.Group ) {
 				OnResponse (ResponseType.Ok);
 				return;
 			}
@@ -312,6 +323,10 @@ namespace LastExit
 				
 			case FindStation.SearchType.Neighbour:
 				url = "http://" + base_url + "/1.0/user/" + Driver.connection.Username + "/neighbours.xml";
+				break;
+
+			case FindStation.SearchType.Group:
+				url = "http://" + base_url + "/1.0/group/" + description + "/weeklychartlist.xml";
 				break;
 
 			default:
