@@ -1,3 +1,7 @@
+2006-08-21  Iain Holmes  <iain@gnome.org>
+
+	* liblast-exit/player.c: Use gconfaudiosink. Stop garret complaining.
+
 2006-08-03  Iain Holmes  <iain@gnome.org>
 
 	* FindStation.cs:

@@ -205,10 +205,16 @@ player_construct (Player *player,
 		  char **error)
 {
 	PlayerPrivate *priv = player->priv;
+	GstElement *sink;
 
 	gst_init (NULL, NULL);
 
+	sink = gst_element_factory_make ("gconfaudiosink", "sink");
 	priv->play = gst_element_factory_make ("playbin", "last-fm-player");
+	g_object_set (G_OBJECT (priv->play), 
+		      "audio-sink", sink,
+		      NULL);
+		      
 	g_signal_connect (G_OBJECT (priv->play), "notify::source",
 			  G_CALLBACK (src_setup), player);
 
