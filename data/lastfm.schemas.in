@@ -26,7 +26,7 @@
     </schema>
     
     <schema>
-      <key>/schema/desktop/gnome/url-handlers/lastfm/needs_terminal</key>
+      <key>/schemas/desktop/gnome/url-handlers/lastfm/needs_terminal</key>
       <applyto>/desktop/gnome/url-handlers/lastfm/needs_terminal</applyto>
       <owner>Last-Exit</owner>
       <type>bool</type>
