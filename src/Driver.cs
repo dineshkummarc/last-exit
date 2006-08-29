@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
-/*
+/* vim:tabstop=8:noexpandtab:shiftwidth=8:
  *  Authors: Iain Holmes <iain@gnome.org>
  *
  *  Copyright 2005, 2006 Iain Holmes
@@ -28,7 +28,8 @@ using Gtk;
 
 namespace LastExit
 {
-	public sealed class Driver : Gnome.Program {
+	public sealed class Driver
+	{
 		// The size of the cover images.
 		public static int CoverSize = 66;
 
@@ -42,37 +43,54 @@ namespace LastExit
 		public static string ConfigDirectory {
 			get { return config_directory; }
 		}
-		
-		public static Config config;
 
-		public static void DBusChangeStation (string station) {
-			connection.ChangeStation (station);
-                        player.Playing = true;
+		public static void DBusMessage (string message, string content)
+		{
+			switch (message) {
+				case "change_station":
+					connection.ChangeStation(content);
+					player_window.Present();
+					break;
+				case "focus_instance":
+					// if player window is hidden don't show it
+					if (player_window.Visible == true) { 
+						player_window.Present();
+					}
+					break;
+			}
 		}
 
+		public static Config config;
+
 		public static void Main (string[] args) {
+			DBus.dbus_g_thread_init ();
 			string username;
 			string password;
 
 			Driver.SetProcessName ("last-exit");
-			new Gnome.Program ("last-exit", "0.1", Gnome.Modules.UI, args);
+			Application.Init("last-exit", ref args);
 
+
+					
 			switch (DBus.CheckInstance ()) {
-			case DBus.DBusState.Error:
-				Console.WriteLine ("Error contacting other instance.");
-				break;
+				case DBus.DBusState.Error:
+					Console.WriteLine ("Error contacting other instance.");
+					break;
 
-			case DBus.DBusState.AlreadyRunning:
-				if (args.Length > 0) {
-					DBus.ChangeStation (args[0]);
-				}
-				return;
+				case DBus.DBusState.AlreadyRunning:
+					if (args.Length > 0) {
+						DBus.ChangeStation (args[0]);
+					} else {
+						DBus.FocusInstance ();
+					}
+					return;
 				
-			case DBus.DBusState.NotRunning:
-				DBus.Init (new DBus.StationChangeHandler (DBusChangeStation));
-				break;
+				case DBus.DBusState.NotRunning:
+					DBus.Init (DBusMessage);
+					break;
 			}
-				
+					
+
 			StockIcons.Initialize ();
 
 			SetDefaultWindowIcon ();
@@ -85,18 +103,20 @@ namespace LastExit
 				int response = frd.Run ();
 
 				frd.Visible = false;
-				switch (response) {
-				case (int) ResponseType.Reject:
-					Environment.Exit (0);
-					break;
 
-				case (int) ResponseType.Ok:
-					config.Username = frd.Username;
-					config.Password = frd.Password;
-					break;
+				switch (response) {
+					case (int) ResponseType.Reject:
+						Gtk.Application.Quit();
+						Environment.Exit (0);
+						break;
+
+					case (int) ResponseType.Ok:
+						config.Username = frd.Username;
+						config.Password = frd.Password;
+						break;
 					
-				default:
-					break;
+					default:
+						break;
 				}
 
 				frd.Destroy ();
@@ -105,8 +125,8 @@ namespace LastExit
 
 			Driver.SetUpConfigDirectory ();
 
-			TrayIcon.ShowNotifications = config.ShowNotifications;
-			
+			//TrayIcon.ShowNotifications = config.ShowNotifications;
+		
 			username = config.Username;
 			password = config.Password;
 
@@ -146,10 +166,11 @@ namespace LastExit
 
 		[DllImport ("libc")]
 		private static extern int prctl (int option,  
-						 byte[] arg2,
-						 ulong arg3,
-						 ulong arg4,
-						 ulong arg5);
+				 byte[] arg2,
+				 ulong arg3,
+				 ulong arg4,
+				 ulong arg5);
+	
 		private static void SetProcessName (string name)
 		{
 			if (prctl (15, Encoding.ASCII.GetBytes (name + "\0"), 0, 0, 0) != 0) {
@@ -159,7 +180,7 @@ namespace LastExit
 
 		private static void SetUpConfigDirectory ()
 		{
-			config_directory = Path.Combine (Gnome.User.DirGet (), "last-exit");
+			config_directory = Path.Combine (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "last-exit");
 			DirectoryInfo dinfo = new DirectoryInfo (config_directory);
 			if (dinfo.Exists) {
 				return;
@@ -168,12 +189,12 @@ namespace LastExit
 			dinfo.Create ();
 		}
 
-                public static Actions Actions {
-                        get { return actions; }
-                }
+		public static Actions Actions {
+			get { return actions; }
+		}
 
-                public static PlayerWindow PlayerWindow {
-                        get { return player_window; }
-                }
+		public static PlayerWindow PlayerWindow {
+			get { return player_window; }
+		}
 	}
 }

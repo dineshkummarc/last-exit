@@ -31,8 +31,11 @@ namespace LastExit
 			AlreadyRunning
 		};
 
-		public delegate void StationChangeHandler (string station);
+		public delegate void DBusMessageHandler (string message, string args);
 
+		[DllImport ("dbus-glib-1")]
+		public static extern void dbus_g_thread_init ();
+		
 		[DllImport ("liblastexit")]
 		public static extern int check_lastexit ();
 
@@ -44,9 +47,9 @@ namespace LastExit
 		}
 
 		[DllImport ("liblastexit")]
-		public static extern int init_dbus (StationChangeHandler handler);
+		public static extern int init_dbus (DBusMessageHandler handler);
 
-		public static void Init (StationChangeHandler handler) {
+		public static void Init (DBusMessageHandler handler) {
 			init_dbus (handler);
 		}
 
@@ -55,6 +58,13 @@ namespace LastExit
 
 		public static bool ChangeStation (string station) {
 			return dbus_change_station (station);
+		}
+		
+		[DllImport ("liblastexit")]
+		public static extern bool dbus_focus_instance ();
+		
+		public static bool FocusInstance () { 
+			return dbus_focus_instance ();
 		}
 	}
 }

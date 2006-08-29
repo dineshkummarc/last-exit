@@ -1,3 +1,4 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
  *  Authors: Baris Cicek <baris@teamforce.name.tr>
  *
@@ -32,39 +33,44 @@ namespace LastExit
 		private Image trayicon_image;
 		private TrackInfoPopup popup;
 		private bool can_show_popup = false;
+		public  bool CanShowPopup {
+			set { can_show_popup = value; }
+			get { return can_show_popup; }
+		}		
 		private bool cursor_over_trayicon = false;
 		private Song current_song = null;
-                private Menu menu;
+				private Menu menu;
 
-                private int menu_x;
-                private int menu_y;
+				private int menu_x;
+				private int menu_y;
 
-                private static bool show_notifications = true;
+				private static bool show_notifications = Driver.config.ShowNotifications;
+
 		public static bool ShowNotifications {
 			set { show_notifications = value; }
 		}
 		
-                private void PositionMenu (Menu menu, out int x, out int y, out bool push_in) {
+				private void PositionMenu (Menu menu, out int x, out int y, out bool push_in) {
 			x = menu_x;
 			y = menu_y;
 			
-                        int           monitor = ((Widget) menu).Screen.GetMonitorAtPoint  (x, y   );
-			Gdk.Rectangle rect    = ((Widget) menu).Screen.GetMonitorGeometry (monitor);
+						int		   monitor = ((Widget) menu).Screen.GetMonitorAtPoint  (x, y   );
+			Gdk.Rectangle rect	= ((Widget) menu).Screen.GetMonitorGeometry (monitor);
 			
-                        int space_above = y - rect.Y;
-                        int space_below = rect.Y + rect.Height - y;
+						int space_above = y - rect.Y;
+						int space_below = rect.Y + rect.Height - y;
 			
-                        Requisition requisition = menu.SizeRequest ();
+						Requisition requisition = menu.SizeRequest ();
 			
-                        if (requisition.Height <= space_above ||
-			    requisition.Height <= space_below) {
+						if (requisition.Height <= space_above ||
+				requisition.Height <= space_below) {
 				
 				if (requisition.Height <= space_below)
 					y += event_box.Allocation.Height;
 				else
 					y -= requisition.Height;
 				
-                        } else if (requisition.Height > space_below &&
+						} else if (requisition.Height > space_below &&
 				   requisition.Height > space_above) {
 				
 				if (space_below >= space_above)
@@ -72,12 +78,12 @@ namespace LastExit
 				else
 					y = rect.Y;
 				
-                        } else {
-                                y = rect.Y;
-                        }
+						} else {
+								y = rect.Y;
+						}
 			
-                        push_in = true;
-                }
+						push_in = true;
+				}
 		
 		private void OnNotificationAreaIconClick (object o, 
 							  ButtonPressEventArgs args) {
@@ -90,19 +96,23 @@ namespace LastExit
 				menu_x = (int) args.Event.XRoot - (int) args.Event.X;
 				menu_y = (int) args.Event.YRoot - (int) args.Event.Y;
 				menu.Popup (null, null, new MenuPositionFunc (PositionMenu),
-					    args.Event.Button, args.Event.Time);
+						args.Event.Button, args.Event.Time);
 				break;
 			}
 		}
 		
-                private void OnMenuDeactivated (object o, EventArgs args) {
+				private void OnMenuDeactivated (object o, EventArgs args) {
 			//icon.State = StateType.Normal
 		}
+
+				public void OnGConfShowNotificationsChanged (object o, GConf.NotifyEventArgs args) {
+						show_notifications = Driver.config.ShowNotifications;
+				}
 		
 		private void PositionWidget (Widget widget, 
-					     out int x, 
-					     out int y, 
-					     int yPadding) {
+						 out int x, 
+						 out int y, 
+						 int yPadding) {
 			int button_y, panel_width, panel_height;
 			
 			Gtk.Requisition requisition = widget.SizeRequest ();
@@ -125,7 +135,7 @@ namespace LastExit
 			
 			PositionWidget(popup, out x, out y, 5);
 			
-			x = x - (popup_req.Width / 2) + (event_box_req.Width / 2);     
+			x = x - (popup_req.Width / 2) + (event_box_req.Width / 2);	 
 			if (x + popup_req.Width >= event_box.Screen.Width) { 
 				x = event_box.Screen.Width - popup_req.Width - 5;
 			}
@@ -146,7 +156,7 @@ namespace LastExit
 				// tray icon after 500ms
 				GLib.Timeout.Add (500, delegate {
 					if ((cursor_over_trayicon) 
-					    && (can_show_popup)) {
+						&& (can_show_popup)) {
 						ShowPopup();
 					}
 					return false;
@@ -158,7 +168,7 @@ namespace LastExit
 			popup.Hide ();
 		}
 		
-		private void ShowPopup () {
+		public void ShowPopup () {
 			PositionPopup ();
 			popup.Show ();
 		}
@@ -182,7 +192,7 @@ namespace LastExit
 				popup.Artist = "";
 			}
 			
-			SetShowPopup (true);
+			CanShowPopup = true;
 		}
 		
 		public void UpdateCover (Gdk.Pixbuf newcover) { 
@@ -201,10 +211,7 @@ namespace LastExit
 				byline, newcover, event_box);
 		}
 		
-		public void SetShowPopup (bool value) { 
-			can_show_popup = value;
-		}
-		
+
 		public TrayIcon (Gtk.Window window) {
 			player_window = window;
 			
@@ -221,7 +228,12 @@ namespace LastExit
 			Driver.Actions.UIManager.AddUiFromResource ("TrayIcon.xml");
 			menu = (Menu) Driver.Actions.UIManager.GetWidget ("/Menu");
 			menu.Deactivated += new EventHandler (OnMenuDeactivated);
-			trayicon.ShowAll();
+
+						// Watch the GConf show_notifications key and fire an event
+						string NotifyKey = "/apps/lastexit/show_notifications";
+						Driver.config.GConfAddNotify (NotifyKey, OnGConfShowNotificationsChanged);
+			
+						trayicon.ShowAll();
 			
 			// Setting callback procs 
 			event_box.ButtonPressEvent += OnNotificationAreaIconClick;
@@ -237,7 +249,7 @@ namespace LastExit
 
 		[DllImport("notify")]
 		private static extern IntPtr notify_notification_new(string summary, string message,
-								     string icon, IntPtr widget);
+									 string icon, IntPtr widget);
 
 		[DllImport("notify")]
 		private static extern void notify_notification_set_timeout(IntPtr notification,
@@ -257,7 +269,7 @@ namespace LastExit
 		private static extern void g_object_unref(IntPtr o);
 
 		private static void Notify (string summary, string message,
-					    Gdk. Pixbuf image, Widget widget) {
+						Gdk. Pixbuf image, Widget widget) {
 			if (show_notifications == false) {
 				return;
 			}
@@ -308,9 +320,9 @@ namespace LastExit
 			cover_image.Visible = true;
 			
 			Alignment al = new Alignment ((float) 0.0, 
-						      (float) 0.5, 
-						      (float) 1.0, 
-						      (float) 0.0);
+							  (float) 0.5, 
+							  (float) 1.0, 
+							  (float) 0.0);
 			containerbox.Add (al);
 			
 			box = new VBox ();

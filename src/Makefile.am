@@ -41,7 +41,8 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/UrlLabel.cs			\
 	$(srcdir)/User.cs			\
 	$(srcdir)/VolumeButton.cs \
-	$(srcdir)/About.cs
+	$(srcdir)/About.cs \
+	$(srcdir)/Preferences.cs
 
 LASTEXIT_ASSEMBLIES =				\
 	-r:Mono.Posix				\
@@ -50,6 +51,7 @@ LASTEXIT_ASSEMBLIES =				\
 LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/glade/FindStation.glade	\
 	-resource:$(top_srcdir)/data/glade/FirstRunDialog.glade	\
+	-resource:$(top_srcdir)/data/glade/Preferences.glade	\
 	-resource:$(top_srcdir)/data/glade/InfoWindow.glade	\
 	-resource:$(top_srcdir)/data/glade/PlayerWindow.glade	\
 	-resource:$(top_srcdir)/data/glade/SimilarResults.glade	\
@@ -78,7 +80,7 @@ $(TARGET).config: $(srcdir)/$(TARGET).config.in
 	sed -e "s|\@pkglibdir\@|$(pkglibdir)|" 		\
 	    < $^ > $@
 
-$(TARGET): $(LASTEXIT_CSFILES)
+$(TARGET): $(LASTEXIT_CSFILES) $(top_builddir)/data/ui/TrayIcon.xml
 	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS)
 
 all: $(TARGET)
@@ -96,4 +98,5 @@ EXTRA_DIST =					\
 CLEANFILES = 					\
 	$(TARGET)				\
 	$(TARGET).config			\
+	$(TARGET).mdb				\
 	$(WRAPPER)

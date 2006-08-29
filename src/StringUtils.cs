@@ -47,7 +47,6 @@ namespace LastExit
 				return null;
 			}
 
-			Console.WriteLine (s);
 			s = s.Replace ("&", "&amp;");
 			s = s.Replace ("<", "&lt;");
 

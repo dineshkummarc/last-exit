@@ -42,6 +42,7 @@ namespace LastExit
 		[Glade.Widget] private Button hate_button;
 		[Glade.Widget] private Button tag_button;
 		[Glade.Widget] private Button journal_button;
+		[Glade.Widget] private Button preferences_button;
 
 		private VolumeButton volume_button;
 
@@ -118,7 +119,6 @@ namespace LastExit
 		
 		public void UpdatePlayingUI () {
 			((ToggleAction) Driver.Actions ["TogglePlay"]).Active = Driver.player.Playing;
-			Console.WriteLine("playing?: {0}", Driver.player.Playing);
 		}
 		
 		// Hack to stop the player playing when we change the combo.
@@ -184,6 +184,7 @@ namespace LastExit
 			hate_button.Clicked += new EventHandler (OnHateButtonClicked);
 			tag_button.Clicked += new EventHandler (OnTagButtonClicked);
 			journal_button.Clicked += new EventHandler (OnJournalButtonClicked);
+			preferences_button.Clicked += new EventHandler (OnPreferencesButtonClicked);
 			info_button.Clicked += new EventHandler (OnInfoButtonClicked);
 			KeyPressEvent += OnKeyPressEvent;
 
@@ -255,7 +256,7 @@ namespace LastExit
 								 "/loved"),
 				     Driver.connection.Subscriber);
 			add_station (null, "Recommended Music Station",
-				     FMConnection.MakeRecommendedRadio (Driver.connection.Username, 100), true);
+				     FMConnection.MakeRecommendedRadio (Driver.connection.Username, Driver.config.RecommendationLevel), true);
 			stations.AppendValues (null, "last-exit:separator", true, null);
 			stations.AppendValues (null, "Other Station...", 
 					       true, null);
@@ -423,7 +424,6 @@ namespace LastExit
 			ToggleButton t = o as ToggleButton;
 			TreeIter iter;
 
-			Console.WriteLine ("toggled");
 			if (internal_toggle == true) {
 				internal_toggle = false;
 				return;
@@ -435,7 +435,7 @@ namespace LastExit
 				song_label.Markup = "";
 				this.Title = "Last Exit";
 
-				trayicon.SetShowPopup (false);
+				trayicon.CanShowPopup = false;
 				// FIXME: Need a blank cover.
 				Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
 				cover_image.ChangePixbuf (cover);
@@ -518,6 +518,10 @@ namespace LastExit
 			Driver.OpenUrl (url);
 		}
 
+		private void OnPreferencesButtonClicked (object o, EventArgs args) {
+			PreferencesDialog prefs = new PreferencesDialog ();
+		}
+		
 		private void OnInfoWindowResponse (object o, ResponseArgs args)
 		{
 			i_window.Destroy ();
@@ -616,7 +620,7 @@ namespace LastExit
 			}
 
 			Driver.player.Location = Driver.connection.StreamUrl + "=" + Driver.connection.Session;
-			Console.WriteLine (Driver.connection.StreamUrl + "=" + Driver.connection.Session);
+			//Console.WriteLine (Driver.connection.StreamUrl + "=" + Driver.connection.Session);
 			Driver.player.Play ();
 		}
 

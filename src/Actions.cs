@@ -31,48 +31,54 @@ namespace LastExit
 	public class Actions : ActionGroup
 	{
 
-                private static readonly string string_toggle_visible =
+		private static readonly string string_toggle_visible =
 			Catalog.GetString ("Show _Window");
 
 		private static readonly string string_toggle_play =
 			Catalog.GetString ("_Play");
 
-                private static readonly string string_next =
+		private static readonly string string_next =
 			Catalog.GetString ("_Next");
 
 		private static readonly string string_about =
 			Catalog.GetString ("_About");
 
+		private static readonly string string_preferences =
+			Catalog.GetString ("_Preferences");
+
 		private static readonly string string_love =
-			Catalog.GetString ("_Love");
+			Catalog.GetString ("_Love Song");
 
 		private static readonly string string_hate =
-			Catalog.GetString ("_Hate");
+			Catalog.GetString ("_Hate Song");
 
 		// Static
 		// Static :: Objects
 		// Static :: Objects :: Entries
 		private static ActionEntry [] entries = {
-                    new ActionEntry ("Quit", Stock.Quit, null,
-                        "<control>Q", null, null),
+                        new ActionEntry ("Quit", Stock.Quit, null,
+			        "<control>Q", null, null),
 			
-                    new ActionEntry ("Next", "stock_media-next", string_next,
-                        "N", null, null),
+                        new ActionEntry ("Next", "stock_media-next", string_next,
+			        "N", null, null),
 			
-                    new ActionEntry ("Love", "face-smile", string_love,
-                        "L", null, null),
+			new ActionEntry ("Love", "face-smile", string_love,
+				"L", null, null),
 			
-                    new ActionEntry ("Hate", "face-sad", string_hate,
-                        "H", null, null),
+			new ActionEntry ("Hate", "face-sad", string_hate,
+				"H", null, null),
 
-                    new ActionEntry ("About", Gnome.Stock.About, string_about,
-                        null, null, null)
+			new ActionEntry ("About", Gtk.Stock.About, string_about,
+				null, null, null),
+					
+			new ActionEntry ("Preferences", Gtk.Stock.Properties, string_preferences,
+				null, null, null)
 		};
 
 		// Static :: Objects :: Toggle Entries
 		private static ToggleActionEntry [] toggle_entries = {
 			new ToggleActionEntry ("TogglePlay", "stock_media-play", string_toggle_play,
-			       "P", null, null, false),
+				   "P", null, null, false),
 
 			new ToggleActionEntry ("ToggleVisible", null, string_toggle_visible,
 				"Escape", null, null, true),
@@ -120,13 +126,14 @@ namespace LastExit
 			//ui_manager.AddUiFromResource ("PlaylistWindow.xml");
 			
 			// Setup Callbacks
-                        this ["ToggleVisible"].Activated += new EventHandler (OnToggleVisible);
-                        this ["Quit"         ].Activated += new EventHandler (OnQuit         );
-                        this ["Next"         ].Activated += new EventHandler (OnNext         );
-                        this ["About"        ].Activated += new EventHandler (OnAbout        );
-                        this ["TogglePlay"   ].Activated += new EventHandler (OnTogglePlay   );
-                        this ["Love"   ].Activated += new EventHandler (OnLoved   );
-                        this ["Hate"   ].Activated += new EventHandler (OnHated   );
+			this ["ToggleVisible"].Activated += new EventHandler (OnToggleVisible);
+			this ["Quit"		 ].Activated += new EventHandler (OnQuit		 );
+			this ["Next"		 ].Activated += new EventHandler (OnNext		 );
+			this ["About"		].Activated += new EventHandler (OnAbout		);
+			this ["Preferences"		].Activated += new EventHandler (OnPreferences		);
+			this ["TogglePlay"   ].Activated += new EventHandler (OnTogglePlay   );
+			this ["Love"   ].Activated += new EventHandler (OnLoved   );
+			this ["Hate"   ].Activated += new EventHandler (OnHated   );
 		}
 
 		// Properties
@@ -168,16 +175,16 @@ namespace LastExit
 		///	The <see cref="EventArgs" />.
 		/// </param>
 
-                private void OnToggleVisible (object o, EventArgs args)
-                {
-                        ToggleAction a = (ToggleAction) o;
+		private void OnToggleVisible (object o, EventArgs args)
+		{
+        	        ToggleAction a = (ToggleAction) o;
 
-                        if (a.Active == Driver.PlayerWindow.Visible)
-                                return;
+		        if (a.Active == Driver.PlayerWindow.Visible)
+		                return;
 
-                        Driver.PlayerWindow.SetWindowVisible (!Driver.PlayerWindow.WindowVisible,
-                                Gtk.Global.CurrentEventTime);
-                }
+		        Driver.PlayerWindow.SetWindowVisible (!Driver.PlayerWindow.WindowVisible,
+		        Gtk.Global.CurrentEventTime);
+		}
 
 		// Handlers :: OnQuit
 		/// <summary>
@@ -195,7 +202,7 @@ namespace LastExit
 		private void OnQuit (object o, EventArgs args)
 		{
                         Driver.PlayerWindow.Quit ();
-		}
+                }
 
 		// Handlers :: OnNext
 		/// <summary>
@@ -212,18 +219,18 @@ namespace LastExit
 		/// </param>
 		private void OnNext (object o, EventArgs args)
 		{
-			Driver.connection.Skip ();
+                        Driver.connection.Skip ();
 		}
 
-                private void OnLoved (object o, EventArgs args)
-                {
+		private void OnLoved (object o, EventArgs args)
+		{
                         Driver.PlayerWindow.ActivateLoveButton ();
-                }
-        
-                private void OnHated (object o, EventArgs args)
-                {
-                        Driver.PlayerWindow.ActivateHateButton ();
-                }
+		}
+		
+		private void OnHated (object o, EventArgs args)
+		{
+			Driver.PlayerWindow.ActivateHateButton ();
+		}
 		
 		// Handlers :: OnAbout
 		/// <summary>
@@ -243,6 +250,11 @@ namespace LastExit
 			new LastExit.About (Driver.PlayerWindow);
 		}
 
+		private void OnPreferences (object o, EventArgs args)
+		{
+			PreferencesDialog prefs = new PreferencesDialog ();
+		}
+
 		// Handlers :: OnTogglePlay
 		/// <summary>
 		/// 	Handler called when the TogglePlay action is activated.
@@ -257,13 +269,13 @@ namespace LastExit
 		/// <param name="args">
 		///	The <see cref="EventArgs" />.
 		/// </param>
-                private void OnTogglePlay (object o, EventArgs args)
+		private void OnTogglePlay (object o, EventArgs args)
 		{
-                        ToggleAction a = (ToggleAction) o;
+		        ToggleAction a = (ToggleAction) o;
 
                         if (a.Active == Driver.player.Playing)
-                            return;
-            
+			        return;
+			
                         Driver.PlayerWindow.TogglePlayButton ();
 		}
 	}

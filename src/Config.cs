@@ -28,6 +28,7 @@ namespace LastExit {
 		private const string GConfUsername = "/apps/lastexit/username";
 		private const string GConfPassword = "/apps/lastexit/password";
 		private const string GConfVolume = "/apps/lastexit/volume";
+		private const string GConfRecommendationLevel = "/apps/lastexit/recommendation_level";
 
 		private const string GConfShowNotifications = "/apps/lastexit/show_notifications";
 
@@ -101,6 +102,21 @@ namespace LastExit {
 			set { config.Set (GConfVolume, (object) value); }
 		}
 
+		public int RecommendationLevel {
+			get { 
+				object o;
+				try {
+					o = config.Get (GConfRecommendationLevel); 
+				} catch (GConf.NoSuchKeyException) {
+					config.Set (GConfRecommendationLevel, (object) 100);
+					return 100;
+				}
+
+				return (int) o;
+			}
+			set { config.Set (GConfRecommendationLevel, (object) value); }
+		}
+
 		public bool ShowNotifications {
 			get { 
 				object o;
@@ -119,7 +135,13 @@ namespace LastExit {
 					return (bool) o;
 				}
 			}
+            set { config.Set (GConfShowNotifications, (object) value); }
 		}
+
+        public void GConfAddNotify (string dir, NotifyEventHandler handler)
+        {
+            config.AddNotify (dir, handler);
+        }
 
 		public Config () {
 			config = new GConf.Client ();

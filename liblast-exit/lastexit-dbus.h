@@ -29,15 +29,17 @@ G_BEGIN_DECLS
 #define DBUS_OBJECT "/org/gnome/LastExit"
 #define DBUS_INTERFACE "org.gnome.LastExit.interface"
 
-typedef void (* StationChangeHandler ) (const char * station);
+typedef void (* DBusMessageHandler ) (const gchar * message , const gchar * content);
 
 GObject *lastexit;
 DBusGConnection *conn;
 DBusGProxy *proxy;
 
 static gboolean lastexit_change_station (GObject *obj, const gchar *station, GError **error);
+static gboolean lastexit_focus_instance (GObject *obj, GError **error);
 
-gboolean init_dbus(StationChangeHandler handler);
+
+gboolean init_dbus(DBusMessageHandler handler);
 guint check_lastexit (void);
 
 G_END_DECLS

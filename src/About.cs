@@ -25,12 +25,9 @@ using Mono.Unix;
 
 namespace LastExit
 {
-	public class About : Gnome.About
+	public class About : Gtk.AboutDialog
 	{
 		// Strings
-		private static readonly string string_translators = 
-			Catalog.GetString ("translator-credits");
-
 		private static readonly string string_lastexit =
 			Catalog.GetString ("Last Exit");
 
@@ -43,7 +40,7 @@ namespace LastExit
 		// Authors
 		private static readonly string [] authors = {
 			Catalog.GetString ("Iain <iain@gnome.org>"),
-			Catalog.GetString ("Baris Cicek <foo@bar.com>"),
+			Catalog.GetString ("Baris Cicek <baris@teamforce.name.tr>"),
 			Catalog.GetString ("Brandon Hale <brandon@ubuntu.com>"),
 			"",
 			null,
@@ -60,26 +57,20 @@ namespace LastExit
 		// Variables
 		private static string translators;
 		
-		// Static Constructor
-		static About ()
-		{
-			// Translators
-			if (string_translators == "translator-credits")
-				translators = null;
-			else
-				translators = string_translators;
-		}
+        public About (Gtk.Window parent)
+        {
+                TransientFor = parent;
+                Name = string_lastexit;
+                Authors = authors;
+                Comments = string_description;
+                Copyright = string_copyright;
+                Documenters = documenters;
+                TranslatorCredits = translators;
+                Logo = pixbuf;
+                Website = "http://www.o-hand.com/~iain/last-exit/";
 
-		public About (Gtk.Window parent) : base (string_lastexit, 
-							 "3.0", 
-							 string_copyright, 
-							 string_description,
-							 authors, documenters, 
-							 translators, pixbuf)
-		{
-			TransientFor = parent;
-			
-			Show ();
-		}
+                Run ();
+                Destroy ();
+        }
 	}
 }

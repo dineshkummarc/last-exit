@@ -1,6 +1,103 @@
+2006-08-28  Brandon Hale  <brandon@ubuntu.com>
+	
+	Call dbus_g_thread_init first thing in Main(), fixing locking issues
+	in pre- DBus 0.92
+
+	Patch from Sebastian Dröge:
+	Change signature of DBusMessageHandler delegate to (string, string),
+	as mashsallying object[] in delegate paramater lists segfaults Mono.
+
+2006-08-27  Brandon Hale  <brandon@ubuntu.com>
+
+	* src/PlayerWindow.cs
+	data/ui/TrayIcon.xml:
+	Add a Preferences button to the main window where it belongs, remove
+	it from the tray menu.
+
 2006-08-21  Iain Holmes  <iain@gnome.org>
 
 	* liblast-exit/player.c: Use gconfaudiosink. Stop garret complaining.
+
+2006-08-13  Brandon Hale  <brandon@ubuntu.com>
+
+	* src/Config.cs
+	src/TrayIcon.cs
+	date/glade/Preferences.glade:
+	Add GConf event notifier, if show_notifications changes, reset the
+	local bool in TrayIcon. This means toggling the key no longer requires
+	a restart to take effect. Tips from Sebastian Dröge.
+
+	* Makefile.am
+	src/Makefile.am:
+	Add mkinstalldirs to MAINTAINERCLEANFILES, last-exit.exe.mdb to
+	CLEANFILES
+
+2006-08-12  Brandon Hale  <brandon@ubuntu.com>
+
+	* src/Preferences.cs:
+	Hook up Create new account / Join Last Exit group buttons
+
+2006-08-11  Brandon Hale  <brandon@ubuntu.com>
+
+	* data/glade/Preferences.glade:
+	Change Notification checkbox to reflect restart requirement.
+
+	* src/Preferences.cs:
+	Destroy the window on Close.
+
+2006-08-10  Brandon Hale  <brandon@ubuntu.com>
+
+	* data/glade/Preferences.glade
+	  src/Preferences.cs
+	  data/ui/TrayIcon.xml
+	  src/Actions.cs
+	  src/Config.cs
+	  src/Makefile.am:
+	  Add new Preferences dialog
+
+2006-08-09  Brandon Hale  <brandon@ubuntu.com>
+
+	* src/About.cs:
+	Change Show (); to Run (); Destory ();
+
+2006-08-05  TJ Fontaine  <tjfontaine@gmail.com>
+
+	* Win32 Portability Changes:
+	  Move from Gnome.About to Gtk.AboutDialog
+	  Change Gnome.User.Dir to Environment.SpecialFolders.ApplicationData (mv ~/.gnome2/last-exit ~/.config/last-exit)
+	  Move Gnome.Stock.About to Gtk.Stock.About.
+
+2006-08-05  Brandon Hale  <brandon@ubuntu.com>
+
+	* liblast-exit/lastexit-dbus.c
+	  liblast-exit/lastexit-dbus.h
+	  liblast-exit/lastexit.xml
+	  src/DBus.cs
+	  src/Driver.cs
+	  src/PlayerWindow.cs
+	  src/TrayIcon.cs:
+	  Merge DBus update from Baris Cicek, focus window if last-exit already
+	  running.
+
+	* data/ui/TrayIcon.xml:
+	Put the context menu on a diet. Remove About and Show Window toggle.
+	
+	* src/Makefile.am:
+	Patch from Aaron Bockover to force make to rebuild when TrayIcon.xml is
+	out-of-date.
+
+2006-08-04  Brandon Hale  <brandon@ubuntu.com>
+
+	* src/PlayerWindow.cs
+	  data/last-exit.schema.in:
+	  Add GConf key to allow setting the recommendation level for
+	  recommended radio.
+	* src/PlayerWindow.cs
+	  src/StringUtils.cs
+	  src/FMConnection.cs:
+	  Remove less useful Console.WriteLine debugging
+	* src/About.cs:
+	  Add Baris's real email address to Written By
 
 2006-08-03  Iain Holmes  <iain@gnome.org>
 

@@ -334,7 +334,6 @@ namespace LastExit
 			foreach (string line in lines) {
 				string[] opts = line.Split (new Char[] {'='});
 
-				Console.WriteLine (line);
 				switch (opts[0].ToLower ()) {
 				case "response":
 					if (opts[1] == "OK") {

@@ -13,3 +13,6 @@ DISTCLEANFILES =		\
 	intltool-extract	\
 	intltool-merge		\
 	intltool-update
+
+MAINTAINERCLEANFILES = \
+	mkinstalldirs

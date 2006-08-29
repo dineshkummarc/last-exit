@@ -1,9 +1,8 @@
 <ui>
   <popup name="Menu">
-    <menuitem action="TogglePlay" />
-    <menuitem action="ToggleVisible" />
-    <separator />
     <menuitem action="Next" />
+    <menuitem action="TogglePlay" />
+    <separator />
     <menuitem action="Love" />
     <menuitem action="Hate" />
     <separator />

@@ -47,6 +47,18 @@
 	<short>Volume</short>
 	<long>Volume setting (from 0-100)</long>
       </locale>
+  </schema>
+
+    <schema>
+      <key>/schemas/apps/lastexit/recommendation_level</key>
+      <applyto>/apps/lastexit/recommendation_level</applyto>
+      <owner>last-exit</owner>
+      <type>int</type>
+      <default>100</default>
+      <locale name="C">
+	<short>Recommendation Level</short>
+	<long>Recommended radio setting (from 0-100)</long>
+      </locale>
     </schema>
 
     <schema>

@@ -24,7 +24,7 @@
 #include <dbus/dbus-glib.h>
 #include <lastexit-dbus-glue.h>
 
-StationChangeHandler managed_callback; 
+DBusMessageHandler managed_callback; 
 
 
 /* dbus method for "chat_station" */
@@ -34,12 +34,21 @@ lastexit_change_station (GObject     *obj,
 			 const gchar *station, 
 			 GError     **error)
 {
-	managed_callback (station);
+	managed_callback ("change_station", station);
+	return TRUE;
+}
+
+
+static gboolean
+lastexit_focus_instance (GObject *obj,
+      GError **error)
+{
+	managed_callback ("focus_instance", NULL);
 	return TRUE;
 }
 
 gboolean
-init_dbus (StationChangeHandler handler)
+init_dbus (DBusMessageHandler handler)
 {
 	GError *err = NULL;
 	guint request_name_result;
@@ -122,6 +131,33 @@ dbus_change_station (const char *station) {
 	
 	if (!dbus_g_proxy_call (proxy, "change_station", &err,
 				G_TYPE_STRING, station,
+				G_TYPE_INVALID,
+				G_TYPE_INVALID)) {
+		g_printerr ("Error: %s\n", err->message);
+		g_error_free (err);
+		return FALSE;
+	}
+}  
+gboolean
+dbus_focus_instance () { 
+	GError *err = NULL;
+	DBusGProxy *proxy;
+	
+	if (!conn) { 
+		conn = dbus_g_bus_get (DBUS_BUS_SESSION, &err);
+	}
+
+	if (!conn) {
+		g_printerr ("Error : %s\n", err->message);
+		g_error_free (err);
+		return 0;
+	}
+
+	proxy = dbus_g_proxy_new_for_name (conn, DBUS_SERVICE,
+					   DBUS_OBJECT,
+					   DBUS_INTERFACE);
+	
+	if (!dbus_g_proxy_call (proxy, "focus_instance", &err,
 				G_TYPE_INVALID,
 				G_TYPE_INVALID)) {
 		g_printerr ("Error: %s\n", err->message);
