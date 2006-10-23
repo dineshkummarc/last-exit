@@ -514,7 +514,7 @@ namespace LastExit
 
 		private void OnJournalButtonClicked (object o, EventArgs args) 
 		{
-			string url = "http://www.last.fm/user/" + Driver.connection.Username + "/journal/&action=create&artistname=" + current_song.Artist + "&trackname=" + current_song.Track;
+			string url = "http://www.last.fm/user/" + Driver.connection.Username + "/journal/?action=create&artistname=" + current_song.Artist + "&trackname=" + current_song.Track;
 			Driver.OpenUrl (url);
 		}
 

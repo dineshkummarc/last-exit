@@ -3,6 +3,7 @@ noinst_DATA =					\
 	FirstRunDialog.glade			\
 	InfoWindow.glade			\
 	PlayerWindow.glade			\
+	Preferences.glade			\
 	SimilarResults.glade			\
 	TagDialog.glade				\
 	TagResults.glade

@@ -1,3 +1,7 @@
+2006-10-23  Iain Holmes  <iain@gnome.org>
+
+	* src/PlayerWindow.cs: Patch from Priit Laes to fix Journal URL
+
 2006-08-28  Brandon Hale  <brandon@ubuntu.com>
 	
 	Call dbus_g_thread_init first thing in Main(), fixing locking issues
