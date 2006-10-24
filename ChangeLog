@@ -1,3 +1,7 @@
+2006-10-24  Iain holmes  <iain@gnome.org>
+
+	* liblast-exit/player.c: Patch to stop player on EOS from Priit
+
 2006-10-23  Iain Holmes  <iain@gnome.org>
 
 	* src/PlayerWindow.cs: Patch from Priit Laes to fix Journal URL

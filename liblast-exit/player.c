@@ -104,7 +104,7 @@ bus_message_cb (GstBus *bus,
 		break;
 
 	case GST_MESSAGE_EOS:
-		g_print ("Eos...\n");
+		player_stop (player);
 		break;
 
 	case GST_MESSAGE_STATE_CHANGED:
