@@ -65,15 +65,6 @@ namespace LastExit {
 				return;
 			}
 
-			if (image_url == null) {
-				// In an ideal bug free world where it isn't
-				// 1am, this would fire a signal with a No 
-				// Cover image...but I'm tired.
-				// Oh yeah, FIXME!
-				
-				return;
-			}
-
 			if (image_requested) {
 				return;
 			}
@@ -103,7 +94,19 @@ namespace LastExit {
 			width = w;
 			height = h;
 
-			request = (HttpWebRequest) WebRequest.Create (url);
+			try {
+				request = (HttpWebRequest) WebRequest.Create (url);
+			// FIXME: Any way to get rid of the duplicate stuff..?
+			} catch (UriFormatException) {
+				loader = null;
+				GLib.Idle.Add (new GLib.IdleHandler (image_loaded_handler));
+				return;
+			} catch (ArgumentNullException) {
+				loader = null;
+				GLib.Idle.Add (new GLib.IdleHandler (image_loaded_handler));
+				return;
+			}
+
 			Request = request;
 
 			try {
