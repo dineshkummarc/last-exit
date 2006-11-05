@@ -41,7 +41,7 @@ namespace LastExit
 		private static readonly string [] authors = {
 			Catalog.GetString ("Iain <iain@gnome.org>"),
 			Catalog.GetString ("Baris Cicek <baris@teamforce.name.tr>"),
-			Catalog.GetString ("Brandon Hale <bhale@gnome.org>"),
+			Catalog.GetString ("Brandon Hale <brandon@ubuntu.com>"),
 			"",
 			null,
 		};
