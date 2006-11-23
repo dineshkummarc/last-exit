@@ -1,5 +1,11 @@
 2006-11-23  Brandon Hale  <brandon@ubuntu.com>
 
+	* src/NotificationArea.cs:
+	Copy the latest code from Muine to properly support transparent
+	panels, bug #365099
+
+2006-11-23  Brandon Hale  <brandon@ubuntu.com>
+
 	* src/last-exit.exe.config.in:
 	Add dllmap entry for dbus-glib-1, bug #356873
 

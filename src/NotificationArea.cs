@@ -9,7 +9,7 @@
 /*  THIS FILE IS LICENSED UNDER THE MIT LICENSE AS OUTLINED IMMEDIATELY BELOW: 
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a
- *  copy of this software and associated documentation files (the "Software"),
+ *  copy of this software and associated documentation files (the "Software"),  
  *  to deal in the Software without restriction, including without limitation  
  *  the rights to use, copy, modify, merge, publish, distribute, sublicense,  
  *  and/or sell copies of the Software, and to permit persons to whom the  
@@ -20,7 +20,7 @@
  *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
@@ -120,9 +120,39 @@ public class NotificationArea : Plug
 		filter = new FilterFunc (ManagerFilter);
 	}
 
+        [GLib.ConnectBefore]
+        private void TransparentExposeEvent (object obj, Gtk.ExposeEventArgs args)
+	{
+		Gtk.Widget widget = (Gtk.Widget)obj;
+		Gdk.Rectangle area = args.Event.Area;
+
+		widget.GdkWindow.ClearArea (area.X, area.Y, area.Width, area.Height);
+	}
+
+	private void MakeTransparentAgain (object obj, Gtk.StyleSetArgs args)
+	{
+		Gtk.Widget widget = (Gtk.Widget)obj;
+
+		widget.GdkWindow.SetBackPixmap (null, true);
+	}
+
+        private void MakeTransparent (object obj, EventArgs args)
+	{
+		Gtk.Widget widget = (Gtk.Widget)obj;
+		if (widget.IsNoWindow || widget.IsAppPaintable)
+			return;
+
+		widget.AppPaintable = true;
+		widget.DoubleBuffered = false;
+		widget.GdkWindow.SetBackPixmap (null, true);
+		widget.ExposeEvent += TransparentExposeEvent;
+		widget.StyleSet += MakeTransparentAgain;
+	}
+
 	protected override void OnRealized ()
 	{
 		base.OnRealized ();
+		MakeTransparent (this, EventArgs.Empty);
 		Display display = Screen.Display;
 		IntPtr xdisplay = gdk_x11_display_get_xdisplay (display.Handle);
 		selection_atom = XInternAtom (xdisplay, "_NET_SYSTEM_TRAY_S" + Screen.Number.ToString (), false);
@@ -133,6 +163,12 @@ public class NotificationArea : Plug
 		UpdateManagerWindow (false);
 		SendDockRequest ();
 		Screen.RootWindow.AddFilter (filter);
+	}
+
+	protected override void OnAdded (Gtk.Widget child)
+	{
+		child.Realized += MakeTransparent;
+		base.OnAdded (child);
 	}
 
 	protected override void OnUnrealized ()
