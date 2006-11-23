@@ -68,7 +68,7 @@ LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/icons/person-image.png	\
 	-resource:$(top_srcdir)/data/icons/secure.png		\
 	-resource:$(top_srcdir)/data/icons/unknown-cover.png \
-	-resource:$(top_srcdir)/data/icons/last-exit.svg \
+	-resource:$(top_srcdir)/data/icons/last-exit-scalable.svg \
 	-resource:$(top_srcdir)/data/ui/TrayIcon.xml,TrayIcon.xml
 
 $(WRAPPER): $(srcdir)/$(WRAPPER).in

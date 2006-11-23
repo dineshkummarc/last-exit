@@ -11,6 +11,10 @@
 	Apply patches from Pritt on bug #365091 to fix things up 
 	for translators.
 
+	* data/icons/*:
+	Fix for bug #354430, install application icons properly into the icon
+	theme. We still need a 32x32 icon for you artists out there.
+
 2006-11-01  Iain Holmes  <iain@gnome.org>
 
 	* src/ImageLoader.cs: Catch bad urls from Priit
