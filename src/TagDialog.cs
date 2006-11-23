@@ -25,6 +25,7 @@ using System.Web;
 using System.Xml;
 
 using Gtk;
+using Mono.Unix;
 
 namespace LastExit {
         public class TagDialog : Dialog {
@@ -40,7 +41,7 @@ namespace LastExit {
 
 		private Song song;
 
-	        public TagDialog (Window w, Song s) : base ("Tag A Song", w, DialogFlags.DestroyWithParent) {
+	        public TagDialog (Window w, Song s) : base (Catalog.GetString("Tag A Song"), w, DialogFlags.DestroyWithParent) {
 			this.HasSeparator = false;
 			this.SetDefaultSize (415, 225);
 			song = s;
@@ -53,7 +54,8 @@ namespace LastExit {
 
 			GetTagsForSong (song);
 
-			this.AddButton ("Close", ResponseType.Close);
+			// FIXME: Use stock...
+			this.AddButton (Catalog.GetString("Close"), ResponseType.Close);
 
 			tag_contents.Visible = true;
 		}
@@ -81,6 +83,7 @@ namespace LastExit {
 
 		private void OnTagTypeChanged (object o, EventArgs args)
 		{
+			// FIXME: l10n???
 			switch (tag_type_combo.Active) {
 			case 0:
 				this.Title = "Tag '" + song.Track + "'";

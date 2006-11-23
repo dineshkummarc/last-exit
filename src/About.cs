@@ -35,27 +35,26 @@ namespace LastExit
 			Catalog.GetString ("Copyright © 2006 Iain Holmes");
 
 		private static readonly string string_description =
-			Catalog.GetString ("A last.fm radio player");
+			Catalog.GetString ("A Last.fm radio player");
 		
 		// Authors
 		private static readonly string [] authors = {
-			Catalog.GetString ("Iain <iain@gnome.org>"),
+			Catalog.GetString ("Iain Holmes <iain@gnome.org>"),
 			Catalog.GetString ("Baris Cicek <baris@teamforce.name.tr>"),
 			Catalog.GetString ("Brandon Hale <brandon@ubuntu.com>"),
-			"",
 			null,
 		};
 		
 		// Documenters
 		private static readonly string [] documenters = {
-			null,
 		};
 
 		// Icon
 		private static readonly Gdk.Pixbuf pixbuf = new Gdk.Pixbuf (null, "last-exit-16.png");
 	
 		// Variables
-		private static string translators;
+		private static string translators =
+			Catalog.GetString ("translator-credits");
 		
         public About (Gtk.Window parent)
         {
@@ -64,8 +63,12 @@ namespace LastExit
                 Authors = authors;
                 Comments = string_description;
                 Copyright = string_copyright;
-                Documenters = documenters;
-                TranslatorCredits = translators;
+		// FIXME: Remove this check when we have docs :)
+		Documenters = (documenters.Length > 0) ? documenters : null;
+		if (System.String.Compare (translators, 
+					"translator-credits") != 0) {
+                	TranslatorCredits = translators;
+		}
                 Logo = pixbuf;
                 Website = "http://www.o-hand.com/~iain/last-exit/";
 

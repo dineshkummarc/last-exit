@@ -23,6 +23,7 @@ using System;
 using System.Collections;
 
 using Gtk;
+using Mono.Unix;
 
 namespace LastExit
 {
@@ -244,21 +245,21 @@ namespace LastExit
 			// Create a store for the stations
 			stations = new StationStore (typeof (Gdk.Pixbuf), typeof (String), typeof (bool), typeof (String));
 
-			add_station (neighbour_image, "Neighbour Station", 
+			add_station (neighbour_image, Catalog.GetString("Neighbour Station"),
 				     FMConnection.MakeUserRadio (Driver.connection.Username, 
 								 "/neighbours"), true);
-			add_station (user_image, "Personal Station", 
+			add_station (user_image, Catalog.GetString("Personal Station"), 
 				     FMConnection.MakeUserRadio (Driver.connection.Username,
 								 "/personal"), 
 				     Driver.connection.Subscriber);
-			add_station (favourite_image, "Favourites Station", 
+			add_station (favourite_image, Catalog.GetString("Favourites Station"), 
 				     FMConnection.MakeUserRadio (Driver.connection.Username,
 								 "/loved"),
 				     Driver.connection.Subscriber);
-			add_station (null, "Recommended Music Station",
+			add_station (null, Catalog.GetString("Recommended Music Station"),
 				     FMConnection.MakeRecommendedRadio (Driver.connection.Username, Driver.config.RecommendationLevel), true);
 			stations.AppendValues (null, "last-exit:separator", true, null);
-			stations.AppendValues (null, "Other Station...", 
+			stations.AppendValues (null, Catalog.GetString("Other Station..."), 
 					       true, null);
 
 			// Add the recent stations too
@@ -687,6 +688,7 @@ namespace LastExit
 				song_label.Markup = "<span weight=\"bold\"> </span>";
 			}
 			
+			// FIXME: l10n ???
 			if (song.Album != null && song.Artist != null) {
 				artist_label.Markup = "<span size=\"smaller\">From <a href=\"" +song.AlbumUrl + "\">" + StringUtils.EscapeForPango (song.Album) + "</a> by <a href=\"" + song.ArtistUrl + "\">" + StringUtils.EscapeForPango (song.Artist) + "</a></span>";
 			} else if (song.Album == null) {
@@ -699,6 +701,7 @@ namespace LastExit
 
 			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
 			
+			// FIXME: l10n...
 			this.Title = song.Track + " by " + song.Artist;
 
 			love_button.Sensitive = true;
@@ -726,31 +729,31 @@ namespace LastExit
 		{
 			switch (errno) {
 			case 1:
-				show_error_message ("There is not enough content to play this station.");
+				show_error_message (Catalog.GetString("There is not enough content to play this station."));
 				break;
 
 			case 2:
-				show_error_message ("This group does not have enough members for radio.");
+				show_error_message (Catalog.GetString("This group does not have enough members for radio."));
 				break;
 
 			case 3:
-				show_error_message ("This artist does not have enough fans for radio.");
+				show_error_message (Catalog.GetString("This artist does not have enough fans for radio."));
 				break;
 
 			case 4:
-				show_error_message ("This item is not available for streaming.");
+				show_error_message (Catalog.GetString("This item is not available for streaming."));
 				break;
 				
 			case 5:
-				show_error_message ("This feature is only available to subscribers.");
+				show_error_message (Catalog.GetString("This feature is only available to subscribers."));
 				break;
 
 			case 6:
-				show_error_message ("There are not enough neighbours for this radio.");
+				show_error_message (Catalog.GetString("There are not enough neighbours for this radio."));
 				break;
 
 			case 7:
-				show_error_message ("This stream has stopped.");
+				show_error_message (Catalog.GetString("This stream has stopped."));
 				break;
 
 			default:

@@ -26,6 +26,7 @@ using System.Xml;
 using System.Globalization;
 
 using Gtk;
+using Mono.Unix;
 
 namespace LastExit
 {
@@ -69,7 +70,7 @@ namespace LastExit
 		private Artist selected_artist;
 		private string selneighbour;
 
-	        public FindStation (Window w) : base ("Find A Station", w, DialogFlags.DestroyWithParent) {
+	        public FindStation (Window w) : base (Catalog.GetString("Find A Station"), w, DialogFlags.DestroyWithParent) {
 			this.HasSeparator = false;
 			this.SetDefaultSize (430, 290);
 			
@@ -98,8 +99,8 @@ namespace LastExit
 
 			results_container.Add (neighbour_container);
 			
-			this.AddButton ("Cancel", ResponseType.Cancel);
-			this.AddButton ("Change Station", ResponseType.Ok);
+			this.AddButton (Catalog.GetString("Cancel"), ResponseType.Cancel);
+			this.AddButton (Catalog.GetString("Change Station"), ResponseType.Ok);
 			this.SetResponseSensitive (ResponseType.Ok, false);
 
 			SetupUI ();
@@ -178,12 +179,12 @@ namespace LastExit
 		private void SetupUI () 
 		{
 			search_combo = ComboBox.NewText ();
-			search_combo.AppendText ("Music that sounds like");
-			search_combo.AppendText ("Music that is tagged as");
-			search_combo.AppendText ("A neighbours station");
-			search_combo.AppendText ("A users station");
-			search_combo.AppendText ("Music from fans of");
-			search_combo.AppendText ("A group station");
+			search_combo.AppendText (Catalog.GetString("Music that sounds like"));
+			search_combo.AppendText (Catalog.GetString("Music that is tagged as"));
+			search_combo.AppendText (Catalog.GetString("A neighbours station"));
+			search_combo.AppendText (Catalog.GetString("A users station"));
+			search_combo.AppendText (Catalog.GetString("Music from fans of"));
+			search_combo.AppendText (Catalog.GetString("A group station"));
 			search_combo.Active = 0;
 			
 			search_combo.Visible = true;
@@ -576,7 +577,7 @@ namespace LastExit
 			selected_artist = artist;
 
 			if (artist == null) {
-				band_name_label.Markup = "Artist not found";
+				band_name_label.Markup = Catalog.GetString("Artist not found");
 				similar_artist_label.Text = "";
 				similar_contents.Visible = true;
 				search_button.Sensitive = true;
@@ -585,6 +586,7 @@ namespace LastExit
 			}
 
 			if (artist.Streamable == false) {
+				// FIXME: l10n
 				band_name_label.Markup = artist.Name + " is not streamable.";
 				similar_artist_label.Text = "";
 				similar_contents.Visible = true;
@@ -594,11 +596,13 @@ namespace LastExit
 			}
 
 			this.SetResponseSensitive (ResponseType.Ok, true);
+			// FIXME: l10n
 			band_name_label.Markup = "Music that sounds like <b>" + StringUtils.EscapeForPango (artist.Name) + "</b>";
 			artist.ImageLoaded += new Artist.ImageLoadedHandler (OnImageLoaded);
 			artist.RequestImage ();
 
 			artist.SimilarArtists.Sort ();
+			// FIXME: support l10n
 			StringBuilder sim = new StringBuilder ("Featuring: \n");
 			int i = 0;
 			foreach (SimilarArtist sa in artist.SimilarArtists) {

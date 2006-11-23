@@ -22,6 +22,7 @@
 using System;
 
 using Gtk;
+using Mono.Unix;
 
 namespace LastExit
 {
@@ -46,7 +47,7 @@ namespace LastExit
 		}
 
 	        public FirstRunDialog () {
-			this.Title = "Last.fm Account Details";
+			this.Title = Catalog.GetString("Last.fm Account Details");
 			this.HasSeparator = false;
 			this.Modal = true;
 
@@ -54,11 +55,12 @@ namespace LastExit
 			glade_xml.Autoconnect (this);
 			this.VBox.Add (first_run_contents);
 
-			this.AddButton ("Quit", ResponseType.Reject);
-			this.AddButton ("Start Player", ResponseType.Ok);
+			// FIXME: Use stock?
+			this.AddButton (Catalog.GetString("Quit"), ResponseType.Reject);
+			this.AddButton (Catalog.GetString("Start Player"), ResponseType.Ok);
 
 			signup_button = new Gnome.HRef ("http://www.last.fm/signup.php",
-							"Sign up for Last.fm");
+							Catalog.GetString("Sign up for Last.fm"));
 			signup_container.Add (signup_button);
 			signup_button.Visible = true;
 

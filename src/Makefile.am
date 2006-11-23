@@ -3,7 +3,7 @@ CSC = $(MCS) $(MCS_FLAGS) $(CSFLAGS)
 TARGET = last-exit.exe
 WRAPPER = last-exit
 
-LASTEXIT_CSFILES =				\
+LASTEXIT_DIST_CSFILES =				\
 	$(srcdir)/Actions.cs			\
 	$(srcdir)/Artist.cs			\
 	$(srcdir)/Config.cs			\
@@ -43,6 +43,9 @@ LASTEXIT_CSFILES =				\
 	$(srcdir)/VolumeButton.cs \
 	$(srcdir)/About.cs \
 	$(srcdir)/Preferences.cs
+
+LASTEXIT_CSFILES = $(LASTEXIT_DIST_CSFILES)	\
+	Defines.cs
 
 LASTEXIT_ASSEMBLIES =				\
 	-r:Mono.Posix				\
@@ -91,12 +94,14 @@ lastexitlib_DATA = $(TARGET) $(TARGET).config
 bin_SCRIPTS = $(WRAPPER)
 
 EXTRA_DIST =					\
-	$(LASTEXIT_CSFILES)			\
+	$(LASTEXIT_DIST_CSFILES)		\
 	$(WRAPPER).in				\
-	$(TARGET).config.in
+	$(TARGET).config.in			\
+	Defines.cs.in				
 
 CLEANFILES = 					\
 	$(TARGET)				\
 	$(TARGET).config			\
 	$(TARGET).mdb				\
-	$(WRAPPER)
+	$(WRAPPER)				\
+	Defines.cs

@@ -44,6 +44,7 @@ namespace LastExit
 				}
 
 				foreach (Tag t in value) {
+					// FIXME: l10n
 					string pretty = t.Name + "\n<span size=\"smaller\">Relevance: " + (t.Match * 100) + "%</span>";
 					
 					tagstore.AppendValues (t.ID, t.Name, t.Match, pretty);

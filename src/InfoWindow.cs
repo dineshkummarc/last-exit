@@ -25,6 +25,7 @@ using System.Text;
 using System.Xml; 
 
 using Gtk;
+using Mono.Unix;
 
 namespace LastExit
 {
@@ -74,7 +75,8 @@ namespace LastExit
 			real_name_label.SetAlignment ((float) 0.0, (float) 0.5);
 			real_name_label.Visible = true;
 
-			this.AddButton ("Close", ResponseType.Close);
+			// FIXME: stock-icon maybe?
+			this.AddButton (Catalog.GetString("Close"), ResponseType.Close);
 
 			SetSong (song);
 		}

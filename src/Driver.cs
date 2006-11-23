@@ -25,6 +25,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 
 using Gtk;
+using Mono.Unix;
 
 namespace LastExit
 {
@@ -68,6 +69,7 @@ namespace LastExit
 			string password;
 
 			Driver.SetProcessName ("last-exit");
+			Catalog.Init("last-exit", Defines.LOCALE_DIR);
 			Application.Init("last-exit", ref args);
 
 

@@ -1,0 +1,12 @@
+using System;
+
+namespace LastExit
+{
+	public class Defines 
+	{
+		public const string VERSION 	= "@VERSION@";
+		public const string LOCALE_DIR	= "@prefix@/share/locale";
+		public const string PACKAGE	= "@PACKAGE@";
+		public const string PREFIX 	= "@prefix@";
+	}
+}

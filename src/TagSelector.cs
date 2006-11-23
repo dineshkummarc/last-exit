@@ -42,6 +42,7 @@ namespace LastExit
 				}
 
 				foreach (Tag t in value) {
+					// FIXME: l10n???
 					string s = "<b>" + t.Name + "</b>\n<span size=\"smaller\"><i>Tagged " + t.Count + " items</i></span>";
 					tagstore.AppendValues (t.Name, s);
 				}

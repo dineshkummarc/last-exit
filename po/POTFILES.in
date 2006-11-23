@@ -1,4 +1,21 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 [encoding: UTF-8]
+data/glade/FindStation.glade
+data/glade/FirstRunDialog.glade
+data/glade/InfoWindow.glade
+data/glade/PlayerWindow.glade
+data/glade/Preferences.glade
+data/glade/SimilarResults.glade
+data/glade/TagDialog.glade
+data/glade/TagResults.glade
 data/last-exit.desktop.in
+data/last-exit.schemas.in
+data/lastfm.schemas.in
+src/About.cs
+src/Actions.cs
+src/FindStation.cs
+src/FirstRunDialog.cs
+src/InfoWindow.cs
+src/PlayerWindow.cs
+src/TagDialog.cs

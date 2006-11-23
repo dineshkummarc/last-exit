@@ -79,6 +79,7 @@ data/glade/Makefile
 data/icons/Makefile
 data/ui/Makefile
 liblast-exit/Makefile
+src/Defines.cs
 src/Makefile
 po/Makefile.in
 ])

@@ -182,6 +182,7 @@ namespace LastExit
 				popup.TrackTitle = "";
 			}
 			
+			// FIXME: l10n???
 			if (song.Album != null && song.Artist != null) {
 				popup.Artist = "<span size=\"smaller\">By <span weight=\"bold\">" + StringUtils.EscapeForPango (song.Artist) + "</span></span>";
 			} else if (song.Album == null) {
@@ -207,6 +208,7 @@ namespace LastExit
 			}
 
 			// Wait til cover is set before we notify :)
+			// FIXME: l10n
 			Notify ("Now playing",
 				byline, newcover, event_box);
 		}
