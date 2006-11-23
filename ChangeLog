@@ -1,3 +1,8 @@
+2006-11-23  Brandon Hale  <brandon@ubuntu.com>
+
+	* src/last-exit.exe.config.in:
+	Add dllmap entry for dbus-glib-1, bug #356873
+
 2006-11-01  Iain Holmes  <iain@gnome.org>
 
 	* src/ImageLoader.cs: Catch bad urls from Priit
