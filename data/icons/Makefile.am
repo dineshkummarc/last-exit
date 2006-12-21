@@ -7,54 +7,37 @@ noinst_DATA =					\
 	people-image.png			\
 	person-image.png			\
 	secure.png				\
-	unknown-cover.png
+	unknown-cover.png		
+	icon-theme-installer
 
-install-data-local: install-icons
-uninstall-local: uninstall-icons
+theme=hicolor
+themedir=$(datadir)/icons/$(theme)
+theme_icons = \
+	apps,last-exit-16.png \
+	apps,last-exit-22.png \
+	apps,last-exit-24.png \
+	apps,last-exit.svg \
+	actions,show-info-16.png \
+	actions,show-info-22.png \
+	actions,tag-new-16.png \
+	actions,tag-new-22.png
 
-gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
+install_icon_exec = $(top_srcdir)/data/icons/icon-theme-installer \
+	-t "$(theme)" \
+	-s "$(srcdir)" \
+	-d "x$(DESTDIR)" \
+	-b "$(themedir)" \
+	-m "$(mkinstalldirs)" \
+	-x "$(INSTALL_DATA)"
 
-icons = \
-	last-exit-16.png \
-	last-exit-22.png \
-	last-exit-24.png \
-	last-exit-scalable.svg
-
-install-icons:
-	@echo "Installing application icons..."
-	for icon in $(icons); do \
-		SIZE=`echo $$icon | cut -d- -f3 | cut -d. -f1`; \
-		EXTENSION=`echo $$icon | cut -d. -f2`; \
-		if test "$$SIZE" = "scalable"; then \
-			SIZE="scalable"; \
-		else \
-			SIZE="$${SIZE}x$${SIZE}"; \
-		fi; \
-		mkdir -p $(DESTDIR)$(datadir)/icons/hicolor/$$SIZE/apps; \
-		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(datadir)/icons/hicolor/$$SIZE/apps/last-exit.$$EXTENSION; \
-	done
-	@-if test -z "$(DESTDIR)"; then \
-		echo "Updating GTK icon cache."; \
-		$(gtk_update_icon_cache); \
-	else \
-		echo "*** Icon cache not updated.  After install, run this:"; \
-		echo "***   $(gtk_update_icon_cache)"; \
-	fi
-
-uninstall-icons:
-	@echo "Uninstalling application icons..."
-	for icon in $(icons); do \
-		SIZE=`echo $$icon | cut -d- -f2 | cut -d. -f1`; \
-		EXTENSION=`echo $$icon | cut -d. -f2`; \
-		if test "$$SIZE" = "scalable"; then \
-			SIZE="scalable"; \
-		else \
-			SIZE="$${SIZE}x$${SIZE}"; \
-		fi; \
-		rm -f $(DESTDIR)$(datadir)/icons/hicolor/$$SIZE/apps/last-exit.$$EXTENSION; \
-	done
-
+MAINTAINERCLEANFILES = Makefile.in
 EXTRA_DIST = \
 	$(noinst_DATA) \
-	last-exit-16.png last-exit-22.png last-exit-24.png last-exit-scalable.svg
+	$(theme_icons) \
+	icon-theme-installer
 
+install-data-local:
+	@-$(install_icon_exec) -i $(theme_icons)
+
+uninstall-hook:
+	@-$(install_icon_exec) -u $(theme_icons)

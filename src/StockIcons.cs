@@ -33,7 +33,8 @@ namespace LastExit
                         "stock_volume-min",
                         "stock_volume-med",
                         "stock_volume-max",
-                        "stock_media-next"
+                        "tag-new",
+                        "show-info"
 		};
 
                 private static readonly string [] stock_icons = {

@@ -64,6 +64,9 @@ namespace LastExit
 		private Image love_image;
 		private Image hate_image;
 
+		[Glade.Widget] private Gtk.Image tag_button_image;
+		[Glade.Widget] private Gtk.Image info_button_image;
+
 		private Gdk.Pixbuf user_image;
 		private Gdk.Pixbuf neighbour_image;
 		private Gdk.Pixbuf favourite_image;
@@ -236,6 +239,9 @@ namespace LastExit
 			hate_image.FromPixbuf = new Gdk.Pixbuf (null, "face-sad.png");
 			hate_button.Add (hate_image);
 			hate_image.Visible = true;
+
+			tag_button_image.SetFromStock ("tag-new", Gtk.IconSize.Button);
+			info_button_image.SetFromStock ("show-info", Gtk.IconSize.Button);
 
 			// Create images
 			user_image = new Gdk.Pixbuf (null, "person-image.png");

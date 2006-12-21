@@ -1,3 +1,11 @@
+2006-12-20  Brandon Hale  <brandon@ubuntu.com>
+
+	* data/icons:
+	Add tag-new and show-info themeable actions icons, thanks to Andreas
+	Nilsson on bug #384698. Use icon-theme-installer script from Aaron Bockover.
+	* data/glade/PlayerWindow.glade, src/PlayerWindow.cs:
+	Update player window to use hicolor icons from Andreas
+
 2006-11-23  Brandon Hale  <brandon@ubuntu.com>
 
 	* src/last-exit.exe.config.in:
