@@ -17,7 +17,10 @@ theme_icons = \
 	apps,last-exit-22.png \
 	apps,last-exit-24.png \
 	apps,last-exit.svg \
-	actions,show-info-16.png \
+	actions,show-info-48.svg \
+	actions,tag-new-48.svg \
+	actions,show-info-32.png \
+	actions,tag-new-32.png \
 	actions,show-info-22.png \
 	actions,tag-new-16.png \
 	actions,tag-new-22.png
