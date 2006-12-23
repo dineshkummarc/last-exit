@@ -56,7 +56,7 @@ namespace LastExit
 			this.VBox.Add (first_run_contents);
 
 			// FIXME: Use stock?
-			this.AddButton (Catalog.GetString("Quit"), ResponseType.Reject);
+			this.AddButton ("gtk-quit", ResponseType.Reject);
 			this.AddButton (Catalog.GetString("Start Player"), ResponseType.Ok);
 
 			signup_button = new Gnome.HRef ("http://www.last.fm/signup.php",
