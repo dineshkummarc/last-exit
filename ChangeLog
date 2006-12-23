@@ -1,3 +1,8 @@
+2006-12-23  Brandon Hale  <brandon@ubuntu.com>
+	
+	* src/InfoWindow.cs, src/TagDialog.cs:
+	Use GTK stock buttons for Add and Close.
+
 2006-12-21  Brandon Hale  <brandon@ubuntu.com>
 
 	* data/icons:

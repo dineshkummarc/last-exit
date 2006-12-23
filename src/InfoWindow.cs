@@ -76,7 +76,7 @@ namespace LastExit
 			real_name_label.Visible = true;
 
 			// FIXME: stock-icon maybe?
-			this.AddButton (Catalog.GetString("Close"), ResponseType.Close);
+			this.AddButton ("gtk-close", ResponseType.Close);
 
 			SetSong (song);
 		}

@@ -54,8 +54,7 @@ namespace LastExit {
 
 			GetTagsForSong (song);
 
-			// FIXME: Use stock...
-			this.AddButton (Catalog.GetString("Close"), ResponseType.Close);
+			this.AddButton ("gtk-close", ResponseType.Close);
 
 			tag_contents.Visible = true;
 		}
