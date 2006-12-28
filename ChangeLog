@@ -2,6 +2,7 @@
 	
 	* src/TagDialog.cs, src/PlayerWindow.cs, src/FindStation.cs:
 	Apply patch from Łukasz Jernaś to fix remaining l10n issues.
+	Gnome bug #365091.
 
 2006-12-23  Brandon Hale  <brandon@ubuntu.com>
 	
@@ -12,7 +13,7 @@
 
 	* data/icons:
 	Add 48 and 32 sizes for tag-new and show-icon icons.
-	Thanks to Andreas.
+	Thanks to Andreas on bug #384698.
 
 2006-12-20  Brandon Hale  <brandon@ubuntu.com>
 
