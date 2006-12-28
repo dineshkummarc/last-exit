@@ -82,18 +82,17 @@ namespace LastExit {
 
 		private void OnTagTypeChanged (object o, EventArgs args)
 		{
-			// FIXME: l10n???
 			switch (tag_type_combo.Active) {
 			case 0:
-				this.Title = "Tag '" + song.Track + "'";
+				this.Title = String.Format(Catalog.GetString("Tag '{0}'"), song.Track);
 				break;
 
 			case 1:
-				this.Title = "Tag '" + song.Album + "'";
+				this.Title = String.Format(Catalog.GetString("Tag '{0}'"), song.Album);
 				break;
 
 			case 2:
-				this.Title = "Tag '" + song.Artist + "'";
+				this.Title = String.Format(Catalog.GetString("Tag '{0}'"), song.Artist);
 				break;
 
 			default:

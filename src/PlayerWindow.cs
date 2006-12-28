@@ -694,21 +694,19 @@ namespace LastExit
 				song_label.Markup = "<span weight=\"bold\"> </span>";
 			}
 			
-			// FIXME: l10n ???
 			if (song.Album != null && song.Artist != null) {
-				artist_label.Markup = "<span size=\"smaller\">From <a href=\"" +song.AlbumUrl + "\">" + StringUtils.EscapeForPango (song.Album) + "</a> by <a href=\"" + song.ArtistUrl + "\">" + StringUtils.EscapeForPango (song.Artist) + "</a></span>";
+				artist_label.Markup = String.Format(Catalog.GetString("<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</a></span>"), song.AlbumUrl, StringUtils.EscapeForPango (song.Album), song.ArtistUrl, StringUtils.EscapeForPango (song.Artist));
 			} else if (song.Album == null) {
-				artist_label.Markup = "<span size=\"smaller\">By <a href=\"" + song.ArtistUrl + "\">" + StringUtils.EscapeForPango (song.Artist) + "</a></span>";
+				artist_label.Markup = String.Format(Catalog.GetString("<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"), song.ArtistUrl, StringUtils.EscapeForPango (song.Artist));
 			} else if (song.Artist == null) {
-				artist_label.Markup = "<span size=\"smaller\">From <a href=\"" + song.AlbumUrl + "\">" + StringUtils.EscapeForPango (song.Album) + "</a></span>";
+				artist_label.Markup = String.Format(Catalog.GetString("<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"), song.AlbumUrl, StringUtils.EscapeForPango (song.Album));
 			} else {
 				artist_label.Markup = "<span size=\"smaller\"> </span>";
 			}
 
 			song.RequestImage (Driver.CoverSize, Driver.CoverSize);
 			
-			// FIXME: l10n...
-			this.Title = song.Track + " by " + song.Artist;
+			this.Title = String.Format(Catalog.GetString("{0} by {1}"), song.Track, song.Artist);
 
 			love_button.Sensitive = true;
 			hate_button.Sensitive = true;

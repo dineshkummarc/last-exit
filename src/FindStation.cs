@@ -586,8 +586,7 @@ namespace LastExit
 			}
 
 			if (artist.Streamable == false) {
-				// FIXME: l10n
-				band_name_label.Markup = artist.Name + " is not streamable.";
+				band_name_label.Markup = String.Format(Catalog.GetString("{0} is not streamable."), artist.Name);
 				similar_artist_label.Text = "";
 				similar_contents.Visible = true;
 				search_button.Sensitive = true;
@@ -596,14 +595,12 @@ namespace LastExit
 			}
 
 			this.SetResponseSensitive (ResponseType.Ok, true);
-			// FIXME: l10n
-			band_name_label.Markup = "Music that sounds like <b>" + StringUtils.EscapeForPango (artist.Name) + "</b>";
+			band_name_label.Markup = String.Format(Catalog.GetString("Music that sounds like <b>{0}</b>"),StringUtils.EscapeForPango (artist.Name));
 			artist.ImageLoaded += new Artist.ImageLoadedHandler (OnImageLoaded);
 			artist.RequestImage ();
 
 			artist.SimilarArtists.Sort ();
-			// FIXME: support l10n
-			StringBuilder sim = new StringBuilder ("Featuring: \n");
+			StringBuilder sim = new StringBuilder (Catalog.GetString("Featuring: \n"));
 			int i = 0;
 			foreach (SimilarArtist sa in artist.SimilarArtists) {
 				if (sa.Streamable) {
@@ -619,7 +616,7 @@ namespace LastExit
 					sim.Append (sa.Name);
 				}
 			}
-			sim.Append (" and " + (i - 10) + " others.");
+			sim.Append (String.Format(Catalog.GetPluralString(" and {0} other.", " and {0} others.", (i - 10) ), (i - 10)) );
 
 			similar_artist_label.Text = sim.ToString ();
 
