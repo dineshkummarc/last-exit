@@ -60,8 +60,8 @@ namespace LastExit
 			cover_image_container.Add (cover_image);
 			cover_image.Visible = true;
 
-			//			Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
-			//cover_image.ChangePixbuf (cover);
+			// Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
+			// cover_image.ChangePixbuf (cover);
 
 			user_name_label = new UrlLabel ();
 			user_name_label.UrlActivated += new UrlActivatedHandler (OnUrlActivated);
@@ -88,11 +88,16 @@ namespace LastExit
 			artist_label.Markup = StringUtils.EscapeForPango (song.Artist);
 
 			cover_image.ChangePixbuf (song.Image);
+
 			if (song.StationFeed != null) {
 				User user = new User (song.StationFeed);
 				user.UserLoaded += new User.UserLoadedHandler (OnUserLoaded);
 				user.RequestInfo ();
 			}
+		}
+
+		public void UpdateCover (Gdk.Pixbuf cover_pb) {
+			cover_image.ChangePixbuf (cover_pb);
 		}
 
 		private void OnCoverLoaded (Gdk.Pixbuf pixbuf)

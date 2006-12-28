@@ -27,6 +27,7 @@ using Gdk;
 namespace LastExit
 {
         public class MagicCoverImage : Gtk.Image {
+		public static readonly Pixbuf UnknownCover = new Pixbuf(null, "unknown-cover.png");
 		private Pixbuf current;
 		private Pixbuf next;
 
@@ -43,6 +44,9 @@ namespace LastExit
 		}
 
 		public void ChangePixbuf (Pixbuf pb) {
+			if(pb == null)
+				pb = UnknownCover;
+
 			if (current == null) {
 				this.FromPixbuf = pb;
 				current = pb;

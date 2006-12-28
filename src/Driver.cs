@@ -72,8 +72,6 @@ namespace LastExit
 			Catalog.Init("last-exit", Defines.LOCALE_DIR);
 			Application.Init("last-exit", ref args);
 
-
-					
 			switch (DBus.CheckInstance ()) {
 				case DBus.DBusState.Error:
 					Console.WriteLine ("Error contacting other instance.");

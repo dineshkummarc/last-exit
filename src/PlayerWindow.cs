@@ -303,8 +303,9 @@ namespace LastExit
 			// Such a hassle to block emissions
 			station_combo.Changed += new EventHandler (OnStationComboChanged);
 
-			Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
-			cover_image.ChangePixbuf (cover);
+			//Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
+			//cover_image.ChangePixbuf (cover);
+			cover_image.ChangePixbuf(null);
 		}
 		
 		private void set_height_limit (MagicCoverImage mci) {
@@ -444,8 +445,9 @@ namespace LastExit
 
 				trayicon.CanShowPopup = false;
 				// FIXME: Need a blank cover.
-				Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
-				cover_image.ChangePixbuf (cover);
+				//Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
+				//cover_image.ChangePixbuf (cover);
+				cover_image.ChangePixbuf(null);
 				
 				return;
 			}
@@ -638,16 +640,10 @@ namespace LastExit
 
 		private void OnCoverLoaded (Gdk.Pixbuf cover_pb) 
 		{
-			if (cover_pb != null) {
-				cover_image.ChangePixbuf (cover_pb);
-				trayicon.UpdateCover (cover_pb);
-			} else {
-				Gdk.Pixbuf pb;
-
-				pb = new Gdk.Pixbuf (null, "unknown-cover.png");
-				cover_image.ChangePixbuf (pb);
-				trayicon.UpdateCover (pb);
-			}
+			cover_image.ChangePixbuf (cover_pb);
+			trayicon.UpdateCover (cover_pb);
+			if(i_window != null)
+				i_window.UpdateCover (cover_pb);
 		}
 
 		private void OnMetadataCompleted (Song song) 
