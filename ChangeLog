@@ -1,3 +1,8 @@
+2007-01-01  Brandon Hale  <brandon@ubuntu.com>
+
+	* dbus-sharp/:
+	Import managed DBus code for pending conversion.
+
 2006-12-28  Brandon Hale  <brandon@ubuntu.com>
 
 	* src/InfoWindow.cs, src/MagicCoverImage.cs:
