@@ -43,113 +43,33 @@ namespace LastExit
 
 		public static FMConnection connection;
 		public static Player player;
+		
+		private static DBusRemote dbus_remote;
+        private static DBusPlayer dbus_player;
 
 		private static string config_directory;
 		public static string ConfigDirectory {
 			get { return config_directory; }
 		}
 
-		public static void DBusMessage (string message, string content)
-		{
-			switch (message) {
-				case "change_station":
-					connection.ChangeStation(content);
-					player_window.Present();
-					break;
-				case "focus_instance":
-					// if player window is hidden don't show it
-					if (player_window.Visible == true) { 
-						player_window.Present();
-					}
-					break;
-			}
-		}
-
-		public static Config config;
-		
-        private static void HandleDbusCommands(IDBusPlayer remote_player)
-        {
-            if(remote_player == null) {
-            	Console.WriteLine("Starting new last-exit server");
-                return;
-            }
-            
-            bool present = true;
-            
-            /*
-            string [] files = Globals.ArgumentQueue.Files;
-            if(files.Length > 0) {
-                remote_player.EnqueueFiles(files);
-            }
-        	foreach(string arg in Globals.ArgumentQueue.Arguments) {
-                bool dequeue = true;
-              
-                switch(arg) {
-                case "shutdown":
-                    remote_player.Shutdown();
-                    present = false;
-                    break;
-                case "toggle-playing":
-                    remote_player.TogglePlaying();
-                    present = false;
-                    break;
-                case "play":
-                    remote_player.Play();
-                    present = false;
-                    break;
-                case "pause":
-                    remote_player.Pause();
-                    present = false;
-                    break;
-                case "show":
-                    remote_player.ShowWindow();
-                    present = false;
-                    break;
-                case "hide":
-                    remote_player.HideWindow();
-                    present = false;
-                    break;
-                case "next":
-                    remote_player.Next();
-                    present = false;
-                    break;
-                case "previous":
-                    remote_player.Previous();
-                    present = false;
-                    break;
-                }
-            
-                
-                if(dequeue) {
-                    Globals.ArgumentQueue.Dequeue(arg);
-                }
-            }
-            */
-            
-            if(present) {
-                try {
-                    Present(remote_player);
-                } catch(Exception) {
-                    //FIXME: bad silent error handling
-                    return;
-                }
-            }
-            
-            Gdk.Global.NotifyStartupComplete();
-            System.Environment.Exit(0);
-        }
-        
-        private static void Present(IDBusPlayer remote_player)
-        {
-            remote_player.PresentWindow();
-        }
-
 		public static void Main (string[] args) {
 
+			// Work around DBus locking issues
 			DBusPlayer.dbus_g_thread_init ();
+			
+			// Search for existing DBus server
 			IDBusPlayer dbus_core = DetectInstanceAndDbus();
 			HandleDbusCommands (dbus_core);
 
+			// If we are the only instance, start a new DBus server
+			Console.WriteLine("Starting new Last Exit server");
+			try {
+				dbus_remote = new DBusRemote();
+				dbus_player = new DBusPlayer();
+				dbus_remote.RegisterObject(dbus_player, "Player");
+			} catch {
+            }
+			
 			string username;
 			string password;
 
@@ -224,7 +144,100 @@ namespace LastExit
 			sigaction(Mono.Unix.Native.Signum.SIGSEGV, mono_jit_segv_handler, IntPtr.Zero);
 			System.Runtime.InteropServices.Marshal.FreeHGlobal(mono_jit_segv_handler);
 		}
+		public static void DBusMessage (string message, string content)
+		{
+			switch (message) {
+				case "change_station":
+					connection.ChangeStation(content);
+					player_window.Present();
+					break;
+				case "focus_instance":
+					// if player window is hidden don't show it
+					if (player_window.Visible == true) { 
+						player_window.Present();
+					}
+					break;
+			}
+		}
 
+		public static Config config;
+		
+        private static void HandleDbusCommands(IDBusPlayer remote_player)
+        {
+            if(remote_player == null) {
+                return;
+            }
+            
+            bool present = true;
+            
+            /*
+            string [] files = Globals.ArgumentQueue.Files;
+            if(files.Length > 0) {
+                remote_player.EnqueueFiles(files);
+            }
+        	foreach(string arg in Globals.ArgumentQueue.Arguments) {
+                bool dequeue = true;
+              
+                switch(arg) {
+                case "shutdown":
+                    remote_player.Shutdown();
+                    present = false;
+                    break;
+                case "toggle-playing":
+                    remote_player.TogglePlaying();
+                    present = false;
+                    break;
+                case "play":
+                    remote_player.Play();
+                    present = false;
+                    break;
+                case "pause":
+                    remote_player.Pause();
+                    present = false;
+                    break;
+                case "show":
+                    remote_player.ShowWindow();
+                    present = false;
+                    break;
+                case "hide":
+                    remote_player.HideWindow();
+                    present = false;
+                    break;
+                case "next":
+                    remote_player.Next();
+                    present = false;
+                    break;
+                case "previous":
+                    remote_player.Previous();
+                    present = false;
+                    break;
+                }
+            
+                
+                if(dequeue) {
+                    Globals.ArgumentQueue.Dequeue(arg);
+                }
+            }
+            */
+            
+            if(present) {
+                try {
+                    //Present(remote_player);
+                } catch (Exception e) {
+                	Console.WriteLine(e);
+                    return;
+                }
+            }
+            
+			Gdk.Global.NotifyStartupComplete();
+			System.Environment.Exit(0);
+        }
+        
+        private static void Present(IDBusPlayer remote_player)
+        {
+            remote_player.PresentWindow();
+        }
+        
 		public static void Exit () {
 			Environment.Exit (0);
 		}

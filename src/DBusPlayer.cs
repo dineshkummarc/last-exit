@@ -45,9 +45,9 @@ namespace LastExit
 		public static IDBusPlayer FindInstance()
 		{
 			if(!Bus.Session.NameHasOwner(DBusRemote.BusName)) {
-                return null;
+            		return null;
             }
-
+            
             return Bus.Session.GetObject<IDBusPlayer>(
                 DBusRemote.BusName, new ObjectPath(DBusRemote.ObjectRoot + "/Player"));
         }
@@ -55,6 +55,7 @@ namespace LastExit
         public void PresentWindow()
         {
            Driver.PlayerWindow.SetWindowVisible (true, 0);
+           return;
         }
 	}
 }
