@@ -23,6 +23,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using NDesk.DBus;
 
 using Gtk;
 using Mono.Unix;
@@ -45,7 +46,7 @@ namespace LastExit
 		public static Player player;
 		
 		private static DBusRemote dbus_remote;
-        private static DBusPlayer dbus_player;
+		private static DBusPlayer dbus_player;
 
 		private static string config_directory;
 		public static string ConfigDirectory {
@@ -57,6 +58,8 @@ namespace LastExit
 			// Work around DBus locking issues
 			DBusPlayer.dbus_g_thread_init ();
 			
+			BusG.Init();
+
 			// Search for existing DBus server
 			IDBusPlayer dbus_core = DetectInstanceAndDbus();
 			HandleDbusCommands (dbus_core);
@@ -222,7 +225,7 @@ namespace LastExit
             
             if(present) {
                 try {
-                    //Present(remote_player);
+                    Present(remote_player);
                 } catch (Exception e) {
                 	Console.WriteLine(e);
                     return;
