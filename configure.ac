@@ -42,7 +42,7 @@ PKG_CHECK_MODULES(GTKSHARP,
 AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
 AM_GCONF_SOURCE_2
 
-AC_PATH_PROG(MCS, mcs)
+AC_PATH_PROG(MCS, gmcs)
 if test x$MCS = x; then
 	AC_MSG_ERROR(You need mcs)
 fi
@@ -74,6 +74,8 @@ AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
 Makefile
+dbus-sharp/Makefile
+dbus-sharp/NDesk.DBus.GLib.dll.config
 data/Makefile
 data/glade/Makefile
 data/icons/Makefile

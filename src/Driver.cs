@@ -31,6 +31,10 @@ namespace LastExit
 {
 	public sealed class Driver
 	{
+		 // For the SEGV trap hack (see below)
+		[System.Runtime.InteropServices.DllImport("libc")]
+		 private static extern int sigaction(Mono.Unix.Native.Signum sig, IntPtr act, IntPtr oact);
+		
 		// The size of the cover images.
 		public static int CoverSize = 66;
 
@@ -62,34 +66,96 @@ namespace LastExit
 		}
 
 		public static Config config;
+		
+        private static void HandleDbusCommands(IDBusPlayer remote_player)
+        {
+            if(remote_player == null) {
+            	Console.WriteLine("Starting new last-exit server");
+                return;
+            }
+            
+            bool present = true;
+            
+            /*
+            string [] files = Globals.ArgumentQueue.Files;
+            if(files.Length > 0) {
+                remote_player.EnqueueFiles(files);
+            }
+        	foreach(string arg in Globals.ArgumentQueue.Arguments) {
+                bool dequeue = true;
+              
+                switch(arg) {
+                case "shutdown":
+                    remote_player.Shutdown();
+                    present = false;
+                    break;
+                case "toggle-playing":
+                    remote_player.TogglePlaying();
+                    present = false;
+                    break;
+                case "play":
+                    remote_player.Play();
+                    present = false;
+                    break;
+                case "pause":
+                    remote_player.Pause();
+                    present = false;
+                    break;
+                case "show":
+                    remote_player.ShowWindow();
+                    present = false;
+                    break;
+                case "hide":
+                    remote_player.HideWindow();
+                    present = false;
+                    break;
+                case "next":
+                    remote_player.Next();
+                    present = false;
+                    break;
+                case "previous":
+                    remote_player.Previous();
+                    present = false;
+                    break;
+                }
+            
+                
+                if(dequeue) {
+                    Globals.ArgumentQueue.Dequeue(arg);
+                }
+            }
+            */
+            
+            if(present) {
+                try {
+                    Present(remote_player);
+                } catch(Exception) {
+                    //FIXME: bad silent error handling
+                    return;
+                }
+            }
+            
+            Gdk.Global.NotifyStartupComplete();
+            System.Environment.Exit(0);
+        }
+        
+        private static void Present(IDBusPlayer remote_player)
+        {
+            remote_player.PresentWindow();
+        }
 
 		public static void Main (string[] args) {
-			DBus.dbus_g_thread_init ();
+
+			DBusPlayer.dbus_g_thread_init ();
+			IDBusPlayer dbus_core = DetectInstanceAndDbus();
+			HandleDbusCommands (dbus_core);
+
 			string username;
 			string password;
 
 			Driver.SetProcessName ("last-exit");
 			Catalog.Init("last-exit", Defines.LOCALE_DIR);
 			Application.Init("last-exit", ref args);
-
-			switch (DBus.CheckInstance ()) {
-				case DBus.DBusState.Error:
-					Console.WriteLine ("Error contacting other instance.");
-					break;
-
-				case DBus.DBusState.AlreadyRunning:
-					if (args.Length > 0) {
-						DBus.ChangeStation (args[0]);
-					} else {
-						DBus.FocusInstance ();
-					}
-					return;
-				
-				case DBus.DBusState.NotRunning:
-					DBus.Init (DBusMessage);
-					break;
-			}
-					
 
 			StockIcons.Initialize ();
 
@@ -130,6 +196,14 @@ namespace LastExit
 			username = config.Username;
 			password = config.Password;
 
+			// We must get a reference to the JIT's SEGV handler because
+			// GStreamer will set its own and not restore the previous, which
+			// will cause what should be NullReferenceExceptions to be unhandled
+			// segfaults for the duration of the instance, as the JIT is powerless!
+			// FIXME: http://bugzilla.gnome.org/show_bug.cgi?id=391777
+			IntPtr mono_jit_segv_handler = System.Runtime.InteropServices.Marshal.AllocHGlobal(512);
+			sigaction(Mono.Unix.Native.Signum.SIGSEGV, IntPtr.Zero, mono_jit_segv_handler);
+
 			connection = new FMConnection (username, password);
 			connection.Handshake ();
 
@@ -145,6 +219,10 @@ namespace LastExit
 			player_window.Run ();
 
 			Application.Run ();
+
+			// Reset the SEGV handle to that of the JIT again (SIGH!)
+			sigaction(Mono.Unix.Native.Signum.SIGSEGV, mono_jit_segv_handler, IntPtr.Zero);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal(mono_jit_segv_handler);
 		}
 
 		public static void Exit () {
@@ -195,6 +273,16 @@ namespace LastExit
 
 		public static PlayerWindow PlayerWindow {
 			get { return player_window; }
+		}
+
+		private static IDBusPlayer DetectInstanceAndDbus()
+		{
+			try {
+				return DBusPlayer.FindInstance();
+			} catch (Exception e) {
+				Console.Error.WriteLine(e);
+				return null;
+			}
 		}
 	}
 }

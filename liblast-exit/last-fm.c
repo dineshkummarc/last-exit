@@ -82,9 +82,17 @@ last_fm_transform (GstBaseTransform *btrans,
 	return GST_FLOW_OK;
 }
 
-static void
-last_fm_base_init (LastFMClass *klass)
+
 {
+	/* 
+	 * Explicitly load the plugins.
+	 * This is to avoid Mono JIT loosing the ability to catch SEGV.
+	 * http://bugzilla.gnome.org/show_bug.cgi?id=391777
+	*/
+	GstElement *element = gst_parse_launch("audioconvert", NULL);
+	element = gst_parse_launch("audioconvert", NULL);
+	gst_object_unref(element);
+
 	GstElementClass *element_class = GST_ELEMENT_CLASS (klass);
 
 	gst_element_class_add_pad_template (element_class, gst_static_pad_template_get (&src_factory));

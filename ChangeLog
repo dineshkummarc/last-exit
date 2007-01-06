@@ -1,3 +1,9 @@
+2007-01-06  Brandon Hale  <brandon@ubuntu.com>
+
+	* src/DBusRemote, src/DBusPlayer:
+	First commit of managed DBus port. Most functionality is missing
+	from the old code, this will be filled in shortly.
+
 2007-01-01  Brandon Hale  <brandon@ubuntu.com>
 
 	* dbus-sharp/:

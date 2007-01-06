@@ -1,5 +1,3 @@
-include $(top_srcdir)/build/Common.Makefile
-
 DBUS_ASSEMBLY = NDesk.DBus.dll
 DBUS_GLIB_ASSEMBLY = NDesk.DBus.GLib.dll
 
@@ -15,10 +13,10 @@ DBUS_GLIB_SRC = $(srcdir)/dbus-sharp-glib/*.cs
 all: $(DBUS_ASSEMBLY) $(DBUS_GLIB_ASSEMBLY)
 
 $(DBUS_ASSEMBLY): $(DBUS_SRC)
-	$(BUILD_LIB) -out:$@ -unsafe $(LINK_MONO_UNIX) $(DBUS_SRC)
+	$(MCS) -target:library -out:$@ -unsafe -r:Mono.Posix $(DBUS_SRC)
 
 $(DBUS_GLIB_ASSEMBLY): $(DBUS_GLIB_SRC)
-	$(BUILD_LIB) -out:$@ -r:$(DBUS_ASSEMBLY) $(DBUS_GLIB_SRC)
+	$(MCS) -target:library -out:$@ -r:$(DBUS_ASSEMBLY) $(DBUS_GLIB_SRC)
 
 EXTRA_DIST = $(DBUS_SRC) $(DBUS_GLIB_SRC) $(DBUS_GLIB_ASSEMBLY).config.in
 DISTCLEANFILES = $(DBUS_ASSEMBLY) $(DBUS_ASSEMBLY).mdb $(DBUS_GLIB_ASSEMBLY) $(DBUS_GLIB_ASSEMBLY).mdb

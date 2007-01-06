@@ -3,11 +3,14 @@ CSC = $(MCS) $(MCS_FLAGS) $(CSFLAGS)
 TARGET = last-exit.exe
 WRAPPER = last-exit
 
+DIR_DBUS =  $(top_builddir)/dbus-sharp
+
 LASTEXIT_DIST_CSFILES =				\
 	$(srcdir)/Actions.cs			\
 	$(srcdir)/Artist.cs			\
 	$(srcdir)/Config.cs			\
-	$(srcdir)/DBus.cs			\
+	$(srcdir)/DBusPlayer.cs			\
+	$(srcdir)/DBusRemote.cs			\
 	$(srcdir)/Driver.cs			\
 	$(srcdir)/Fan.cs			\
 	$(srcdir)/FindStation.cs		\
@@ -51,6 +54,10 @@ LASTEXIT_ASSEMBLIES =				\
 	-r:Mono.Posix				\
 	-r:System.Web
 
+DBUS_ASSEMBLIES = 				\
+	-r:$(DIR_DBUS)/NDesk.DBus.dll		\
+	-r:$(DIR_DBUS)/NDesk.DBus.GLib.dll
+
 LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/glade/FindStation.glade	\
 	-resource:$(top_srcdir)/data/glade/FirstRunDialog.glade	\
@@ -84,7 +91,7 @@ $(TARGET).config: $(srcdir)/$(TARGET).config.in
 	    < $^ > $@
 
 $(TARGET): $(LASTEXIT_CSFILES) $(top_builddir)/data/ui/TrayIcon.xml
-	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS)
+	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(DBUS_ASSEMBLIES) $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS)
 
 all: $(TARGET)
 
