@@ -1,5 +1,11 @@
 2007-01-06  Brandon Hale  <brandon@ubuntu.com>
 
+	* src/DBusPlayer.cs:
+	Implement ChangeStation functionality, this makes us feature complete
+	compared to the old DBus code.
+
+2007-01-06  Brandon Hale  <brandon@ubuntu.com>
+
 	* src/DBusRemote, src/DBusPlayer:
 	First commit of managed DBus port. Most functionality is missing
 	from the old code, this will be filled in shortly.

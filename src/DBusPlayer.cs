@@ -32,6 +32,7 @@ namespace LastExit
 	public interface IDBusPlayer
 	{
 		void PresentWindow();
+		void ChangeStation (string station);
 	}
 
 	public class DBusPlayer : IDBusPlayer
@@ -45,17 +46,22 @@ namespace LastExit
 		public static IDBusPlayer FindInstance()
 		{
 			if(!Bus.Session.NameHasOwner(DBusRemote.BusName)) {
-            		return null;
-            }
-            
-            return Bus.Session.GetObject<IDBusPlayer>(
-                DBusRemote.BusName, new ObjectPath(DBusRemote.ObjectRoot + "/Player"));
-        }
-        
-        public void PresentWindow()
-        {
-           Driver.PlayerWindow.SetWindowVisible (true, 0);
-           return;
-        }
+				return null;
+			}
+
+			return Bus.Session.GetObject<IDBusPlayer>(
+				DBusRemote.BusName, new ObjectPath(DBusRemote.ObjectRoot + "/Player"));
+		}
+
+		public void PresentWindow()
+		{
+			Driver.PlayerWindow.SetWindowVisible (true, 0);
+		}
+		
+		public void ChangeStation (string station)
+		{
+			Driver.connection.ChangeStation	(station);
+			Driver.PlayerWindow.Present();
+		}
 	}
 }
