@@ -60,8 +60,11 @@ namespace LastExit
 		
 		public void ChangeStation (string station)
 		{
+			Driver.player.Stop ();
 			Driver.connection.ChangeStation	(station);
-			Driver.PlayerWindow.Present();
+			Driver.player.Play ();
+			Driver.connection.DoOperationFinished ();
+			Driver.PlayerWindow.Present ();
 		}
 	}
 }

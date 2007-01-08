@@ -1,6 +1,7 @@
 SUBDIRS = 			\
 	data			\
 	dbus-sharp		\
+	notify-sharp		\
 	liblast-exit		\
 	src			\
 	po

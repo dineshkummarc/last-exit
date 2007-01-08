@@ -76,6 +76,7 @@ AC_OUTPUT([
 Makefile
 dbus-sharp/Makefile
 dbus-sharp/NDesk.DBus.GLib.dll.config
+notify-sharp/Makefile
 data/Makefile
 data/glade/Makefile
 data/icons/Makefile

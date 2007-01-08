@@ -4,6 +4,7 @@ TARGET = last-exit.exe
 WRAPPER = last-exit
 
 DIR_DBUS =  $(top_builddir)/dbus-sharp
+DIR_NOTIFY = $(top_builddir)/notify-sharp
 
 LASTEXIT_DIST_CSFILES =				\
 	$(srcdir)/Actions.cs			\
@@ -58,6 +59,9 @@ DBUS_ASSEMBLIES = 				\
 	-r:$(DIR_DBUS)/NDesk.DBus.dll		\
 	-r:$(DIR_DBUS)/NDesk.DBus.GLib.dll
 
+NOTIFY_ASSEMBLIES =				\
+	-r:$(DIR_NOTIFY)/notify-sharp.dll
+
 LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/glade/FindStation.glade	\
 	-resource:$(top_srcdir)/data/glade/FirstRunDialog.glade	\
@@ -91,7 +95,7 @@ $(TARGET).config: $(srcdir)/$(TARGET).config.in
 	    < $^ > $@
 
 $(TARGET): $(LASTEXIT_CSFILES) $(top_builddir)/data/ui/TrayIcon.xml
-	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(DBUS_ASSEMBLIES) $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS)
+	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(DBUS_ASSEMBLIES) $(NOTIFY_ASSEMBLIES) $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS)
 
 all: $(TARGET)
 
