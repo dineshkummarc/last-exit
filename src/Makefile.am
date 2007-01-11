@@ -33,6 +33,7 @@ LASTEXIT_DIST_CSFILES =				\
 	$(srcdir)/RecentStations.cs		\
 	$(srcdir)/SignalUtils.cs		\
 	$(srcdir)/Song.cs			\
+	$(srcdir)/SpecialKeys.cs		\
 	$(srcdir)/StationStore.cs		\
 	$(srcdir)/StockIcons.cs			\
 	$(srcdir)/StringUtils.cs		\

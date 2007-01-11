@@ -101,6 +101,8 @@ namespace LastExit
 		public bool WindowVisible {
 			get { return window_visible; }
 		}
+
+		private SpecialKeys special_keys;
 		
 		public void SetWindowVisible (bool visible, uint time) {
 			window_visible = visible;
@@ -154,6 +156,16 @@ namespace LastExit
 			SetupButtons ();
 			trayicon = new TrayIcon (this);
 			SetupUI ();
+
+			// For MediaKeys support
+			special_keys = new SpecialKeys();
+			special_keys.Delay = new TimeSpan(500 * TimeSpan.TicksPerMillisecond);
+
+			// Set event handler for MediaKey Press
+			special_keys.RegisterHandler(OnSpecialKeysPressed,
+				SpecialKey.AudioPlay,
+				SpecialKey.AudioNext
+			);
 		}
 
 		public void Run () {
@@ -789,6 +801,43 @@ namespace LastExit
                 { 
 			get { return current_song; }
                 }
+
+		private void OnSpecialKeysPressed(object o, SpecialKey key) {
+			switch (key) {
+				case SpecialKey.AudioPlay:
+					if(Driver.player.Playing == true) {
+						// We are playing so stop playing
+						Driver.player.Stop();
+						toggle_play_button.Active = false;
+						artist_label.Markup = "";
+						song_label.Markup = "";
+						this.Title = "Last Exit";
+
+						trayicon.CanShowPopup = false;
+						// FIXME: Need a blank cover.
+						//Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
+						//cover_image.ChangePixbuf (cover);
+						cover_image.ChangePixbuf(null);
+					} else {
+						// We were paused so play
+						TreeIter iter;
+
+						if (station_combo.GetActiveIter (out iter)) {
+							string path = (string) station_combo.Model.GetValue (iter, (int) Column.Path);
+							if (path != null) {
+								Driver.connection.ChangeStation (path);
+							} else {
+								FindStation dialog = new FindStation (this);
+								dialog.Visible = true;
+							}				
+						}
+					}
+					break;
+				case SpecialKey.AudioNext:
+					Driver.connection.Skip();
+					break;
+			}
+		}
 
 		private void OnKeyPressEvent(object o, Gtk.KeyPressEventArgs args) {
 			switch(args.Event.Key) {
