@@ -4,7 +4,7 @@ Last Exit 4
 Notable Changes: 
  - New Themeable Icons [Andreas Nilsson]
  - Use GTK stock buttons in some dialogs [Brandon Hale]
- - Port to Managed DBus [Brandon Hale]
+ - Port to Managed DBus [Brandon]
  - Port to notify-sharp [Sebastian Dröge]
  - Support for multi-media keys [Rob Fisher]
 
@@ -12,5 +12,7 @@ Bug Fixes:
  - Fix Journal URL [Pritt Laes]
  - Stop player on receipt of End of Song [Pritt]
  - Catch bad URLs [Pritt]
+ - l10n fixes, #365091 [Pritt]
  - Further l10n fixes [Łukasz Jernaś]
  - Fix a crasher in Info window when Song.Image is null [TJ Fontaine]
+ - Fix notification icon on transparent panels, bug #365099 [Brandon]
