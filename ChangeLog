@@ -1,3 +1,7 @@
+2007-01-13  Brandon Hale  <brandon@ubuntu.com>
+	
+	* NEWS, configure.ac: Updated for Last Exit 4
+
 2007-01-10  Brandon Hale  <brandon@ubuntu.com>
 
 	* src/SpecialKeys.cs, src/PlayerWindow.cs:
