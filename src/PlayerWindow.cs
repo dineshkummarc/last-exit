@@ -252,6 +252,10 @@ namespace LastExit
 			hate_button.Add (hate_image);
 			hate_image.Visible = true;
 
+			// Add additional search path
+			IconTheme current_theme = IconTheme.Default;
+			current_theme.AppendSearchPath(Defines.PREFIX+"/share/icons/");
+
 			tag_button_image.SetFromStock ("tag-new", Gtk.IconSize.Button);
 			info_button_image.SetFromStock ("show-info", Gtk.IconSize.Button);
 
