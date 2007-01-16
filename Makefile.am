@@ -6,7 +6,7 @@ SUBDIRS = 			\
 	src			\
 	po
 
-EXTRA_DIST = config.rpath mkinstalldirs 			\
+EXTRA_DIST = mkinstalldirs 			\
 	intltool-extract.in	\
 	intltool-merge.in	\
 	intltool-update.in
