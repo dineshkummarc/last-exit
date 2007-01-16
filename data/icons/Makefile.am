@@ -36,10 +36,19 @@ install_icon_exec = $(top_srcdir)/data/icons/icon-theme-installer \
 MAINTAINERCLEANFILES = Makefile.in
 EXTRA_DIST = \
 	$(noinst_DATA) \
-	icon-theme-installer
+	icon-theme-installer \
+	last-exit-16.png \
+	last-exit-22.png \
+	last-exit-24.png \
+	last-exit.svg \
+	show-info-48.svg \
+	tag-new-48.svg \
+	show-info-32.png \
+	tag-new-32.png \
+	show-info-22.png \
+	tag-new-16.png \
+	tag-new-22.png
 
-#	$(theme_icons) \
-#
 install-data-local:
 	@-$(install_icon_exec) -i $(theme_icons)
 
