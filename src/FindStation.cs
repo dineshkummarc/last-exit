@@ -535,6 +535,7 @@ namespace LastExit
 
 				TreeSelection sel = tagview.Selection;
 				sel.Changed += new EventHandler (OnSelectionChanged);
+				tagview.RowActivated += new RowActivatedHandler (OnRowActivated);
 				similar_contents.Visible = false;
 				tag_container.Visible = true;
 				neighbour_container.Visible = false;
@@ -570,6 +571,11 @@ namespace LastExit
 
 			selection = sel.GetSelected (out model, out iter);
 			this.SetResponseSensitive (ResponseType.Ok, selection);
+		}
+
+		private void OnRowActivated (object o, EventArgs args)
+		{
+			this.Respond(ResponseType.Ok);
 		}
 
 		private void FillArtistDetails (Artist artist) 

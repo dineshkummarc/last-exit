@@ -1,3 +1,9 @@
+2007-01-20  Johan Svedberg  <johans@gnome.org>
+
+	* src/FindStation.cs:
+	Added RowActivated handler for the tags treeview which changes
+	to the selected station.
+
 2007-01-20  Brandon Hale  <brandon@ubuntu.com>
 
 	* po/sv.po:
