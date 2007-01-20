@@ -1,3 +1,10 @@
+2007-01-20  Brandon Hale  <brandon@ubuntu.com>
+
+	* po/sv.po:
+	Add Swedish translation from Daniel Nylander
+	* configure.ac:
+	Add "sv" to ALL_LINGUAS
+
 2007-01-15  Iain Holmes  <iain@gnome.org>
 
 	* src/PlayerWindow.cs: Patch from Łukasz Jernaś to fix icons in a

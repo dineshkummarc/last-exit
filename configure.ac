@@ -69,7 +69,10 @@ fi
 GACUTIL_FLAGS='/package lastexit /gacdir $(libdir) /root $(DESTDIR)$(libdir)'
 AC_SUBST(GACUTIL_FLAGS)
 
-ALL_LINGUAS=
+GETTEXT_PACKAGE="last-exit"
+AC_SUBST(GETTEXT_PACKAGE)
+
+ALL_LINGUAS="sv"
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([

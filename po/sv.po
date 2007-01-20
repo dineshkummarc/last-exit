@@ -1,0 +1,461 @@
+# Swedish translation for last-exit.
+# Copyright (C) 2006 Free Software Foundation
+# This file is distributed under the same license as the last-exit package.
+# Daniel Nylander <po@danielnylander.se>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: last-exit beta 3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-20 12:09+0100\n"
+"PO-Revision-Date: 2007-01-20 12:22+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/glade/FindStation.glade.h:1
+#: ../data/glade/InfoWindow.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../data/glade/FindStation.glade.h:2
+msgid "<b>Results:</b>"
+msgstr "<b>Resultat:</b>"
+
+#: ../data/glade/FindStation.glade.h:3
+msgid "<b>Search for:</b>"
+msgstr "<b>Sök efter:</b>"
+
+#: ../data/glade/FindStation.glade.h:4
+msgid "Find Station"
+msgstr "Hitta station"
+
+#: ../data/glade/FirstRunDialog.glade.h:1
+msgid "Account Name:"
+msgstr "Kontonamn:"
+
+#: ../data/glade/FirstRunDialog.glade.h:2
+msgid ""
+"Before you can use Last Exit, you need to have a Last.fm\n"
+"account. Please enter the account name and password\n"
+"below."
+msgstr ""
+"Innan du kan använda Last Exit behöver du ett Last.fm-\n"
+"konto. Ange kontonamnet och lösenordet här nedan.\n"
+" "
+
+#: ../data/glade/FirstRunDialog.glade.h:5
+msgid "Don't have a Last.FM account?"
+msgstr "Har du inget Last.FM-konto?"
+
+#: ../data/glade/FirstRunDialog.glade.h:6
+#: ../data/glade/Preferences.glade.h:8
+msgid "Password:"
+msgstr "Lösenord:"
+
+#: ../data/glade/FirstRunDialog.glade.h:7
+#: ../src/FirstRunDialog.cs:60
+msgid "Start Player"
+msgstr "Starta spelaren"
+
+#: ../data/glade/FirstRunDialog.glade.h:8
+msgid "dialog2"
+msgstr "dialog2"
+
+#: ../data/glade/InfoWindow.glade.h:2
+msgid "<b>Album:</b>"
+msgstr "<b>Album:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:3
+msgid "<b>Artist:</b>"
+msgstr "<b>Artist:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:4
+msgid "<b>Song:</b>"
+msgstr "<b>Låt:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:5
+#: ../data/glade/TagDialog.glade.h:5
+msgid "dialog1"
+msgstr "dialog1"
+
+#: ../data/glade/PlayerWindow.glade.h:1
+msgid "Apply tags"
+msgstr "Verkställ taggar"
+
+#: ../data/glade/PlayerWindow.glade.h:2
+msgid "Hate!"
+msgstr "Hata!"
+
+#: ../data/glade/PlayerWindow.glade.h:3
+msgid "Information"
+msgstr "Information"
+
+#: ../data/glade/PlayerWindow.glade.h:4
+msgid "Love!"
+msgstr "Älska!"
+
+#: ../data/glade/PlayerWindow.glade.h:5
+msgid "Play the next song"
+msgstr "Spela upp nästa låt"
+
+#: ../data/glade/PlayerWindow.glade.h:6
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: ../data/glade/PlayerWindow.glade.h:7
+msgid "Switch music playback on or off"
+msgstr "Växla musikuppspelning på eller av"
+
+#: ../data/glade/PlayerWindow.glade.h:8
+msgid "Write a journal entry"
+msgstr "Skriv ett inlägg"
+
+#: ../data/glade/PlayerWindow.glade.h:9
+msgid "_Listening to:"
+msgstr "_Lyssnar på:"
+
+#: ../data/glade/Preferences.glade.h:1
+msgid "<b>Last.fm Account</b>"
+msgstr "<b>Last.fm-konto</b>"
+
+#: ../data/glade/Preferences.glade.h:2
+msgid "<b>Recommendation Radio</b>"
+msgstr "<b>Rekommenderad radio</b>"
+
+#: ../data/glade/Preferences.glade.h:3
+msgid "<b>User Interface</b>"
+msgstr "<b>Användargränssnitt</b>"
+
+#: ../data/glade/Preferences.glade.h:4
+msgid "Create an account"
+msgstr "Skapa ett konto"
+
+#: ../data/glade/Preferences.glade.h:5
+msgid "Join Last Exit group"
+msgstr "Gå med i Last Exit-gruppen"
+
+#: ../data/glade/Preferences.glade.h:6
+msgid "Last Exit Preferences"
+msgstr "Inställningar för Last Exit"
+
+#: ../data/glade/Preferences.glade.h:7
+msgid "Obscure"
+msgstr "Obskyr"
+
+#: ../data/glade/Preferences.glade.h:9
+msgid "Popular"
+msgstr "Populär"
+
+#: ../data/glade/Preferences.glade.h:10
+msgid "Show notification on song change"
+msgstr "Visa notifiering vid låtbyte"
+
+#: ../data/glade/Preferences.glade.h:11
+msgid "User Name:"
+msgstr "Användarnamn:"
+
+#: ../data/glade/TagDialog.glade.h:1
+msgid "<span weight=\"bold\">Tag:</span>"
+msgstr "<span weight=\"bold\">Tagg:</span>"
+
+#: ../data/glade/TagDialog.glade.h:2
+msgid ""
+"Track\n"
+"Album\n"
+"Artist"
+msgstr ""
+"Spår\n"
+"Album\n"
+"Artist"
+
+#: ../data/last-exit.desktop.in.h:1
+msgid "Last-Exit"
+msgstr "Last-Exit"
+
+#: ../data/last-exit.desktop.in.h:2
+msgid "Last.fm player"
+msgstr "Last.fm-spelare"
+
+#: ../data/last-exit.schemas.in.h:1
+msgid "Account name"
+msgstr "Kontonamn"
+
+#: ../data/last-exit.schemas.in.h:2
+msgid "Password"
+msgstr "Lösenord"
+
+#: ../data/last-exit.schemas.in.h:3
+msgid "Password for the Last.FM account"
+msgstr "Lösenord för Last.FM-kontot"
+
+#: ../data/last-exit.schemas.in.h:4
+msgid "Recommendation Level"
+msgstr "Rekommendationsnivå"
+
+#: ../data/last-exit.schemas.in.h:5
+msgid "Recommended radio setting (from 0-100)"
+msgstr "Rekommenderad radioinställning (från 0-100)"
+
+#: ../data/last-exit.schemas.in.h:6
+msgid "Set to true if the first run dialog should be shown"
+msgstr "Ställ in till sant om dialogrutan för första körning ska visas"
+
+#: ../data/last-exit.schemas.in.h:7
+msgid "Show Notifications"
+msgstr "Visa notifieringar"
+
+#: ../data/last-exit.schemas.in.h:8
+msgid "Show first run dialog"
+msgstr "Visa dialogruta för första körningen"
+
+#: ../data/last-exit.schemas.in.h:9
+msgid "The Last.FM account name that we should use"
+msgstr "Last.FM-kontonamnet som vi ska använda"
+
+#: ../data/last-exit.schemas.in.h:10
+msgid "Volume"
+msgstr "Volym"
+
+#: ../data/last-exit.schemas.in.h:11
+msgid "Volume setting (from 0-100)"
+msgstr "Volyminställning (från 0-100)"
+
+#: ../data/last-exit.schemas.in.h:12
+msgid "Whether Last-Exit shows notifications when the song changes"
+msgstr "Huruvida Last-Exit visar notifieringar vid låtbyten"
+
+#: ../data/lastfm.schemas.in.h:1
+msgid "Is the Last-FM handler enabled"
+msgstr "Är Last-FM-hanteraren aktiverad"
+
+#: ../data/lastfm.schemas.in.h:2
+msgid "Run the command in a terminal"
+msgstr "Kör kommandot i en terminal"
+
+#: ../data/lastfm.schemas.in.h:3
+msgid "The command used to handle \"lastfm\" URLs, if enabled."
+msgstr "Kommandot som används för att hantera \"lastfm\"-url:er, om aktiverat."
+
+#: ../data/lastfm.schemas.in.h:4
+msgid "The handler for \"lastfm\" URLs"
+msgstr "Hanteraren för \"lastfm\"-url:er"
+
+#: ../data/lastfm.schemas.in.h:5
+msgid "True if the command specified in the \"command\" key should handle \"lastfm\" URLs."
+msgstr "Sant om angivet kommando i \"command\"-nyckeln ska hantera \"lastfm\"-url:er."
+
+#: ../data/lastfm.schemas.in.h:6
+msgid "True if the command used to handle \"lastfm\" URLs should be run in a terminal."
+msgstr "Sant om kommandot som används för att hantera \"lastfm\"-url:er ska köras i en terminal."
+
+#: ../src/About.cs:32
+msgid "Last Exit"
+msgstr "Last Exit"
+
+#: ../src/About.cs:35
+msgid "Copyright © 2006 Iain Holmes"
+msgstr "Copyright © 2006 Iain Holmes"
+
+#: ../src/About.cs:38
+msgid "A Last.fm radio player"
+msgstr "En Last.fm-radiospelare"
+
+#: ../src/About.cs:42
+msgid "Iain Holmes <iain@gnome.org>"
+msgstr "Iain Holmes <iain@gnome.org>"
+
+#: ../src/About.cs:43
+msgid "Baris Cicek <baris@teamforce.name.tr>"
+msgstr "Baris Cicek <baris@teamforce.name.tr>"
+
+#: ../src/About.cs:44
+msgid "Brandon Hale <brandon@ubuntu.com>"
+msgstr "Brandon Hale <brandon@ubuntu.com>"
+
+#: ../src/About.cs:57
+msgid "translator-credits"
+msgstr "Daniel Nylander <po@danielnylander.se>"
+
+#: ../src/Actions.cs:35
+msgid "Show _Window"
+msgstr "Visa _fönster"
+
+#: ../src/Actions.cs:38
+msgid "_Play"
+msgstr "_Spela"
+
+#: ../src/Actions.cs:41
+msgid "_Next"
+msgstr "_Nästa"
+
+#: ../src/Actions.cs:44
+msgid "_About"
+msgstr "_Om"
+
+#: ../src/Actions.cs:47
+msgid "_Preferences"
+msgstr "_Inställningar"
+
+#: ../src/Actions.cs:50
+msgid "_Love Song"
+msgstr "_Älskar låten"
+
+#: ../src/Actions.cs:53
+msgid "_Hate Song"
+msgstr "_Hatar låten"
+
+#: ../src/FindStation.cs:73
+msgid "Find A Station"
+msgstr "Hitta en station"
+
+#: ../src/FindStation.cs:102
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: ../src/FindStation.cs:103
+msgid "Change Station"
+msgstr "Byt station"
+
+#: ../src/FindStation.cs:182
+msgid "Music that sounds like"
+msgstr "Musik som låter som"
+
+#: ../src/FindStation.cs:183
+msgid "Music that is tagged as"
+msgstr "Musik som är taggad som"
+
+#: ../src/FindStation.cs:184
+msgid "A neighbours station"
+msgstr "En grannstation"
+
+#: ../src/FindStation.cs:185
+msgid "A users station"
+msgstr "En användarstation"
+
+#: ../src/FindStation.cs:186
+msgid "Music from fans of"
+msgstr "Musik från fans av"
+
+#: ../src/FindStation.cs:187
+msgid "A group station"
+msgstr "En gruppstation"
+
+#: ../src/FindStation.cs:580
+msgid "Artist not found"
+msgstr "Artisten hittades inte"
+
+#: ../src/FindStation.cs:589
+#, csharp-format
+msgid "{0} is not streamable."
+msgstr "{0} är inte möjlig att strömma."
+
+#: ../src/FindStation.cs:598
+#, csharp-format
+msgid "Music that sounds like <b>{0}</b>"
+msgstr "Musik som låter som <b>{0}</b>"
+
+#: ../src/FindStation.cs:603
+msgid "Featuring: \n"
+msgstr "Medverkande: \n"
+
+#: ../src/FindStation.cs:619
+#, csharp-format
+msgid " and {0} other."
+msgid_plural " and {0} others."
+msgstr[0] " och en annan."
+msgstr[1] " och {0} andra."
+
+#: ../src/FirstRunDialog.cs:50
+msgid "Last.fm Account Details"
+msgstr "Detaljer för Last.fm-konto"
+
+#: ../src/FirstRunDialog.cs:63
+msgid "Sign up for Last.fm"
+msgstr "Registrera dig för Last.fm"
+
+#: ../src/PlayerWindow.cs:270
+msgid "Neighbour Station"
+msgstr "Grannstation"
+
+#: ../src/PlayerWindow.cs:273
+msgid "Personal Station"
+msgstr "Personlig station"
+
+#: ../src/PlayerWindow.cs:277
+msgid "Favourites Station"
+msgstr "Favoritstation"
+
+#: ../src/PlayerWindow.cs:281
+msgid "Recommended Music Station"
+msgstr "Rekommenderad musikstation"
+
+#: ../src/PlayerWindow.cs:284
+msgid "Other Station..."
+msgstr "Annan station..."
+
+#: ../src/PlayerWindow.cs:710
+#, csharp-format
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</a></span>"
+msgstr "<span size=\"smaller\">Från <a href=\"{0}\">{1}</a> av <a href=\"{2}\">{3}</a></span>"
+
+#: ../src/PlayerWindow.cs:712
+#, csharp-format
+msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Av <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:714
+#, csharp-format
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Från <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:721
+#, csharp-format
+msgid "{0} by {1}"
+msgstr "{0} av {1}"
+
+#: ../src/PlayerWindow.cs:748
+msgid "There is not enough content to play this station."
+msgstr "Det finns inte tillräckligt med innehåll för att spela upp den här stationen."
+
+#: ../src/PlayerWindow.cs:752
+msgid "This group does not have enough members for radio."
+msgstr "Den här gruppen har inte tillräckligt många medlemmar för radio."
+
+#: ../src/PlayerWindow.cs:756
+msgid "This artist does not have enough fans for radio."
+msgstr "Den här artisten har inte tillräckligt många fans för radio."
+
+#: ../src/PlayerWindow.cs:760
+msgid "This item is not available for streaming."
+msgstr "Det här objektet finns inte tillgängligt för att strömma."
+
+#: ../src/PlayerWindow.cs:764
+msgid "This feature is only available to subscribers."
+msgstr "Den här funktionen finns endast tillgänglig för prenumeranter."
+
+#: ../src/PlayerWindow.cs:768
+msgid "There are not enough neighbours for this radio."
+msgstr "Det finns inte tillräckligt många grannar för den här radion."
+
+#: ../src/PlayerWindow.cs:772
+msgid "This stream has stopped."
+msgstr "Den här strömmen har stoppat."
+
+#: ../src/TagDialog.cs:44
+msgid "Tag A Song"
+msgstr "Tagga en låt"
+
+#: ../src/TagDialog.cs:87
+#: ../src/TagDialog.cs:91
+#: ../src/TagDialog.cs:95
+#, csharp-format
+msgid "Tag '{0}'"
+msgstr "Tagg \"{0}\""
+
+#~ msgid "Add Tag"
+#~ msgstr "Lägg till tagg"
+
