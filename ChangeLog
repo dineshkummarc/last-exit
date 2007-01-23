@@ -1,3 +1,8 @@
+2007-01-22  Brandon Hale  <brandon@ubuntu.com>
+	
+	* po/de.po, configure.ac:
+	Add German translation by Sebastian Droege
+
 2007-01-20  Johan Svedberg  <johans@gnome.org>
 
 	* src/FindStation.cs:
