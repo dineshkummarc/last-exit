@@ -1,3 +1,8 @@
+2007-01-25  Priit Laes  <plaes@svn.gnome.org>
+
+	* dbus-sharp/Makefile.am: Make NDesk.DBus.GLib.dll depend on
+	NDesk.DBus.dll. This fixes parallel builds, bug #400368.
+
 2007-01-22  Brandon Hale  <brandon@ubuntu.com>
 	
 	* po/de.po, configure.ac:
