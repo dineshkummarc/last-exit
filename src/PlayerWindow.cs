@@ -24,6 +24,7 @@ using System.Collections;
 
 using Gtk;
 using Mono.Unix;
+using Bacon;
 
 namespace LastExit
 {
