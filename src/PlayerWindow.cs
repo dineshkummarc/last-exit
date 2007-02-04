@@ -48,6 +48,7 @@ namespace LastExit
 
 		private VolumeButton volume_button;
 
+
 		[Glade.Widget] private VBox title_label_container;
 		[Glade.Widget] private VBox artist_label_container;
 		private UrlLabel artist_label;
@@ -207,6 +208,7 @@ namespace LastExit
 
 			// Volume
 			volume_button = new VolumeButton ();
+			volume_button.Relief = ReliefStyle.Normal;
 			volume_button_container.Add (volume_button);
 			volume_button.Visible = true;
 			volume_button.VolumeChanged += new VolumeButton.VolumeChangedHandler (OnVolumeChanged);

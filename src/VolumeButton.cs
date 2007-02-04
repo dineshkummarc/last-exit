@@ -1,7 +1,7 @@
 /***************************************************************************
  *  VolumeButton.cs
  *
- *  Copyright (C) 2005 Ronald S. Bultje, 2007 Novell, Inc.
+ *  Copyright (C) 2005 Ronald S. Bultje; 2007 Novell, Inc.
  *
  *  Ported to Gtk# by Aaron Bockover <abockover@novell.com>
  *    Based on r106 of libbacon/trunk/src/bacon-volume.c in GNOME SVN
@@ -9,23 +9,30 @@
  *  Original Authors (BaconVolumeButton/GTK+):
  *    Ronald S. Bultje <rbultje@ronald.bitfreak.net>
  *    Bastien Nocera  <hadess@hadess.net>
+ *  Contributions By (BaconVolumeButton/GTK+):
+ *    Jan Arne Petersen <jpetersen@jpetersen.org>
+ *    Christian Persch <chpe@gnome.org>
  ****************************************************************************/
 
-/*
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
+/*  THIS FILE IS LICENSED UNDER THE MIT LICENSE AS OUTLINED IMMEDIATELY BELOW: 
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
+ *  Permission is hereby granted, free of charge, to any person obtaining a
+ *  copy of this software and associated documentation files (the "Software"),  
+ *  to deal in the Software without restriction, including without limitation  
+ *  the rights to use, copy, modify, merge, publish, distribute, sublicense,  
+ *  and/or sell copies of the Software, and to permit persons to whom the  
+ *  Software is furnished to do so, subject to the following conditions:
  *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ *  The above copyright notice and this permission notice shall be included in 
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+ *  DEALINGS IN THE SOFTWARE.
  */
 
 using System;
@@ -56,6 +63,7 @@ namespace Bacon
         private IconSize size;
         private uint click_id;
         private int direction;
+        private int previous_volume;
         private uint pop_time;
         private bool timeout;
         
@@ -93,7 +101,8 @@ namespace Bacon
         private void BuildButton()
         {
             FocusOnClick = false;
-        
+            Relief = ReliefStyle.None;
+            
             image = new Image();
             image.Show();
             Add(image);
@@ -106,6 +115,7 @@ namespace Bacon
             dock.ButtonPressEvent += OnDockButtonPressEvent;
             dock.KeyPressEvent += OnDockKeyPressEvent;
             dock.KeyReleaseEvent += OnDockKeyReleaseEvent;
+            dock.ScrollEvent += OnPlusMinusScollEvent;
             
             Frame frame = new Frame();
             frame.Shadow = ShadowType.Out;
@@ -124,6 +134,7 @@ namespace Bacon
             plus.Relief = ReliefStyle.None;
             plus.ButtonPressEvent += OnPlusMinusButtonPressEvent;
             plus.ButtonReleaseEvent += OnPlusMinusButtonReleaseEvent;
+            plus.ScrollEvent += OnPlusMinusScollEvent;
             plus.ShowAll();
             box.PackStart(plus, false, true, 0);
 
@@ -140,6 +151,7 @@ namespace Bacon
             minus.Relief = ReliefStyle.None;
             minus.ButtonPressEvent += OnPlusMinusButtonPressEvent;
             minus.ButtonReleaseEvent += OnPlusMinusButtonReleaseEvent;
+            minus.ScrollEvent += OnPlusMinusScollEvent;
             minus.ShowAll();
             box.PackEnd(minus, false, true, 0);
             
@@ -161,12 +173,18 @@ namespace Bacon
             uint event_time;
             double v;
             
+            if(previous_volume != (int)slider.Adjustment.Lower) {
+                previous_volume = Volume;
+            }
+            
             if(evnt is Gdk.EventKey) {
                 event_time = ((Gdk.EventKey)evnt).Time;
             } else if(evnt is Gdk.EventButton) {
                 event_time = ((Gdk.EventButton)evnt).Time;
+            } else if(evnt is Gdk.EventScroll) {
+                event_time = ((Gdk.EventScroll)evnt).Time;
             } else {
-                throw new ApplicationException("ShowDock expects EventKey or EventButton");
+                throw new ApplicationException("ShowDock expects EventKey, EventButton, or EventScroll");
             }
         
             dock.Screen = Screen;
@@ -196,6 +214,8 @@ namespace Bacon
             
             if(evnt is Gdk.EventButton) {
                 y += (int)((Gdk.EventButton)evnt).Y;
+            } else if(evnt is Gdk.EventScroll) {
+                y += (int)((Gdk.EventScroll)evnt).Y;
             }
             
             dock.Move(x, y);
@@ -258,42 +278,6 @@ namespace Bacon
             }
         }
         
-        private static string full_mute_string = Catalog.GetString("mute").ToLower();
-        private string mute_string = null;
-        private uint last_mute_key_press_time = 0;
-        
-        private void ResetTypingMute()
-        {
-            last_mute_key_press_time = 0;
-            mute_string = null;
-        }
-        
-        private void TypingMute(uint time, char letter)
-        {
-            if(time - last_mute_key_press_time > CLICK_TIMEOUT && last_mute_key_press_time != 0) {
-                ResetTypingMute();
-                last_mute_key_press_time = time;
-                return;
-            }
-            
-            mute_string += letter;
-            
-            if(letter != full_mute_string[mute_string.Length - 1]) {
-                ResetTypingMute();
-                return;
-            }
-            
-            if(mute_string == full_mute_string) {
-                Volume = (int)slider.Adjustment.Lower;
-                ResetTypingMute();
-                return;
-            } else if(mute_string.Length >= full_mute_string.Length) {
-                ResetTypingMute();
-            } else {
-                last_mute_key_press_time = time;
-            }
-        }
-        
         protected override bool OnKeyPressEvent(Gdk.EventKey evnt)
         {
             switch(evnt.Key) {
@@ -308,14 +292,12 @@ namespace Bacon
                     return ShowDock(evnt);
                 case Gdk.Key.Key_0:
                 case Gdk.Key.KP_0:
-                    Volume = (int)slider.Adjustment.Lower;
+                case Gdk.Key.m:
+                case Gdk.Key.M:
+                    ToggleMute();
                     return false;
                 default:
                     break;
-            }
-            
-            if(full_mute_string.IndexOf(Char.ToLower((char)evnt.KeyValue)) >= 0) {
-                TypingMute(evnt.Time, (char)evnt.KeyValue);
             }
             
             return false;
@@ -327,11 +309,13 @@ namespace Bacon
                 return false;
             }
             
-            if(evnt.Direction == Gdk.ScrollDirection.Up) {
+            /*if(evnt.Direction == Gdk.ScrollDirection.Up) {
                 AdjustVolume(1);
             } else if(evnt.Direction == Gdk.ScrollDirection.Down) {
                 AdjustVolume(-1);
-            }
+            }*/
+            
+            ShowDock(evnt);
             
             return true;
         }
@@ -413,6 +397,16 @@ namespace Bacon
             }
         }
         
+        [GLib.ConnectBefore]
+        private void OnPlusMinusScollEvent(object o, ScrollEventArgs args)
+        {
+            if(args.Event.Direction == Gdk.ScrollDirection.Up) {
+                AdjustVolume(1);
+            } else if(args.Event.Direction == Gdk.ScrollDirection.Down) {
+                AdjustVolume(-1);
+            }
+        }
+        
         private void ReleaseGrab(Gdk.Event evnt)
         {       
             uint event_time;
@@ -442,37 +436,31 @@ namespace Bacon
         
         private void LoadIcons()
         {
+            string [,] icon_names = { 
+                { "audio-volume-muted",  "stock_volume-0"   },
+                { "audio-volume-low",    "stock_volume-min" },
+                { "audio-volume-medium", "stock_volume-med" },
+                { "audio-volume-high",   "stock_volume-max" }
+            };
+
             int width, height;
-            
-            string [] icon_names = { 
-                "audio-volume-muted", "audio-volume-low",
-                "audio-volume-medium", "audio-volume-high"
-            };
-            
-            string [] fallback_icon_names = {
-                "stock_volume-0", "stock_volume-min",
-                "stock_volume-med", "stock_volume-max"
-            };
-            
             Icon.SizeLookup(size, out width, out height);
-            
             IconTheme theme = IconTheme.GetForScreen(Screen);
             
             if(pixbufs == null) {
-                pixbufs = new Gdk.Pixbuf[icon_names.Length];
+                pixbufs = new Gdk.Pixbuf[icon_names.Length / icon_names.Rank];
             }
             
-            for(int i = 0; i < icon_names.Length; i++) {
-                if(pixbufs[i] != null) {
-                    pixbufs[i].Dispose();
-                    pixbufs[i] = null;
-                }
-                
-                try {
-                    pixbufs[i] = theme.LoadIcon(icon_names[i], width, 0);
-                } catch {
+            for(int i = 0; i < icon_names.Length / icon_names.Rank; i++) {
+                for(int j = 0; j < icon_names.Rank; j++) {
+                    if(pixbufs[i] != null) {
+                        pixbufs[i].Dispose();
+                        pixbufs[i] = null;
+                    }
+                    
                     try {
-                        pixbufs[i] = theme.LoadIcon(fallback_icon_names[i], width, 0);
+                        pixbufs[i] = theme.LoadIcon(icon_names[i, j], width, 0);
+                        break;
                     } catch {
                     }
                 }
@@ -526,6 +514,16 @@ namespace Bacon
             return Volume > adj.Lower && Volume < adj.Upper;
         }
         
+        public void ToggleMute()
+        {
+            if(Volume == (int)slider.Adjustment.Lower) {
+                Volume = previous_volume;
+            } else {
+                previous_volume = Volume;
+                Volume = (int)slider.Adjustment.Lower;
+            }
+        }
+        
         public int Volume {
             get { return (int)slider.Value; }
             set { 
@@ -533,17 +531,7 @@ namespace Bacon
                 Update();
             }
         }
-
-	int last_vol = -1;
-	public void ToggleMute () {
-	    if (Volume == 0) {
-		    Volume = last_vol;
-	    } else {
-		    last_vol = Volume;
-		    Volume = 0;
-	    }
-	}
-
+        
         // FIXME: This is seriously LAME. The Gtk# binding does not support mutating
         // Gdk.Event* objects. All the properties are marked read only. Support for
         // these objects is simply incomplete.
@@ -675,4 +663,3 @@ namespace Bacon
         }
     }
 }
-
