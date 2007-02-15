@@ -26,6 +26,8 @@ using Gtk;
 
 using Notifications;
 
+using Mono.Unix;
+
 namespace LastExit
 {
 	public class TrayIcon : Gtk.EventBox {
@@ -179,16 +181,15 @@ namespace LastExit
 			current_song = song;
 
 			if (song.Track != null) {
-				popup.TrackTitle = "<span weight=\"bold\">" + StringUtils.EscapeForPango (song.Track) + "</span>";
+				popup.TrackTitle = String.Format(Catalog.GetString("<span weight=\"bold\">{0}</span>"), StringUtils.EscapeForPango (song.Track));
 			} else {
 				popup.TrackTitle = "";
 			}
 			
-			// FIXME: l10n???
 			if (song.Album != null && song.Artist != null) {
-				popup.Artist = "<span size=\"smaller\">By <span weight=\"bold\">" + StringUtils.EscapeForPango (song.Artist) + "</span></span>";
+				popup.Artist = String.Format(Catalog.GetString("<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"), StringUtils.EscapeForPango (song.Artist));
 			} else if (song.Album == null) {
-				popup.Artist = "<span size=\"smaller\">By <span weight=\"bold\">" + StringUtils.EscapeForPango (song.Artist) + "</span></span>";
+				popup.Artist = String.Format(Catalog.GetString("<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"), StringUtils.EscapeForPango (song.Artist));
 			} else if (song.Artist == null) {
 				popup.Artist = "";
 			} else {
@@ -204,14 +205,13 @@ namespace LastExit
 			string byline;
 
 			if (current_song.Artist != null) {
-				byline = StringUtils.EscapeForPango (current_song.Track) + " by " + StringUtils.EscapeForPango (current_song.Artist);
+				byline = StringUtils.EscapeForPango (current_song.Track) + Catalog.GetString(" by ") + StringUtils.EscapeForPango (current_song.Artist);
 			} else {
 				byline = StringUtils.EscapeForPango (current_song.Track);
 			}
 
 			// Wait til cover is set before we notify :)
-			// FIXME: l10n
-			Notify ("Now playing",
+			Notify (Catalog.GetString("Now playing"),
 				byline, newcover, event_box);
 		}
 		

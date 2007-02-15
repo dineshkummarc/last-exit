@@ -34,7 +34,7 @@ namespace LastExit
 	{
 		// For the SEGV trap hack (see below)
 		[System.Runtime.InteropServices.DllImport("libc")]
-		private static extern int sigaction(Mono.Unix.Native.Signum sig, IntPtr act, IntPtr oact);
+			private static extern int sigaction(Mono.Unix.Native.Signum sig, IntPtr act, IntPtr oact);
 
 		// The size of the cover images.
 		public static int CoverSize = 66;
@@ -163,7 +163,7 @@ namespace LastExit
 				Present(remote_player);
 				present = false;
 			}
-			
+
 			if(present) {
 				try {
 					Present(remote_player);

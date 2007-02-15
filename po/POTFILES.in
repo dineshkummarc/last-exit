@@ -19,3 +19,4 @@ src/FirstRunDialog.cs
 src/InfoWindow.cs
 src/PlayerWindow.cs
 src/TagDialog.cs
+src/TrayIcon.cs
