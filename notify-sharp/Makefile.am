@@ -8,9 +8,13 @@ NOTIFY_SRC = 				\
 		$(srcdir)/Global.cs \
 		$(srcdir)/Notification.cs
 
+if EXTERNAL_DBUS
+DBUS_ASSEMBLIES = $(DBUS_LIBS)
+else
 DBUS_ASSEMBLIES =			\
 		-r:$(top_builddir)/dbus-sharp/NDesk.DBus.dll \
 		-r:$(top_builddir)/dbus-sharp/NDesk.DBus.GLib.dll
+endif
 
 all: $(NOTIFY_ASSEMBLY)
 

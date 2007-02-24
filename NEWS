@@ -14,5 +14,6 @@ Bug Fixes:
  - Catch bad URLs [Pritt]
  - l10n fixes, #365091 [Pritt]
  - Further l10n fixes [Łukasz Jernaś]
+ - Make themeable icons work with custom prefixes [Łukasz Jernaś]
  - Fix a crasher in Info window when Song.Image is null [TJ Fontaine]
  - Fix notification icon on transparent panels, bug #365099 [Brandon]

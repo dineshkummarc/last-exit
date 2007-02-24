@@ -1,3 +1,8 @@
+2007-02-24  Iain Holmes  <iain@gnome.org>
+
+	* Applied patch from Sebastian Dröge to allow linking against dbus
+	assemblies. Fixes #409970
+
 2007-02-15  Brandon Hale  <brandon@brandonhale.us>
 
 	* src/Driver.cs, src/TrayIcon.cs, po/POTFILES.in:

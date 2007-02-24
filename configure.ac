@@ -42,6 +42,13 @@ PKG_CHECK_MODULES(GTKSHARP,
 AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
 AM_GCONF_SOURCE_2
 
+PKG_CHECK_MODULES(DBUS, ndesk-dbus-1.0 >= 0.4 \
+	ndesk-dbus-glib-1.0 >= 0.3, have_external_dbus="yes", have_external_dbus="no")
+if test "x$have_external_dbus" != "xyes"; then
+	AC_MSG_RESULT([using internal copy])
+fi
+AM_CONDITIONAL(EXTERNAL_DBUS, test "x$have_external_dbus" = "xyes")
+
 AC_PATH_PROG(MCS, gmcs)
 if test x$MCS = x; then
 	AC_MSG_ERROR(You need mcs)

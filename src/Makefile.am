@@ -56,9 +56,13 @@ LASTEXIT_ASSEMBLIES =				\
 	-r:Mono.Posix				\
 	-r:System.Web
 
+if EXTERNAL_DBUS
+DBUS_ASSEMBLIES = $(DBUS_LIBS)
+else
 DBUS_ASSEMBLIES = 				\
 	-r:$(DIR_DBUS)/NDesk.DBus.dll		\
 	-r:$(DIR_DBUS)/NDesk.DBus.GLib.dll
+endif
 
 NOTIFY_ASSEMBLIES =				\
 	-r:$(DIR_NOTIFY)/notify-sharp.dll
