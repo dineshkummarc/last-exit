@@ -28,6 +28,7 @@ PKG_CHECK_MODULES(LASTEXIT,
 		  gstreamer-0.10 >= $GSTREAMER_REQUIRED \
 		  gstreamer-base-0.10			\
 		  gstreamer-plugins-base-0.10 >= $GSTREAMER_REQUIRED \
+		  libsexy >= 0.1.7 \
 		  dbus-1 >= 0.60 \
 		  dbus-glib-1 >= 0.60)
 AC_SUBST(LASTEXIT_CFLAGS)

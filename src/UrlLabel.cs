@@ -13,7 +13,7 @@ namespace LastExit {
 
 		public UrlLabel(IntPtr raw) : base(raw) {}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern IntPtr sexy_url_label_new();
 
 		public UrlLabel () : base (IntPtr.Zero)
@@ -87,7 +87,7 @@ namespace LastExit {
 			}
 		}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern IntPtr sexy_url_label_get_type();
 
 		public static new GLib.GType GType { 
@@ -98,7 +98,7 @@ namespace LastExit {
 			}
 		}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern void sexy_url_label_set_markup(IntPtr raw, IntPtr markup);
 
 		public new string Markup { 

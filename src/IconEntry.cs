@@ -16,7 +16,7 @@ namespace LastExit {
 
 		public IconEntry(IntPtr raw) : base(raw) {}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern IntPtr sexy_icon_entry_new();
 
 		public IconEntry () : base (IntPtr.Zero)
@@ -158,21 +158,21 @@ namespace LastExit {
 			}
 		}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern void sexy_icon_entry_add_clear_button(IntPtr raw);
 
 		public void AddClearButton() {
 			sexy_icon_entry_add_clear_button(Handle);
 		}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern void sexy_icon_entry_set_icon(IntPtr raw, int position, IntPtr icon);
 
 		public void SetIcon(IconEntryPosition position, Gtk.Image icon) {
 			sexy_icon_entry_set_icon(Handle, (int) position, icon == null ? IntPtr.Zero : icon.Handle);
 		}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern IntPtr sexy_icon_entry_get_icon(IntPtr raw, int position);
 
 		public Gtk.Image GetIcon(IconEntryPosition position) {
@@ -181,14 +181,14 @@ namespace LastExit {
 			return ret;
 		}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern void sexy_icon_entry_set_icon_highlight(IntPtr raw, int position, bool highlight);
 
 		public void SetIconHighlight(IconEntryPosition position, bool highlight) {
 			sexy_icon_entry_set_icon_highlight(Handle, (int) position, highlight);
 		}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern IntPtr sexy_icon_entry_get_type();
 
 		public static new GLib.GType GType { 
@@ -199,7 +199,7 @@ namespace LastExit {
 			}
 		}
 
-		[DllImport("liblastexit")]
+		[DllImport("libsexy")]
 		static extern bool sexy_icon_entry_get_icon_highlight(IntPtr raw, int position);
 
 		public bool GetIconHighlight(IconEntryPosition position) {
