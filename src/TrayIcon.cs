@@ -301,14 +301,14 @@ namespace LastExit
 			
 			artist_album_label = new Label (artist);
 			artist_album_label.Show ();
- 			artist_album_label.Ellipsize = Pango.EllipsizeMode.End; 
+ 			//artist_album_label.Ellipsize = Pango.EllipsizeMode.End;
 			artist_album_label.Xalign = 0.0f;
 			artist_album_label.Yalign = 0.5f;
 			artist_album_label.Selectable = false;
 			
 			title_label = new Label (title);
 			title_label.Show ();
-/* 			title_label.Ellipsize = Pango.EllipsizeMode.End; */
+ 			//title_label.Ellipsize = Pango.EllipsizeMode.End;
 			title_label.Xalign = 0.0f;
 			title_label.Yalign = 0.5f;
 			title_label.Selectable = false;

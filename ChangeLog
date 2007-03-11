@@ -1,3 +1,8 @@
+2007-03-11  Brandon Hale  <brandon@brandonhale.us>
+	
+	* src/TrayIcon.cs:
+	Don't ellipsize artist name in tooltip, bug #411930.
+
 2007-03-01  Brandon Hale  <brandon@brandonhale.us>
 
 	* liblast-exit/:
