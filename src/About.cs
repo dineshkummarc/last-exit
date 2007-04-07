@@ -53,7 +53,7 @@ namespace LastExit
 		};
 
 		// Icon
-		private static readonly Gdk.Pixbuf pixbuf = new Gdk.Pixbuf (null, "last-exit-16.png");
+		private static readonly Gdk.Pixbuf pixbuf = new Gdk.Pixbuf (null, "last-exit-24.png");
 
 		// Variables
 		private static string translators =
@@ -74,7 +74,7 @@ namespace LastExit
                 	TranslatorCredits = translators;
 		}
                 Logo = pixbuf;
-                Website = "http://www.o-hand.com/~iain/last-exit/";
+                Website = "http://www.lastexit-player.org";
 
                 Run ();
                 Destroy ();

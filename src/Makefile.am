@@ -80,6 +80,7 @@ LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/icons/face-smile.png	\
 	-resource:$(top_srcdir)/data/icons/favourites-image.png	\
 	-resource:$(top_srcdir)/data/icons/last-exit-16.png	\
+	-resource:$(top_srcdir)/data/icons/last-exit-24.png	\
 	-resource:$(top_srcdir)/data/icons/people-image.png	\
 	-resource:$(top_srcdir)/data/icons/person-image.png	\
 	-resource:$(top_srcdir)/data/icons/secure.png		\
