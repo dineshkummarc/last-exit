@@ -1,3 +1,11 @@
+2007-04-7  Brandon Hale  <brandon@brandonhale.us>
+
+	* src/About.cs:
+	Patch from Lukasz to add version in About dialog.
+
+	* configure.ac:
+	Bump version to 4 1/2.
+
 2007-03-11  Brandon Hale  <brandon@brandonhale.us>
 	
 	* src/TrayIcon.cs:

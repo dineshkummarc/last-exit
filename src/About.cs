@@ -36,7 +36,10 @@ namespace LastExit
 
 		private static readonly string string_description =
 			Catalog.GetString ("A Last.fm radio player");
-		
+
+		private static readonly string string_version =
+			Defines.VERSION;
+
 		// Authors
 		private static readonly string [] authors = {
 			Catalog.GetString ("Iain Holmes <iain@gnome.org>"),
@@ -44,22 +47,23 @@ namespace LastExit
 			Catalog.GetString ("Brandon Hale <brandon@ubuntu.com>"),
 			null,
 		};
-		
+
 		// Documenters
 		private static readonly string [] documenters = {
 		};
 
 		// Icon
 		private static readonly Gdk.Pixbuf pixbuf = new Gdk.Pixbuf (null, "last-exit-16.png");
-	
+
 		// Variables
 		private static string translators =
 			Catalog.GetString ("translator-credits");
-		
+
         public About (Gtk.Window parent)
         {
                 TransientFor = parent;
                 Name = string_lastexit;
+                Version = string_version;
                 Authors = authors;
                 Comments = string_description;
                 Copyright = string_copyright;
