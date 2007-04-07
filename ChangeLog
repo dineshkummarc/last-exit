@@ -6,6 +6,9 @@
 	* configure.ac:
 	Bump version to 4 1/2.
 
+	* src/PlayerWindow.cs, data/icons:
+	Update station list with new icons from the Tango Project.
+
 2007-03-11  Brandon Hale  <brandon@brandonhale.us>
 	
 	* src/TrayIcon.cs:

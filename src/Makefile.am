@@ -83,6 +83,7 @@ LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/icons/last-exit-24.png	\
 	-resource:$(top_srcdir)/data/icons/people-image.png	\
 	-resource:$(top_srcdir)/data/icons/person-image.png	\
+	-resource:$(top_srcdir)/data/icons/recommended-image.png	\
 	-resource:$(top_srcdir)/data/icons/secure.png		\
 	-resource:$(top_srcdir)/data/icons/unknown-cover.png \
 	-resource:$(top_srcdir)/data/icons/last-exit.svg \

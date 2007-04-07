@@ -6,6 +6,7 @@ noinst_DATA =					\
 	f-spot-other.png			\
 	people-image.png			\
 	person-image.png			\
+	recommended-image.png			\
 	secure.png				\
 	unknown-cover.png		
 	icon-theme-installer

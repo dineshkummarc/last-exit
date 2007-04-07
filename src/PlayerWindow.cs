@@ -72,6 +72,7 @@ namespace LastExit
 		private Gdk.Pixbuf user_image;
 		private Gdk.Pixbuf neighbour_image;
 		private Gdk.Pixbuf favourite_image;
+		private Gdk.Pixbuf recommended_image;
 
 		private Song current_song;
 
@@ -266,6 +267,7 @@ namespace LastExit
 			user_image = new Gdk.Pixbuf (null, "person-image.png");
 			neighbour_image = new Gdk.Pixbuf (null, "people-image.png");
 			favourite_image = new Gdk.Pixbuf (null, "favourites-image.png");
+			recommended_image = new Gdk.Pixbuf (null, "recommended-image.png");
 			
 			// Create a store for the stations
 			stations = new StationStore (typeof (Gdk.Pixbuf), typeof (String), typeof (bool), typeof (String));
@@ -281,7 +283,7 @@ namespace LastExit
 				     FMConnection.MakeUserRadio (Driver.connection.Username,
 								 "/loved"),
 				     Driver.connection.Subscriber);
-			add_station (null, Catalog.GetString("Recommended Music Station"),
+			add_station (recommended_image, Catalog.GetString("Recommended Music Station"),
 				     FMConnection.MakeRecommendedRadio (Driver.connection.Username, Driver.config.RecommendationLevel), true);
 			stations.AppendValues (null, "last-exit:separator", true, null);
 			stations.AppendValues (null, Catalog.GetString("Other Station..."), 
