@@ -333,8 +333,16 @@ namespace LastExit
 
 			foreach (string line in lines) {
 				string[] opts = line.Split (new Char[] {'='});
-
-				switch (opts[0].ToLower ()) {
+				if (opts.Length == 1) {
+					if (opts[0].ToLower().IndexOf("no such group") != -1) { 
+						opts[0] = "error";
+						errno = 8;
+					} else if (opts[0].ToLower().IndexOf("no such artist") != -1) {
+						opts[0] = "error";
+						errno = 9;
+					}
+				}
+				switch (opts[0].Trim().ToLower ()) {
 				case "response":
 					if (opts[1] == "OK") {
 						ret = true;
@@ -342,9 +350,11 @@ namespace LastExit
 						ret = false;
 					}
 					break;
-
+			
 				case "error":
-					errno = Int32.Parse (opts[1]);
+					if (opts.Length > 1) { 
+						errno = Int32.Parse (opts[1]);
+					}
 					ret = false;
 					break;
 					

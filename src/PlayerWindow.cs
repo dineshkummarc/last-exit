@@ -776,6 +776,14 @@ namespace LastExit
 			case 7:
 				show_error_message (Catalog.GetString("This stream has stopped."));
 				break;
+				
+			case 8:
+				show_error_message (Catalog.GetString("There is no such a group."));
+				break;
+			
+			case 9:
+				show_error_message (Catalog.GetString("There is no such an artist."));
+				break;
 
 			default:
 				break;
