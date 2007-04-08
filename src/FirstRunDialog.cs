@@ -31,6 +31,7 @@ namespace LastExit
 
 		[Glade.Widget] private VBox password_container;
 		[Glade.Widget] private Entry username_entry;
+		[Glade.Widget] private Widget startplayer;
 		
 		private IconEntry password_entry;
 
@@ -46,7 +47,7 @@ namespace LastExit
 			get { return password_entry.Text; }
 		}
 
-	        public FirstRunDialog () {
+	    	public FirstRunDialog () {
 			this.Title = Catalog.GetString("Last.fm Account Details");
 			this.HasSeparator = false;
 			this.Modal = true;
@@ -57,8 +58,8 @@ namespace LastExit
 
 			// FIXME: Use stock?
 			this.AddButton ("gtk-quit", ResponseType.Reject);
-			this.AddButton (Catalog.GetString("Start Player"), ResponseType.Ok);
-
+			startplayer = this.AddButton (Catalog.GetString("Start Player"), ResponseType.Ok);
+			startplayer.Sensitive = false;
 			signup_button = new Gnome.HRef ("http://www.last.fm/signup.php",
 							Catalog.GetString("Sign up for Last.fm"));
 			signup_container.Add (signup_button);
@@ -71,10 +72,27 @@ namespace LastExit
 			password_entry.InvisibleChar = '•';
 			password_entry.SetIcon (IconEntryPosition.Primary,
 						new Image (null, "secure.png"));
+	
+			// EventHandlers to give more sensitive interface
+			password_entry.Activated += new EventHandler (OnEnter);
+			password_entry.Changed += new EventHandler (OnEntryChange);
+			username_entry.Changed += new EventHandler (OnEntryChange);
 			
 			password_container.Add (password_entry);
-
+			
 			first_run_contents.Visible = true;
+		}
+		
+		private void OnEnter (object obj, EventArgs args) {
+			this.Respond (ResponseType.Ok);
+		}
+		
+		private void OnEntryChange (object obj, EventArgs args) {
+			if (Password != "" && Username != "") { 
+				this.startplayer.Sensitive = true;
+			} else {
+				this.startplayer.Sensitive = false;
+			}
 		}
 	}
 }

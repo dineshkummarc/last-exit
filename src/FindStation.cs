@@ -69,8 +69,11 @@ namespace LastExit
 
 		private Artist selected_artist;
 		private string selneighbour;
+		
+		private PlayerWindow parentwindow;
 
-	        public FindStation (Window w) : base (Catalog.GetString("Find A Station"), w, DialogFlags.DestroyWithParent) {
+	        public FindStation (PlayerWindow w) : base (Catalog.GetString("Find A Station"), w, DialogFlags.DestroyWithParent) {
+	        this.parentwindow = w;
 			this.HasSeparator = false;
 			this.SetDefaultSize (430, 290);
 			
@@ -171,6 +174,10 @@ namespace LastExit
 				default:
 					break;
 				}
+			}
+			
+			if (response_id == ResponseType.Cancel) {
+				this.parentwindow.select_station(Driver.connection.StationLocation);
 			}
 			
 			this.Destroy ();
@@ -422,13 +429,11 @@ namespace LastExit
 			while (ienum.MoveNext ()) {
 				XmlNode a_node = (XmlNode) ienum.Current;
 				SimilarArtist similar = new SimilarArtist ();
-				
 				similar.Name = get_node_text (a_node, "name");
 				similar.Streamable = (get_node_text (a_node, "streamable") == "0");
 				similar.Mbid = get_node_text (a_node, "mbid");
 				similar.Url = get_node_text (a_node, "url");
-				similar.Relevance = Int32.Parse (get_node_text (a_node, "match"));
-				
+				similar.Relevance = Decimal.ToInt32(Decimal.Parse (get_node_text (a_node, "match")));
 				artist.AddSimilarArtist (similar);
 			}
 			
@@ -572,7 +577,7 @@ namespace LastExit
 			selection = sel.GetSelected (out model, out iter);
 			this.SetResponseSensitive (ResponseType.Ok, selection);
 		}
-
+		
 		private void OnRowActivated (object o, EventArgs args)
 		{
 			this.Respond(ResponseType.Ok);

@@ -226,7 +226,7 @@ namespace LastExit
 			foreach (string line in lines) {
 				string[] opts = line.Split (new Char[] {'='});
 
-				switch (opts[0].ToLower ()) {
+				switch (opts[0].Trim().ToLower()) {
 				case "session":
 					if (opts[1].ToLower () == "failed") {
 						// Handshake failed

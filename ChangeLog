@@ -1,3 +1,23 @@
+2007-04-07  Baris Cicek <baris@teamforce.name.tr>
+
+	* src/PlayerWindow.cs, src/FindStation.cs:
+	Patch to revert station combo box to previous state on Find Station
+	dialog is cancelled. Fixes #352010
+	
+	* src/FindStation.cs:
+	Parsing of 'match' node for similar artists is changed to Decimal
+	so that floating point return values won't crash last-exit. 
+	Fixes #423667
+
+	* src/FirstRunDialog.cs:
+	Making First Run Dialog more sensitive to user, giving feedback
+	about username and password entries, also handling of Enter on
+	password entry acts as HasDefault. Fixes #427445
+
+	* src/FMConnection.cs:
+	Trimming opts in order to prevent extra white spaces. Possibly
+	fixes #401336
+
 2007-04-7  Brandon Hale  <brandon@brandonhale.us>
 
 	* src/About.cs:

@@ -48,7 +48,6 @@ namespace LastExit
 
 		private VolumeButton volume_button;
 
-
 		[Glade.Widget] private VBox title_label_container;
 		[Glade.Widget] private VBox artist_label_container;
 		private UrlLabel artist_label;
@@ -71,8 +70,8 @@ namespace LastExit
 
 		private Gdk.Pixbuf user_image;
 		private Gdk.Pixbuf neighbour_image;
-		private Gdk.Pixbuf favourite_image;
 		private Gdk.Pixbuf recommended_image;
+		private Gdk.Pixbuf favourite_image;
 
 		private Song current_song;
 
@@ -268,6 +267,7 @@ namespace LastExit
 			neighbour_image = new Gdk.Pixbuf (null, "people-image.png");
 			favourite_image = new Gdk.Pixbuf (null, "favourites-image.png");
 			recommended_image = new Gdk.Pixbuf (null, "recommended-image.png");
+
 			
 			// Create a store for the stations
 			stations = new StationStore (typeof (Gdk.Pixbuf), typeof (String), typeof (bool), typeof (String));
@@ -373,7 +373,7 @@ namespace LastExit
 			}
 		}
 
-		private void select_station (string path)
+		public void select_station (string path)
 		{
 			TreeIter iter;
 			bool ret;
