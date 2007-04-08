@@ -1,4 +1,4 @@
-2007-04-7  Brandon Hale  <brandon@brandonhale.us>
+2007-04-8  Brandon Hale  <brandon@brandonhale.us>
 
 	Patch from Baris to fix bug #35012.
 	Better handling of errors on finding stations.
