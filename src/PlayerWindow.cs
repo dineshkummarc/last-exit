@@ -526,14 +526,16 @@ namespace LastExit
 			love_button.Sensitive = false;
 			hate_button.Sensitive = false;
                         CurrentSong.Loved = true;
-                        Driver.connection.Love ();
+                        XmlRpc xmlrpc = new XmlRpc ();
+                        xmlrpc.loveTrack (current_song.Artist, current_song.Track);
 		}
 
 		private void OnHateButtonClicked (object o, EventArgs args) {
 			love_button.Sensitive = false;
 			hate_button.Sensitive = false;
                         CurrentSong.Hated = true;
-                        Driver.connection.Hate ();
+                        XmlRpc xmlrpc = new XmlRpc ();
+                        xmlrpc.loveTrack (current_song.Artist, current_song.Track);
 		}
 
 		private void OnTagButtonClicked (object o, EventArgs args) 

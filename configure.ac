@@ -85,6 +85,7 @@ AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
 Makefile
+xmlrpccs/Makefile
 dbus-sharp/Makefile
 dbus-sharp/NDesk.DBus.GLib.dll.config
 notify-sharp/Makefile

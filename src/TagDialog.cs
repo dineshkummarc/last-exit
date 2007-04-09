@@ -229,46 +229,27 @@ namespace LastExit {
 			return tags;
 		}
 
-		private string make_mode_string () {
-			string mode;
-
+		private void OnTagButtonClicked (object o, EventArgs args) {
+			XmlRpc xmlrpc = new XmlRpc ();
+			string tagname = extra_tags.Entry.Text;
 			switch (tag_type_combo.Active) {
 			case 0:
-				mode = "track=" + song.SafeTrack + "&artist=" + song.SafeArtist;
+				xmlrpc.TagTrack (song.Artist, song.Track, tagname.Split(','));
 				break;
 
 			case 1:
-				mode = "album=" + song.SafeAlbum + "&artist=" + song.SafeArtist;
+				xmlrpc.TagAlbum (song.Artist, song.Album, tagname.Split(','));
 				break;
 
 			case 2:
-				mode = "artist=" + song.SafeArtist;
+				xmlrpc.TagArtist (song.Artist, tagname.Split(','));
 				break;
 
 			default:
-				mode = "error";
 				break;
 			}
-
-			return mode;
-		}
-
-		private void OnTagButtonClicked (object o, EventArgs args) {
-			string tagname = extra_tags.Entry.Text;
-			string base_url = Driver.connection.BaseUrl;
-			string url = "http://" + base_url + "/player/tag.php";
-
-			string mode = make_mode_string ();
-			string token = "s=" + Driver.connection.Session + "&tag=" + HttpUtility.UrlEncode (tagname) + "&" + mode;
 			
-			FMRequest fmr = new FMRequest ();
-			
-			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (SetTagCompleted);
-
-			fmr.DoRequest (url, token);
-
-			Driver.connection.DoOperationStarted ();
-
+			GetTagsForSong (song);
 		}
 
 		private void SetTagCompleted (FMRequest request) {

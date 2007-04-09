@@ -1,6 +1,7 @@
 SUBDIRS = 			\
 	data			\
 	dbus-sharp		\
+	xmlrpccs		\
 	notify-sharp		\
 	liblast-exit		\
 	src			\

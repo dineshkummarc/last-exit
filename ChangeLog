@@ -1,5 +1,12 @@
 2007-04-8  Brandon Hale  <brandon@brandonhale.us>
 
+	Patch from Baris on bug #427691.
+	Ports old HTTP access to audioscrobbler webservice with
+	much cleaner XmlRpcCS. 
+	As a side effect, this fixes tagging, bug #41143.
+
+2007-04-8  Brandon Hale  <brandon@brandonhale.us>
+
 	Patch from Baris to fix bug #35012.
 	Better handling of errors on finding stations.
 

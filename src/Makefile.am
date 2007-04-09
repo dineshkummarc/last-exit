@@ -3,6 +3,7 @@ CSC = $(MCS) $(MCS_FLAGS) $(CSFLAGS)
 TARGET = last-exit.exe
 WRAPPER = last-exit
 
+DIR_XMLRPC = $(top_builddir)/xmlrpccs
 DIR_DBUS =  $(top_builddir)/dbus-sharp
 DIR_NOTIFY = $(top_builddir)/notify-sharp
 
@@ -38,6 +39,7 @@ LASTEXIT_DIST_CSFILES =				\
 	$(srcdir)/StockIcons.cs			\
 	$(srcdir)/StringUtils.cs		\
 	$(srcdir)/Tag.cs			\
+	$(srcdir)/XmlRpc.cs			\
 	$(srcdir)/TagDialog.cs			\
 	$(srcdir)/TagSelector.cs		\
 	$(srcdir)/TagView.cs			\
@@ -63,6 +65,9 @@ DBUS_ASSEMBLIES = 				\
 	-r:$(DIR_DBUS)/NDesk.DBus.dll		\
 	-r:$(DIR_DBUS)/NDesk.DBus.GLib.dll
 endif
+
+XMLRPC_ASSEMBLIES = 				\
+	-r:${DIR_XMLRPC}/XmlRpcCS.dll
 
 NOTIFY_ASSEMBLIES =				\
 	-r:$(DIR_NOTIFY)/notify-sharp.dll
@@ -102,7 +107,7 @@ $(TARGET).config: $(srcdir)/$(TARGET).config.in
 	    < $^ > $@
 
 $(TARGET): $(LASTEXIT_CSFILES) $(top_builddir)/data/ui/TrayIcon.xml
-	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(DBUS_ASSEMBLIES) $(NOTIFY_ASSEMBLIES) $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS)
+	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(DBUS_ASSEMBLIES) ${XMLRPC_ASSEMBLIES} $(NOTIFY_ASSEMBLIES) $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS)
 
 all: $(TARGET)
 
