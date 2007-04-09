@@ -1,5 +1,10 @@
 2007-04-09  Baris Cicek <baris@teamforce.name.tr>
 
+	* src/PlayerWindow.cs: Love! should call unLoveTrack, 
+	it was calling LoveTrack by mistake.
+
+2007-04-09  Baris Cicek <baris@teamforce.name.tr>
+
 	* configure.ac: Added tr to ALL_LINGUAS
 
 2007-04-8  Brandon Hale  <brandon@brandonhale.us>
