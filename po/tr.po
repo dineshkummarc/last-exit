@@ -1,0 +1,492 @@
+# translation of last-exit.po to Turkish
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Baris Cicek <baris@teamforce.name.tr>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: last-exit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-04-09 17:00+0300\n"
+"PO-Revision-Date: 2007-04-09 17:00+0300\n"
+"Last-Translator: Baris Cicek <baris@teamforce.name.tr>\n"
+"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../data/glade/FindStation.glade.h:2
+msgid "<b>Results:</b>"
+msgstr "<b>Sonuçlar:</b>"
+
+#: ../data/glade/FindStation.glade.h:3
+msgid "<b>Search for:</b>"
+msgstr "<b>Ara:</b>"
+
+#: ../data/glade/FindStation.glade.h:4
+msgid "Find Station"
+msgstr "İstasyon Bul"
+
+#: ../data/glade/FirstRunDialog.glade.h:1
+msgid "Account Name:"
+msgstr "Hesap İsmi:"
+
+#: ../data/glade/FirstRunDialog.glade.h:2
+msgid ""
+"Before you can use Last Exit, you need to have a Last.fm\n"
+"account. Please enter the account name and password\n"
+"below."
+msgstr ""
+"Last Exit kullanmadan önce, bir Last.fm hesabınızın olması\n"
+"gerekmektedir. Lütfen aşağıya hesap isminizi ve parolanızı\n"
+"girin."
+
+#: ../data/glade/FirstRunDialog.glade.h:5
+msgid "Don't have a Last.FM account?"
+msgstr "Last.FM hesabınız yok mu?"
+
+#: ../data/glade/FirstRunDialog.glade.h:6 ../data/glade/Preferences.glade.h:8
+msgid "Password:"
+msgstr "Parola:"
+
+#: ../data/glade/FirstRunDialog.glade.h:7 ../src/FirstRunDialog.cs:61
+msgid "Start Player"
+msgstr "Çalıcıyı Başlat"
+
+#: ../data/glade/FirstRunDialog.glade.h:8
+msgid "dialog2"
+msgstr "pencere2"
+
+#: ../data/glade/InfoWindow.glade.h:2
+msgid "<b>Album:</b>"
+msgstr "<b>Albüm:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:3
+msgid "<b>Artist:</b>"
+msgstr "<b>Sanatçı:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:4
+msgid "<b>Song:</b>"
+msgstr "<b>Parça:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:5 ../data/glade/TagDialog.glade.h:5
+msgid "dialog1"
+msgstr "pencere1"
+
+#: ../data/glade/PlayerWindow.glade.h:1
+msgid "Apply tags"
+msgstr "Etiketleri uygula"
+
+#: ../data/glade/PlayerWindow.glade.h:2
+msgid "Hate!"
+msgstr "Sevmedim!"
+
+#: ../data/glade/PlayerWindow.glade.h:3
+msgid "Information"
+msgstr "Bilgi"
+
+#: ../data/glade/PlayerWindow.glade.h:4
+msgid "Love!"
+msgstr "Sevdim!"
+
+#: ../data/glade/PlayerWindow.glade.h:5
+msgid "Play the next song"
+msgstr "Sonraki parçayı çal"
+
+#: ../data/glade/PlayerWindow.glade.h:6
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: ../data/glade/PlayerWindow.glade.h:7
+msgid "Switch music playback on or off"
+msgstr "Müzik çalmayı aç ya da kapat"
+
+#: ../data/glade/PlayerWindow.glade.h:8
+msgid "Write a journal entry"
+msgstr "Bir günlük girişi yaz"
+
+#: ../data/glade/PlayerWindow.glade.h:9
+msgid "_Listening to:"
+msgstr "_Dinlenen:"
+
+#: ../data/glade/Preferences.glade.h:1
+msgid "<b>Last.fm Account</b>"
+msgstr "<b>Last.fm Hesabı</b>"
+
+#: ../data/glade/Preferences.glade.h:2
+msgid "<b>Recommendation Radio</b>"
+msgstr "<b>Tavsiye Radyo</b>"
+
+#: ../data/glade/Preferences.glade.h:3
+msgid "<b>User Interface</b>"
+msgstr "<b>Kullanıcı Arayüzü</b>"
+
+#: ../data/glade/Preferences.glade.h:4
+msgid "Create an account"
+msgstr "Bir hesap oluştur"
+
+#: ../data/glade/Preferences.glade.h:5
+msgid "Join Last Exit group"
+msgstr "Last Exit grubuna katıl"
+
+#: ../data/glade/Preferences.glade.h:6
+msgid "Last Exit Preferences"
+msgstr "Last Exit Tercihleri"
+
+#: ../data/glade/Preferences.glade.h:7
+msgid "Obscure"
+msgstr "Belirsiz"
+
+#: ../data/glade/Preferences.glade.h:9
+msgid "Popular"
+msgstr "Popüler"
+
+#: ../data/glade/Preferences.glade.h:10
+msgid "Show notification on song change"
+msgstr "Parça değişiminde uyarı göster"
+
+#: ../data/glade/Preferences.glade.h:11
+msgid "User Name:"
+msgstr "Kullanıcı İsmi:"
+
+#: ../data/glade/TagDialog.glade.h:1
+msgid "<span weight=\"bold\">Tag:</span>"
+msgstr "<span weight=\"bold\">Etiket:</span>"
+
+#: ../data/glade/TagDialog.glade.h:2
+msgid ""
+"Track\n"
+"Album\n"
+"Artist"
+msgstr ""
+"Parça\n"
+"Albüm\n"
+"Sanatçı"
+
+#: ../data/last-exit.desktop.in.h:1
+msgid "Last-Exit"
+msgstr "Last-Exit"
+
+#: ../data/last-exit.desktop.in.h:2
+msgid "Last.fm player"
+msgstr "Last.fm oynatıcı"
+
+#: ../data/last-exit.schemas.in.h:1
+msgid "Account name"
+msgstr "Hesap ismi"
+
+#: ../data/last-exit.schemas.in.h:2
+msgid "Password"
+msgstr "Parola"
+
+#: ../data/last-exit.schemas.in.h:3
+msgid "Password for the Last.FM account"
+msgstr "Last.FM hesabı için parola"
+
+#: ../data/last-exit.schemas.in.h:4
+msgid "Recommendation Level"
+msgstr "Tavsiye Seviyesi"
+
+#: ../data/last-exit.schemas.in.h:5
+msgid "Recommended radio setting (from 0-100)"
+msgstr "Tavsiye radyo ayarı (0'dan 100'e)"
+
+#: ../data/last-exit.schemas.in.h:6
+msgid "Set to true if the first run dialog should be shown"
+msgstr "Seçili ise, ilk başlatılma penceresinin gösterilir"
+
+#: ../data/last-exit.schemas.in.h:7
+msgid "Show Notifications"
+msgstr "Uyarıları Göster"
+
+#: ../data/last-exit.schemas.in.h:8
+msgid "Show first run dialog"
+msgstr "İlk başlatılma penceresini göster"
+
+#: ../data/last-exit.schemas.in.h:9
+msgid "The Last.FM account name that we should use"
+msgstr "Kullanacağımız Last.FM hesap ismi"
+
+#: ../data/last-exit.schemas.in.h:10
+msgid "Volume"
+msgstr "Ses"
+
+#: ../data/last-exit.schemas.in.h:11
+msgid "Volume setting (from 0-100)"
+msgstr "Ses ayarı (0'dan 100'e)"
+
+#: ../data/last-exit.schemas.in.h:12
+msgid "Whether Last-Exit shows notifications when the song changes"
+msgstr "Parça değiştiğinde Last-Exit'in uyarıları göstermesi"
+
+#: ../data/lastfm.schemas.in.h:1
+msgid "Is the Last-FM handler enabled"
+msgstr "Last-FM işleyici etkin mi"
+
+#: ../data/lastfm.schemas.in.h:2
+msgid "Run the command in a terminal"
+msgstr "Komutu uçbirimde başlat"
+
+#: ../data/lastfm.schemas.in.h:3
+msgid "The command used to handle \"lastfm\" URLs, if enabled."
+msgstr "Etkin olduğunda, \"lastfm\" URL'leri için kullanılacak işleyici."
+
+#: ../data/lastfm.schemas.in.h:4
+msgid "The handler for \"lastfm\" URLs"
+msgstr "\"lastfm\" URL'leri için işleyici"
+
+#: ../data/lastfm.schemas.in.h:5
+msgid ""
+"True if the command specified in the \"command\" key should handle \"lastfm"
+"\" URLs."
+msgstr ""
+"Seçili ise, \"command\" içerisinde belirtilmiş olan anahtar \"lastfm\" "
+"URL'lerini işler."
+
+#: ../data/lastfm.schemas.in.h:6
+msgid ""
+"True if the command used to handle \"lastfm\" URLs should be run in a "
+"terminal."
+msgstr ""
+"Eğer seçiliyse \"lastfm\" URL'lerini işleyecek olan komut uçbirim içinde "
+"çalışır."
+
+#: ../src/About.cs:32
+msgid "Last Exit"
+msgstr "Last Exit"
+
+#: ../src/About.cs:35
+msgid "Copyright © 2006 Iain Holmes"
+msgstr "Telif Hakkı © 2006 Iain Holmes"
+
+#: ../src/About.cs:38
+msgid "A Last.fm radio player"
+msgstr "Last.fm radyo çalıcısı"
+
+#: ../src/About.cs:45
+msgid "Iain Holmes <iain@gnome.org>"
+msgstr "Iain Holmes <iain@gnome.org>"
+
+#: ../src/About.cs:46
+msgid "Baris Cicek <baris@teamforce.name.tr>"
+msgstr "Baris Cicek <baris@teamforce.name.tr>"
+
+#: ../src/About.cs:47
+msgid "Brandon Hale <brandon@ubuntu.com>"
+msgstr "Brandon Hale <brandon@ubuntu.com>"
+
+#: ../src/About.cs:60
+msgid "translator-credits"
+msgstr "Barış Çiçek <baris@teamforce.name.tr>"
+
+#: ../src/Actions.cs:35
+msgid "Show _Window"
+msgstr "Pencereyi _Göster"
+
+#: ../src/Actions.cs:38
+msgid "_Play"
+msgstr "_Oynat"
+
+#: ../src/Actions.cs:41
+msgid "_Next"
+msgstr "_Sonraki"
+
+#: ../src/Actions.cs:44
+msgid "_About"
+msgstr "_Hakkında"
+
+#: ../src/Actions.cs:47
+msgid "_Preferences"
+msgstr "_Tercihler"
+
+#: ../src/Actions.cs:50
+msgid "_Love Song"
+msgstr "_Parçayı Sev"
+
+#: ../src/Actions.cs:53
+msgid "_Hate Song"
+msgstr "_Parçayı Sevme"
+
+#: ../src/FindStation.cs:75
+msgid "Find A Station"
+msgstr "Bir İstasyon Bul"
+
+#: ../src/FindStation.cs:105
+msgid "Cancel"
+msgstr "İptal"
+
+#: ../src/FindStation.cs:106
+msgid "Change Station"
+msgstr "İstasyon Değiştir"
+
+#: ../src/FindStation.cs:189
+msgid "Music that sounds like"
+msgstr "Benzer tarzda müzik"
+
+#: ../src/FindStation.cs:190
+msgid "Music that is tagged as"
+msgstr "Etiketlenmiş olan müzik"
+
+#: ../src/FindStation.cs:191
+msgid "A neighbours station"
+msgstr "Bir komşunun istasyonu"
+
+#: ../src/FindStation.cs:192
+msgid "A users station"
+msgstr "Bir kullanıcı istasyonu"
+
+#: ../src/FindStation.cs:193
+msgid "Music from fans of"
+msgstr "Hayranların dinlediği müzik"
+
+#: ../src/FindStation.cs:194
+msgid "A group station"
+msgstr "Bir grup istasyonu"
+
+#: ../src/FindStation.cs:591
+msgid "Artist not found"
+msgstr "Sanatçı bulunamadı"
+
+#: ../src/FindStation.cs:600
+#, csharp-format
+msgid "{0} is not streamable."
+msgstr "{0}akış olarak çalınamıyor."
+
+#: ../src/FindStation.cs:609
+#, csharp-format
+msgid "Music that sounds like <b>{0}</b>"
+msgstr "<b>{0}</b> tarzında müzik"
+
+#: ../src/FindStation.cs:614
+msgid "Featuring: \n"
+msgstr "Featuring: \n"
+
+#: ../src/FindStation.cs:630
+#, csharp-format
+msgid " and {0} other."
+msgid_plural " and {0} others."
+msgstr[0] " ve {0} diğer."
+msgstr[1] ""
+
+#: ../src/FirstRunDialog.cs:51
+msgid "Last.fm Account Details"
+msgstr "Last.fm Hesap Ayrıntıları"
+
+#: ../src/FirstRunDialog.cs:64
+msgid "Sign up for Last.fm"
+msgstr "Last.fm hesabı aç"
+
+#: ../src/PlayerWindow.cs:275
+msgid "Neighbour Station"
+msgstr "Komşu İstasyonu"
+
+#: ../src/PlayerWindow.cs:278
+msgid "Personal Station"
+msgstr "Kişisel İstasyon"
+
+#: ../src/PlayerWindow.cs:282
+msgid "Favourites Station"
+msgstr "Favoriler İstasyonu"
+
+#: ../src/PlayerWindow.cs:286
+msgid "Recommended Music Station"
+msgstr "Tavsiye Edilen Müzik İstasyonu"
+
+#: ../src/PlayerWindow.cs:289
+msgid "Other Station..."
+msgstr "Diğer İstasyon..."
+
+#: ../src/PlayerWindow.cs:717
+#, csharp-format
+msgid ""
+"<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
+"a></span>"
+msgstr ""
+"<span size=\"smaller\"><a href=\"{2}\">{3}</a></span> tarafından <a href="
+"\"{0}\">{1}</a> albümü"
+
+#: ../src/PlayerWindow.cs:719
+#, csharp-format
+msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Söyleyen <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:721
+#, csharp-format
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Albüm <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:728
+#, csharp-format
+msgid "{0} by {1}"
+msgstr "{1} tarafından {0}"
+
+#: ../src/PlayerWindow.cs:755
+msgid "There is not enough content to play this station."
+msgstr "Bu istasyonu çalabilmek için yeterli içerik yok."
+
+#: ../src/PlayerWindow.cs:759
+msgid "This group does not have enough members for radio."
+msgstr "Bu grup radyo için yeterli üyeye sahip değil."
+
+#: ../src/PlayerWindow.cs:763
+msgid "This artist does not have enough fans for radio."
+msgstr "Bu sanatçı radyo için yeterli hayrana sahip değil."
+
+#: ../src/PlayerWindow.cs:767
+msgid "This item is not available for streaming."
+msgstr "Bu öğe akış için mevcut değil."
+
+#: ../src/PlayerWindow.cs:771
+msgid "This feature is only available to subscribers."
+msgstr "Bu özellik sadece kayıtlı kullanıcılar için geçerlidir."
+
+#: ../src/PlayerWindow.cs:775
+msgid "There are not enough neighbours for this radio."
+msgstr "Bu radyo için yeterli komşu yok."
+
+#: ../src/PlayerWindow.cs:779
+msgid "This stream has stopped."
+msgstr "Bu akış durduruldu."
+
+#: ../src/PlayerWindow.cs:783
+msgid "There is no such a group."
+msgstr "Böyle bir grup yok."
+
+#: ../src/PlayerWindow.cs:787
+msgid "There is no such an artist."
+msgstr "Böyle bir sanatçı yok."
+
+#: ../src/TagDialog.cs:44
+msgid "Tag A Song"
+msgstr "Bir Parça Etiketle"
+
+#: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
+#, csharp-format
+msgid "Tag '{0}'"
+msgstr "Etiket '{0}'"
+
+#: ../src/TrayIcon.cs:184
+#, csharp-format
+msgid "<span weight=\"bold\">{0}</span>"
+msgstr "<span weight=\"bold\">{0}</span>"
+
+#: ../src/TrayIcon.cs:190 ../src/TrayIcon.cs:192
+#, csharp-format
+msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
+msgstr ""
+"<span size=\"smaller\"><span weight=\"bold\">{0}</span> tarafından</span>"
+
+#: ../src/TrayIcon.cs:208
+msgid " by "
+msgstr " tarafından"
+
+#. Wait til cover is set before we notify :)
+#: ../src/TrayIcon.cs:214
+msgid "Now playing"
+msgstr "Şimdi çalıyor"
