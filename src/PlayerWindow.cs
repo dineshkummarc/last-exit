@@ -535,7 +535,7 @@ namespace LastExit
 			hate_button.Sensitive = false;
                         CurrentSong.Hated = true;
                         XmlRpc xmlrpc = new XmlRpc ();
-                        xmlrpc.unLoveTrack (current_song.Artist, current_song.Track);
+                        xmlrpc.banTrack (current_song.Artist, current_song.Track);
 		}
 
 		private void OnTagButtonClicked (object o, EventArgs args) 
