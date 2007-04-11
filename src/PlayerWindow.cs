@@ -536,6 +536,7 @@ namespace LastExit
                         CurrentSong.Hated = true;
                         XmlRpc xmlrpc = new XmlRpc ();
                         xmlrpc.banTrack (current_song.Artist, current_song.Track);
+			Driver.connection.Skip ();
 		}
 
 		private void OnTagButtonClicked (object o, EventArgs args) 
