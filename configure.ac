@@ -1,4 +1,4 @@
-AC_INIT(last-exit, 4 ⅓, iain@gnome.org)
+AC_INIT(last-exit, 5, iain@gnome.org)
 AC_PREREQ(2.50)
 AC_CONFIG_SRCDIR(src/Driver.cs)
 AC_COPYRIGHT([Copyright 2005-2007 Iain Holmes])
@@ -28,7 +28,7 @@ PKG_CHECK_MODULES(LASTEXIT,
 		  gstreamer-0.10 >= $GSTREAMER_REQUIRED \
 		  gstreamer-base-0.10			\
 		  gstreamer-plugins-base-0.10 >= $GSTREAMER_REQUIRED \
-		  libsexy >= 0.1.7 \
+		  libsexy >= 0.1.5 \
 		  dbus-1 >= 0.60 \
 		  dbus-glib-1 >= 0.60)
 AC_SUBST(LASTEXIT_CFLAGS)
