@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections;
+using Mono.Unix;
 
 using Gtk;
 
@@ -44,8 +45,7 @@ namespace LastExit
 				}
 
 				foreach (Tag t in value) {
-					// FIXME: l10n
-					string pretty = t.Name + "\n<span size=\"smaller\">Relevance: " + (t.Match * 100) + "%</span>";
+					string pretty = t.Name + String.Format(Catalog.GetString("\n<span size=\"smaller\">Relevance: {0}%</span>"),(t.Match * 100));
 					
 					tagstore.AppendValues (t.ID, t.Name, t.Match, pretty);
 				}

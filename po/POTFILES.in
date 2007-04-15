@@ -19,4 +19,6 @@ src/FirstRunDialog.cs
 src/InfoWindow.cs
 src/PlayerWindow.cs
 src/TagDialog.cs
+src/TagSelector.cs
+src/TagView.cs
 src/TrayIcon.cs

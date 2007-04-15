@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections;
+using Mono.Unix;
 
 using Gtk;
 
@@ -42,8 +43,7 @@ namespace LastExit
 				}
 
 				foreach (Tag t in value) {
-					// FIXME: l10n???
-					string s = "<b>" + t.Name + "</b>\n<span size=\"smaller\"><i>Tagged " + t.Count + " items</i></span>";
+					string s = "<b>" + t.Name + "</b>\n" + String.Format(Catalog.GetPluralString("<span size=\"smaller\"><i>Tagged {0} item</i></span>","<span size=\"smaller\"><i>Tagged {0} items</i></span>",t.Count),t.Count);
 					tagstore.AppendValues (t.Name, s);
 				}
 			}
