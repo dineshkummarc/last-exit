@@ -1,3 +1,8 @@
+2007-04-14  Brandon Hale  <brandon@brandonhale.us>
+
+	* dbus-sharp/:
+	Update to dbus-sharp 0.4.2
+
 2007-04-12  Brandon Hale  <brandon@brandonhale.us>
 	
 	Reduce libsexy requirement to 0.1.5 for SLED.
