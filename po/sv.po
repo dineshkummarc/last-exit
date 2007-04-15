@@ -1,14 +1,14 @@
 # Swedish translation for last-exit.
-# Copyright (C) 2006 Free Software Foundation
+# Copyright (C) 2006, 2007 Free Software Foundation
 # This file is distributed under the same license as the last-exit package.
-# Daniel Nylander <po@danielnylander.se>, 2006.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: last-exit\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-02-23 14:00+0100\n"
-"PO-Revision-Date: 2007-02-23 13:57+0100\n"
+"POT-Creation-Date: 2007-04-15 12:41+0200\n"
+"PO-Revision-Date: 2007-04-15 12:43+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
+#: ../data/glade/FindStation.glade.h:1
+#: ../data/glade/InfoWindow.glade.h:1
 msgid "    "
 msgstr "    "
 
@@ -30,7 +31,7 @@ msgstr "<b>Sök efter:</b>"
 
 #: ../data/glade/FindStation.glade.h:4
 msgid "Find Station"
-msgstr "Hitta station"
+msgstr "Sök station"
 
 #: ../data/glade/FirstRunDialog.glade.h:1
 msgid "Account Name:"
@@ -50,11 +51,13 @@ msgstr ""
 msgid "Don't have a Last.FM account?"
 msgstr "Har du inget Last.FM-konto?"
 
-#: ../data/glade/FirstRunDialog.glade.h:6 ../data/glade/Preferences.glade.h:8
+#: ../data/glade/FirstRunDialog.glade.h:6
+#: ../data/glade/Preferences.glade.h:8
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ../data/glade/FirstRunDialog.glade.h:7 ../src/FirstRunDialog.cs:60
+#: ../data/glade/FirstRunDialog.glade.h:7
+#: ../src/FirstRunDialog.cs:61
 msgid "Start Player"
 msgstr "Starta spelaren"
 
@@ -74,7 +77,8 @@ msgstr "<b>Artist:</b>"
 msgid "<b>Song:</b>"
 msgstr "<b>Låt:</b>"
 
-#: ../data/glade/InfoWindow.glade.h:5 ../data/glade/TagDialog.glade.h:5
+#: ../data/glade/InfoWindow.glade.h:5
+#: ../data/glade/TagDialog.glade.h:5
 msgid "dialog1"
 msgstr "dialog1"
 
@@ -241,19 +245,12 @@ msgid "The handler for \"lastfm\" URLs"
 msgstr "Hanteraren för \"lastfm\"-url:er"
 
 #: ../data/lastfm.schemas.in.h:5
-msgid ""
-"True if the command specified in the \"command\" key should handle \"lastfm"
-"\" URLs."
-msgstr ""
-"Sant om angivet kommando i \"command\"-nyckeln ska hantera \"lastfm\"-url:er."
+msgid "True if the command specified in the \"command\" key should handle \"lastfm\" URLs."
+msgstr "Sant om angivet kommando i \"command\"-nyckeln ska hantera \"lastfm\"-url:er."
 
 #: ../data/lastfm.schemas.in.h:6
-msgid ""
-"True if the command used to handle \"lastfm\" URLs should be run in a "
-"terminal."
-msgstr ""
-"Sant om kommandot som används för att hantera \"lastfm\"-url:er ska köras i "
-"en terminal."
+msgid "True if the command used to handle \"lastfm\" URLs should be run in a terminal."
+msgstr "Sant om kommandot som används för att hantera \"lastfm\"-url:er ska köras i en terminal."
 
 #: ../src/About.cs:32
 msgid "Last Exit"
@@ -267,19 +264,19 @@ msgstr "Copyright © 2006 Iain Holmes"
 msgid "A Last.fm radio player"
 msgstr "En Last.fm-radiospelare"
 
-#: ../src/About.cs:42
+#: ../src/About.cs:45
 msgid "Iain Holmes <iain@gnome.org>"
 msgstr "Iain Holmes <iain@gnome.org>"
 
-#: ../src/About.cs:43
+#: ../src/About.cs:46
 msgid "Baris Cicek <baris@teamforce.name.tr>"
 msgstr "Baris Cicek <baris@teamforce.name.tr>"
 
-#: ../src/About.cs:44
+#: ../src/About.cs:47
 msgid "Brandon Hale <brandon@ubuntu.com>"
 msgstr "Brandon Hale <brandon@ubuntu.com>"
 
-#: ../src/About.cs:57
+#: ../src/About.cs:60
 msgid "translator-credits"
 msgstr "Daniel Nylander <po@danielnylander.se>"
 
@@ -311,163 +308,185 @@ msgstr "_Älskar låten"
 msgid "_Hate Song"
 msgstr "_Hatar låten"
 
-#: ../src/FindStation.cs:73
+#: ../src/FindStation.cs:75
 msgid "Find A Station"
 msgstr "Hitta en station"
 
-#: ../src/FindStation.cs:102
+#: ../src/FindStation.cs:105
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ../src/FindStation.cs:103
+#: ../src/FindStation.cs:106
 msgid "Change Station"
 msgstr "Byt station"
 
-#: ../src/FindStation.cs:182
+#: ../src/FindStation.cs:189
 msgid "Music that sounds like"
 msgstr "Musik som låter som"
 
-#: ../src/FindStation.cs:183
+#: ../src/FindStation.cs:190
 msgid "Music that is tagged as"
 msgstr "Musik som är taggad som"
 
-#: ../src/FindStation.cs:184
+#: ../src/FindStation.cs:191
 msgid "A neighbours station"
 msgstr "En grannstation"
 
-#: ../src/FindStation.cs:185
+#: ../src/FindStation.cs:192
 msgid "A users station"
 msgstr "En användarstation"
 
-#: ../src/FindStation.cs:186
+#: ../src/FindStation.cs:193
 msgid "Music from fans of"
 msgstr "Musik från fans av"
 
-#: ../src/FindStation.cs:187
+#: ../src/FindStation.cs:194
 msgid "A group station"
 msgstr "En gruppstation"
 
-#: ../src/FindStation.cs:586
+#: ../src/FindStation.cs:591
 msgid "Artist not found"
 msgstr "Artisten hittades inte"
 
-#: ../src/FindStation.cs:595
+#: ../src/FindStation.cs:600
 #, csharp-format
 msgid "{0} is not streamable."
 msgstr "{0} är inte möjlig att strömma."
 
-#: ../src/FindStation.cs:604
+#: ../src/FindStation.cs:609
 #, csharp-format
 msgid "Music that sounds like <b>{0}</b>"
 msgstr "Musik som låter som <b>{0}</b>"
 
-#: ../src/FindStation.cs:609
+#: ../src/FindStation.cs:614
 msgid "Featuring: \n"
 msgstr "Medverkande: \n"
 
-#: ../src/FindStation.cs:625
+#: ../src/FindStation.cs:630
 #, csharp-format
 msgid " and {0} other."
 msgid_plural " and {0} others."
 msgstr[0] " och en annan."
 msgstr[1] " och {0} andra."
 
-#: ../src/FirstRunDialog.cs:50
+#: ../src/FirstRunDialog.cs:51
 msgid "Last.fm Account Details"
 msgstr "Detaljer för Last.fm-konto"
 
-#: ../src/FirstRunDialog.cs:63
+#: ../src/FirstRunDialog.cs:64
 msgid "Sign up for Last.fm"
 msgstr "Registrera dig för Last.fm"
 
-#: ../src/PlayerWindow.cs:273
+#: ../src/PlayerWindow.cs:275
 msgid "Neighbour Station"
 msgstr "Grannstation"
 
-#: ../src/PlayerWindow.cs:276
+#: ../src/PlayerWindow.cs:278
 msgid "Personal Station"
 msgstr "Personlig station"
 
-#: ../src/PlayerWindow.cs:280
+#: ../src/PlayerWindow.cs:282
 msgid "Favourites Station"
 msgstr "Favoritstation"
 
-#: ../src/PlayerWindow.cs:284
+#: ../src/PlayerWindow.cs:286
 msgid "Recommended Music Station"
 msgstr "Rekommenderad musikstation"
 
-#: ../src/PlayerWindow.cs:287
+#: ../src/PlayerWindow.cs:289
 msgid "Other Station..."
 msgstr "Annan station..."
 
-#: ../src/PlayerWindow.cs:713
+#: ../src/PlayerWindow.cs:718
 #, csharp-format
-msgid ""
-"<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
-"a></span>"
-msgstr ""
-"<span size=\"smaller\">Från <a href=\"{0}\">{1}</a> av <a href=\"{2}\">{3}</"
-"a></span>"
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</a></span>"
+msgstr "<span size=\"smaller\">Från <a href=\"{0}\">{1}</a> av <a href=\"{2}\">{3}</a></span>"
 
-#: ../src/PlayerWindow.cs:715
+#: ../src/PlayerWindow.cs:720
 #, csharp-format
 msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"smaller\">Av <a href=\"{0}\">{1}</a></span>"
 
-#: ../src/PlayerWindow.cs:717
+#: ../src/PlayerWindow.cs:722
 #, csharp-format
 msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"smaller\">Från <a href=\"{0}\">{1}</a></span>"
 
-#: ../src/PlayerWindow.cs:724
+#: ../src/PlayerWindow.cs:729
 #, csharp-format
 msgid "{0} by {1}"
 msgstr "{0} av {1}"
 
-#: ../src/PlayerWindow.cs:751
+#: ../src/PlayerWindow.cs:756
 msgid "There is not enough content to play this station."
-msgstr ""
-"Det finns inte tillräckligt med innehåll för att spela upp den här stationen."
+msgstr "Det finns inte tillräckligt med innehåll för att spela upp den här stationen."
 
-#: ../src/PlayerWindow.cs:755
+#: ../src/PlayerWindow.cs:760
 msgid "This group does not have enough members for radio."
 msgstr "Den här gruppen har inte tillräckligt många medlemmar för radio."
 
-#: ../src/PlayerWindow.cs:759
+#: ../src/PlayerWindow.cs:764
 msgid "This artist does not have enough fans for radio."
 msgstr "Den här artisten har inte tillräckligt många fans för radio."
 
-#: ../src/PlayerWindow.cs:763
+#: ../src/PlayerWindow.cs:768
 msgid "This item is not available for streaming."
 msgstr "Det här objektet finns inte tillgängligt för att strömma."
 
-#: ../src/PlayerWindow.cs:767
+#: ../src/PlayerWindow.cs:772
 msgid "This feature is only available to subscribers."
 msgstr "Den här funktionen finns endast tillgänglig för prenumeranter."
 
-#: ../src/PlayerWindow.cs:771
+#: ../src/PlayerWindow.cs:776
 msgid "There are not enough neighbours for this radio."
 msgstr "Det finns inte tillräckligt många grannar för den här radion."
 
-#: ../src/PlayerWindow.cs:775
+#: ../src/PlayerWindow.cs:780
 msgid "This stream has stopped."
 msgstr "Den här strömmen har stoppat."
+
+#: ../src/PlayerWindow.cs:784
+msgid "There is no such a group."
+msgstr "Det finns ingen sådan grupp."
+
+#: ../src/PlayerWindow.cs:788
+msgid "There is no such an artist."
+msgstr "Det finns ingen sådan artist."
 
 #: ../src/TagDialog.cs:44
 msgid "Tag A Song"
 msgstr "Tagga en låt"
 
-#: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
+#: ../src/TagDialog.cs:87
+#: ../src/TagDialog.cs:91
+#: ../src/TagDialog.cs:95
 #, csharp-format
 msgid "Tag '{0}'"
 msgstr "Tagg \"{0}\""
+
+#: ../src/TagSelector.cs:46
+#, csharp-format
+msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
+msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
+msgstr[0] "<span size=\"smaller\"><i>Taggade {0} objekt</i></span>"
+msgstr[1] "<span size=\"smaller\"><i>Taggade {0} objekt</i></span>"
+
+#: ../src/TagView.cs:48
+#, csharp-format
+msgid ""
+"\n"
+"<span size=\"smaller\">Relevance: {0}%</span>"
+msgstr ""
+"\n"
+"<span size=\"smaller\">Relevans: {0}%</span>"
 
 #: ../src/TrayIcon.cs:184
 #, csharp-format
 msgid "<span weight=\"bold\">{0}</span>"
 msgstr "<span weight=\"bold\">{0}</span>"
 
-#: ../src/TrayIcon.cs:190 ../src/TrayIcon.cs:192
+#: ../src/TrayIcon.cs:190
+#: ../src/TrayIcon.cs:192
 #, csharp-format
 msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
 msgstr "<span size=\"smaller\">Av <span weight=\"bold\">{0}</span></span>"
@@ -481,5 +500,14 @@ msgstr " av "
 msgid "Now playing"
 msgstr "Spelar nu"
 
+#: ../src/VolumeButton.cs:493
+msgid "Muted"
+msgstr "Tyst"
+
+#: ../src/VolumeButton.cs:495
+msgid "Full Volume"
+msgstr "Full volym"
+
 #~ msgid "Add Tag"
 #~ msgstr "Lägg till tagg"
+
