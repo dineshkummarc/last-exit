@@ -1,3 +1,9 @@
+2007-04-21  Baris Cicek <baris@teamforce.name.tr>
+
+	* Driver.cs:
+	Handles BusG.Init() exception so that last-exit still works
+	even though Dbus does not exists. 
+
 2007-04-21  Brandon Hale  <brandon@brandonhale.us>
 	
 	* configure.ac, liblast-exit/player.cs:

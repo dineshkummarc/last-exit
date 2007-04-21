@@ -60,7 +60,12 @@ namespace LastExit
 			// Work around DBus locking issues
 			DBusPlayer.dbus_g_thread_init ();
 
-			BusG.Init();
+			try {
+				BusG.Init();
+			} catch (Exception e) { 
+				System.Console.WriteLine (e.Message);
+			}
+			
 
 			// Search for existing DBus server
 			IDBusPlayer dbus_core = DetectInstanceAndDbus();
