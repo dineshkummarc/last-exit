@@ -94,6 +94,7 @@ bus_message_cb (GstBus *bus,
 	Player *player = (Player *) data;
 	GError *err;
 	char *debug;
+	gint percent = 0;
 	GstState old_state, new_state;
 
 	switch (GST_MESSAGE_TYPE (message)) {
@@ -112,6 +113,15 @@ bus_message_cb (GstBus *bus,
 
 	case GST_MESSAGE_APPLICATION:
 		g_signal_emit (player, signals[NEW_SONG], 0);
+		break;
+		
+	case GST_MESSAGE_BUFFERING:
+		gst_message_parse_buffering (message, &percent);
+		if (percent != 100) 
+			gst_element_set_state (player->priv->play, GST_STATE_PAUSED);
+		else 
+			gst_element_set_state (player->priv->play, GST_STATE_PLAYING);
+		g_print ("Buffering (%.2u percent done) \r", percent);
 		break;
 
 	default:

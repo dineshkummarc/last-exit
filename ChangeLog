@@ -1,3 +1,9 @@
+2007-04-21  Brandon Hale  <brandon@brandonhale.us>
+	
+	* configure.ac, liblast-exit/player.cs:
+	Patch from Baris on #430751.
+	Improved handling of buffering, requires gstreamer 0.10.11 or better
+
 2007-04-20  Josep Puigdemont i Casamajó  <josep.puigdemont@gmail.com>
 
 	* configure.ac: added "ca" to ALL_LINUAS.
