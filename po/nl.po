@@ -1,0 +1,503 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: last-exit\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2007-04-17 16:58+0100\n"
+"Last-Translator: Paul van Schaik <pauldev@technut.nl>\n"
+"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/glade/FindStation.glade.h:1
+#: ../data/glade/InfoWindow.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../data/glade/FindStation.glade.h:2
+msgid "<b>Results:</b>"
+msgstr "<b>Resultaten:</b>"
+
+#: ../data/glade/FindStation.glade.h:3
+msgid "<b>Search for:</b>"
+msgstr "<b>Zoeken naar:</b>"
+
+#: ../data/glade/FindStation.glade.h:4
+msgid "Find Station"
+msgstr "Station zoeken"
+
+#: ../data/glade/FirstRunDialog.glade.h:1
+msgid "Account Name:"
+msgstr "Gebruikersnaam:"
+
+#: ../data/glade/FirstRunDialog.glade.h:2
+msgid ""
+"Before you can use Last Exit, you need to have a Last.fm\n"
+"account. Please enter the account name and password\n"
+"below."
+msgstr ""
+"Voordat u Last Exit kunt gebruiken, heeft u een Last.fm account nodig.\n"
+"Geef hieronder uw gebruikersnaam en wachtwoord."
+
+#: ../data/glade/FirstRunDialog.glade.h:5
+msgid "Don't have a Last.FM account?"
+msgstr "Heeft u nog geen Last.FM account?"
+
+#: ../data/glade/FirstRunDialog.glade.h:6
+#: ../data/glade/Preferences.glade.h:8
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: ../data/glade/FirstRunDialog.glade.h:7
+#: ../src/FirstRunDialog.cs:61
+msgid "Start Player"
+msgstr "Muziekspeler opstarten"
+
+#: ../data/glade/FirstRunDialog.glade.h:8
+msgid "dialog2"
+msgstr "dialog2"
+
+#: ../data/glade/InfoWindow.glade.h:2
+msgid "<b>Album:</b>"
+msgstr "<b>Album:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:3
+msgid "<b>Artist:</b>"
+msgstr "<b>Artiest:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:4
+msgid "<b>Song:</b>"
+msgstr "<b>Nummer:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:5
+#: ../data/glade/TagDialog.glade.h:5
+msgid "dialog1"
+msgstr "dialog1"
+
+#: ../data/glade/PlayerWindow.glade.h:1
+msgid "Apply tags"
+msgstr "Labels toepassen"
+
+#: ../data/glade/PlayerWindow.glade.h:2
+msgid "Hate!"
+msgstr "Afschuwelijk!"
+
+#: ../data/glade/PlayerWindow.glade.h:3
+msgid "Information"
+msgstr "Informatie"
+
+#: ../data/glade/PlayerWindow.glade.h:4
+msgid "Love!"
+msgstr "Geweldig!"
+
+#: ../data/glade/PlayerWindow.glade.h:5
+msgid "Play the next song"
+msgstr "Het volgende nummer afspelen"
+
+#: ../data/glade/PlayerWindow.glade.h:6
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: ../data/glade/PlayerWindow.glade.h:7
+msgid "Switch music playback on or off"
+msgstr "Schakel muziek afspelen aan of uit"
+
+#: ../data/glade/PlayerWindow.glade.h:8
+msgid "Write a journal entry"
+msgstr "Logboekaantekening schrijven"
+
+#: ../data/glade/PlayerWindow.glade.h:9
+msgid "_Listening to:"
+msgstr "U _luistert naar:"
+
+#: ../data/glade/Preferences.glade.h:1
+msgid "<b>Last.fm Account</b>"
+msgstr "<b>Last.fm account</b>"
+
+#: ../data/glade/Preferences.glade.h:2
+msgid "<b>Recommendation Radio</b>"
+msgstr "<b>Aanbevolen radio</b>"
+
+#: ../data/glade/Preferences.glade.h:3
+msgid "<b>User Interface</b>"
+msgstr "<b>Gebruikersinterface</b>"
+
+#: ../data/glade/Preferences.glade.h:4
+msgid "Create an account"
+msgstr "Een account aanmaken"
+
+#: ../data/glade/Preferences.glade.h:5
+msgid "Join Last Exit group"
+msgstr "Lid worden van de Last Exit groep"
+
+#: ../data/glade/Preferences.glade.h:6
+msgid "Last Exit Preferences"
+msgstr "Last Exit voorkeuren"
+
+#: ../data/glade/Preferences.glade.h:7
+msgid "Obscure"
+msgstr "Alternatief"
+
+#: ../data/glade/Preferences.glade.h:9
+msgid "Popular"
+msgstr "Populair"
+
+#: ../data/glade/Preferences.glade.h:10
+msgid "Show notification on song change"
+msgstr "Melding geven bij het wisselen van nummer"
+
+#: ../data/glade/Preferences.glade.h:11
+msgid "User Name:"
+msgstr "Gebruikersnaam:"
+
+#: ../data/glade/TagDialog.glade.h:1
+msgid "<span weight=\"bold\">Tag:</span>"
+msgstr "<span weight=\"bold\">Label:</span>"
+
+#: ../data/glade/TagDialog.glade.h:2
+msgid ""
+"Track\n"
+"Album\n"
+"Artist"
+msgstr ""
+"Nummer\n"
+"Album\n"
+"Artiest"
+
+#: ../data/last-exit.desktop.in.h:1
+msgid "Last-Exit"
+msgstr "Last-Exit"
+
+#: ../data/last-exit.desktop.in.h:2
+msgid "Last.fm player"
+msgstr "Last.fm speler"
+
+#: ../data/last-exit.schemas.in.h:1
+msgid "Account name"
+msgstr "Gebruikersnaam"
+
+#: ../data/last-exit.schemas.in.h:2
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: ../data/last-exit.schemas.in.h:3
+msgid "Password for the Last.FM account"
+msgstr "Wachtwoord voor het Last.FM account"
+
+#: ../data/last-exit.schemas.in.h:4
+msgid "Recommendation Level"
+msgstr "Aanbevelingsniveau"
+
+#: ../data/last-exit.schemas.in.h:5
+msgid "Recommended radio setting (from 0-100)"
+msgstr "Aanbevolen radio-instelling (van 0-100)"
+
+#: ../data/last-exit.schemas.in.h:6
+msgid "Set to true if the first run dialog should be shown"
+msgstr "Inschakelen als het Eerste Start dialoogvenster getoond moet worden"
+
+#: ../data/last-exit.schemas.in.h:7
+msgid "Show Notifications"
+msgstr "Meldingen tonen"
+
+#: ../data/last-exit.schemas.in.h:8
+msgid "Show first run dialog"
+msgstr "Eerste Start dialoogvenster tonen"
+
+#: ../data/last-exit.schemas.in.h:9
+msgid "The Last.FM account name that we should use"
+msgstr "De Last.FM gebruikersnaam die gebruikt moet worden"
+
+#: ../data/last-exit.schemas.in.h:10
+msgid "Volume"
+msgstr "Volume"
+
+#: ../data/last-exit.schemas.in.h:11
+msgid "Volume setting (from 0-100)"
+msgstr "Volume instelling (van 0-100)"
+
+#: ../data/last-exit.schemas.in.h:12
+msgid "Whether Last-Exit shows notifications when the song changes"
+msgstr "Of Last-Exit een melding moet geven bij het wisselen van een nummer"
+
+#: ../data/lastfm.schemas.in.h:1
+msgid "Is the Last-FM handler enabled"
+msgstr "Is de Last-FM manager ingeschakeld"
+
+#: ../data/lastfm.schemas.in.h:2
+msgid "Run the command in a terminal"
+msgstr "Dit commando in een terminal uitvoeren"
+
+#: ../data/lastfm.schemas.in.h:3
+msgid "The command used to handle \"lastfm\" URLs, if enabled."
+msgstr "Het commando wat gebruikt wordt om \"lastfm\" URL's uit te voeren, indien ingeschakeld."
+
+#: ../data/lastfm.schemas.in.h:4
+msgid "The handler for \"lastfm\" URLs"
+msgstr "De manager voor \"lastfm\" URL's"
+
+#: ../data/lastfm.schemas.in.h:5
+msgid "True if the command specified in the \"command\" key should handle \"lastfm\" URLs."
+msgstr "Waar als het commando gespecificeerd in de \"commando\" sleutel \"lasfm\" URL's moet behandelen"
+
+#: ../data/lastfm.schemas.in.h:6
+msgid "True if the command used to handle \"lastfm\" URLs should be run in a terminal."
+msgstr "Waar als het commando dat \"lastfm\" URL's behandelt, in een terminal moet worden uitgevoerd"
+
+#: ../src/About.cs:32
+msgid "Last Exit"
+msgstr "Last Exit"
+
+#: ../src/About.cs:35
+msgid "Copyright © 2006 Iain Holmes"
+msgstr "Copyright © 2006 Iain Holmes"
+
+#: ../src/About.cs:38
+msgid "A Last.fm radio player"
+msgstr "Een Last.FM radiospeler"
+
+#: ../src/About.cs:45
+msgid "Iain Holmes <iain@gnome.org>"
+msgstr "Iain Holmes <iain@gnome.org>"
+
+#: ../src/About.cs:46
+msgid "Baris Cicek <baris@teamforce.name.tr>"
+msgstr "Baris Cicek <baris@teamforce.name.tr>"
+
+#: ../src/About.cs:47
+msgid "Brandon Hale <brandon@ubuntu.com>"
+msgstr "Brandon Hale <brandon@ubuntu.com>"
+
+#: ../src/About.cs:60
+msgid "translator-credits"
+msgstr "Paul van Schaik <pauldev@technut.nl \n Kijk voor meer informatie op http://nl.gnome.org/"
+
+#: ../src/Actions.cs:35
+msgid "Show _Window"
+msgstr "Venster _tonen"
+
+#: ../src/Actions.cs:38
+msgid "_Play"
+msgstr "_Afspelen"
+
+#: ../src/Actions.cs:41
+msgid "_Next"
+msgstr "_Volgende"
+
+#: ../src/Actions.cs:44
+msgid "_About"
+msgstr "I_nfo"
+
+#: ../src/Actions.cs:47
+msgid "_Preferences"
+msgstr "Voor_keuren"
+
+#: ../src/Actions.cs:50
+msgid "_Love Song"
+msgstr "_Geweldig Nummer"
+
+#: ../src/Actions.cs:53
+msgid "_Hate Song"
+msgstr "_Afschuwelijk Nummer"
+
+#: ../src/FindStation.cs:75
+msgid "Find A Station"
+msgstr "Een station zoeken"
+
+#: ../src/FindStation.cs:105
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../src/FindStation.cs:106
+msgid "Change Station"
+msgstr "Station wisselen"
+
+#: ../src/FindStation.cs:189
+msgid "Music that sounds like"
+msgstr "Muziek die klinkt als"
+
+#: ../src/FindStation.cs:190
+msgid "Music that is tagged as"
+msgstr "Muziek die is gelabeld als"
+
+#: ../src/FindStation.cs:191
+msgid "A neighbours station"
+msgstr "Een buurstation"
+
+#: ../src/FindStation.cs:192
+msgid "A users station"
+msgstr "Een gebruikersstation"
+
+#: ../src/FindStation.cs:193
+msgid "Music from fans of"
+msgstr "Muziek van fans van"
+
+#: ../src/FindStation.cs:194
+msgid "A group station"
+msgstr "Een groepstation"
+
+#: ../src/FindStation.cs:591
+msgid "Artist not found"
+msgstr "Artiest niet gevonden"
+
+#: ../src/FindStation.cs:600
+#, csharp-format
+msgid "{0} is not streamable."
+msgstr "{0} is niet af te spelen."
+
+#: ../src/FindStation.cs:609
+#, csharp-format
+msgid "Music that sounds like <b>{0}</b>"
+msgstr "Muziek die klinkt als <b>{0}</b>"
+
+#: ../src/FindStation.cs:614
+msgid "Featuring: \n"
+msgstr "Met medewerking van: \n"
+
+#: ../src/FindStation.cs:630
+#, csharp-format
+msgid " and {0} other."
+msgid_plural " and {0} others."
+msgstr[0] "en {0} andere."
+msgstr[1] "en {0} anderen."
+
+#: ../src/FirstRunDialog.cs:51
+msgid "Last.fm Account Details"
+msgstr "Last.FM account details"
+
+#: ../src/FirstRunDialog.cs:64
+msgid "Sign up for Last.fm"
+msgstr "Aanmelden bij Last.FM"
+
+#: ../src/PlayerWindow.cs:275
+msgid "Neighbour Station"
+msgstr "Buurstation"
+
+#: ../src/PlayerWindow.cs:278
+msgid "Personal Station"
+msgstr "Persoonlijk station"
+
+#: ../src/PlayerWindow.cs:282
+msgid "Favourites Station"
+msgstr "Favorieten station"
+
+#: ../src/PlayerWindow.cs:286
+msgid "Recommended Music Station"
+msgstr "Aanbevolen muziek station"
+
+#: ../src/PlayerWindow.cs:289
+msgid "Other Station..."
+msgstr "Andere station..."
+
+#: ../src/PlayerWindow.cs:718
+#, csharp-format
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</a></span>"
+msgstr "<span size=\"smaller\">Van <a href=\"{0}\">{1}</a> door <a href=\"{2}\">{3}</a></span>"
+
+#: ../src/PlayerWindow.cs:720
+#, csharp-format
+msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Door <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:722
+#, csharp-format
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Van <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:729
+#, csharp-format
+msgid "{0} by {1}"
+msgstr "{0} door {1}"
+
+#: ../src/PlayerWindow.cs:756
+msgid "There is not enough content to play this station."
+msgstr "Er is niet genoeg inhoud voor deze station."
+
+#: ../src/PlayerWindow.cs:760
+msgid "This group does not have enough members for radio."
+msgstr "Deze groep heeft niet genoeg leden voor radio."
+
+#: ../src/PlayerWindow.cs:764
+msgid "This artist does not have enough fans for radio."
+msgstr "Deze artiest heeft niet genoeg fans voor radio."
+
+#: ../src/PlayerWindow.cs:768
+msgid "This item is not available for streaming."
+msgstr "Dit item is niet beschikbaar voor muziekstromen"
+
+#: ../src/PlayerWindow.cs:772
+msgid "This feature is only available to subscribers."
+msgstr "Deze functie is alleen beschikbaar voor leden."
+
+#: ../src/PlayerWindow.cs:776
+msgid "There are not enough neighbours for this radio."
+msgstr "Er zijn te weinig buren voor deze radio."
+
+#: ../src/PlayerWindow.cs:780
+msgid "This stream has stopped."
+msgstr "Deze muziekstroom is gestopt"
+
+#: ../src/PlayerWindow.cs:784
+msgid "There is no such a group."
+msgstr "Groep bestaat niet."
+
+#: ../src/PlayerWindow.cs:788
+msgid "There is no such an artist."
+msgstr "Artiest bestaat niet."
+
+#: ../src/TagDialog.cs:44
+msgid "Tag A Song"
+msgstr "Label een nummer"
+
+#: ../src/TagDialog.cs:87
+#: ../src/TagDialog.cs:91
+#: ../src/TagDialog.cs:95
+#, csharp-format
+msgid "Tag '{0}'"
+msgstr "Label '{0}'"
+
+#: ../src/TagSelector.cs:46
+#, csharp-format
+msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
+msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
+msgstr[0] "<span size=\"smaller\"><i>Gelabeld {0} item</i></span>"
+msgstr[1] "<span size=\"smaller\"><i>Gelabelde {0} items</i></span>"
+
+#: ../src/TagView.cs:48
+#, csharp-format
+msgid ""
+"\n"
+"<span size=\"smaller\">Relevance: {0}%</span>"
+msgstr ""
+"\n"
+"<span size=\"smaller\">Relevantie: {0}%</span>"
+
+#: ../src/TrayIcon.cs:184
+#, csharp-format
+msgid "<span weight=\"bold\">{0}</span>"
+msgstr "<span weight=\"bold\">{0}</span>"
+
+#: ../src/TrayIcon.cs:190
+#: ../src/TrayIcon.cs:192
+#, csharp-format
+msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
+msgstr "<span size=\"smaller\">Door <span weight=\"bold\">{0}</span></span>"
+
+#: ../src/TrayIcon.cs:208
+msgid " by "
+msgstr " door "
+
+#. Wait til cover is set before we notify :)
+#: ../src/TrayIcon.cs:214
+msgid "Now playing"
+msgstr "U luistert naar"
+
+#: ../src/VolumeButton.cs:493
+msgid "Muted"
+msgstr "Gedempt"
+
+#: ../src/VolumeButton.cs:495
+msgid "Full Volume"
+msgstr "Volume maximaal"
+
