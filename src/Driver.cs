@@ -76,7 +76,9 @@ namespace LastExit
 			try {
 				dbus_remote = new DBusRemote();
 				dbus_player = new DBusPlayer();
-				dbus_remote.RegisterObject(dbus_player, "Player");
+				if (dbus_player != null) {
+					dbus_remote.RegisterObject(dbus_player, "Player");
+				}
 			} catch {}
 
 			string username;

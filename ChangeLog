@@ -1,3 +1,9 @@
+2007-04-21  Brandon Hale  <brandon@brandonhale.us>
+	
+	* src/Driver.cs:
+	Null check on dbus_remote before calling RegisterObject.
+	I am not sure this fixes my bug, but it certainly doesn't hurt.
+
 2007-04-21  Baris Cicek <baris@teamforce.name.tr>
 
 	* Driver.cs:
