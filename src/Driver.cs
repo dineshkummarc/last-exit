@@ -61,7 +61,7 @@ namespace LastExit
 			DBusPlayer.dbus_g_thread_init ();
 
 			try {
-				BusG.Init();
+				BusG.Init(Bus.Session);
 			} catch (Exception e) { 
 				System.Console.WriteLine (e.Message);
 			}
