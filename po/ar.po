@@ -1,44 +1,40 @@
-# Arabic translations for PACKAGE package.
+# Arabic translations for THIS package.
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as THIS package.
 # Automatically generated, 2007.
-#
+# Djihed Afifi <djihed@gmail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-14 18:24+0100\n"
-"PO-Revision-Date: 2007-04-14 18:46+0100\n"
+"POT-Creation-Date: 2007-04-21 22:53+0100\n"
+"PO-Revision-Date: 2007-04-14 18:49+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabeyes <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Arabic\n"
 
-#: ../data/glade/FindStation.glade.h:1
-#: ../data/glade/InfoWindow.glade.h:1
-#, fuzzy
+#: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
 msgid "    "
 msgstr "    "
 
 #: ../data/glade/FindStation.glade.h:2
 #, fuzzy
 msgid "<b>Results:</b>"
-msgstr "النتائج"
+msgstr "<b>الإصدارة:</b>"
 
 #: ../data/glade/FindStation.glade.h:3
 #, fuzzy
 msgid "<b>Search for:</b>"
-msgstr "ا_بحث عن:"
+msgstr "<b>بحث عن</b>"
 
 #: ../data/glade/FindStation.glade.h:4
 #, fuzzy
 msgid "Find Station"
-msgstr "كولدج ستيشن"
+msgstr "أضف محطة"
 
 #: ../data/glade/FirstRunDialog.glade.h:1
-#, fuzzy
 msgid "Account Name:"
 msgstr "إسم الحساب:"
 
@@ -52,74 +48,70 @@ msgstr ""
 #: ../data/glade/FirstRunDialog.glade.h:5
 #, fuzzy
 msgid "Don't have a Last.FM account?"
-msgstr "لا تستعمل الكرة الأخيرة"
+msgstr "غير قادر على حفظ التغييرات للحساب."
 
-#: ../data/glade/FirstRunDialog.glade.h:6
-#: ../data/glade/Preferences.glade.h:8
+#: ../data/glade/FirstRunDialog.glade.h:6 ../data/glade/Preferences.glade.h:8
 #, fuzzy
 msgid "Password:"
-msgstr "كلمة المرور:"
+msgstr "_كلمة السر:"
 
-#: ../data/glade/FirstRunDialog.glade.h:7
-#: ../src/FirstRunDialog.cs:61
+#: ../data/glade/FirstRunDialog.glade.h:7 ../src/FirstRunDialog.cs:61
 #, fuzzy
 msgid "Start Player"
-msgstr "لم يمكن تشعيل عازف الأقراص المدمج"
+msgstr "الطبقة المنفصلة"
 
 #: ../data/glade/FirstRunDialog.glade.h:8
+#, fuzzy
 msgid "dialog2"
-msgstr ""
+msgstr "حوار"
 
 #: ../data/glade/InfoWindow.glade.h:2
 #, fuzzy
 msgid "<b>Album:</b>"
-msgstr "الألبوم:"
+msgstr "<b>الأل_بوم:</b>"
 
 #: ../data/glade/InfoWindow.glade.h:3
 #, fuzzy
 msgid "<b>Artist:</b>"
-msgstr "ال_فنان:"
+msgstr "<b>ال_فنان:</b>"
 
 #: ../data/glade/InfoWindow.glade.h:4
 #, fuzzy
 msgid "<b>Song:</b>"
-msgstr "الأغنية"
+msgstr "<b>الصوت</b>"
 
-#: ../data/glade/InfoWindow.glade.h:5
-#: ../data/glade/TagDialog.glade.h:5
+#: ../data/glade/InfoWindow.glade.h:5 ../data/glade/TagDialog.glade.h:5
 #, fuzzy
 msgid "dialog1"
-msgstr "dialog1"
+msgstr "حوار"
 
 #: ../data/glade/PlayerWindow.glade.h:1
 #, fuzzy
 msgid "Apply tags"
-msgstr "HTML - علامات"
+msgstr "تطبيق"
 
 #: ../data/glade/PlayerWindow.glade.h:2
 #, fuzzy
 msgid "Hate!"
-msgstr "الحقد"
+msgstr "النسبة"
 
 #: ../data/glade/PlayerWindow.glade.h:3
-#, fuzzy
 msgid "Information"
 msgstr "معلومات"
 
 #: ../data/glade/PlayerWindow.glade.h:4
 #, fuzzy
 msgid "Love!"
-msgstr "حب"
+msgstr "رمادي"
 
 #: ../data/glade/PlayerWindow.glade.h:5
-#, fuzzy
 msgid "Play the next song"
-msgstr "بدأ عزف الأغنية التالية"
+msgstr "شغّل الأغنية السابقة"
 
 #: ../data/glade/PlayerWindow.glade.h:6
 #, fuzzy
 msgid "Preferences"
-msgstr "تفضيلات"
+msgstr "ت_فضيلات"
 
 #: ../data/glade/PlayerWindow.glade.h:7
 msgid "Switch music playback on or off"
@@ -128,67 +120,64 @@ msgstr ""
 #: ../data/glade/PlayerWindow.glade.h:8
 #, fuzzy
 msgid "Write a journal entry"
-msgstr "ادخال كتابة تنبئيا"
+msgstr "خانة سجل - %s"
 
 #: ../data/glade/PlayerWindow.glade.h:9
 #, fuzzy
 msgid "_Listening to:"
-msgstr "مسجل ل %s"
+msgstr "استماع على:"
 
 #: ../data/glade/Preferences.glade.h:1
 #, fuzzy
 msgid "<b>Last.fm Account</b>"
-msgstr "عدّل معلومات الحساب"
+msgstr "<b>مرات التشغيل:</b>"
 
 #: ../data/glade/Preferences.glade.h:2
 #, fuzzy
 msgid "<b>Recommendation Radio</b>"
-msgstr "زر مشع"
+msgstr "<b>يجري استلام البريد الإلكتروني</b>"
 
 #: ../data/glade/Preferences.glade.h:3
-#, fuzzy
 msgid "<b>User Interface</b>"
 msgstr "<b>واجهة المستخدم</b>"
 
 #: ../data/glade/Preferences.glade.h:4
-#, fuzzy
 msgid "Create an account"
-msgstr "أنشئ الحساب"
+msgstr "أنشئ حساباً"
 
 #: ../data/glade/Preferences.glade.h:5
 #, fuzzy
 msgid "Join Last Exit group"
-msgstr "اختر المستخدمين لضمّهم إلى هذه المجموعة:"
+msgstr "انضم لمجموعة بانشي"
 
 #: ../data/glade/Preferences.glade.h:6
 #, fuzzy
 msgid "Last Exit Preferences"
-msgstr "حجم نافذة التفضيلات"
+msgstr "كما في التفضيلات"
 
 #: ../data/glade/Preferences.glade.h:7
 #, fuzzy
 msgid "Obscure"
-msgstr "غامض"
+msgstr "غير آمن"
 
 #: ../data/glade/Preferences.glade.h:9
 #, fuzzy
 msgid "Popular"
-msgstr "شعبي"
+msgstr "بولا"
 
 #: ../data/glade/Preferences.glade.h:10
 #, fuzzy
 msgid "Show notification on song change"
-msgstr "إظهار معلومات عن المعزوفة المنتقات"
+msgstr "بدء او ايقاف المجموعة المرئية"
 
 #: ../data/glade/Preferences.glade.h:11
-#, fuzzy
 msgid "User Name:"
-msgstr "إسم المستخدم"
+msgstr "اسم المستخدم:"
 
 #: ../data/glade/TagDialog.glade.h:1
 #, fuzzy
 msgid "<span weight=\"bold\">Tag:</span>"
-msgstr "<span weight=\"bold\">تنبيهات</span>"
+msgstr "<span weight=\"bold\">مقطوعة:</span>"
 
 #: ../data/glade/TagDialog.glade.h:2
 #, fuzzy
@@ -196,37 +185,36 @@ msgid ""
 "Track\n"
 "Album\n"
 "Artist"
-msgstr "تعقب حالة الرسالة..."
+msgstr "فنان الألبوم"
 
 #: ../data/last-exit.desktop.in.h:1
 #, fuzzy
 msgid "Last-Exit"
-msgstr "إنهاء البرنامج"
+msgstr "آخر تحرير:"
 
 #: ../data/last-exit.desktop.in.h:2
 #, fuzzy
 msgid "Last.fm player"
-msgstr "قارئ القرص"
+msgstr "آخر تش_غيل"
 
 #: ../data/last-exit.schemas.in.h:1
-#, fuzzy
 msgid "Account name"
 msgstr "إسم الحساب"
 
 #: ../data/last-exit.schemas.in.h:2
 #, fuzzy
 msgid "Password"
-msgstr "كلمة السّر"
+msgstr "كلمات السر"
 
 #: ../data/last-exit.schemas.in.h:3
 #, fuzzy
 msgid "Password for the Last.FM account"
-msgstr "غير كلمة مرور حساب إكستشينج"
+msgstr "غير كلمة سر حساب إكستشينج"
 
 #: ../data/last-exit.schemas.in.h:4
 #, fuzzy
 msgid "Recommendation Level"
-msgstr "مستوى واحد"
+msgstr "أظهر التوصيات"
 
 #: ../data/last-exit.schemas.in.h:5
 msgid "Recommended radio setting (from 0-100)"
@@ -239,12 +227,12 @@ msgstr ""
 #: ../data/last-exit.schemas.in.h:7
 #, fuzzy
 msgid "Show Notifications"
-msgstr "تمكين التنبيهات"
+msgstr "أظهر التنبي_هات"
 
 #: ../data/last-exit.schemas.in.h:8
 #, fuzzy
 msgid "Show first run dialog"
-msgstr "إظهار حوار الشّريط لتشغيل التّطبيقات"
+msgstr "أظهر مرشحات للبريد:"
 
 #: ../data/last-exit.schemas.in.h:9
 msgid "The Last.FM account name that we should use"
@@ -253,25 +241,24 @@ msgstr ""
 #: ../data/last-exit.schemas.in.h:10
 #, fuzzy
 msgid "Volume"
-msgstr "شدة الصوت"
+msgstr "الحجم:"
 
 #: ../data/last-exit.schemas.in.h:11
-#, fuzzy
 msgid "Volume setting (from 0-100)"
-msgstr "جاري إعداد إدارة الكتل المنطقيّة:"
+msgstr ""
 
 #: ../data/last-exit.schemas.in.h:12
+#, fuzzy
 msgid "Whether Last-Exit shows notifications when the song changes"
-msgstr ""
+msgstr "ما إذا يجب السؤال عن تأكيد عند حذف ملاحظة"
 
 #: ../data/lastfm.schemas.in.h:1
 msgid "Is the Last-FM handler enabled"
 msgstr ""
 
 #: ../data/lastfm.schemas.in.h:2
-#, fuzzy
 msgid "Run the command in a terminal"
-msgstr "تشغيل الأمر في شاشة طرفية"
+msgstr "شغّل الأمر في طرفية"
 
 #: ../data/lastfm.schemas.in.h:3
 #, fuzzy
@@ -281,38 +268,44 @@ msgstr "الأمر المستخدم لمعالجة عناوين \"aim\"، في �
 #: ../data/lastfm.schemas.in.h:4
 #, fuzzy
 msgid "The handler for \"lastfm\" URLs"
-msgstr "العامل الخاص لعناوين \"note://\""
+msgstr "معالج عناوين \"aim\""
 
 #: ../data/lastfm.schemas.in.h:5
 #, fuzzy
-msgid "True if the command specified in the \"command\" key should handle \"lastfm\" URLs."
-msgstr "إضبط لـtrue إذا كان على الأمر المحدّد في المفتاح \"command\" معالجة عناوين \"aim\"."
+msgid ""
+"True if the command specified in the \"command\" key should handle \"lastfm"
+"\" URLs."
+msgstr ""
+"إضبط لـtrue إذا كان على الأمر المحدّد في المفتاح \"command\" معالجة عناوين "
+"\"aim\"."
 
 #: ../data/lastfm.schemas.in.h:6
 #, fuzzy
-msgid "True if the command used to handle \"lastfm\" URLs should be run in a terminal."
-msgstr "إضبط لـtrue إذا كان على الأمر المستخدم لمعالجة هذا النوع من العناوين العمل في شاشة طرفية."
+msgid ""
+"True if the command used to handle \"lastfm\" URLs should be run in a "
+"terminal."
+msgstr ""
+"إضبط لـtrue إذا كان على الأمر المستخدم لمعالجة هذا النوع من العناوين العمل "
+"في شاشة طرفية."
 
 #: ../src/About.cs:32
 #, fuzzy
 msgid "Last Exit"
-msgstr "إنهاء البرنامج"
+msgstr "آخر تحرير:"
 
 #: ../src/About.cs:35
 #, fuzzy
 msgid "Copyright © 2006 Iain Holmes"
-msgstr "حقوق النسخ © 2006 Travis Watkins"
+msgstr "حقوق النسخ © 2006 Benjamin Canou"
 
 #: ../src/About.cs:38
+#, fuzzy
 msgid "A Last.fm radio player"
-msgstr ""
+msgstr "حساب لاست . إف إم"
 
 #: ../src/About.cs:45
-#, fuzzy
 msgid "Iain Holmes <iain@gnome.org>"
 msgstr ""
-"مسجل أصوت لجنوم\n"
-" gnome-media@gnome.org"
 
 #: ../src/About.cs:46
 msgid "Baris Cicek <baris@teamforce.name.tr>"
@@ -325,10 +318,7 @@ msgstr ""
 #: ../src/About.cs:60
 #, fuzzy
 msgid "translator-credits"
-msgstr ""
-"فريق عربآيز للترجمة http://www.arabeyes.org :\n"
-"جهاد عفيفي\t<djihed@gmail.com>\n"
-"يوسف رفه\t<yousef@raffah.com>"
+msgstr "المترجمون:"
 
 #: ../src/Actions.cs:35
 #, fuzzy
@@ -336,19 +326,18 @@ msgid "Show _Window"
 msgstr "أظهر النافذة"
 
 #: ../src/Actions.cs:38
-#, fuzzy
 msgid "_Play"
-msgstr "_عزف"
+msgstr "إل_عب"
 
 #: ../src/Actions.cs:41
 #, fuzzy
 msgid "_Next"
-msgstr "ال_تالي"
+msgstr "التالي"
 
 #: ../src/Actions.cs:44
 #, fuzzy
 msgid "_About"
-msgstr "_حول"
+msgstr "_6 عن البرنامج"
 
 #: ../src/Actions.cs:47
 #, fuzzy
@@ -358,20 +347,19 @@ msgstr "ت_فضيلات"
 #: ../src/Actions.cs:50
 #, fuzzy
 msgid "_Love Song"
-msgstr "خصائص الأغنية"
+msgstr "أحب الأغنية"
 
 #: ../src/Actions.cs:53
 #, fuzzy
 msgid "_Hate Song"
-msgstr "خصائص الأغنية"
+msgstr "أ_عد تشغيل الأغنية"
 
 #: ../src/FindStation.cs:75
 #, fuzzy
 msgid "Find A Station"
-msgstr "كولدج ستيشن"
+msgstr "أضف محطة"
 
 #: ../src/FindStation.cs:105
-#, fuzzy
 msgid "Cancel"
 msgstr "إلغي"
 
@@ -381,8 +369,9 @@ msgid "Change Station"
 msgstr "كولدج ستيشن"
 
 #: ../src/FindStation.cs:189
+#, fuzzy
 msgid "Music that sounds like"
-msgstr ""
+msgstr "لا يبدو كـ"
 
 #: ../src/FindStation.cs:190
 msgid "Music that is tagged as"
@@ -391,32 +380,32 @@ msgstr ""
 #: ../src/FindStation.cs:191
 #, fuzzy
 msgid "A neighbours station"
-msgstr "كولدج ستيشن"
+msgstr "أضف محطة إذاعية جديدة"
 
 #: ../src/FindStation.cs:192
 #, fuzzy
 msgid "A users station"
-msgstr "كولدج ستيشن"
+msgstr "إعدادات المستخدمين"
 
 #: ../src/FindStation.cs:193
 #, fuzzy
 msgid "Music from fans of"
-msgstr "خلع موسيقاك من أقراصك المدمجة"
+msgstr "البريد من %s"
 
 #: ../src/FindStation.cs:194
 #, fuzzy
 msgid "A group station"
-msgstr "كولدج ستيشن"
+msgstr "اعدادات المجموعات"
 
 #: ../src/FindStation.cs:591
 #, fuzzy
 msgid "Artist not found"
-msgstr "لم يعثر على المستخدم"
+msgstr "المضيف غير موجود"
 
 #: ../src/FindStation.cs:600
 #, fuzzy, csharp-format
 msgid "{0} is not streamable."
-msgstr "ليس عليه علم"
+msgstr "لا يمكن قراءة الملف."
 
 #: ../src/FindStation.cs:609
 #, csharp-format
@@ -426,139 +415,170 @@ msgstr ""
 #: ../src/FindStation.cs:614
 #, fuzzy
 msgid "Featuring: \n"
-msgstr "العرض"
+msgstr "حواف حادة"
 
 #: ../src/FindStation.cs:630
 #, fuzzy, csharp-format
 msgid " and {0} other."
 msgid_plural " and {0} others."
-msgstr[0] "ترميزات أخرى"
-msgstr[1] ""
+msgstr[0] "خلال شهر"
+msgstr[1] "خلال شهرين"
+msgstr[2] "خلال {0} شهور"
+msgstr[3] "خلال {0} شهراً"
 
 #: ../src/FirstRunDialog.cs:51
 #, fuzzy
 msgid "Last.fm Account Details"
-msgstr "تفاصيل حساب مستخدم دروبال %s"
+msgstr "ولوج حساب لاست . إف إم"
 
 #: ../src/FirstRunDialog.cs:64
+#, fuzzy
 msgid "Sign up for Last.fm"
-msgstr ""
+msgstr "اعرف المزيد عن لاست . إف إم عند"
 
 #: ../src/PlayerWindow.cs:275
 #, fuzzy
 msgid "Neighbour Station"
-msgstr "كولدج ستيشن"
+msgstr "المحطة الجوية البحرية"
 
 #: ../src/PlayerWindow.cs:278
 #, fuzzy
 msgid "Personal Station"
-msgstr "كولدج ستيشن"
+msgstr "إعدادات شخصيّة"
 
 #: ../src/PlayerWindow.cs:282
 #, fuzzy
 msgid "Favourites Station"
-msgstr "كولدج ستيشن"
+msgstr "مفضّلات"
 
 #: ../src/PlayerWindow.cs:286
 #, fuzzy
 msgid "Recommended Music Station"
-msgstr "المحطة الجوية البحرية"
+msgstr "الفنانون الموصى بهم"
 
 #: ../src/PlayerWindow.cs:289
 #, fuzzy
 msgid "Other Station..."
-msgstr "كولدج ستيشن"
+msgstr "افتح موقع..."
 
 #: ../src/PlayerWindow.cs:718
 #, csharp-format
-msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</a></span>"
+msgid ""
+"<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
+"a></span>"
 msgstr ""
 
 #: ../src/PlayerWindow.cs:720
-#, csharp-format
+#, fuzzy, csharp-format
 msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
-msgstr ""
+msgstr "<span size=\"small\">%U على %h</span>"
 
 #: ../src/PlayerWindow.cs:722
-#, csharp-format
+#, fuzzy, csharp-format
 msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
-msgstr ""
+msgstr "<span size=\"small\">%U على %h</span>"
 
 #: ../src/PlayerWindow.cs:729
 #, fuzzy, csharp-format
 msgid "{0} by {1}"
-msgstr "قبل يوم %B %d، %Y، %l:%M %p"
+msgstr "{0} من {1}"
 
 #: ../src/PlayerWindow.cs:756
+#, fuzzy
 msgid "There is not enough content to play this station."
-msgstr ""
+msgstr "فضاء المقصد غير كاف."
 
 #: ../src/PlayerWindow.cs:760
+#, fuzzy
 msgid "This group does not have enough members for radio."
-msgstr ""
+msgstr "لا تدعم هذه اللّعبة التّلميحات بعد."
 
 #: ../src/PlayerWindow.cs:764
+#, fuzzy
 msgid "This artist does not have enough fans for radio."
-msgstr ""
+msgstr "لا تدعم هذه اللّعبة التّلميحات بعد."
 
 #: ../src/PlayerWindow.cs:768
+#, fuzzy
 msgid "This item is not available for streaming."
-msgstr ""
+msgstr "لا يتوفّر تقويم لإنشاء التذكيرات"
 
 #: ../src/PlayerWindow.cs:772
+#, fuzzy
 msgid "This feature is only available to subscribers."
-msgstr ""
+msgstr "%sهذه الخاصية غير متاحة عند استخدام هذا البرتكول \n"
 
 #: ../src/PlayerWindow.cs:776
+#, fuzzy
 msgid "There are not enough neighbours for this radio."
-msgstr ""
+msgstr "فضاء المقصد غير كاف."
 
 #: ../src/PlayerWindow.cs:780
 #, fuzzy
 msgid "This stream has stopped."
-msgstr "لهذا الحدث منبّهات"
+msgstr "هذه الملاحظة مقفلة."
 
 #: ../src/PlayerWindow.cs:784
 #, fuzzy
 msgid "There is no such a group."
-msgstr "%s: لا توجد عملّية حالياً"
+msgstr "لا يوجد صورة محددة:"
 
 #: ../src/PlayerWindow.cs:788
 #, fuzzy
 msgid "There is no such an artist."
-msgstr "%s: لا توجد عملّية حالياً"
+msgstr "فضاء غير كافي في المقصد."
 
 #: ../src/TagDialog.cs:44
 #, fuzzy
 msgid "Tag A Song"
-msgstr "خصائص الأغنية"
+msgstr "امنع الأغنية"
 
-#: ../src/TagDialog.cs:87
-#: ../src/TagDialog.cs:91
-#: ../src/TagDialog.cs:95
+#: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
 #, fuzzy, csharp-format
 msgid "Tag '{0}'"
-msgstr "الشّارة"
+msgstr "المقطع {0}"
+
+#: ../src/TagSelector.cs:46
+#, fuzzy, csharp-format
+msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
+msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
+msgstr[0] "<span size=\"medium\"><b>لا ملفّ</b></span>"
+msgstr[1] "<span size=\"medium\"><b>لا ملفّ</b></span>"
+
+#: ../src/TagView.cs:48
+#, fuzzy, csharp-format
+msgid ""
+"\n"
+"<span size=\"smaller\">Relevance: {0}%</span>"
+msgstr "<span size=\"small\">%U على %h</span>"
 
 #: ../src/TrayIcon.cs:184
 #, fuzzy, csharp-format
 msgid "<span weight=\"bold\">{0}</span>"
-msgstr "<span weight=\"bold\">تنبيهات</span>"
+msgstr "<span weight=\"bold\">الوقت</span>"
 
-#: ../src/TrayIcon.cs:190
-#: ../src/TrayIcon.cs:192
+#: ../src/TrayIcon.cs:190 ../src/TrayIcon.cs:192
 #, fuzzy, csharp-format
 msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
-msgstr "<span weight=\"bold\" size=\"x-large\">اختبار...</span>"
+msgstr "<span size=\"larger\" weight=\"bold\">انتق لعبة</span>"
 
 #: ../src/TrayIcon.cs:208
 #, fuzzy
 msgid " by "
-msgstr "قبل يوم %B %d، %Y، %l:%M %p"
+msgstr "أداء"
 
 #. Wait til cover is set before we notify :)
 #: ../src/TrayIcon.cs:214
 #, fuzzy
 msgid "Now playing"
-msgstr "جاري عزف"
+msgstr "التشغيل الآن"
+
+#: ../src/VolumeButton.cs:493
+#, fuzzy
+msgid "Muted"
+msgstr "مورتيد"
+
+#: ../src/VolumeButton.cs:495
+msgid "Full Volume"
+msgstr "أعلى مستوى"
 
