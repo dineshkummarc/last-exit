@@ -2,16 +2,16 @@
 # Copyright (C) 2007 Sebastian Dröge <slomo@circular-chaos.org>
 # This file is distributed under the same license as the last-exit package.
 # Sebastian Dröge <slomo@circular-chaos.org>, 2007.
+# Hendrik Richter <hendrikr@gnome.org>, 2007.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: last-exit 4.0\n"
+"Project-Id-Version: last-exit 6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-22 14:25+0100\n"
-"PO-Revision-Date: 2007-01-22 14:25+0100\n"
-"Last-Translator: Sebastian Dröge <slomo@circular-chaos.org>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2007-08-15 14:30+0200\n"
+"PO-Revision-Date: 2007-08-15 14:30+0200\n"
+"Last-Translator: Hendrik Richter <hendrikr@gnome.org>\n"
+"Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,11 +27,11 @@ msgstr "<b>Ergebnisse:</b>"
 
 #: ../data/glade/FindStation.glade.h:3
 msgid "<b>Search for:</b>"
-msgstr "<b>Suche nach:</b>"
+msgstr "<b>Suchen nach:</b>"
 
 #: ../data/glade/FindStation.glade.h:4
 msgid "Find Station"
-msgstr "Suche einen Sender"
+msgstr "Einen Sender suchen"
 
 #: ../data/glade/FirstRunDialog.glade.h:1
 msgid "Account Name:"
@@ -43,18 +43,18 @@ msgid ""
 "account. Please enter the account name and password\n"
 "below."
 msgstr ""
-"Bevor Last Exit benutzt werden kann müssen sie ein Last.fm Kontobesitzen. "
-"Bitte geben sie ihren Benutzernamen und ihr Passwort ein."
+"Bevor Last Exit benutzt werden kann, müssen Sie ein Last.fm-Konto besitzen.\n"
+"Bitte geben Sie Ihren Benutzernamen und Ihr Passwort ein."
 
 #: ../data/glade/FirstRunDialog.glade.h:5
 msgid "Don't have a Last.FM account?"
-msgstr "Sie besitzen noch kein Last.fm Konto?"
+msgstr "Sie besitzen noch kein Last.fm-Konto?"
 
 #: ../data/glade/FirstRunDialog.glade.h:6 ../data/glade/Preferences.glade.h:8
 msgid "Password:"
 msgstr "Passwort:"
 
-#: ../data/glade/FirstRunDialog.glade.h:7 ../src/FirstRunDialog.cs:60
+#: ../data/glade/FirstRunDialog.glade.h:7 ../src/FirstRunDialog.cs:61
 msgid "Start Player"
 msgstr "Player starten"
 
@@ -96,7 +96,7 @@ msgstr "Gefällt mir!"
 
 #: ../data/glade/PlayerWindow.glade.h:5
 msgid "Play the next song"
-msgstr "Spiele den nächsten Titel ab"
+msgstr "Den nächsten Titel abspielen"
 
 #: ../data/glade/PlayerWindow.glade.h:6
 msgid "Preferences"
@@ -104,19 +104,19 @@ msgstr "Einstellungen"
 
 #: ../data/glade/PlayerWindow.glade.h:7
 msgid "Switch music playback on or off"
-msgstr "Aktiviert oder deaktiviert Musikwiedergabe"
+msgstr "Musikwiedergabe ein- und ausschalten"
 
 #: ../data/glade/PlayerWindow.glade.h:8
 msgid "Write a journal entry"
-msgstr "Blog Eintrag schreiben"
+msgstr "Blog-Eintrag schreiben"
 
 #: ../data/glade/PlayerWindow.glade.h:9
 msgid "_Listening to:"
-msgstr "_Spiele:"
+msgstr "_Momentan läuft:"
 
 #: ../data/glade/Preferences.glade.h:1
 msgid "<b>Last.fm Account</b>"
-msgstr "<b>Last.fm Konto</b>"
+msgstr "<b>Last.fm-Konto</b>"
 
 #: ../data/glade/Preferences.glade.h:2
 msgid "<b>Recommendation Radio</b>"
@@ -132,11 +132,11 @@ msgstr "Konto erstellen"
 
 #: ../data/glade/Preferences.glade.h:5
 msgid "Join Last Exit group"
-msgstr "Der Last Exit Gruppe beitreten"
+msgstr "Der »Last Exit«-Gruppe beitreten"
 
 #: ../data/glade/Preferences.glade.h:6
 msgid "Last Exit Preferences"
-msgstr "Last Exit Einstellungen"
+msgstr "Last Exit-Einstellungen"
 
 #: ../data/glade/Preferences.glade.h:7
 msgid "Obscure"
@@ -174,7 +174,7 @@ msgstr "Last-Exit"
 
 #: ../data/last-exit.desktop.in.h:2
 msgid "Last.fm player"
-msgstr "Last.fm Player"
+msgstr "Last.fm-Player"
 
 #: ../data/last-exit.schemas.in.h:1
 msgid "Account name"
@@ -186,7 +186,7 @@ msgstr "Passwort"
 
 #: ../data/last-exit.schemas.in.h:3
 msgid "Password for the Last.FM account"
-msgstr "Passwort des Last.fm Kontos"
+msgstr "Passwort des Last.fm-Kontos"
 
 #: ../data/last-exit.schemas.in.h:4
 msgid "Recommendation Level"
@@ -266,31 +266,33 @@ msgstr "Copyright © 2006 Iain Holmes"
 
 #: ../src/About.cs:38
 msgid "A Last.fm radio player"
-msgstr "Ein Last.fm Radio Player"
+msgstr "Ein Last.fm-Radio-Player"
 
-#: ../src/About.cs:42
+#: ../src/About.cs:45
 msgid "Iain Holmes <iain@gnome.org>"
 msgstr "Iain Holmes <iain@gnome.org>"
 
-#: ../src/About.cs:43
+#: ../src/About.cs:46
 msgid "Baris Cicek <baris@teamforce.name.tr>"
 msgstr "Baris Cicek <baris@teamforce.name.tr>"
 
-#: ../src/About.cs:44
+#: ../src/About.cs:47
 msgid "Brandon Hale <brandon@ubuntu.com>"
 msgstr "Brandon Hale <brandon@ubuntu.com>"
 
-#: ../src/About.cs:57
+#: ../src/About.cs:60
 msgid "translator-credits"
-msgstr "Sebastian Dröge <slomo@circular-chaos.org>"
+msgstr ""
+"Sebastian Dröge <slomo@circular-chaos.org>\n"
+"Hendrik Richter <hendrikr@gnome.org>"
 
 #: ../src/Actions.cs:35
 msgid "Show _Window"
-msgstr "_Zeige das Fenster"
+msgstr "Fenster an_zeigen"
 
 #: ../src/Actions.cs:38
 msgid "_Play"
-msgstr "_Abspielen"
+msgstr "_Wiedergabe"
 
 #: ../src/Actions.cs:41
 msgid "_Next"
@@ -298,7 +300,7 @@ msgstr "_Nächster Titel"
 
 #: ../src/Actions.cs:44
 msgid "_About"
-msgstr "_Über"
+msgstr "_Info"
 
 #: ../src/Actions.cs:47
 msgid "_Preferences"
@@ -312,146 +314,155 @@ msgstr "Titel _gefällt mir"
 msgid "_Hate Song"
 msgstr "Titel _missfällt mir"
 
-#: ../src/FindStation.cs:73
+#: ../src/FindStation.cs:75
 msgid "Find A Station"
-msgstr "Suche einen Sender"
+msgstr "Einen Sender suchen"
 
-#: ../src/FindStation.cs:102
+#: ../src/FindStation.cs:105
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: ../src/FindStation.cs:103
+#: ../src/FindStation.cs:106
 msgid "Change Station"
 msgstr "Anderen Sender wählen"
 
-#: ../src/FindStation.cs:182
+#: ../src/FindStation.cs:189
 msgid "Music that sounds like"
 msgstr "Musik, die klingt wie"
 
-#: ../src/FindStation.cs:183
+#: ../src/FindStation.cs:190
 msgid "Music that is tagged as"
 msgstr "Musik, die getaggt ist als"
 
-#: ../src/FindStation.cs:184
+#: ../src/FindStation.cs:191
 msgid "A neighbours station"
 msgstr "Sender eines Nachbarn"
 
-#: ../src/FindStation.cs:185
+#: ../src/FindStation.cs:192
 msgid "A users station"
 msgstr "Sender eines anderen Benutzers"
 
-#: ../src/FindStation.cs:186
+#: ../src/FindStation.cs:193
 msgid "Music from fans of"
 msgstr "Musik von Fans von"
 
-#: ../src/FindStation.cs:187
+#: ../src/FindStation.cs:194
 msgid "A group station"
 msgstr "Sender einer Gruppe"
 
-#: ../src/FindStation.cs:586
+#: ../src/FindStation.cs:591
 msgid "Artist not found"
 msgstr "Interpret nicht gefunden"
 
-#: ../src/FindStation.cs:595
+#: ../src/FindStation.cs:600
 #, csharp-format
 msgid "{0} is not streamable."
 msgstr "{0} ist nicht abspielbar."
 
-#: ../src/FindStation.cs:604
+#: ../src/FindStation.cs:609
 #, csharp-format
 msgid "Music that sounds like <b>{0}</b>"
 msgstr "Musik, die wie <b>{0}</b> klingt"
 
-#: ../src/FindStation.cs:609
+#: ../src/FindStation.cs:614
 msgid "Featuring: \n"
 msgstr "Zusammen mit: \n"
 
-#: ../src/FindStation.cs:625
+#: ../src/FindStation.cs:630
 #, csharp-format
 msgid " and {0} other."
 msgid_plural " and {0} others."
 msgstr[0] " und {0} anderer."
 msgstr[1] " und {0} anderen."
 
-#: ../src/FirstRunDialog.cs:50
+#: ../src/FirstRunDialog.cs:51
 msgid "Last.fm Account Details"
-msgstr "Last.fm Konto Eigenschaften"
+msgstr "Last.fm-Konto-Eigenschaften"
 
-#: ../src/FirstRunDialog.cs:63
+#: ../src/FirstRunDialog.cs:64
 msgid "Sign up for Last.fm"
 msgstr "Bei Last.fm anmelden"
 
-#: ../src/PlayerWindow.cs:270
+#: ../src/PlayerWindow.cs:275
 msgid "Neighbour Station"
 msgstr "Sender eines Nachbarn"
 
-#: ../src/PlayerWindow.cs:273
+#: ../src/PlayerWindow.cs:278
 msgid "Personal Station"
 msgstr "Persönlicher Sender"
 
-#: ../src/PlayerWindow.cs:277
+#: ../src/PlayerWindow.cs:282
 msgid "Favourites Station"
 msgstr "Sender mit Favoriten"
 
-#: ../src/PlayerWindow.cs:281
+#: ../src/PlayerWindow.cs:286
 msgid "Recommended Music Station"
 msgstr "Sender mit Empfehlungen"
 
-#: ../src/PlayerWindow.cs:284
+#: ../src/PlayerWindow.cs:289
 msgid "Other Station..."
-msgstr "Anderer Sender..."
+msgstr "Anderer Sender …"
 
-#: ../src/PlayerWindow.cs:710
+#: ../src/PlayerWindow.cs:718
 #, csharp-format
 msgid ""
 "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
 "a></span>"
 msgstr ""
-"<span size=\"smaller\">Von dem Album <a href=\"{0}\">{1}</a> von <a href="
-"\"{2}\">{3}</a></span>"
+"<span size=\"smaller\">Aus Album <a href=\"{0}\">{1}</a> von <a href=\"{2}\">"
+"{3}</a></span>"
 
-#: ../src/PlayerWindow.cs:712
+#: ../src/PlayerWindow.cs:720
 #, csharp-format
 msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"smaller\">Von <a href=\"{0}\">{1}</a></span>"
 
-#: ../src/PlayerWindow.cs:714
+#: ../src/PlayerWindow.cs:722
 #, csharp-format
 msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
-msgstr "<span size=\"smaller\">Von dem Album <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Aus Album <a href=\"{0}\">{1}</a></span>"
 
-#: ../src/PlayerWindow.cs:721
+#: ../src/PlayerWindow.cs:729
 #, csharp-format
 msgid "{0} by {1}"
 msgstr "{0} von {1}"
 
-#: ../src/PlayerWindow.cs:748
-msgid "There is not enough content to play this station."
-msgstr "Nicht genügend Inhalt vorhanden um diesen Sender abzuspielen."
-
-#: ../src/PlayerWindow.cs:752
-msgid "This group does not have enough members for radio."
-msgstr "Diese Gruppe hat nicht genügend Mitglieder um einen Sender anzubieten."
-
 #: ../src/PlayerWindow.cs:756
-msgid "This artist does not have enough fans for radio."
-msgstr "Dieser Interpret hat nicht genügend Fans um einen Sender anzubieten."
+msgid "There is not enough content to play this station."
+msgstr "Nicht genügend Inhalt vorhanden, um diesen Sender abzuspielen."
 
 #: ../src/PlayerWindow.cs:760
+msgid "This group does not have enough members for radio."
+msgstr ""
+"Diese Gruppe hat nicht genügend Mitglieder, um einen Sender anzubieten."
+
+#: ../src/PlayerWindow.cs:764
+msgid "This artist does not have enough fans for radio."
+msgstr "Dieser Interpret hat nicht genügend Fans, um einen Sender anzubieten."
+
+#: ../src/PlayerWindow.cs:768
 msgid "This item is not available for streaming."
 msgstr "Diese Auswahl ist nicht zum Abspielen vorhanden."
 
-#: ../src/PlayerWindow.cs:764
+#: ../src/PlayerWindow.cs:772
 msgid "This feature is only available to subscribers."
 msgstr "Diese Funktion ist nur für Abonnenten verfügbar."
 
-#: ../src/PlayerWindow.cs:768
+#: ../src/PlayerWindow.cs:776
 msgid "There are not enough neighbours for this radio."
 msgstr "Es sind nicht genügend Nachbarn für einen Sender vorhanden."
 
-#: ../src/PlayerWindow.cs:772
+#: ../src/PlayerWindow.cs:780
 msgid "This stream has stopped."
 msgstr "Diese Übertragung wurde abgebrochen."
+
+#: ../src/PlayerWindow.cs:784
+msgid "There is no such a group."
+msgstr "Diese Gruppe existiert nicht."
+
+#: ../src/PlayerWindow.cs:788
+msgid "There is no such an artist."
+msgstr "Dieser Interpret wurde nicht gefunden."
 
 #: ../src/TagDialog.cs:44
 msgid "Tag A Song"
@@ -460,4 +471,46 @@ msgstr "Einen Titel taggen"
 #: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
 #, csharp-format
 msgid "Tag '{0}'"
-msgstr "Tag '{0}'"
+msgstr "Tag »{0}«"
+
+#: ../src/TagSelector.cs:46
+#, fuzzy, csharp-format
+msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
+msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
+msgstr[0] "<span size=\"smaller\">Von <a href=\"{0}\">{1}</a></span>"
+msgstr[1] "<span size=\"smaller\">Von <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/TagView.cs:48
+#, fuzzy, csharp-format
+msgid ""
+"\n"
+"<span size=\"smaller\">Relevance: {0}%</span>"
+msgstr "<span size=\"smaller\">Von <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/TrayIcon.cs:184
+#, csharp-format
+msgid "<span weight=\"bold\">{0}</span>"
+msgstr "<span weight=\"bold\">{0}</span>"
+
+#: ../src/TrayIcon.cs:190 ../src/TrayIcon.cs:192
+#, csharp-format
+msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
+msgstr "<span size=\"smaller\">Von <span weight=\"bold\">{0}</span></span>"
+
+#: ../src/TrayIcon.cs:208
+msgid " by "
+msgstr " von "
+
+#. Wait til cover is set before we notify :)
+#: ../src/TrayIcon.cs:214
+msgid "Now playing"
+msgstr "Jetzt:"
+
+#: ../src/VolumeButton.cs:493
+msgid "Muted"
+msgstr ""
+
+#: ../src/VolumeButton.cs:495
+#, fuzzy
+msgid "Full Volume"
+msgstr "Lautstärke"
