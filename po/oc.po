@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: last-exit 4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-04-23 03:15+0100\n"
-"PO-Revision-Date: 2007-07-29 14:14+0200\n"
+"PO-Revision-Date: 2007-08-20 14:54+0200\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "    "
 
 #: ../data/glade/FindStation.glade.h:2
 msgid "<b>Results:</b>"
-msgstr ""
+msgstr "<b>Resultas :</b>"
 
 #: ../data/glade/FindStation.glade.h:3
 msgid "<b>Search for:</b>"
@@ -62,11 +62,11 @@ msgstr ""
 
 #: ../data/glade/InfoWindow.glade.h:2
 msgid "<b>Album:</b>"
-msgstr ""
+msgstr "<b>Albom :</b>"
 
 #: ../data/glade/InfoWindow.glade.h:3
 msgid "<b>Artist:</b>"
-msgstr ""
+msgstr "<b>Artista :</b>"
 
 #: ../data/glade/InfoWindow.glade.h:4
 msgid "<b>Song:</b>"
@@ -283,7 +283,7 @@ msgstr ""
 
 #: ../src/Actions.cs:38
 msgid "_Play"
-msgstr ""
+msgstr "_Legir"
 
 #: ../src/Actions.cs:41
 msgid "_Next"
