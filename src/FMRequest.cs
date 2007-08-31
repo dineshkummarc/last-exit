@@ -54,6 +54,7 @@ namespace LastExit
 		{
 			HttpWebRequest request;
 			request = (HttpWebRequest) WebRequest.Create (url);
+			request.Headers.Set ("Accept-Language", "en");
 			Request = request;
 			
 			// Start the handshake async

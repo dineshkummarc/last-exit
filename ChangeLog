@@ -1,3 +1,7 @@
+2007-09-31  Baris Cicek <baris@teamforce.name.tr>
+
+	* MAINTAINERS: Updated according to the GNOME convention
+
 2007-06-14  Pema Geyleg <pema.geyleg@gmail.com>
 
 	* configure.ac: Added dz to ALL_LINGUAS

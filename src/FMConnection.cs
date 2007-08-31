@@ -118,6 +118,11 @@ namespace LastExit
 			get { return base_path; }
 		}
 
+		private string info_message;
+		public string InfoMessage {
+			get { return info_message; }
+		}
+		
 		// Handshake was successful
 		private ConnectionState connected;
 		public ConnectionState Connected {
@@ -194,7 +199,7 @@ namespace LastExit
 
 		public void Handshake () 
 		{
-			string handshake_url = "http://ws.audioscrobbler.com/radio/handshake.php?version=" + "1.1.1" + "&platform=" + "linux" + "&username=" + username + "&passwordmd5=" + password + "&debug=" + "0" + "&partner=";
+			string handshake_url = "http://ws.audioscrobbler.com/radio/handshake.php?version=" + "1.1.1" + "&platform=" + "linux" + "&username=" + username + "&passwordmd5=" + password + "&language=en&session=324234";
 			FMRequest fmr = new FMRequest ();
 
 			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (HandshakeCompleted);
@@ -222,7 +227,7 @@ namespace LastExit
 		private bool ParseHandshake (string content) 
 		{
 			string[] lines = content.Split (new Char[] {'\n'});
-
+			Console.WriteLine (content);
 			foreach (string line in lines) {
 				string[] opts = line.Split (new Char[] {'='});
 
@@ -280,9 +285,13 @@ namespace LastExit
 					}
 					*/
 					break;
+				
+				case "info_message":
+					info_message = opts[1];
+					break;
 
 				default:
-					Console.WriteLine ("Unknown key: " + opts[0]);
+					Console.WriteLine ("Unknown key: " + opts[0] + " Value:" + opts[1]);
 					break;
 				}
 			}
@@ -293,7 +302,7 @@ namespace LastExit
 		public void ChangeStation (string station) 
 		{
 			FMRequest fmr = new FMRequest ();
-			string url = "http://" + base_url + "/" + base_path + "/adjust.php?session=" + session + "&url=" + station + "&debug=0";
+			string url = "http://" + base_url + "/" + base_path + "/adjust.php?session=" + session + "&url=" + station + "&lang=en&debug=1";
 
 			Console.WriteLine ("station: " + url);
 			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (StationChangeCompleted);
@@ -422,8 +431,7 @@ namespace LastExit
 		public void GetMetadata () 
 		{
 			FMRequest fmr = new FMRequest ();
-			string url = "http://" + base_url + "/" + base_path + "/np.php?session=" + session + "&debug=0";
-
+			string url = "http://" + base_url + "/" + base_path + "/np.php?session=" + session + "&debug=1";
 			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (MetadataCompleted);
 			fmr.DoRequest (url);
 			DoOperationStarted ();
@@ -435,7 +443,8 @@ namespace LastExit
 				string content;
 				Song song = new Song ();
 
-				content = request.Data.ToString ();
+				content = request.Data.ToString ();				
+				Console.WriteLine (content);
 				if (ParseMetadata (content, song) == true) {
 					if (MetadataLoaded != null) {
 						MetadataLoaded (song);
@@ -451,11 +460,13 @@ namespace LastExit
 		{
 			string[] lines = content.Split (new Char[] {'\n'});
 			bool ret = true;
-
 			foreach (string line in lines) {
 				string[] opts = line.Split (new Char[] {'='});
-
 				switch (opts[0].ToLower ()) {
+				case "streaming":
+					if (opts[1] == "false") 
+						return false;
+					break;
 				case "error":
 					ret = false;
 					break;

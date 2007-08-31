@@ -121,6 +121,7 @@ bus_message_cb (GstBus *bus,
 			gst_element_set_state (player->priv->play, GST_STATE_PAUSED);
 		else 
 			gst_element_set_state (player->priv->play, GST_STATE_PLAYING);
+			
 		g_print ("Buffering (%.2u percent done) \r", percent);
 		break;
 

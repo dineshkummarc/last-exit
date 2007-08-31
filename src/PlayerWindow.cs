@@ -659,6 +659,7 @@ namespace LastExit
 
 		private void OnNewSong () 
 		{
+			
 			Driver.connection.GetMetadata ();
 		}
 
