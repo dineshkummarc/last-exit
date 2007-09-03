@@ -1,0 +1,519 @@
+# Finnish messages for last-exit
+# Copyright (C) 2007 Ilkka Tuohela.
+# Suomennos: http://gnome-fi.sourceforge.net/
+#
+# Ilkka Tuohela <hile@iki.fi>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: last-exit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-09-03 19:35+0300\n"
+"PO-Revision-Date: 2007-04-18 08:58+0300\n"
+"Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
+"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../data/glade/FindStation.glade.h:2
+msgid "<b>Results:</b>"
+msgstr "<b>Tulokset:</b>"
+
+#: ../data/glade/FindStation.glade.h:3
+msgid "<b>Search for:</b>"
+msgstr "<b>Etsi:</b>"
+
+#: ../data/glade/FindStation.glade.h:4
+msgid "Find Station"
+msgstr "Etsi asemaa"
+
+#: ../data/glade/FirstRunDialog.glade.h:1
+msgid "Account Name:"
+msgstr "Tilin nimi:"
+
+#: ../data/glade/FirstRunDialog.glade.h:2
+msgid ""
+"Before you can use Last Exit, you need to have a Last.fm\n"
+"account. Please enter the account name and password\n"
+"below."
+msgstr ""
+"Ennen kuin voit käyttää last exitiä, sinulla täytyy olla\n"
+"Last.fm-tili. Anna tilisi nimi ja salasana alla oleviin\n"
+"kenttiin."
+
+#: ../data/glade/FirstRunDialog.glade.h:5
+msgid "Don't have a Last.FM account?"
+msgstr "Eikö sinulla ole Last.fm-tiliä?"
+
+#: ../data/glade/FirstRunDialog.glade.h:6 ../data/glade/Preferences.glade.h:8
+msgid "Password:"
+msgstr "Salasana:"
+
+#: ../data/glade/FirstRunDialog.glade.h:7 ../src/FirstRunDialog.cs:61
+msgid "Start Player"
+msgstr "Käynnistä soitin"
+
+#: ../data/glade/FirstRunDialog.glade.h:8
+msgid "dialog2"
+msgstr "ikkuna2"
+
+#: ../data/glade/InfoWindow.glade.h:2
+msgid "<b>Album:</b>"
+msgstr "<b>Levy:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:3
+msgid "<b>Artist:</b>"
+msgstr "<b>Esittäjä:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:4
+msgid "<b>Song:</b>"
+msgstr "<b>Kappale:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:5 ../data/glade/TagDialog.glade.h:5
+msgid "dialog1"
+msgstr "ikkuna1"
+
+#: ../data/glade/PlayerWindow.glade.h:1
+msgid "Apply tags"
+msgstr "Toteuta merkinnät"
+
+#: ../data/glade/PlayerWindow.glade.h:2
+msgid "Hate!"
+msgstr "Hyi!"
+
+#: ../data/glade/PlayerWindow.glade.h:3
+msgid "Information"
+msgstr "Tietoja"
+
+#: ../data/glade/PlayerWindow.glade.h:4
+msgid "Love!"
+msgstr "Ihanaa!"
+
+#: ../data/glade/PlayerWindow.glade.h:5
+msgid "Play the next song"
+msgstr "Soita seuraava kappale"
+
+#: ../data/glade/PlayerWindow.glade.h:6
+msgid "Preferences"
+msgstr "Asetukset"
+
+#: ../data/glade/PlayerWindow.glade.h:7
+msgid "Switch music playback on or off"
+msgstr "Laita musiikki päälle tai pois"
+
+#: ../data/glade/PlayerWindow.glade.h:8
+msgid "Write a journal entry"
+msgstr "Kirjoita päiväkirjamerkintä"
+
+#: ../data/glade/PlayerWindow.glade.h:9
+msgid "_Listening to:"
+msgstr "_Kuunnellaan:"
+
+#: ../data/glade/Preferences.glade.h:1
+msgid "<b>Last.fm Account</b>"
+msgstr "<b>Last.fm-tili</b>"
+
+#: ../data/glade/Preferences.glade.h:2
+msgid "<b>Recommendation Radio</b>"
+msgstr "<b>Radiosuositukset</b>"
+
+#: ../data/glade/Preferences.glade.h:3
+msgid "<b>User Interface</b>"
+msgstr "<b>Käyttöliittymä</b>"
+
+#: ../data/glade/Preferences.glade.h:4
+msgid "Create an account"
+msgstr "Luo tili"
+
+#: ../data/glade/Preferences.glade.h:5
+msgid "Join Last Exit group"
+msgstr "Liity last exit -ryhmään"
+
+#: ../data/glade/Preferences.glade.h:6
+msgid "Last Exit Preferences"
+msgstr "Last exitin asetukset"
+
+#: ../data/glade/Preferences.glade.h:7
+msgid "Obscure"
+msgstr "Outo"
+
+#: ../data/glade/Preferences.glade.h:9
+msgid "Popular"
+msgstr "Suosittu"
+
+#: ../data/glade/Preferences.glade.h:10
+msgid "Show notification on song change"
+msgstr "Näytä huomautus kappaleen vaihtuessa"
+
+#: ../data/glade/Preferences.glade.h:11
+msgid "User Name:"
+msgstr "Käyttäjätunnus:"
+
+#: ../data/glade/TagDialog.glade.h:1
+msgid "<span weight=\"bold\">Tag:</span>"
+msgstr "<span weight=\"bold\">Merkintä:</span>"
+
+#: ../data/glade/TagDialog.glade.h:2
+msgid ""
+"Track\n"
+"Album\n"
+"Artist"
+msgstr ""
+"Kappale\n"
+"Levy\n"
+"Esittäjä"
+
+#: ../data/last-exit.desktop.in.h:1
+msgid "Last-Exit"
+msgstr "Last-Exit"
+
+#: ../data/last-exit.desktop.in.h:2
+msgid "Last.fm player"
+msgstr "Last.fm-soitin"
+
+#: ../data/last-exit.schemas.in.h:1
+msgid "Account name"
+msgstr "Tilin nimi"
+
+#: ../data/last-exit.schemas.in.h:2
+msgid "Password"
+msgstr "Salasana"
+
+#: ../data/last-exit.schemas.in.h:3
+msgid "Password for the Last.FM account"
+msgstr "Last.FM-käyttäjätilin salasana"
+
+#: ../data/last-exit.schemas.in.h:4
+msgid "Recommendation Level"
+msgstr "Suositustaso"
+
+#: ../data/last-exit.schemas.in.h:5
+msgid "Recommended radio setting (from 0-100)"
+msgstr "Suositeltu radion asetus (väliltä 0-100)"
+
+#: ../data/last-exit.schemas.in.h:6
+msgid "Set to true if the first run dialog should be shown"
+msgstr "Tosi, jos ensimmäisen suorituskerran ikkuna halutaan näyttää"
+
+#: ../data/last-exit.schemas.in.h:7
+msgid "Show Notifications"
+msgstr "Näytä huomautukset"
+
+#: ../data/last-exit.schemas.in.h:8
+msgid "Show first run dialog"
+msgstr "Näytä ensimmäisen suorituskerran ikkuna"
+
+#: ../data/last-exit.schemas.in.h:9
+msgid "The Last.FM account name that we should use"
+msgstr "Käytettävän Last.FM-käyttäjätilin nimi"
+
+#: ../data/last-exit.schemas.in.h:10
+msgid "Volume"
+msgstr "Äänenvoimakkuus"
+
+#: ../data/last-exit.schemas.in.h:11
+msgid "Volume setting (from 0-100)"
+msgstr "Äänenvoimakkuden asetus (väliltä 0-100)"
+
+#: ../data/last-exit.schemas.in.h:12
+msgid "Whether Last-Exit shows notifications when the song changes"
+msgstr "Näyttääkö last-exit huomautuksia kappaleen vaihtuessa"
+
+#: ../data/lastfm.schemas.in.h:1
+msgid "Is the Last-FM handler enabled"
+msgstr "Onko Last-FM-käsittelijä käytössä"
+
+#: ../data/lastfm.schemas.in.h:2
+msgid "Run the command in a terminal"
+msgstr "Suorita kmento päätteessä"
+
+#: ../data/lastfm.schemas.in.h:3
+msgid "The command used to handle \"lastfm\" URLs, if enabled."
+msgstr "Komento \"lastfm\"-URLien käsittelyyn (jos käytössä)."
+
+#: ../data/lastfm.schemas.in.h:4
+msgid "The handler for \"lastfm\" URLs"
+msgstr "\"lastfm\"-URLien käsittelijä"
+
+#: ../data/lastfm.schemas.in.h:5
+msgid ""
+"True if the command specified in the \"command\" key should handle \"lastfm"
+"\" URLs."
+msgstr ""
+"Tosi, jos avaimessa \"command\" annettua komentoa käytetään \"lastfm\"-"
+"URLien avaamiseen."
+
+#: ../data/lastfm.schemas.in.h:6
+msgid ""
+"True if the command used to handle \"lastfm\" URLs should be run in a "
+"terminal."
+msgstr ""
+"Tosi, jos \"lastfm\" -URLien käsittelyyn käytettävä komento tulisi ajaa "
+"päätteessä."
+
+#: ../src/About.cs:32
+msgid "Last Exit"
+msgstr "Last Exit"
+
+#: ../src/About.cs:35
+msgid "Copyright © 2006 Iain Holmes"
+msgstr "Tekijänoikeudet @2006 Iain Holmes"
+
+#: ../src/About.cs:38
+msgid "A Last.fm radio player"
+msgstr "Last.fm-radiosoitin"
+
+#: ../src/About.cs:45
+msgid "Iain Holmes <iain@gnome.org>"
+msgstr "Iain Holmes <iain@gnome.org>"
+
+#: ../src/About.cs:46
+msgid "Baris Cicek <baris@teamforce.name.tr>"
+msgstr "Baris Cicek <baris@teamforce.name.tr>"
+
+#: ../src/About.cs:47
+msgid "Brandon Hale <brandon@ubuntu.com>"
+msgstr "Brandon Hale <brandon@ubuntu.com>"
+
+#: ../src/About.cs:60
+msgid "translator-credits"
+msgstr ""
+"Ilkka Tuohela, 2007.\n"
+"\n"
+"http://www.gnome.fi"
+
+#: ../src/Actions.cs:35
+msgid "Show _Window"
+msgstr "Näytä _ikkuna"
+
+#: ../src/Actions.cs:38
+msgid "_Play"
+msgstr "_Soita"
+
+#: ../src/Actions.cs:41
+msgid "_Next"
+msgstr "_Seuraava"
+
+#: ../src/Actions.cs:44
+msgid "_About"
+msgstr "_Tietoja"
+
+#: ../src/Actions.cs:47
+msgid "_Preferences"
+msgstr "_Asetukset"
+
+#: ../src/Actions.cs:50
+msgid "_Love Song"
+msgstr "_Rakastan kappaletta"
+
+#: ../src/Actions.cs:53
+msgid "_Hate Song"
+msgstr "_Vihaan kappaletta"
+
+#: ../src/FindStation.cs:75
+msgid "Find A Station"
+msgstr "Etsi asema"
+
+#: ../src/FindStation.cs:105
+msgid "Cancel"
+msgstr "Peru"
+
+#: ../src/FindStation.cs:106
+msgid "Change Station"
+msgstr "Vaihda asemaa"
+
+#: ../src/FindStation.cs:189
+msgid "Music that sounds like"
+msgstr "Samantyyppistä musiikkia"
+
+#: ../src/FindStation.cs:190
+msgid "Music that is tagged as"
+msgstr "Musiikki, jonka merkintä on"
+
+#: ../src/FindStation.cs:191
+msgid "A neighbours station"
+msgstr "Naapurin asema"
+
+#: ../src/FindStation.cs:192
+msgid "A users station"
+msgstr "Tietyn käyttäjän asema"
+
+#: ../src/FindStation.cs:193
+msgid "Music from fans of"
+msgstr "Esittäjän faneilta"
+
+#: ../src/FindStation.cs:194
+msgid "A group station"
+msgstr "Ryhmäasema"
+
+#: ../src/FindStation.cs:591
+msgid "Artist not found"
+msgstr "Esittäjää ei löydy"
+
+#: ../src/FindStation.cs:600
+#, csharp-format
+msgid "{0} is not streamable."
+msgstr "{0} ei ole saatavilla virtana."
+
+#: ../src/FindStation.cs:609
+#, csharp-format
+msgid "Music that sounds like <b>{0}</b>"
+msgstr "Samantyyppistä musiikkia kuin <b>{0}</b>"
+
+#: ../src/FindStation.cs:614
+msgid "Featuring: \n"
+msgstr "Esittää: \n"
+
+#: ../src/FindStation.cs:630
+#, csharp-format
+msgid " and {0} other."
+msgid_plural " and {0} others."
+msgstr[0] " ja {0} muu."
+msgstr[1] " ja {0} muuta."
+
+#: ../src/FirstRunDialog.cs:51
+msgid "Last.fm Account Details"
+msgstr "Last.fm-tilin tiedot"
+
+#: ../src/FirstRunDialog.cs:64
+msgid "Sign up for Last.fm"
+msgstr "Rekisteröidy Last.fm-palveluun"
+
+#: ../src/PlayerWindow.cs:275
+msgid "Neighbour Station"
+msgstr "Naapuriasema"
+
+#: ../src/PlayerWindow.cs:278
+msgid "Personal Station"
+msgstr "Oma asema"
+
+#: ../src/PlayerWindow.cs:282
+msgid "Favourites Station"
+msgstr "Suosikkiasema"
+
+#: ../src/PlayerWindow.cs:286
+msgid "Recommended Music Station"
+msgstr "Suositeltu musiikkiasema"
+
+#: ../src/PlayerWindow.cs:289
+msgid "Other Station..."
+msgstr "Muu asema..."
+
+#: ../src/PlayerWindow.cs:719
+#, csharp-format
+msgid ""
+"<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
+"a></span>"
+msgstr ""
+"<span size=\"smaller\">Lähteestä <a href=\"{0}\">{1}</a> esittäjältä <a href="
+"\"{2}\">{3}</a></span>"
+
+#: ../src/PlayerWindow.cs:721
+#, csharp-format
+msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Esittäjältä <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:723
+#, csharp-format
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">Lähteestä <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:730
+#, csharp-format
+msgid "{0} by {1}"
+msgstr "{0} esittäjältä {1}"
+
+#: ../src/PlayerWindow.cs:757
+msgid "There is not enough content to play this station."
+msgstr "Tällä asemalla ei ole tarpeeksi materiaalia soittoa varten."
+
+#: ../src/PlayerWindow.cs:761
+msgid "This group does not have enough members for radio."
+msgstr "Tällä ryhmällä ei ole tarpeeksi jäseniä radiota varten."
+
+#: ../src/PlayerWindow.cs:765
+msgid "This artist does not have enough fans for radio."
+msgstr "Tällä esittäjällä ei ole tarpeeksi faneja radiota varten."
+
+#: ../src/PlayerWindow.cs:769
+msgid "This item is not available for streaming."
+msgstr "Tämä kohde ei ole saatavilla virtana."
+
+#: ../src/PlayerWindow.cs:773
+msgid "This feature is only available to subscribers."
+msgstr "Tämä ominaisuus on vain tilaajien käytössä."
+
+#: ../src/PlayerWindow.cs:777
+msgid "There are not enough neighbours for this radio."
+msgstr "Tälle radiolle ei ole riittävästi naapureita."
+
+#: ../src/PlayerWindow.cs:781
+msgid "This stream has stopped."
+msgstr "Virta on pysäytetty."
+
+#: ../src/PlayerWindow.cs:785
+msgid "There is no such a group."
+msgstr "Ryhmää ei löydy."
+
+#: ../src/PlayerWindow.cs:789
+msgid "There is no such an artist."
+msgstr "Esittäjää ei löydy."
+
+#: ../src/TagDialog.cs:44
+msgid "Tag A Song"
+msgstr "Merkitse kappale"
+
+#: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
+#, csharp-format
+msgid "Tag '{0}'"
+msgstr "Merkintä \"{0}\""
+
+#: ../src/TagSelector.cs:46
+#, csharp-format
+msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
+msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
+msgstr[0] "<span size=\"smaller\"><i>{0} kohta merkitty</i></span>"
+msgstr[1] "<span size=\"smaller\"><i>{0} kohtaa merkitty</i></span>"
+
+#: ../src/TagView.cs:48
+#, csharp-format
+msgid ""
+"\n"
+"<span size=\"smaller\">Relevance: {0}%</span>"
+msgstr ""
+"\n"
+"<span size=\"smaller\">Täsmäävyys: {0} %</span>"
+
+#: ../src/TrayIcon.cs:184
+#, csharp-format
+msgid "<span weight=\"bold\">{0}</span>"
+msgstr "<span weight=\"bold\">{0}</span>"
+
+#: ../src/TrayIcon.cs:190 ../src/TrayIcon.cs:192
+#, csharp-format
+msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
+msgstr ""
+"<span size=\"smaller\">Esittäjältä <span weight=\"bold\">{0}</span></span>"
+
+#: ../src/TrayIcon.cs:208
+msgid " by "
+msgstr " esittäjältä "
+
+#. Wait til cover is set before we notify :)
+#: ../src/TrayIcon.cs:214
+msgid "Now playing"
+msgstr "Nyt soi"
+
+#: ../src/VolumeButton.cs:493
+msgid "Muted"
+msgstr "Vaimennettu"
+
+#: ../src/VolumeButton.cs:495
+msgid "Full Volume"
+msgstr "Täysi äänenvoimakkuus"
