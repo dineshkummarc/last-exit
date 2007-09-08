@@ -1,3 +1,7 @@
+2007-09-08  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+        * configure.ac: Added es to ALL_LINGUAS
+
 2007-09-08  Brandon Hale  <brandon@brandonhale.us>
 
 	* src/TrayIcon.cs, src/PlayerWindow.cs:
