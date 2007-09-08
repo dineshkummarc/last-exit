@@ -47,6 +47,14 @@ namespace LastExit
 		[Glade.Widget] private Button preferences_button;
 
 		private VolumeButton volume_button;
+		public int Volume {
+			get {
+				return volume_button.Volume;
+			}
+			set {
+				volume_button.Volume = value;
+			}
+		}
 
 		[Glade.Widget] private VBox title_label_container;
 		[Glade.Widget] private VBox artist_label_container;

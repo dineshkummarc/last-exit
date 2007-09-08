@@ -104,6 +104,17 @@ namespace LastExit
 				break;
 			}
 		}
+
+		private void OnNotificationAreaIconScroll (object o, ScrollEventArgs args) {
+			switch (args.Event.Direction) {
+				case Gdk.ScrollDirection.Up:
+					Driver.PlayerWindow.Volume += 10;
+					break;
+				case Gdk.ScrollDirection.Down:
+					Driver.PlayerWindow.Volume -= 10;
+					break;
+			}
+		}
 		
 				private void OnMenuDeactivated (object o, EventArgs args) {
 			//icon.State = StateType.Normal
@@ -243,6 +254,7 @@ namespace LastExit
 			event_box.ButtonPressEvent += OnNotificationAreaIconClick;
 			event_box.EnterNotifyEvent += OnEnterNotifyEvent;
 			event_box.LeaveNotifyEvent += OnLeaveNotifyEvent;
+			event_box.ScrollEvent += OnNotificationAreaIconScroll;
 		}
 		
 		private static void Notify (string summary, string message,
