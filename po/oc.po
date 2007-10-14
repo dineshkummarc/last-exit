@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: last-exit 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-23 03:15+0100\n"
+"POT-Creation-Date: 2007-10-13 17:49+0200\n"
 "PO-Revision-Date: 2007-08-20 14:54+0200\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
 msgid "    "
@@ -360,7 +360,9 @@ msgstr ""
 #: ../src/FindStation.cs:630
 #, csharp-format
 msgid " and {0} other."
-msgstr ""
+msgid_plural " and {0} others."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/FirstRunDialog.cs:51
 msgid "Last.fm Account Details"
@@ -370,81 +372,81 @@ msgstr ""
 msgid "Sign up for Last.fm"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:275
+#: ../src/PlayerWindow.cs:283
 msgid "Neighbour Station"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:278
+#: ../src/PlayerWindow.cs:286
 msgid "Personal Station"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:282
+#: ../src/PlayerWindow.cs:290
 msgid "Favourites Station"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:286
+#: ../src/PlayerWindow.cs:294
 msgid "Recommended Music Station"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:289
+#: ../src/PlayerWindow.cs:297
 msgid "Other Station..."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:718
+#: ../src/PlayerWindow.cs:727
 #, csharp-format
 msgid ""
 "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
 "a></span>"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:720
+#: ../src/PlayerWindow.cs:729
 #, csharp-format
 msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:722
+#: ../src/PlayerWindow.cs:731
 #, csharp-format
 msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:729
+#: ../src/PlayerWindow.cs:738
 #, csharp-format
 msgid "{0} by {1}"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:756
+#: ../src/PlayerWindow.cs:765
 msgid "There is not enough content to play this station."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:760
+#: ../src/PlayerWindow.cs:769
 msgid "This group does not have enough members for radio."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:764
+#: ../src/PlayerWindow.cs:773
 msgid "This artist does not have enough fans for radio."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:768
+#: ../src/PlayerWindow.cs:777
 msgid "This item is not available for streaming."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:772
+#: ../src/PlayerWindow.cs:781
 msgid "This feature is only available to subscribers."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:776
+#: ../src/PlayerWindow.cs:785
 msgid "There are not enough neighbours for this radio."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:780
+#: ../src/PlayerWindow.cs:789
 msgid "This stream has stopped."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:784
+#: ../src/PlayerWindow.cs:793
 msgid "There is no such a group."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:788
+#: ../src/PlayerWindow.cs:797
 msgid "There is no such an artist."
 msgstr ""
 
@@ -460,7 +462,9 @@ msgstr ""
 #: ../src/TagSelector.cs:46
 #, csharp-format
 msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
-msgstr ""
+msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/TagView.cs:48
 #, csharp-format
@@ -469,22 +473,22 @@ msgid ""
 "<span size=\"smaller\">Relevance: {0}%</span>"
 msgstr ""
 
-#: ../src/TrayIcon.cs:184
+#: ../src/TrayIcon.cs:195
 #, csharp-format
 msgid "<span weight=\"bold\">{0}</span>"
 msgstr ""
 
-#: ../src/TrayIcon.cs:190 ../src/TrayIcon.cs:192
+#: ../src/TrayIcon.cs:201 ../src/TrayIcon.cs:203
 #, csharp-format
 msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
 msgstr ""
 
-#: ../src/TrayIcon.cs:208
+#: ../src/TrayIcon.cs:219
 msgid " by "
 msgstr " per "
 
 #. Wait til cover is set before we notify :)
-#: ../src/TrayIcon.cs:214
+#: ../src/TrayIcon.cs:225
 msgid "Now playing"
 msgstr ""
 
@@ -495,4 +499,3 @@ msgstr ""
 #: ../src/VolumeButton.cs:495
 msgid "Full Volume"
 msgstr ""
-

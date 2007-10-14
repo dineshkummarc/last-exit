@@ -1,3 +1,7 @@
+2007-10-14  Yannig Marchegay  <yannig@marchegay.org>
+
+	* configure.ac: Added 'oc' to ALL_LINGUAS.
+
 2007-09-08  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
         * configure.ac: Added es to ALL_LINGUAS
