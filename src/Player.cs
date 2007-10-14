@@ -33,21 +33,36 @@ namespace LastExit
 
 	public class Player : GLib.Object {
 		
-		public delegate void NewSongHandler ();
+		public delegate void NewSongHandler (Song song);
 		public event NewSongHandler NewSong;
-		
+		public event NewSongHandler SongEnded;
 		private SignalUtils.SignalDelegate new_song_cb;
+		private SignalUtils.SignalDelegate end_song_cb;
+		private SignalUtils.SignalDelegateStr error_cb;
 		private bool playing;
+
+		private Song current_song;
+		private Playlist playlist;
+		public Playlist Playlist {
+			get { return playlist; }
+		}
 
 		// Constructor
 		[DllImport ("liblastexit")]
 		private static extern IntPtr player_new ();
 
-		public Player () : base (IntPtr.Zero) {
+		public Player (Playlist playlist) : base (IntPtr.Zero) {
+			this.playlist = playlist; 
+			playlist.SongReady += new Playlist.SongReadyHandler (OnSongReady);
+
 			Raw = player_new ();
 			playing = false;
 			new_song_cb = new SignalUtils.SignalDelegate (OnNewSong);
+			end_song_cb = new SignalUtils.SignalDelegate (OnEndSong);
+			error_cb = new SignalUtils.SignalDelegateStr (OnError);
 			SignalUtils.SignalConnect (Raw, "new-song", new_song_cb);
+			SignalUtils.SignalConnect (Raw, "end-song", end_song_cb);
+			SignalUtils.SignalConnect (Raw, "error", error_cb);
 		}
 
 		~Player () {
@@ -75,9 +90,22 @@ namespace LastExit
 		private static extern void player_play (IntPtr player);
 		
 		public void Play () {
-			player_play (Raw);
+			Console.WriteLine ("Player: Requesting Song");
 			playing = true;
+			playlist.RequestNextSong ();			
 			Driver.PlayerWindow.UpdatePlayingUI ();
+		}
+		
+		private void OnSongReady (Song song)
+		{
+			Console.WriteLine ("Player: Got Song");
+			current_song = song;
+			Console.WriteLine ("Now playing: " + song.Location);
+			Driver.connection.InvokeMetadataLoaded (song);
+			this.Location = song.Location;
+			player_play (Raw);
+			
+			song.StartTime = DateTime.UtcNow;
 		}
 		
 		[DllImport ("liblastexit")]
@@ -98,7 +126,44 @@ namespace LastExit
 		
 		private void OnNewSong (IntPtr obj) {
 			if (NewSong != null) {
-				NewSong ();
+				NewSong (current_song);
+			}
+		}
+
+		private void OnEndSong (IntPtr obj) {
+			Console.WriteLine ("EndSong");
+			
+			if (SongEnded != null) {
+				SongEnded (current_song);
+			}
+			current_song = null;
+			this.Play ();
+		}
+
+		private void OnError (IntPtr obj, string error) {
+			Console.Error.WriteLine ("GST error: " + error);
+			this.Stop ();
+		}
+
+		public void SkipSong ()
+		{
+			if (Playing) {
+				player_stop (Raw);
+				Play ();
+			}				
+		}
+		
+		
+		[DllImport ("liblastexit")]
+		private static extern long player_get_stream_position (IntPtr player);
+		
+		public long StreamPosition {
+			get {
+				if (Playing) {
+					return player_get_stream_position (Raw);
+				} else {
+					return -1;
+				}
 			}
 		}
 	}

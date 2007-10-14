@@ -1,3 +1,9 @@
+2007-10-14  Brandon Hale <brandon@brandonhale.us>
+
+	Patch from Thomas Wendt on bug #483359.
+	Support the latest last.fm protocols for playlists and scrobbling
+	tracks. This adds or changes a good bit of code, so please test away.
+
 2007-10-14  Yannig Marchegay  <yannig@marchegay.org>
 
 	* configure.ac: Added 'oc' to ALL_LINGUAS.

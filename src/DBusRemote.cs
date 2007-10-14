@@ -42,6 +42,12 @@ namespace LastExit
         public DBusRemote()
         {
             try {
+				BusG.Init ();
+			} catch (Exception e) { 
+				System.Console.WriteLine (e.Message);
+			}
+
+            try {
                 RequestNameReply nameReply = Bus.Session.RequestName(BusName);
                 // TODO: error handling based on nameReply. should probably throw if 
                 // nameReply is anything other than NameReply.PrimaryOwner

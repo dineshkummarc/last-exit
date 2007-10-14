@@ -37,14 +37,17 @@ namespace LastExit
 
 	public class DBusPlayer : IDBusPlayer
 	{
-		[DllImport ("dbus-glib-1")]
-		public static extern void dbus_g_thread_init ();
-
 		const string ServicePath = "org.gnome.LastExit";
 		static ObjectPath CorePath = new ObjectPath ("/org/gnome/LastExit/Core");
 
 		public static IDBusPlayer FindInstance()
 		{
+			try {
+				BusG.Init ();
+			} catch (Exception e) { 
+				System.Console.WriteLine (e.Message);
+			}
+
 			if(!Bus.Session.NameHasOwner(DBusRemote.BusName)) {
 				return null;
 			}

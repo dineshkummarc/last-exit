@@ -96,6 +96,10 @@ namespace LastExit
 				Driver.PlayerWindow.SetWindowVisible (!Driver.PlayerWindow.WindowVisible, args.Event.Time);
 				break;
 			case 3:
+                                foreach (string item in new string[] { "Next", "Love", "Hate"}) {
+					((MenuItem) Driver.Actions.UIManager.GetWidget ("/Menu/" + item)).Sensitive = Driver.player.Playing;
+                                }
+
 				//icon.State = StateType.Active;
 				menu_x = (int) args.Event.XRoot - (int) args.Event.X;
 				menu_y = (int) args.Event.YRoot - (int) args.Event.Y;

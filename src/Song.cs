@@ -128,6 +128,42 @@ namespace LastExit
 			get { return loved; }
 		}
 
+			private string track_auth;
+			public string TrackAuth {
+				set { track_auth = value; }
+				get { return track_auth; }
+			}
+
+			private DateTime start_time;
+			public DateTime StartTime {
+				set { start_time = value; }
+				get { return start_time; }
+			}
+
+			private string location;
+			public string Location {
+				set { location = value; }
+				get { return location; }
+			}
+
+			private int id;
+			public int Id {
+				set { id = value; }
+				get { return id; }
+			}
+			
+			private int album_id;
+			public int AlbumId {
+				set { album_id = value; }
+				get { return album_id; }
+			}
+
+			private int artist_id;
+			public int ArtistId {
+				set { artist_id = value; }
+				get { return artist_id; }
+			}
+			
 		public Song () {
 		}
 	}

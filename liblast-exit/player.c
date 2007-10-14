@@ -29,6 +29,7 @@
 
 enum {
 	NEW_SONG,
+	END_SONG,
 	ERROR,
 	LAST_SIGNAL
 };
@@ -71,6 +72,14 @@ player_class_init (PlayerClass *klass)
 					  g_cclosure_marshal_VOID__VOID,
 					  G_TYPE_NONE, 0);
 	
+	signals[END_SONG] = g_signal_new ("end-song",
+					  G_TYPE_FROM_CLASS (klass),
+					  G_SIGNAL_RUN_LAST,
+					  0,
+					  NULL, NULL,
+					  g_cclosure_marshal_VOID__VOID,
+					  G_TYPE_NONE, 0);
+	
 	signals[ERROR] = g_signal_new ("error",
 				       G_TYPE_FROM_CLASS (klass),
 				       G_SIGNAL_RUN_LAST,
@@ -102,19 +111,17 @@ bus_message_cb (GstBus *bus,
 		gst_message_parse_error (message, &err, &debug);
 		
 		player_stop (player);
+		g_signal_emit (player, signals[ERROR], 1, err->message);
 		break;
 
 	case GST_MESSAGE_EOS:
 		player_stop (player);
+		g_signal_emit (player, signals[END_SONG], 0);
 		break;
 
 	case GST_MESSAGE_STATE_CHANGED:
 		break;
 
-	case GST_MESSAGE_APPLICATION:
-		g_signal_emit (player, signals[NEW_SONG], 0);
-		break;
-		
 	case GST_MESSAGE_BUFFERING:
 		gst_message_parse_buffering (message, &percent);
 		if (percent != 100) 
@@ -132,84 +139,6 @@ bus_message_cb (GstBus *bus,
 	return TRUE;
 }
 
-static void
-post_new_song_message (Player *player)
-{
-	GstMessage *msg;
-	GstStructure *s;
-	GstBus *bus;
-
-	s = gst_structure_new ("new-song", NULL);
-	msg = gst_message_new_application (GST_OBJECT (player->priv->play), s);
-
-	bus = gst_pipeline_get_bus (GST_PIPELINE (player->priv->play));
-	gst_bus_post (bus, msg);
-}
-
-static gboolean
-have_data_cb (GstPad *pad,
-	      GstBuffer *buffer,
-	      Player *player)
-{
-	char *data = GST_BUFFER_DATA (buffer);
-	char *s;
-	static int req = 0;
-	static char sync[5] = "SYNC";
-
-	/* If there's a function that is ever screaming out for a g_* 
-	   implementation its memmem...
-	   Just read the man page for the list of possible bugs 
-	   We need super_memmem: Like memmem, but doesn't suck */
-	s = memmem (data, GST_BUFFER_SIZE (buffer), sync, 4);
-	if (s != NULL) {
-		post_new_song_message (player);
-	} 
-#if 0
-	else if (req > 0) {
-		if (strncmp (data, sync + (4 - req), req) == 0) {
-			post_new_song_message (player);
-		}
-
-		// Reset req
-		req = 0;
-	} else {
-		guint len = GST_BUFFER_SIZE (buffer);
-		char *e = data + (len - 3);
-
-		// Is it even possible for the SYNC to get split over two
-		// different buffers? 
-
-		// Check if there is any of SYN in the last three chars
-		if (*(e + 2) == 'S') {
-			req = 3;
-		} else if ((*(e + 2) == 'Y') && (*(e + 1) == 'S')) {
-			req = 2;
-		} else if ((*(e + 2) == 'N') && (*(e + 1) == 'Y') && (*e == 'S')) {
-			req = 1;
-		} else {
-			req = 0;
-		}
-	}
-#endif
-
-	return TRUE;
-}
-
-static void
-src_setup (GObject *object,
-	   GParamSpec *pspec,
-	   Player *player)
-{
-	GstElement *src;
-	GstPad *pad;
-
-	g_object_get (G_OBJECT (player->priv->play),
-		      "source", &src,
-		      NULL);
-
-	pad = gst_element_get_pad (src, "src");
-	gst_pad_add_buffer_probe (pad, G_CALLBACK (have_data_cb), player);
-}
 
 static void
 player_construct (Player *player,
@@ -221,14 +150,11 @@ player_construct (Player *player,
 	gst_init (NULL, NULL);
 
 	sink = gst_element_factory_make ("gconfaudiosink", "sink");
-	priv->play = gst_element_factory_make ("playbin", "last-fm-player");
+	priv->play = gst_element_factory_make ("playbin", "player");
 	g_object_set (G_OBJECT (priv->play), 
 		      "audio-sink", sink,
 		      NULL);
 		      
-	g_signal_connect (G_OBJECT (priv->play), "notify::source",
-			  G_CALLBACK (src_setup), player);
-
 	gst_bus_add_watch (gst_pipeline_get_bus (GST_PIPELINE (priv->play)),
 			   bus_message_cb, player);
 }
@@ -283,6 +209,7 @@ player_play (Player *player)
 {
 	gst_element_set_state (GST_ELEMENT (player->priv->play), 
 			       GST_STATE_PLAYING);
+	g_signal_emit (player, signals[NEW_SONG], 0);
 }
 
 void

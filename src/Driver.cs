@@ -56,17 +56,6 @@ namespace LastExit
 		public static Config config;
 
 		public static void Main (string[] args) {
-
-			// Work around DBus locking issues
-			DBusPlayer.dbus_g_thread_init ();
-
-			try {
-				BusG.Init(Bus.Session);
-			} catch (Exception e) { 
-				System.Console.WriteLine (e.Message);
-			}
-			
-
 			// Search for existing DBus server
 			IDBusPlayer dbus_core = DetectInstanceAndDbus();
 			HandleDbusCommands (dbus_core, args);
@@ -79,7 +68,9 @@ namespace LastExit
 				if (dbus_player != null) {
 					dbus_remote.RegisterObject(dbus_player, "Player");
 				}
-			} catch {}
+			} catch (Exception e) {
+				Console.Error.WriteLine (e);
+			}
 
 			string username;
 			string password;
@@ -138,7 +129,12 @@ namespace LastExit
 			connection = new FMConnection (username, password);
 			connection.Handshake ();
 
-			player = new Player ();
+			Scrobbler scrobbler = new Scrobbler (username, password);
+			Playlist playlist = new Playlist (connection);
+
+			player = new Player (playlist);
+			player.SongEnded += new Player.NewSongHandler (scrobbler.Scrobble);
+			player.NewSong += new Player.NewSongHandler (scrobbler.NowPlayingNotification);
 
 			actions = new Actions ();
 			player_window = new PlayerWindow ();

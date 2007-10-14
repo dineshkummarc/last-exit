@@ -231,6 +231,7 @@ namespace LastExit
 			Driver.connection.OperationStarted += new FMConnection.OperationHandler (OnOperationStarted);
 			Driver.connection.OperationFinished += new FMConnection.OperationHandler (OnOperationFinished);
 			Driver.connection.StationChanged += new FMConnection.StationChangedHandler (OnStationChanged);
+			Driver.player.Playlist.NewPlaylistReady += new Playlist.NewPlaylistReadyHandler (OnNewPlaylistReady);
 			Driver.connection.MetadataLoaded += new FMConnection.MetadataCompletedHandler (OnMetadataCompleted);
 			Driver.connection.Error += new FMConnection.ErrorHandler (OnError);
 
@@ -472,6 +473,13 @@ namespace LastExit
 				song_label.Markup = "";
 				this.Title = "Last Exit";
 
+				next_button.Sensitive = false;
+				love_button.Sensitive = false;
+				hate_button.Sensitive = false;
+				tag_button.Sensitive = false;
+				journal_button.Sensitive = false;
+				info_button.Sensitive = false;
+
 				trayicon.CanShowPopup = false;
 				// FIXME: Need a blank cover.
 				//Gdk.Pixbuf cover = new Gdk.Pixbuf (null, "unknown-cover.png", 66, 66);
@@ -622,7 +630,6 @@ namespace LastExit
 			
 			station_combo.Sensitive = connected;
 			toggle_play_button.Sensitive = connected;
-			next_button.Sensitive = connected;
 
 			if (current_song != null) {
 				love_button.Sensitive = connected;
@@ -659,16 +666,11 @@ namespace LastExit
 				internal_toggle = true;
 				toggle_play_button.Active = true;
 			}
-
-			Driver.player.Location = Driver.connection.StreamUrl + "=" + Driver.connection.Session;
-			//Console.WriteLine (Driver.connection.StreamUrl + "=" + Driver.connection.Session);
-			Driver.player.Play ();
 		}
 
-		private void OnNewSong () 
+		private void OnNewSong (Song song) 
 		{
-			
-			Driver.connection.GetMetadata ();
+			next_button.Sensitive = true;			
 		}
 
 		private void OnCoverLoaded (Gdk.Pixbuf cover_pb) 
@@ -901,6 +903,20 @@ namespace LastExit
 			default:
 				break;
 			}
+		}
+
+		private void OnNewPlaylistReady (Playlist playlist) 
+		{
+			Console.WriteLine ("PlayerWindow: Playlist ready");
+			if (toggle_play_button.Active == false) {
+				internal_toggle = true;
+				toggle_play_button.Active = true;
+			}
+			
+			Console.WriteLine ("PlayerWindow: Player is playing? "+ Driver.player.Playing);
+			if (Driver.player.Playing == false) {
+				Driver.player.Play ();
+			}			
 		}
       }
 }

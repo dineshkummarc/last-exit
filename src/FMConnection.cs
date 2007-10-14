@@ -309,7 +309,6 @@ namespace LastExit
 
 			fmr.DoRequest (url);
 			DoOperationStarted ();
-                        Driver.player.Playing = true;
 		}
 
 		private void StationChangeCompleted (FMRequest request) 
@@ -385,12 +384,7 @@ namespace LastExit
 
 		public void Skip () 
 		{
-			FMRequest fmr = new FMRequest ();
-			string url = "http://" + base_url + "/" + base_path + "/control.php?session=" + session + "&command=skip&debug=0";
-
-			fmr.RequestCompleted += new FMRequest.RequestCompletedHandler (SkipCompleted);
-			fmr.DoRequest (url);
-			DoOperationStarted ();
+			Driver.player.SkipSong ();
 		}
 
 		private void SkipCompleted (FMRequest request) 
@@ -453,6 +447,13 @@ namespace LastExit
 			}
 			
 			DoOperationFinished ();
+		}
+
+		public void InvokeMetadataLoaded (Song song)
+		{
+			if (MetadataLoaded != null) {
+				MetadataLoaded (song);
+			}
 		}
 
 		private bool ParseMetadata (string content,
