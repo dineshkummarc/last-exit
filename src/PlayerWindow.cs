@@ -267,6 +267,7 @@ namespace LastExit
 			// Add additional search path
 			IconTheme current_theme = IconTheme.Default;
 			current_theme.AppendSearchPath(Defines.PREFIX+"/share/icons/");
+			current_theme.PrependSearchPath(Defines.PREFIX+"/share/"+Defines.PACKAGE+"/icons");
 
 			tag_button_image.SetFromStock ("tag-new", Gtk.IconSize.Button);
 			info_button_image.SetFromStock ("show-info", Gtk.IconSize.Button);

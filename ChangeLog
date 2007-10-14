@@ -1,5 +1,10 @@
 2007-10-14  Brandon Hale <brandon@brandonhale.us>
 
+	Patch from Lukasz Jernas on bug #470417 to improve the icon install
+	behaviour.
+
+2007-10-14  Brandon Hale <brandon@brandonhale.us>
+
 	Patch from Thomas Wendt on bug #483359.
 	Support the latest last.fm protocols for playlists and scrobbling
 	tracks. This adds or changes a good bit of code, so please test away.

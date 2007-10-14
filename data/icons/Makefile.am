@@ -13,11 +13,14 @@ noinst_DATA =					\
 
 theme=hicolor
 themedir=$(datadir)/icons/$(theme)
+app_themedir=$(datadir)/$(PACKAGE_NAME)/icons/$(theme)
+
 theme_icons = \
 	apps,last-exit-16.png \
 	apps,last-exit-22.png \
 	apps,last-exit-24.png \
-	apps,last-exit.svg \
+	apps,last-exit.svg
+app_icons = \
 	actions,show-info-48.svg \
 	actions,tag-new-48.svg \
 	actions,show-info-32.png \
@@ -30,7 +33,6 @@ install_icon_exec = $(top_srcdir)/data/icons/icon-theme-installer \
 	-t "$(theme)" \
 	-s "$(srcdir)" \
 	-d "x$(DESTDIR)" \
-	-b "$(themedir)" \
 	-m "$(mkinstalldirs)" \
 	-x "$(INSTALL_DATA)"
 
@@ -51,7 +53,9 @@ EXTRA_DIST = \
 	tag-new-22.png
 
 install-data-local:
-	@-$(install_icon_exec) -i $(theme_icons)
+	@-$(install_icon_exec) -b "$(themedir)" -i $(theme_icons)
+	@-$(install_icon_exec) -b "$(app_themedir)" -i $(app_icons)
 
 uninstall-hook:
-	@-$(install_icon_exec) -u $(theme_icons)
+	@-$(install_icon_exec) -b "$(themedir)" -u $(theme_icons)
+	@-$(install_icon_exec) -b "$(app_themedir)" -i $(app_icons)
