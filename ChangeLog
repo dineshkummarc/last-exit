@@ -1,3 +1,9 @@
+2007-10-26  iain <iain@gnome.org>
+
+	* src/Makefile.am: Add the Playlist.cs file
+
+	* Player.cs, PlayerWindow.cs: Rename Playlist property to Plist.
+
 2007-10-14  Brandon Hale <brandon@brandonhale.us>
 
 	Patch from Lukasz Jernas on bug #470417 to improve the icon install

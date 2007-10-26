@@ -30,6 +30,7 @@ LASTEXIT_DIST_CSFILES =				\
 	$(srcdir)/NeighbourView.cs		\
 	$(srcdir)/NotificationArea.cs		\
 	$(srcdir)/Player.cs			\
+	$(srcdir)/Playlist.cs			\
 	$(srcdir)/PlayerWindow.cs		\
 	$(srcdir)/RecentStations.cs		\
 	$(srcdir)/SignalUtils.cs		\

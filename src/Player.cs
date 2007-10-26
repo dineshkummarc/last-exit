@@ -43,7 +43,7 @@ namespace LastExit
 
 		private Song current_song;
 		private Playlist playlist;
-		public Playlist Playlist {
+		public Playlist Plist {
 			get { return playlist; }
 		}
 

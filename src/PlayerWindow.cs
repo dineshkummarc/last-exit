@@ -231,7 +231,7 @@ namespace LastExit
 			Driver.connection.OperationStarted += new FMConnection.OperationHandler (OnOperationStarted);
 			Driver.connection.OperationFinished += new FMConnection.OperationHandler (OnOperationFinished);
 			Driver.connection.StationChanged += new FMConnection.StationChangedHandler (OnStationChanged);
-			Driver.player.Playlist.NewPlaylistReady += new Playlist.NewPlaylistReadyHandler (OnNewPlaylistReady);
+			Driver.player.Plist.NewPlaylistReady += new Playlist.NewPlaylistReadyHandler (OnNewPlaylistReady);
 			Driver.connection.MetadataLoaded += new FMConnection.MetadataCompletedHandler (OnMetadataCompleted);
 			Driver.connection.Error += new FMConnection.ErrorHandler (OnError);
 
