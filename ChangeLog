@@ -1,3 +1,7 @@
+2007-12-26  Duarte Loreto <happyguy_pt@hotmail.com>
+
+	* configure.ac: Added Portuguese (pt) to ALL_LINGUAS.
+
 2007-10-26  iain <iain@gnome.org>
 
 	* src/Makefile.am: Add the Playlist.cs file
