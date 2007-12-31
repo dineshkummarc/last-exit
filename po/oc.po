@@ -1,17 +1,15 @@
-# translation of oc.po to Occitan
+# Translation of oc.po to Occitan
 # Occitan translation of last-exit.
 # Copyright (c) 2006 Iain Holmes.
 # This file is distributed under the same license as the last-exit package.
 #
-# Yannig MARCHEGAY (yannig@marchegay.org) - 2006-2007
-#
-# Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>, 2007.
+# Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>, 2006-2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: oc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-13 17:49+0200\n"
-"PO-Revision-Date: 2007-11-20 14:32+0100\n"
+"POT-Creation-Date: 2007-12-27 13:28+0100\n"
+"PO-Revision-Date: 2007-12-23 13:08+0100\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +36,7 @@ msgstr ""
 
 #: ../data/glade/FirstRunDialog.glade.h:1
 msgid "Account Name:"
-msgstr "Nom del compte"
+msgstr "Nom del compte :"
 
 #: ../data/glade/FirstRunDialog.glade.h:2
 msgid ""
@@ -89,7 +87,7 @@ msgstr ""
 
 #: ../data/glade/PlayerWindow.glade.h:3
 msgid "Information"
-msgstr "Informacions"
+msgstr "Entresenhas"
 
 #: ../data/glade/PlayerWindow.glade.h:4
 msgid "Love!"
@@ -256,7 +254,7 @@ msgstr ""
 
 #: ../src/About.cs:35
 msgid "Copyright © 2006 Iain Holmes"
-msgstr ""
+msgstr "Copyright © 2006 Iain Holmes"
 
 #: ../src/About.cs:38
 msgid "A Last.fm radio player"
@@ -264,19 +262,19 @@ msgstr ""
 
 #: ../src/About.cs:45
 msgid "Iain Holmes <iain@gnome.org>"
-msgstr ""
+msgstr "Iain Holmes <iain@gnome.org>"
 
 #: ../src/About.cs:46
 msgid "Baris Cicek <baris@teamforce.name.tr>"
-msgstr ""
+msgstr "Baris Cicek <baris@teamforce.name.tr>"
 
 #: ../src/About.cs:47
 msgid "Brandon Hale <brandon@ubuntu.com>"
-msgstr ""
+msgstr "Brandon Hale <brandon@ubuntu.com>"
 
 #: ../src/About.cs:60
 msgid "translator-credits"
-msgstr "Yannig Marchegay (Kokoyaya) <yannig@marchegay.org)"
+msgstr "Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>"
 
 #: ../src/Actions.cs:35
 msgid "Show _Window"
@@ -288,7 +286,7 @@ msgstr "_Legir"
 
 #: ../src/Actions.cs:41
 msgid "_Next"
-msgstr "Seguent"
+msgstr "_Seguent"
 
 #: ../src/Actions.cs:44
 msgid "_About"
@@ -375,81 +373,81 @@ msgstr ""
 msgid "Sign up for Last.fm"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:283
+#: ../src/PlayerWindow.cs:285
 msgid "Neighbour Station"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:286
+#: ../src/PlayerWindow.cs:288
 msgid "Personal Station"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:290
+#: ../src/PlayerWindow.cs:292
 msgid "Favourites Station"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:294
+#: ../src/PlayerWindow.cs:296
 msgid "Recommended Music Station"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:297
+#: ../src/PlayerWindow.cs:299
 msgid "Other Station..."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:727
+#: ../src/PlayerWindow.cs:730
 #, csharp-format
 msgid ""
 "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
 "a></span>"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:729
+#: ../src/PlayerWindow.cs:732
 #, csharp-format
 msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:731
+#: ../src/PlayerWindow.cs:734
 #, csharp-format
 msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:738
+#: ../src/PlayerWindow.cs:741
 #, csharp-format
 msgid "{0} by {1}"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:765
+#: ../src/PlayerWindow.cs:768
 msgid "There is not enough content to play this station."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:769
+#: ../src/PlayerWindow.cs:772
 msgid "This group does not have enough members for radio."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:773
+#: ../src/PlayerWindow.cs:776
 msgid "This artist does not have enough fans for radio."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:777
+#: ../src/PlayerWindow.cs:780
 msgid "This item is not available for streaming."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:781
+#: ../src/PlayerWindow.cs:784
 msgid "This feature is only available to subscribers."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:785
+#: ../src/PlayerWindow.cs:788
 msgid "There are not enough neighbours for this radio."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:789
+#: ../src/PlayerWindow.cs:792
 msgid "This stream has stopped."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:793
+#: ../src/PlayerWindow.cs:796
 msgid "There is no such a group."
 msgstr ""
 
-#: ../src/PlayerWindow.cs:797
+#: ../src/PlayerWindow.cs:800
 msgid "There is no such an artist."
 msgstr ""
 
@@ -476,22 +474,22 @@ msgid ""
 "<span size=\"smaller\">Relevance: {0}%</span>"
 msgstr ""
 
-#: ../src/TrayIcon.cs:195
+#: ../src/TrayIcon.cs:199
 #, csharp-format
 msgid "<span weight=\"bold\">{0}</span>"
 msgstr ""
 
-#: ../src/TrayIcon.cs:201 ../src/TrayIcon.cs:203
+#: ../src/TrayIcon.cs:205 ../src/TrayIcon.cs:207
 #, csharp-format
 msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
 msgstr ""
 
-#: ../src/TrayIcon.cs:219
+#: ../src/TrayIcon.cs:223
 msgid " by "
 msgstr " per "
 
 #. Wait til cover is set before we notify :)
-#: ../src/TrayIcon.cs:225
+#: ../src/TrayIcon.cs:229
 msgid "Now playing"
 msgstr ""
 
@@ -502,4 +500,3 @@ msgstr ""
 #: ../src/VolumeButton.cs:495
 msgid "Full Volume"
 msgstr ""
-
