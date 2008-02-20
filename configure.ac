@@ -80,7 +80,7 @@ AC_SUBST(GACUTIL_FLAGS)
 GETTEXT_PACKAGE="last-exit"
 AC_SUBST(GETTEXT_PACKAGE)
 
-ALL_LINGUAS="ar ca de dz en_GB es fi fr nl oc pl pt sv tr"
+ALL_LINGUAS="ar ca de dz en_GB es fi fr nb nl oc pl pt sv tr"
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
