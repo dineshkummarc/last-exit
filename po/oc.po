@@ -63,7 +63,7 @@ msgstr ""
 
 #: ../data/glade/InfoWindow.glade.h:2
 msgid "<b>Album:</b>"
-msgstr "<b>Albom :</b>"
+msgstr "<b>Album :</b>"
 
 #: ../data/glade/InfoWindow.glade.h:3
 msgid "<b>Artist:</b>"
