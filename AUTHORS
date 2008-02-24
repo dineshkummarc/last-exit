@@ -1,1 +1,45 @@
-Iain <iain@gnome.org>
+  For everything not noted below:
+   Copyright (c) 2005, 2007 Iain Holmes
+
+  For notify-sharp/*
+   Copyright (c) 2006 Sebastian Dröge <slomo@circular-chaos.org>
+
+  For data/icons/icon-theme-installer,
+      src/SpecialKeys.cs,
+      src/DBusRemote.cs:
+   Copyright (c) 2006 Novell, Inc.
+
+  For src/SignalUtils.cs:
+  Copyright (c) 2004 Tamara Roberson <foxxygirltamara@gmail.com>
+
+  For src/Actions.cs:
+  Copyright (c) 2005 Tamara Roberson <foxxygirltamara@gmail.com>
+  Copyright (c) 2003, 2004, 2005 Jorn Baayen <jbaayen@gnome.org>
+
+  For src/NotificationArea.cs:
+  Copyright (c) 2005 Todd Berman <tberman@off.net>
+  Copyright (c) 2005 Ed Catmur <ed@catmur.co.uk>
+  Copyright (c) 2005 Novell, Inc. (Miguel de Icaza, Aaron Bockover)
+
+  For src/TrayIcon.cs:
+  Copyright 2006 Baris Cicek
+
+  src/StockIcons.cs:
+  Copyright (c) 2003, 2004 Jorn Baayen <jbaayen@gnome.org>
+
+  For src/VolumeButton.cs:
+  Copyright (c) 2005 Ronald S. Bultje; 2007 Novell, Inc.
+
+  For src/About.cs:
+  Copyright (c) 2006 Brandon Hale <brandon@ubuntu.com>
+  Copyright (c) 2003, 2004, 2005 Jorn Baayen <jbaayen@gnome.org>
+
+  For src/StringUtils.cs:
+  Copyright (c) 2004, 2005 Jorn Baayen <jorn@gnome.org>
+  Copyright (c) 2006 Iain Holmes <iain@gnome.org>
+
+  For dbus-sharp/*:
+  Copyright (c) 2006 Alp Toker <alp@atoker.com>
+  
+  For xmlrpccs/*:
+  Copyright (c) 2003, Nicholas Christopher

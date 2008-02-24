@@ -433,7 +433,8 @@ namespace LastExit
 				similar.Streamable = (get_node_text (a_node, "streamable") == "0");
 				similar.Mbid = get_node_text (a_node, "mbid");
 				similar.Url = get_node_text (a_node, "url");
-				similar.Relevance = Decimal.ToInt32(Decimal.Parse (get_node_text (a_node, "match")));
+				CultureInfo match_fmt = new CultureInfo("", false);
+				similar.Relevance = Decimal.ToInt32(Decimal.Parse (get_node_text (a_node, "match"), match_fmt));
 				artist.AddSimilarArtist (similar);
 			}
 			

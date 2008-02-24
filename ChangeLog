@@ -1,3 +1,13 @@
+2008-02-24  Brandon Hale <brandon@brandonhale.us>
+
+	* AUTHORS, COPYING:
+	Updates, taken from Debian package. Thanks to Bob Mauchin on bug
+	#496016.
+
+	* Bug #448927:
+	Crash when searching for a station due to differing locale handling of
+	decimal numbers. Patch from Bob Mauchin.
+
 2008-02-19  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.ac: Add nb to ALL_LINGUAS.
