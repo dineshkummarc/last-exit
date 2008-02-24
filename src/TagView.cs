@@ -45,7 +45,10 @@ namespace LastExit
 				}
 
 				foreach (Tag t in value) {
-					string pretty = t.Name + String.Format(Catalog.GetString("\n<span size=\"smaller\">Relevance: {0}%</span>"),(t.Match * 100));
+					string pretty = t.Name;
+					if (t.Match != 0) { 
+						pretty = t.Name + String.Format(Catalog.GetString("\n<span size=\"smaller\">Relevance: {0}%</span>"),(t.Match * 100));
+					}
 					
 					tagstore.AppendValues (t.ID, t.Name, t.Match, pretty);
 				}

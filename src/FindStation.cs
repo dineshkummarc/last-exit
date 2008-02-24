@@ -460,9 +460,11 @@ namespace LastExit
 				string name = get_node_text (t_node, "name");
 				int id = Int32.Parse (get_node_text (t_node, "id"));
 
-				NumberFormatInfo match_fmt = new NumberFormatInfo();
-				match_fmt.NumberDecimalSeparator = ".";
-				double match = Double.Parse (get_node_text (t_node, "match"), match_fmt);
+				double match = 0;
+				if (get_node_text (t_node, "match") != "") {
+					CultureInfo match_fmt = new CultureInfo("", false);
+					match = Double.Parse (get_node_text (t_node, "match"), match_fmt);
+				}
 
 				Tag t = new Tag (id, name, match);
 				tags.Add (t);

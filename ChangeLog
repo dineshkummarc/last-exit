@@ -8,6 +8,9 @@
 	Crash when searching for a station due to differing locale handling of
 	decimal numbers. Patch from Bob Mauchin.
 
+	* Bug #465549:
+	Another crash on matching strings on search. Patch from Bob Mauchin.
+
 2008-02-19  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.ac: Add nb to ALL_LINGUAS.
