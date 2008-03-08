@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-19 20:25+0100\n"
+"POT-Creation-Date: 2008-03-07 10:22+0100\n"
 "PO-Revision-Date: 2007-12-23 13:08+0100\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan <ubuntu-l10n-oci@lists.ubuntu.com>\n"
@@ -340,25 +340,25 @@ msgstr ""
 msgid "A group station"
 msgstr ""
 
-#: ../src/FindStation.cs:591
+#: ../src/FindStation.cs:594
 msgid "Artist not found"
 msgstr ""
 
-#: ../src/FindStation.cs:600
+#: ../src/FindStation.cs:603
 #, csharp-format
 msgid "{0} is not streamable."
 msgstr ""
 
-#: ../src/FindStation.cs:609
+#: ../src/FindStation.cs:612
 #, csharp-format
 msgid "Music that sounds like <b>{0}</b>"
 msgstr ""
 
-#: ../src/FindStation.cs:614
+#: ../src/FindStation.cs:617
 msgid "Featuring: \n"
 msgstr ""
 
-#: ../src/FindStation.cs:630
+#: ../src/FindStation.cs:633
 #, csharp-format
 msgid " and {0} other."
 msgid_plural " and {0} others."
@@ -467,7 +467,7 @@ msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/TagView.cs:48
+#: ../src/TagView.cs:50
 #, csharp-format
 msgid ""
 "\n"
