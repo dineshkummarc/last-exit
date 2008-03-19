@@ -1,5 +1,9 @@
 2008-03-19  Sebastian Dröge  <slomo@circular-chaos.org>
 
+	* src/last-exit.exe.config.in: Add a few missing dllmaps.
+
+2008-03-19  Sebastian Dröge  <slomo@circular-chaos.org>
+
 	* src/PlayerWindow.cs: Use Bacon.VolumeButton instead of just
 	VolumeButton. Gtk# 2.12 has it's own VolumeButton now creating an
 	ambiguous reference between the two and failing the build.
