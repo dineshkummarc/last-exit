@@ -46,7 +46,7 @@ namespace LastExit
 		[Glade.Widget] private Button journal_button;
 		[Glade.Widget] private Button preferences_button;
 
-		private VolumeButton volume_button;
+		private Bacon.VolumeButton volume_button;
 		public int Volume {
 			get {
 				return volume_button.Volume;
@@ -215,11 +215,11 @@ namespace LastExit
 			KeyPressEvent += OnKeyPressEvent;
 
 			// Volume
-			volume_button = new VolumeButton ();
+			volume_button = new Bacon.VolumeButton ();
 			volume_button.Relief = ReliefStyle.Normal;
 			volume_button_container.Add (volume_button);
 			volume_button.Visible = true;
-			volume_button.VolumeChanged += new VolumeButton.VolumeChangedHandler (OnVolumeChanged);
+			volume_button.VolumeChanged += new Bacon.VolumeButton.VolumeChangedHandler (OnVolumeChanged);
 
 			volume_button.Volume = Driver.config.Volume;
 		}
