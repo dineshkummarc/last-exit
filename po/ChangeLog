@@ -1,3 +1,7 @@
+2008-03-21  Claudio Saavedra  <csaavedra@gnome.org>
+
+	* es.po: Fixed a small localization bug.
+
 2008-02-19  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* nb.po: Added Norwegian bokmål translation.

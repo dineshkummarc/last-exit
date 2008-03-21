@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: last-exit.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-26 03:15+0100\n"
-"PO-Revision-Date: 2007-08-30 01:02+0200\n"
+"POT-Creation-Date: 2007-09-09 03:15+0100\n"
+"PO-Revision-Date: 2008-03-21 13:14-0300\n"
 "Last-Translator: Juanjo Marin <juanj.marin@juntadeandalucia.es>\n"
 "Language-Team: Juan Jose Marin Martinez <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -224,7 +224,8 @@ msgstr "Ajuste de volumen (entre 0-100)"
 
 #: ../data/last-exit.schemas.in.h:12
 msgid "Whether Last-Exit shows notifications when the song changes"
-msgstr "Indica si Last-Exit debe mostrar notificaciones cuando cambia la canción"
+msgstr ""
+"Indica si Last-Exit debe mostrar notificaciones cuando cambia la canción"
 
 #: ../data/lastfm.schemas.in.h:1
 msgid "Is the Last-FM handler enabled"
@@ -236,7 +237,9 @@ msgstr "Ejecutar el comando en un terminal"
 
 #: ../data/lastfm.schemas.in.h:3
 msgid "The command used to handle \"lastfm\" URLs, if enabled."
-msgstr "El comando usado para gestionar las URL de «lastfm», si la opción está habilitada."
+msgstr ""
+"El comando usado para gestionar las URL de «lastfm», si la opción está "
+"habilitada."
 
 #: ../data/lastfm.schemas.in.h:4
 msgid "The handler for \"lastfm\" URLs"
@@ -246,13 +249,17 @@ msgstr "El gestor de URL de «lastfm»"
 msgid ""
 "True if the command specified in the \"command\" key should handle \"lastfm"
 "\" URLs."
-msgstr "Habilítelo si el comando especificado en la clave «comando» debe gestionar las URL de «lastfm»."
+msgstr ""
+"Habilítelo si el comando especificado en la clave «comando» debe gestionar "
+"las URL de «lastfm»."
 
 #: ../data/lastfm.schemas.in.h:6
 msgid ""
 "True if the command used to handle \"lastfm\" URLs should be run in a "
 "terminal."
-msgstr "Habilítelo si el comando que usar para gestionar las URL de «lastfm» debe ejecutarse en un terminal."
+msgstr ""
+"Habilítelo si el comando que usar para gestionar las URL de «lastfm» debe "
+"ejecutarse en un terminal."
 
 #: ../src/About.cs:32
 msgid "Last Exit"
@@ -381,27 +388,27 @@ msgstr "Detalles de la cuenta Last.fm"
 msgid "Sign up for Last.fm"
 msgstr "Apuntarse a Last.fm"
 
-#: ../src/PlayerWindow.cs:275
+#: ../src/PlayerWindow.cs:283
 msgid "Neighbour Station"
 msgstr "Emisora de los vecinos"
 
-#: ../src/PlayerWindow.cs:278
+#: ../src/PlayerWindow.cs:286
 msgid "Personal Station"
 msgstr "Emisora personal"
 
-#: ../src/PlayerWindow.cs:282
+#: ../src/PlayerWindow.cs:290
 msgid "Favourites Station"
 msgstr "Emisora de las favoritas"
 
-#: ../src/PlayerWindow.cs:286
+#: ../src/PlayerWindow.cs:294
 msgid "Recommended Music Station"
 msgstr "Emisora de música recomendada"
 
-#: ../src/PlayerWindow.cs:289
+#: ../src/PlayerWindow.cs:297
 msgid "Other Station..."
 msgstr "Otra emisora..."
 
-#: ../src/PlayerWindow.cs:719
+#: ../src/PlayerWindow.cs:727
 #, csharp-format
 msgid ""
 "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
@@ -410,54 +417,54 @@ msgstr ""
 "<span size=\"smaller\">De <a href=\"{0}\">{1}</a> por <a href=\"{2}\">{3}</"
 "a></span>"
 
-#: ../src/PlayerWindow.cs:721
+#: ../src/PlayerWindow.cs:729
 #, csharp-format
 msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"smaller\">Por <a href=\"{0}\">{1}</a></span>"
 
-#: ../src/PlayerWindow.cs:723
+#: ../src/PlayerWindow.cs:731
 #, csharp-format
 msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"smaller\">De <a href=\"{0}\">{1}</a></span>"
 
-#: ../src/PlayerWindow.cs:730
+#: ../src/PlayerWindow.cs:738
 #, csharp-format
 msgid "{0} by {1}"
 msgstr "{0} por {1}"
 
-#: ../src/PlayerWindow.cs:757
+#: ../src/PlayerWindow.cs:765
 msgid "There is not enough content to play this station."
 msgstr "No existe suficiente contenido para esta emisora."
 
-#: ../src/PlayerWindow.cs:761
+#: ../src/PlayerWindow.cs:769
 msgid "This group does not have enough members for radio."
 msgstr "Este grupo no tiene suficientes miembros para una emisora de radio."
 
-#: ../src/PlayerWindow.cs:765
+#: ../src/PlayerWindow.cs:773
 msgid "This artist does not have enough fans for radio."
 msgstr "Este artista no tiene suficientes fans para una emisora de radio."
 
-#: ../src/PlayerWindow.cs:769
+#: ../src/PlayerWindow.cs:777
 msgid "This item is not available for streaming."
 msgstr "Este elemento no está disponible para su retransmisión."
 
-#: ../src/PlayerWindow.cs:773
+#: ../src/PlayerWindow.cs:781
 msgid "This feature is only available to subscribers."
 msgstr "Esta funcionalidad sólo está disponible para los suscriptores."
 
-#: ../src/PlayerWindow.cs:777
+#: ../src/PlayerWindow.cs:785
 msgid "There are not enough neighbours for this radio."
 msgstr "No hay suficientes vecinos para esta emisora de radio."
 
-#: ../src/PlayerWindow.cs:781
+#: ../src/PlayerWindow.cs:789
 msgid "This stream has stopped."
 msgstr "Se ha parado esta retransmisión"
 
-#: ../src/PlayerWindow.cs:785
+#: ../src/PlayerWindow.cs:793
 msgid "There is no such a group."
 msgstr "No existe este grupo"
 
-#: ../src/PlayerWindow.cs:789
+#: ../src/PlayerWindow.cs:797
 msgid "There is no such an artist."
 msgstr "No existe este artista"
 
@@ -475,7 +482,8 @@ msgstr "Etiqueta «{0}»"
 msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
 msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
 msgstr[0] "<span size=\"smaller\"><i>Se ha etiquetado {0} elemento</i></span>"
-msgstr[1] "<span size=\"smaller\"><i>Se han etiquetado {0} elementos</i></span>"
+msgstr[1] ""
+"<span size=\"smaller\"><i>Se han etiquetado {0} elementos</i></span>"
 
 #: ../src/TagView.cs:48
 #, csharp-format
@@ -486,22 +494,22 @@ msgstr ""
 "\n"
 "<span size=\"smaller\">Relevancia: {0}%</span>"
 
-#: ../src/TrayIcon.cs:184
+#: ../src/TrayIcon.cs:195
 #, csharp-format
 msgid "<span weight=\"bold\">{0}</span>"
 msgstr "<span weight=\"bold\">{0}</span>"
 
-#: ../src/TrayIcon.cs:190 ../src/TrayIcon.cs:192
+#: ../src/TrayIcon.cs:201 ../src/TrayIcon.cs:203
 #, csharp-format
 msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
 msgstr "<span size=\"smaller\">Por <span weight=\"bold\">{0}</span></span>"
 
-#: ../src/TrayIcon.cs:208
+#: ../src/TrayIcon.cs:219
 msgid " by "
-msgstr "por"
+msgstr " por "
 
 #. Wait til cover is set before we notify :)
-#: ../src/TrayIcon.cs:214
+#: ../src/TrayIcon.cs:225
 msgid "Now playing"
 msgstr "Reproduciendo ahora"
 
@@ -512,4 +520,3 @@ msgstr "Silenciado"
 #: ../src/VolumeButton.cs:495
 msgid "Full Volume"
 msgstr "Volumen total"
-
