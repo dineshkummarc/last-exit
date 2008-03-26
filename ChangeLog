@@ -1,3 +1,11 @@
+2008-03-26  Sebastian Dröge  <slomo@circular-chaos.org>
+
+	* configure.ac:
+	* notify-sharp/Makefile.am:
+	* src/Makefile.am: Use an external notify-sharp if available. This
+	is most important as the DBus interface of notification-daemon changes
+	soonish and a notify-sharp is required for this.
+
 2008-03-19  Sebastian Dröge  <slomo@circular-chaos.org>
 
 	* src/last-exit.exe.config.in: Add a few missing dllmaps.

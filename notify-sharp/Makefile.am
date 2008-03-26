@@ -1,12 +1,12 @@
 NOTIFY_ASSEMBLY = notify-sharp.dll
+NOTIFY_SRC = \
+		$(srcdir)/Global.cs \
+		$(srcdir)/Notification.cs
 
+if !EXTERNAL_NOTIFY_SHARP
 notifydir = $(pkglibdir)
 notify_SCRIPTS = \
 	$(NOTIFY_ASSEMBLY)
-
-NOTIFY_SRC = 				\
-		$(srcdir)/Global.cs \
-		$(srcdir)/Notification.cs
 
 if EXTERNAL_DBUS
 DBUS_ASSEMBLIES = $(DBUS_LIBS)
@@ -20,6 +20,8 @@ all: $(NOTIFY_ASSEMBLY)
 
 $(NOTIFY_ASSEMBLY): $(NOTIFY_SRC)
 	$(MCS) -target:library -out:$@ $(DBUS_ASSEMBLIES) $(GTKSHARP_LIBS) $(NOTIFY_SRC)
+
+endif
 
 EXTRA_DIST = $(NOTIFY_SRC)
 DISTCLEANFILES = $(NOTIFY_ASSEMBLY) $(NOTIFY_ASSEMBLY).mdb

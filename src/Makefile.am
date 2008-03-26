@@ -72,8 +72,12 @@ endif
 XMLRPC_ASSEMBLIES = 				\
 	-r:${DIR_XMLRPC}/XmlRpcCS.dll
 
+if EXTERNAL_NOTIFY_SHARP
+NOTIFY_ASSEMBLIES = $(NOTIFY_SHARP_LIBS)
+else
 NOTIFY_ASSEMBLIES =				\
 	-r:$(DIR_NOTIFY)/notify-sharp.dll
+endif
 
 LASTEXIT_RESOURCES =				\
 	-resource:$(top_srcdir)/data/glade/FindStation.glade	\

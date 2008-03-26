@@ -50,6 +50,13 @@ if test "x$have_external_dbus" != "xyes"; then
 fi
 AM_CONDITIONAL(EXTERNAL_DBUS, test "x$have_external_dbus" = "xyes")
 
+PKG_CHECK_MODULES(NOTIFY_SHARP, notify-sharp, have_external_notify_sharp="yes", have_external_notify_sharp="no")
+if test "x$have_external_notify_sharp" != "xyes"; then
+	AC_MSG_RESULT([using internal copy])
+fi
+AM_CONDITIONAL(EXTERNAL_NOTIFY_SHARP, test "x$have_external_notify_sharp" = "xyes")
+
+
 AC_PATH_PROG(MCS, gmcs)
 if test x$MCS = x; then
 	AC_MSG_ERROR(You need mcs)
