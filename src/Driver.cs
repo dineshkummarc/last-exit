@@ -186,6 +186,7 @@ namespace LastExit
 		}
 
 		public static void Exit () {
+			player.Exit ();
 			Environment.Exit (0);
 		}
 

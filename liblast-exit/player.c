@@ -243,3 +243,11 @@ player_get_volume (Player *player)
 
 	return (int)(vol * 100);
 }
+
+void
+player_exit (Player *player)
+{
+	gst_element_set_state (player->priv->play,
+			       GST_STATE_NULL);
+}
+

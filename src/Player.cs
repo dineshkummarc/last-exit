@@ -166,6 +166,13 @@ namespace LastExit
 				}
 			}
 		}
+
+		[DllImport ("liblastexit")]
+		private static extern void player_exit (IntPtr player);
+
+		public void Exit () {
+			player_exit (Raw);
+		}
 	}
 }
 
