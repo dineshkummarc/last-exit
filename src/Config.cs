@@ -20,7 +20,10 @@
  */
 
 using System;
+using System.Collections;
 using GConf;
+using Gnome.Keyring;
+using Gtk;
 
 namespace LastExit {
 	public class Config {
@@ -35,6 +38,8 @@ namespace LastExit {
 		private const string GConfShowDuration = "/apps/lastexit/show_duration";
 
 		public static Client config;
+		
+		private string ring;
 
 		public bool FirstRun {
 			get { 
@@ -74,14 +79,25 @@ namespace LastExit {
 		}
 
 		public string Password {
+			get {
+				ItemData item = Ring.FindNetworkPassword(null, null, "last.fm", "last-exit", null, null, 0)[0];
+				return item.Secret;
+			}
+			set {
+				Hashtable attributes = new Hashtable();
+				attributes ["server"] = "last.fm";
+				attributes ["object"] = "last-exit";
+				Ring.CreateItem(ring, ItemType.NetworkPassword, "last-exit", attributes, value, true);
+			}
+		}
+		
+		private string OldPassword {
 			get { 
 				object o;
 				try {
 					o = config.Get (GConfPassword);
 				} catch (GConf.NoSuchKeyException) {
-					config.Set (GConfPassword, 
-						    (object) "password");
-					return "password";
+					return String.Empty;
 				}
 
 				return (string) o;
@@ -180,13 +196,30 @@ namespace LastExit {
             		set { config.Set (GConfShowDuration, (object) value); }
 		}
 
-        public void GConfAddNotify (string dir, NotifyEventHandler handler)
-        {
-            config.AddNotify (dir, handler);
-        }
+		public void GConfAddNotify (string dir, NotifyEventHandler handler)
+		{
+			config.AddNotify (dir, handler);
+		}
 
 		public Config () {
 			config = new GConf.Client ();
+			if (Ring.Available) {
+				ring = Ring.GetDefaultKeyring();
+			} else {
+				MessageDialog md = new MessageDialog (null, DialogFlags.Modal, MessageType.Error,
+				                                         ButtonsType.Close,false,
+				                                         "You need to have GNOME Keyring installed.");
+				md.Run();
+				md.Destroy();
+				Driver.Exit();
+			}
+			/* Check if we have a password in stored in gconf - done once per app startup
+			 * so it shouldn't be much of a performance impact...
+			 * We should remove it after the next release together with the gconf key. */
+			if (OldPassword != String.Empty) {
+				Password = OldPassword;
+				OldPassword = String.Empty;
+			}
 		}
 	}
 }

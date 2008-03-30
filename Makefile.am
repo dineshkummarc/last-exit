@@ -1,6 +1,6 @@
 SUBDIRS = 			\
 	data			\
-	dbus-sharp		\
+	gnome-keyring-sharp	\
 	xmlrpccs		\
 	notify-sharp		\
 	liblast-exit		\

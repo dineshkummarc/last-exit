@@ -42,11 +42,7 @@ namespace LastExit
 
 		public static IDBusPlayer FindInstance()
 		{
-			try {
-				BusG.Init ();
-			} catch (Exception e) { 
-				System.Console.WriteLine (e.Message);
-			}
+			BusG.Init ();
 
 			if(!Bus.Session.NameHasOwner(DBusRemote.BusName)) {
 				return null;

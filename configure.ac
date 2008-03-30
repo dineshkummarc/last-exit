@@ -46,16 +46,23 @@ AM_GCONF_SOURCE_2
 PKG_CHECK_MODULES(DBUS, ndesk-dbus-1.0 >= 0.4 \
 	ndesk-dbus-glib-1.0 >= 0.3, have_external_dbus="yes", have_external_dbus="no")
 if test "x$have_external_dbus" != "xyes"; then
-	AC_MSG_RESULT([using internal copy])
+	AC_MSG_ERROR([dbus-sharp >= 0.4 not found])
 fi
 AM_CONDITIONAL(EXTERNAL_DBUS, test "x$have_external_dbus" = "xyes")
 
 PKG_CHECK_MODULES(NOTIFY_SHARP, notify-sharp, have_external_notify_sharp="yes", have_external_notify_sharp="no")
 if test "x$have_external_notify_sharp" != "xyes"; then
-	AC_MSG_RESULT([using internal copy])
+	AC_MSG_RESULT([notify-sharp not found - using internal copy])
 fi
 AM_CONDITIONAL(EXTERNAL_NOTIFY_SHARP, test "x$have_external_notify_sharp" = "xyes")
 
+
+PKG_CHECK_MODULES(GNOMEKEYRINGSHARP, gnome-keyring-sharp-1.0 >= 1.0.0, \
+	have_external_gks="yes", have_external_gks="no")
+if test "x$have_external_gks" != "xyes"; then
+	AC_MSG_RESULT([using internal copy])
+fi
+AM_CONDITIONAL(EXTERNAL_GKS, test "x$have_external_gks" = "xyes")
 
 AC_PATH_PROG(MCS, gmcs)
 if test x$MCS = x; then
@@ -93,8 +100,7 @@ AM_GLIB_GNU_GETTEXT
 AC_OUTPUT([
 Makefile
 xmlrpccs/Makefile
-dbus-sharp/Makefile
-dbus-sharp/NDesk.DBus.GLib.dll.config
+gnome-keyring-sharp/Makefile
 notify-sharp/Makefile
 data/Makefile
 data/glade/Makefile

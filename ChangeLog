@@ -1,4 +1,10 @@
 2008-03-29  Brandon Hale <brandon@brandonhale.us>
+
+	Move account data from gconf to gnome-keyring.
+	This encrypts your last.fm password.
+	Patch by Łukasz Jernaś on Gnome Bug #517070.
+
+2008-03-29  Brandon Hale <brandon@brandonhale.us>
 	
 	Incorporate a long desired feature to display running track time vs
 	estimated track duration. This uses a label instead of an hscale, to

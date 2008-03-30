@@ -6,6 +6,7 @@ WRAPPER = last-exit
 DIR_XMLRPC = $(top_builddir)/xmlrpccs
 DIR_DBUS =  $(top_builddir)/dbus-sharp
 DIR_NOTIFY = $(top_builddir)/notify-sharp
+DIR_GKS = $(top_builddir)/gnome-keyring-sharp
 
 LASTEXIT_DIST_CSFILES =				\
 	$(srcdir)/Actions.cs			\
@@ -69,6 +70,12 @@ DBUS_ASSEMBLIES = 				\
 	-r:$(DIR_DBUS)/NDesk.DBus.GLib.dll
 endif
 
+if EXTERNAL_GKS
+GKS_ASSEMBLIES = $(GNOMEKEYRINGSHARP_LIBS)
+else
+GKS_ASSEMBLIES = -r:$(DIR_GKS)/Gnome.Keyring.dll
+endif
+
 XMLRPC_ASSEMBLIES = 				\
 	-r:${DIR_XMLRPC}/XmlRpcCS.dll
 
@@ -114,7 +121,7 @@ $(TARGET).config: $(srcdir)/$(TARGET).config.in
 	    < $^ > $@
 
 $(TARGET): $(LASTEXIT_CSFILES) $(top_builddir)/data/ui/TrayIcon.xml
-	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(DBUS_ASSEMBLIES) ${XMLRPC_ASSEMBLIES} $(NOTIFY_ASSEMBLIES) $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS)
+	$(CSC) -out:$@ $(LASTEXIT_CSFILES) $(LASTEXIT_ASSEMBLIES) $(DBUS_ASSEMBLIES) ${XMLRPC_ASSEMBLIES} $(NOTIFY_ASSEMBLIES)  $(LASTEXIT_RESOURCES) $(GTKSHARP_LIBS) $(GKS_ASSEMBLIES)
 
 all: $(TARGET)
 
