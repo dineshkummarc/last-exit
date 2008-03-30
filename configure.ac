@@ -14,6 +14,7 @@ AC_PROG_INTLTOOL([0.21])
 AC_PROG_CC
 AC_ISC_POSIX
 AC_HEADER_STDC
+AC_CHECK_FUNCS(memmem)
 AM_PROG_LIBTOOL
 
 GSTREAMER_REQUIRED=0.10.11
@@ -60,7 +61,7 @@ AM_CONDITIONAL(EXTERNAL_NOTIFY_SHARP, test "x$have_external_notify_sharp" = "xye
 PKG_CHECK_MODULES(GNOMEKEYRINGSHARP, gnome-keyring-sharp-1.0 >= 1.0.0, \
 	have_external_gks="yes", have_external_gks="no")
 if test "x$have_external_gks" != "xyes"; then
-	AC_MSG_RESULT([using internal copy])
+	AC_MSG_RESULT([gnome-keyring-sharp not found - using internal copy])
 fi
 AM_CONDITIONAL(EXTERNAL_GKS, test "x$have_external_gks" = "xyes")
 

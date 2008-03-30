@@ -75,7 +75,10 @@ namespace LastExit
 			string username;
 			string password;
 
-			Driver.SetProcessName ("last-exit");
+			try {
+				Driver.SetProcessName ("last-exit");
+			} catch {} // Ignore exception if fail (not needed to run)
+
 			Catalog.Init("last-exit", Defines.LOCALE_DIR);
 			Application.Init("last-exit", ref args);
 

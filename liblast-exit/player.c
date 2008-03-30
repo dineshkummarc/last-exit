@@ -27,6 +27,55 @@
 
 #include "player.h"
 
+#ifndef HAVE_MEMMEM
+/*
+ * This uses the "Not So Naive" algorithm, a very simple but
+ * usually effective algorithm, see:
+ *
+ * http://www-igm.univ-mlv.fr/~lecroq/string/
+ *
+ * SYSLINUX is Copyright 1994-2001 H. Peter Anvin, and is free software;
+ * you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation,
+ * Inc., 675 Mass Ave, Cambridge MA 02139, USA; either version 2 of the
+ * License, or (at your option) any later version.
+ */
+
+#include <string.h>
+
+static void *memmem(const void *haystack, size_t n, const void *needle, size_t m)
+{
+  const unsigned char *y = (const unsigned char *)haystack;
+  const unsigned char *x = (const unsigned char *)needle;
+
+  size_t j, k, l;
+
+  if ( m > n )
+    return NULL;
+
+  if ( x[0] == x[1] ) {
+    k = 2;
+    l = 1;
+  } else {
+    k = 1;
+    l = 2;
+  }
+
+  j = 0;
+  while ( j <= n-m ) {
+    if (x[1] != y[j+1]) {
+      j += k;
+    } else {
+      if ( !memcmp(x+2, y+j+2, m-2) && x[0] == y[j] )
+	return (void *)&y[j];
+      j += l;
+    }
+  }
+
+  return NULL;
+}
+#endif
+
 enum {
 	NEW_SONG,
 	END_SONG,

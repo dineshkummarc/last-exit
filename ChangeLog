@@ -1,3 +1,10 @@
+2008-03-30  Brandon Hale <brandon@brandonhale.us>
+
+	Some portability fixes.
+	Apply a patch to not use memmem() on non-GNU systems.
+	Silently catch failed calls to prctl when changing the process name on
+	non-Linux. See Gnome bug #475031.
+
 2008-03-29  Brandon Hale <brandon@brandonhale.us>
 
 	Move account data from gconf to gnome-keyring.
