@@ -98,8 +98,8 @@ namespace LastExit
 			get { return station_feed_url; }
 		}
 
-		private int progress;
-		public int Progress {
+		private uint progress;
+		public uint Progress {
 			set { progress = value; }
 			get { return progress; }
 		}

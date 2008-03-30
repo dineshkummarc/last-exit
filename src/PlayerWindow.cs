@@ -20,6 +20,7 @@
  */
 
 using System;
+using System.Text;
 using System.Collections;
 
 using Gtk;
@@ -80,6 +81,8 @@ namespace LastExit
 		private Gdk.Pixbuf neighbour_image;
 		private Gdk.Pixbuf recommended_image;
 		private Gdk.Pixbuf favourite_image;
+
+		[Glade.Widget] private Label progress_label;
 
 		private Song current_song;
 
@@ -264,6 +267,9 @@ namespace LastExit
 			hate_button.Add (hate_image);
 			hate_image.Visible = true;
 
+			progress_label.CanFocus = false;
+			progress_label.Visible = false;
+
 			// Add additional search path
 			IconTheme current_theme = IconTheme.Default;
 			current_theme.AppendSearchPath(Defines.PREFIX+"/share/icons/");
@@ -313,6 +319,7 @@ namespace LastExit
 				tag_button.Sensitive = false;
 				journal_button.Sensitive = false;
 				info_button.Sensitive = false;
+				progress_label.Visible = false;
 			}
 
 			station_combo.Model = stations;
@@ -442,7 +449,48 @@ namespace LastExit
 			bool sensitive = (bool) model.GetValue (iter, (int) Column.Sensitive);
 			cell.Sensitive = sensitive;
 		}
+
+		private string get_time (ref uint seconds, ushort divisor, string fallback)
+		{
+			uint time = seconds / divisor;
+			if (time > 0) {
+				string time_string;
+				time_string = Convert.ToInt32(time).ToString();
+				seconds = seconds % divisor;
+				return time_string + ":";
+			} else {
+				return fallback;
+			}
+		}
+
+		private string format_time_string (uint seconds) {
+			StringBuilder formatted_time = new StringBuilder ();
+			formatted_time.Append(get_time (ref seconds, 3600, ""));
+			formatted_time.Append(get_time (ref seconds, 60, "0:"));
+			formatted_time.Append(seconds.ToString().PadLeft(2, '0'));
+			seconds = Convert.ToUInt32(current_song.Length / 1000);
+			formatted_time.Append(" / ");
+			formatted_time.Append(get_time (ref seconds, 3600, ""));
+			formatted_time.Append(get_time (ref seconds, 60, "0:"));
+			formatted_time.Append(seconds.ToString().PadLeft(2, '0'));
+			return formatted_time.ToString();
+		}
 						     
+		private bool adjust_progress_label_callback () {
+			if (Driver.player.Playing) {
+				// in seconds
+				current_song.Progress = 
+				  (uint) (Driver.player.StreamPosition / 1000000000);
+				progress_label.Markup =
+				  "<b>" +
+				format_time_string (current_song.Progress) +
+				  "</b>";
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 		private void OnDeleteEvent (object o, DeleteEventArgs args) {
 			Quit ();
 		}
@@ -480,6 +528,7 @@ namespace LastExit
 				tag_button.Sensitive = false;
 				journal_button.Sensitive = false;
 				info_button.Sensitive = false;
+				progress_label.Visible = false;
 
 				trayicon.CanShowPopup = false;
 				// FIXME: Need a blank cover.
@@ -692,6 +741,8 @@ namespace LastExit
 			tag_button.Sensitive = true;
 			journal_button.Sensitive = true;
 			info_button.Sensitive = true;
+			progress_label.Markup = "";
+			progress_label.Visible = true;
 
 			if (station_id != null) {
 				if (known_stations.Contains (station_id) == false) {
@@ -746,6 +797,8 @@ namespace LastExit
 			if (i_window != null) {
 				i_window.SetSong (song);
 			}
+
+			GLib.Timeout.Add (250, new GLib.TimeoutHandler (adjust_progress_label_callback));
 		}
 
 		private void show_error_message (string message)

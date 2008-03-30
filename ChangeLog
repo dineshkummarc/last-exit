@@ -1,4 +1,11 @@
-2008-02-24  Brandon Hale <brandon@brandonhale.us>
+2008-03-29  Brandon Hale <brandon@brandonhale.us>
+	
+	Incorporate a long desired feature to display running track time vs
+	estimated track duration. This uses a label instead of an hscale, to
+	keep grumpy Last Exit maintainers at bay. Slightly modified from a
+	patch by Jordan Callicoat on Gnome Bug #490989.
+
+2008-03-29  Brandon Hale <brandon@brandonhale.us>
 	
 	Properly dispose of gstreamer element when shutting down.
 	Gnome Bug #524124, fix from Jordan Callicoat.

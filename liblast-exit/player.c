@@ -251,3 +251,16 @@ player_exit (Player *player)
 			       GST_STATE_NULL);
 }
 
+gint64
+player_get_stream_position (Player *player)
+{
+	GstFormat fmt = GST_FORMAT_TIME; // time in nanoseconds
+	gint64 pos;
+
+	if (gst_element_query_position (player->priv->play, 
+	  &fmt, 
+	  &pos))
+		return pos;
+	else
+		return -1;
+}

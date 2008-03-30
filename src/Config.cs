@@ -31,6 +31,8 @@ namespace LastExit {
 		private const string GConfRecommendationLevel = "/apps/lastexit/recommendation_level";
 
 		private const string GConfShowNotifications = "/apps/lastexit/show_notifications";
+		private const string GConfShowProgress = "/apps/lastexit/show_progress";
+		private const string GConfShowDuration = "/apps/lastexit/show_duration";
 
 		public static Client config;
 
@@ -136,6 +138,46 @@ namespace LastExit {
 				}
 			}
             set { config.Set (GConfShowNotifications, (object) value); }
+		}
+
+		public bool ShowProgress {
+			get { 
+				object o;
+				try {
+					o = config.Get (GConfShowProgress);
+				} catch (GConf.NoSuchKeyException) {
+					config.Set (GConfShowProgress, 
+						    (object) false);
+					return false;
+				}
+
+				if (o == null) {
+					return false;
+				} else {
+					return (bool) o;
+				}
+			}
+            		set { config.Set (GConfShowProgress, (object) value); }
+		}
+
+		public bool ShowDuration {
+			get { 
+				object o;
+				try {
+					o = config.Get (GConfShowDuration);
+				} catch (GConf.NoSuchKeyException) {
+					config.Set (GConfShowDuration,
+						    (object) false);
+					return false;
+				}
+
+				if (o == null) {
+					return false;
+				} else {
+					return (bool) o;
+				}
+			}
+            		set { config.Set (GConfShowDuration, (object) value); }
 		}
 
         public void GConfAddNotify (string dir, NotifyEventHandler handler)
