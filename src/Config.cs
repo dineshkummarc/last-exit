@@ -41,39 +41,35 @@ namespace LastExit {
 		
 		private string ring;
 
-		public bool FirstRun {
-			get { 
-				object o;
-				// Check it exists, then a default if not
-				try {
-					o = config.Get (GConfFirstRun);
-				} catch (GConf.NoSuchKeyException) {
-					config.Set (GConfFirstRun, 
-						    (object) true);
-					return true;
-				}
+		private object try_with_default (string key, object fallback)
+		{
+			object o;
+			// Check it exists, then a default if not
+			try {
+				o = config.Get (key);
+			} catch (GConf.NoSuchKeyException) {
+				config.Set (key, fallback);
+				return fallback;
+			}
+			if (o == null) {
+				return fallback;
+			} else {
+				return o;
+			}
+		}
 
-				if (o == null) {
-					return true;
-				} else {
-					return (bool) o;
-				}
+		public bool FirstRun {
+			get {
+				return (bool) try_with_default (GConfFirstRun,
+								(object) true);
 			}
 			set { config.Set (GConfFirstRun, (object) value); }
 		}
 
 		public string Username {
-			get { 
-				object o;
-				try {
-					o = config.Get (GConfUsername);
-				} catch (GConf.NoSuchKeyException) {
-					config.Set (GConfUsername, 
-						    (object) "username");
-					return "username";
-				}
-
-				return (string) o; 
+			get {
+				return (string) try_with_default (GConfUsername,
+								  (object) "username");
 			}
 			set { config.Set (GConfUsername, (object) value); }
 		}
@@ -92,106 +88,49 @@ namespace LastExit {
 		}
 		
 		private string OldPassword {
-			get { 
-				object o;
-				try {
-					o = config.Get (GConfPassword);
-				} catch (GConf.NoSuchKeyException) {
-					return String.Empty;
-				}
-
-				return (string) o;
+			get {
+				return (string) try_with_default (GConfPassword,
+								  (object) String.Empty);
 			}
 			set { config.Set (GConfPassword, (object) value); }
 		}
 
 		public int Volume {
-			get { 
-				object o;
-				try {
-					o = config.Get (GConfVolume); 
-				} catch (GConf.NoSuchKeyException) {
-					config.Set (GConfVolume, (object) 50);
-					return 50;
-				}
-
-				return (int) o;
+			get {
+				return (int) try_with_default (GConfVolume,
+								(object) 50);
 			}
 			set { config.Set (GConfVolume, (object) value); }
 		}
 
 		public int RecommendationLevel {
-			get { 
-				object o;
-				try {
-					o = config.Get (GConfRecommendationLevel); 
-				} catch (GConf.NoSuchKeyException) {
-					config.Set (GConfRecommendationLevel, (object) 100);
-					return 100;
-				}
-
-				return (int) o;
+			get {
+				return (int) try_with_default (GConfRecommendationLevel,
+								(object) 100);
 			}
 			set { config.Set (GConfRecommendationLevel, (object) value); }
 		}
 
 		public bool ShowNotifications {
-			get { 
-				object o;
-				// Check it exists, then a default if not
-				try {
-					o = config.Get (GConfShowNotifications);
-				} catch (GConf.NoSuchKeyException) {
-					config.Set (GConfShowNotifications, 
-						    (object) true);
-					return true;
-				}
-
-				if (o == null) {
-					return true;
-				} else {
-					return (bool) o;
-				}
+			get {
+				return (bool) try_with_default (GConfShowNotifications,
+								(object) true);
 			}
             set { config.Set (GConfShowNotifications, (object) value); }
 		}
 
 		public bool ShowProgress {
-			get { 
-				object o;
-				try {
-					o = config.Get (GConfShowProgress);
-				} catch (GConf.NoSuchKeyException) {
-					config.Set (GConfShowProgress, 
-						    (object) false);
-					return false;
-				}
-
-				if (o == null) {
-					return false;
-				} else {
-					return (bool) o;
-				}
+			get {
+				return (bool) try_with_default (GConfShowProgress,
+								(object) false);
 			}
             		set { config.Set (GConfShowProgress, (object) value); }
 		}
 
 		public bool ShowDuration {
-			get { 
-				object o;
-				try {
-					o = config.Get (GConfShowDuration);
-				} catch (GConf.NoSuchKeyException) {
-					config.Set (GConfShowDuration,
-						    (object) false);
-					return false;
-				}
-
-				if (o == null) {
-					return false;
-				} else {
-					return (bool) o;
-				}
+			get {
+				return (bool) try_with_default (GConfShowDuration,
+								(object) false);
 			}
             		set { config.Set (GConfShowDuration, (object) value); }
 		}
