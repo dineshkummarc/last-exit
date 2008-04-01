@@ -1,5 +1,11 @@
-2008-03-31  Brandon Hale <brandon@brandonhale.us>
+2008-04-1  Brandon Hale <brandon@brandonhale.us>
 
+	data/glade/*.glade:
+	Cleanup from Jordan on bug #525468.
+	Update glade files using glade-3. Obsolete properties are removed and
+	indentation is consistant.
+
+2008-03-31  Brandon Hale <brandon@brandonhale.us>
 	Two patches from Jordan.
 	Refactor Config.cs, bug #108296.
 	Build gnome-keyring-sharp with WITH_DBUS, bug #517070.
