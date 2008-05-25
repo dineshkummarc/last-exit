@@ -49,10 +49,9 @@ LASTEXIT_DIST_CSFILES =				\
 	$(srcdir)/UrlActivatedHandler.cs	\
 	$(srcdir)/UrlLabel.cs			\
 	$(srcdir)/User.cs			\
-	$(srcdir)/VolumeButton.cs \
-	$(srcdir)/About.cs \
+	$(srcdir)/VolumeButton.cs 		\
+	$(srcdir)/About.cs 			\
 	$(srcdir)/Preferences.cs		\
-	$(srcdir)/Playlist.cs			\
 	$(srcdir)/Scrobbler.cs
 
 LASTEXIT_CSFILES = $(LASTEXIT_DIST_CSFILES)	\

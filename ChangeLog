@@ -1,3 +1,7 @@
+2008-05-25  Iain Holmes <iain@gnome.org>
+
+	* src/Makefile.am: Playlist.cs was included twice
+
 2008-04-1  Brandon Hale <brandon@brandonhale.us>
 
 	data/glade/*.glade:
