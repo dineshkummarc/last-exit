@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-21 22:53+0100\n"
+"POT-Creation-Date: 2008-07-31 11:07+0100\n"
 "PO-Revision-Date: 2007-04-14 18:49+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabeyes <doc@arabeyes.org>\n"
@@ -276,7 +276,7 @@ msgid ""
 "True if the command specified in the \"command\" key should handle \"lastfm"
 "\" URLs."
 msgstr ""
-"إضبط لـtrue إذا كان على الأمر المحدّد في المفتاح \"command\" معالجة عناوين "
+"إضبط لصحيح إذا كان على الأمر المحدّد في المفتاح \"command\" معالجة عناوين "
 "\"aim\"."
 
 #: ../data/lastfm.schemas.in.h:6
@@ -285,8 +285,8 @@ msgid ""
 "True if the command used to handle \"lastfm\" URLs should be run in a "
 "terminal."
 msgstr ""
-"إضبط لـtrue إذا كان على الأمر المستخدم لمعالجة هذا النوع من العناوين العمل "
-"في شاشة طرفية."
+"إضبط لصحيح إذا كان على الأمر المستخدم لمعالجة هذا النوع من العناوين العمل في "
+"شاشة طرفية."
 
 #: ../src/About.cs:32
 #, fuzzy
@@ -397,27 +397,27 @@ msgstr "البريد من %s"
 msgid "A group station"
 msgstr "اعدادات المجموعات"
 
-#: ../src/FindStation.cs:591
+#: ../src/FindStation.cs:594
 #, fuzzy
 msgid "Artist not found"
 msgstr "المضيف غير موجود"
 
-#: ../src/FindStation.cs:600
+#: ../src/FindStation.cs:603
 #, fuzzy, csharp-format
 msgid "{0} is not streamable."
 msgstr "لا يمكن قراءة الملف."
 
-#: ../src/FindStation.cs:609
+#: ../src/FindStation.cs:612
 #, csharp-format
 msgid "Music that sounds like <b>{0}</b>"
 msgstr ""
 
-#: ../src/FindStation.cs:614
+#: ../src/FindStation.cs:617
 #, fuzzy
 msgid "Featuring: \n"
 msgstr "حواف حادة"
 
-#: ../src/FindStation.cs:630
+#: ../src/FindStation.cs:633
 #, fuzzy, csharp-format
 msgid " and {0} other."
 msgid_plural " and {0} others."
@@ -436,94 +436,94 @@ msgstr "ولوج حساب لاست . إف إم"
 msgid "Sign up for Last.fm"
 msgstr "اعرف المزيد عن لاست . إف إم عند"
 
-#: ../src/PlayerWindow.cs:275
+#: ../src/PlayerWindow.cs:291
 #, fuzzy
 msgid "Neighbour Station"
 msgstr "المحطة الجوية البحرية"
 
-#: ../src/PlayerWindow.cs:278
+#: ../src/PlayerWindow.cs:294
 #, fuzzy
 msgid "Personal Station"
 msgstr "إعدادات شخصيّة"
 
-#: ../src/PlayerWindow.cs:282
+#: ../src/PlayerWindow.cs:298
 #, fuzzy
 msgid "Favourites Station"
 msgstr "مفضّلات"
 
-#: ../src/PlayerWindow.cs:286
+#: ../src/PlayerWindow.cs:302
 #, fuzzy
 msgid "Recommended Music Station"
 msgstr "الفنانون الموصى بهم"
 
-#: ../src/PlayerWindow.cs:289
+#: ../src/PlayerWindow.cs:305
 #, fuzzy
 msgid "Other Station..."
 msgstr "افتح موقع..."
 
-#: ../src/PlayerWindow.cs:718
+#: ../src/PlayerWindow.cs:781
 #, csharp-format
 msgid ""
 "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
 "a></span>"
 msgstr ""
 
-#: ../src/PlayerWindow.cs:720
+#: ../src/PlayerWindow.cs:783
 #, fuzzy, csharp-format
 msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"small\">%U على %h</span>"
 
-#: ../src/PlayerWindow.cs:722
+#: ../src/PlayerWindow.cs:785
 #, fuzzy, csharp-format
 msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"small\">%U على %h</span>"
 
-#: ../src/PlayerWindow.cs:729
+#: ../src/PlayerWindow.cs:792
 #, fuzzy, csharp-format
 msgid "{0} by {1}"
 msgstr "{0} من {1}"
 
-#: ../src/PlayerWindow.cs:756
+#: ../src/PlayerWindow.cs:821
 #, fuzzy
 msgid "There is not enough content to play this station."
 msgstr "فضاء المقصد غير كاف."
 
-#: ../src/PlayerWindow.cs:760
+#: ../src/PlayerWindow.cs:825
 #, fuzzy
 msgid "This group does not have enough members for radio."
 msgstr "لا تدعم هذه اللّعبة التّلميحات بعد."
 
-#: ../src/PlayerWindow.cs:764
+#: ../src/PlayerWindow.cs:829
 #, fuzzy
 msgid "This artist does not have enough fans for radio."
 msgstr "لا تدعم هذه اللّعبة التّلميحات بعد."
 
-#: ../src/PlayerWindow.cs:768
+#: ../src/PlayerWindow.cs:833
 #, fuzzy
 msgid "This item is not available for streaming."
 msgstr "لا يتوفّر تقويم لإنشاء التذكيرات"
 
-#: ../src/PlayerWindow.cs:772
+#: ../src/PlayerWindow.cs:837
 #, fuzzy
 msgid "This feature is only available to subscribers."
 msgstr "%sهذه الخاصية غير متاحة عند استخدام هذا البرتكول \n"
 
-#: ../src/PlayerWindow.cs:776
+#: ../src/PlayerWindow.cs:841
 #, fuzzy
 msgid "There are not enough neighbours for this radio."
 msgstr "فضاء المقصد غير كاف."
 
-#: ../src/PlayerWindow.cs:780
+#: ../src/PlayerWindow.cs:845
 #, fuzzy
 msgid "This stream has stopped."
 msgstr "هذه الملاحظة مقفلة."
 
-#: ../src/PlayerWindow.cs:784
+#: ../src/PlayerWindow.cs:849
 #, fuzzy
 msgid "There is no such a group."
 msgstr "لا يوجد صورة محددة:"
 
-#: ../src/PlayerWindow.cs:788
+#: ../src/PlayerWindow.cs:853
 #, fuzzy
 msgid "There is no such an artist."
 msgstr "فضاء غير كافي في المقصد."
@@ -545,30 +545,30 @@ msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
 msgstr[0] "<span size=\"medium\"><b>لا ملفّ</b></span>"
 msgstr[1] "<span size=\"medium\"><b>لا ملفّ</b></span>"
 
-#: ../src/TagView.cs:48
+#: ../src/TagView.cs:50
 #, fuzzy, csharp-format
 msgid ""
 "\n"
 "<span size=\"smaller\">Relevance: {0}%</span>"
 msgstr "<span size=\"small\">%U على %h</span>"
 
-#: ../src/TrayIcon.cs:184
+#: ../src/TrayIcon.cs:199
 #, fuzzy, csharp-format
 msgid "<span weight=\"bold\">{0}</span>"
 msgstr "<span weight=\"bold\">الوقت</span>"
 
-#: ../src/TrayIcon.cs:190 ../src/TrayIcon.cs:192
+#: ../src/TrayIcon.cs:205 ../src/TrayIcon.cs:207
 #, fuzzy, csharp-format
 msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
 msgstr "<span size=\"larger\" weight=\"bold\">انتق لعبة</span>"
 
-#: ../src/TrayIcon.cs:208
+#: ../src/TrayIcon.cs:223
 #, fuzzy
 msgid " by "
 msgstr "أداء"
 
 #. Wait til cover is set before we notify :)
-#: ../src/TrayIcon.cs:214
+#: ../src/TrayIcon.cs:229
 #, fuzzy
 msgid "Now playing"
 msgstr "التشغيل الآن"
@@ -581,4 +581,3 @@ msgstr "مورتيد"
 #: ../src/VolumeButton.cs:495
 msgid "Full Volume"
 msgstr "أعلى مستوى"
-
