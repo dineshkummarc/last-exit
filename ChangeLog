@@ -1,3 +1,7 @@
+2008-09-12  Petr Kovar  <pknbe@volny.cz>
+
+	* configure.ac: Added "cs" to ALL_LINGUAS.
+
 2008-05-25  Iain Holmes <iain@gnome.org>
 
 	* src/Makefile.am: Playlist.cs was included twice

@@ -95,7 +95,7 @@ AC_SUBST(GACUTIL_FLAGS)
 GETTEXT_PACKAGE="last-exit"
 AC_SUBST(GETTEXT_PACKAGE)
 
-ALL_LINGUAS="ar ca de dz en_GB es fi fr nb nl oc pl pt pt_BR sv tr"
+ALL_LINGUAS="ar ca cs de dz en_GB es fi fr nb nl oc pl pt pt_BR sv tr"
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
