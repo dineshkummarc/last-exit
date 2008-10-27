@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: last-exit\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-12 00:17+0200\n"
-"PO-Revision-Date: 2008-09-12 00:10+0200\n"
-"Last-Translator: Petr Kovar <pknbe@volny.cz>\n"
+"POT-Creation-Date: 2008-10-27 22:33+0100\n"
+"PO-Revision-Date: 2008-10-27 13:16+0100\n"
+"Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +62,7 @@ msgstr "Spustit přehrávač"
 
 #: ../data/glade/FirstRunDialog.glade.h:8
 msgid "dialog2"
-msgstr "okno2"
+msgstr "dialog2"
 
 #: ../data/glade/InfoWindow.glade.h:2
 msgid "<b>Album:</b>"
@@ -78,11 +78,11 @@ msgstr "<b>Skladba:</b>"
 
 #: ../data/glade/InfoWindow.glade.h:5 ../data/glade/TagDialog.glade.h:5
 msgid "dialog1"
-msgstr "okno1"
+msgstr "dialog1"
 
 #: ../data/glade/PlayerWindow.glade.h:1
 msgid "Apply tags"
-msgstr "Použít značky"
+msgstr "Označit"
 
 #: ../data/glade/PlayerWindow.glade.h:2
 msgid "Hate!"
@@ -200,11 +200,12 @@ msgstr "Nastavení doporučeného rádia (od 0-100)"
 
 #: ../data/last-exit.schemas.in.h:6
 msgid "Set to true if the first run dialog should be shown"
-msgstr "Nastavit na hodnotu true, pokud má být zobrazeno poprvé spuštěné okno"
+msgstr ""
+"Nastavit na hodnotu PRAVDA, pokud má být zobrazeno poprvé spuštěné okno"
 
 #: ../data/last-exit.schemas.in.h:7
 msgid "Show Notifications"
-msgstr "Zobrazit upozornění"
+msgstr "Zobrazovat upozornění"
 
 #: ../data/last-exit.schemas.in.h:8
 msgid "Show first run dialog"
@@ -212,7 +213,7 @@ msgstr "Zobrazit poprvé spuštěné okno"
 
 #: ../data/last-exit.schemas.in.h:9
 msgid "The Last.FM account name that we should use"
-msgstr "Název účtu Last.FM, které bychom měli použít"
+msgstr "Název účtu Last.FM, který se má použít"
 
 #: ../data/last-exit.schemas.in.h:10
 msgid "Volume"
@@ -224,11 +225,11 @@ msgstr "Nastavení hlasitosti (od 0-100)"
 
 #: ../data/last-exit.schemas.in.h:12
 msgid "Whether Last-Exit shows notifications when the song changes"
-msgstr "Jestli Last-Exit zobrazí upozornění, když se změní skladba"
+msgstr "Jestli má Last-Exit zobrazovat upozornění, když se změní skladba"
 
 #: ../data/lastfm.schemas.in.h:1
 msgid "Is the Last-FM handler enabled"
-msgstr "Je povolena obsluha Last-FM?"
+msgstr "Je povolena obsluha pro Last-FM?"
 
 #: ../data/lastfm.schemas.in.h:2
 msgid "Run the command in a terminal"
@@ -247,16 +248,16 @@ msgid ""
 "True if the command specified in the \"command\" key should handle \"lastfm"
 "\" URLs."
 msgstr ""
-"Hodnota true, pokud by měl příkaz určený v klíči \"command\" zpracovat URL "
-"\"lastfm\"."
+"Nastavit na hodnotu PRAVDA, pokud má příkaz určený v klíči \"command\" "
+"zpracovat URL \"lastfm\"."
 
 #: ../data/lastfm.schemas.in.h:6
 msgid ""
 "True if the command used to handle \"lastfm\" URLs should be run in a "
 "terminal."
 msgstr ""
-"Hodnota true, pokud by měl být příkaz použitý ke zpracování URL \"lastfm\" "
-"spuštěn v terminálu."
+"Nastavit na hodnotu PRAVDA, pokud má být příkaz použitý ke zpracování URL "
+"\"lastfm\" spuštěn v terminálu."
 
 #: ../src/About.cs:32
 msgid "Last Exit"
@@ -284,7 +285,7 @@ msgstr "Brandon Hale <brandon@ubuntu.com>"
 
 #: ../src/About.cs:60
 msgid "translator-credits"
-msgstr "Adrian Guniš <andygun@seznam.cz>"
+msgstr "Adrian Guniš <andygun696@gmail.com>"
 
 #: ../src/Actions.cs:35
 msgid "Show _Window"
@@ -382,7 +383,7 @@ msgstr "Podrobnosti o účtu Last.fm"
 
 #: ../src/FirstRunDialog.cs:64
 msgid "Sign up for Last.fm"
-msgstr "Zaregistrovat se na Last.fm"
+msgstr "Zaregistrujte se na Last.fm"
 
 #: ../src/PlayerWindow.cs:291
 msgid "Neighbour Station"
@@ -471,7 +472,7 @@ msgstr "Označit skladbu"
 #: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
 #, csharp-format
 msgid "Tag '{0}'"
-msgstr "Označit '{0}'"
+msgstr "Značka '{0}'"
 
 #: ../src/TagSelector.cs:46
 #, csharp-format
