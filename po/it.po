@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: last-exit 6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-27 09:12+0100\n"
-"PO-Revision-Date: 2008-10-20 19:29+0200\n"
+"POT-Creation-Date: 2008-11-07 14:27+0100\n"
+"PO-Revision-Date: 2008-11-09 13:05+0100\n"
 "Last-Translator: Gianvito Cavasoli <janvitus@ubuntu-it.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n>1;\n"
+"Plural-Forms: nplurals=2; plural=n>1;"
 
 #: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
 msgid "    "
@@ -368,11 +368,11 @@ msgid "Featuring: \n"
 msgstr "Con: \n"
 
 #: ../src/FindStation.cs:633
-#, fuzzy, csharp-format
+#, csharp-format
 msgid " and {0} other."
 msgid_plural " and {0} others."
-msgstr[0] "e altri {0}."
-msgstr[1] "e altri {0}."
+msgstr[0] " e {0} altro."
+msgstr[1] " e {0} altri."
 
 #: ../src/FirstRunDialog.cs:51
 msgid "Last.fm Account Details"
@@ -472,11 +472,11 @@ msgid "Tag '{0}'"
 msgstr "Etichetta «{0}»"
 
 #: ../src/TagSelector.cs:46
-#, fuzzy, csharp-format
+#, csharp-format
 msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
 msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
-msgstr[0] "<span size=\"smaller\"><i>Etichettato oggetto {0}</i></span>"
-msgstr[1] "<span size=\"smaller\"><i>Etichettato oggetto {0}</i></span>"
+msgstr[0] "<span size=\"smaller\"><i>{0} oggetto etichettato</i></span>"
+msgstr[1] "<span size=\"smaller\"><i>{0} oggetti etichettati</i></span>"
 
 #: ../src/TagView.cs:50
 #, csharp-format
@@ -513,3 +513,4 @@ msgstr "Muto"
 #: ../src/VolumeButton.cs:495
 msgid "Full Volume"
 msgstr "Volume massimo"
+
