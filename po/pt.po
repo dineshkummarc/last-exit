@@ -1,17 +1,17 @@
 # Portuguese translation of last-exit.
-# Copyright © 2007 last-exit
+# Copyright © 2007, 2008, 2009 last-exit.
 # This file is distributed under the same license as the last-exit package.
-# António Lima <amrlima@gmail.com>, 2007
-#
-#
+# Duarte Loreto  <happyguy_pt@hotmail.com>, 2007.
+# António Lima <amrlima@gmail.com>, 2007, 2008, 2009.
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: last-exit.HEAD.pt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-26 12:24+0000\n"
-"PO-Revision-Date: 2007-12-20 23:25-0100\n"
+"POT-Creation-Date: 2009-02-23 00:56+0000\n"
+"PO-Revision-Date: 2009-02-01 16:32-0100\n"
 "Last-Translator: António Lima <amrlima@gmail.com>\n"
-"Language-Team: Portuguese pt <gnome_pt@yahoogroups.com>\n"
+"Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,9 +43,8 @@ msgid ""
 "account. Please enter the account name and password\n"
 "below."
 msgstr ""
-"Antes de poder utilizar o Last Exit, precisa de uma conta\n"
-"do Last.fm. Por favor, introduza abaixo o nome e senha da\n"
-"sua conta."
+"Antes de poder usar o Last Exit, precisa de uma conta do Last.fm\n"
+"Por favor, digite abaixo o nome e senha da sua conta."
 
 #: ../data/glade/FirstRunDialog.glade.h:5
 msgid "Don't have a Last.FM account?"
@@ -81,7 +80,7 @@ msgstr "diálogo1"
 
 #: ../data/glade/PlayerWindow.glade.h:1
 msgid "Apply tags"
-msgstr "Aplicar marcas"
+msgstr "Aplicar etiquetas"
 
 #: ../data/glade/PlayerWindow.glade.h:2
 msgid "Hate!"
@@ -153,11 +152,11 @@ msgstr "Apresentar notificação ao mudar de música"
 
 #: ../data/glade/Preferences.glade.h:11
 msgid "User Name:"
-msgstr "Nome de Utilizador:"
+msgstr "Nome de Utilizador"
 
 #: ../data/glade/TagDialog.glade.h:1
 msgid "<span weight=\"bold\">Tag:</span>"
-msgstr "<span weight=\"bold\">Marca:</span>"
+msgstr "<span weight=\"bold\">Etiqueta:</span>"
 
 #: ../data/glade/TagDialog.glade.h:2
 msgid ""
@@ -171,11 +170,11 @@ msgstr ""
 
 #: ../data/last-exit.desktop.in.h:1
 msgid "Last-Exit"
-msgstr "Last Exit"
+msgstr "Last-Exit"
 
 #: ../data/last-exit.desktop.in.h:2
 msgid "Last.fm player"
-msgstr "Reprodutor para o Last.fm"
+msgstr "Reprodutor para Last.fm"
 
 #: ../data/last-exit.schemas.in.h:1
 msgid "Account name"
@@ -200,8 +199,8 @@ msgstr "Ajuste da rádio de recomendações (de 0-100)"
 #: ../data/last-exit.schemas.in.h:6
 msgid "Set to true if the first run dialog should be shown"
 msgstr ""
-"Definir como verdadeiro caso deva ser apresentado o diálogo de primeira "
-"execução"
+"Definir para verdadeiro caso o primeiro diálogo de execução deva ser "
+"apresentado"
 
 #: ../data/last-exit.schemas.in.h:7
 msgid "Show Notifications"
@@ -229,7 +228,7 @@ msgstr "Se o Last-Exit apresenta notificações quando muda a música"
 
 #: ../data/lastfm.schemas.in.h:1
 msgid "Is the Last-FM handler enabled"
-msgstr "Se o manipulador do Last.FM se encontra activo"
+msgstr "Se o operador do Last-FM se encontra activo"
 
 #: ../data/lastfm.schemas.in.h:2
 msgid "Run the command in a terminal"
@@ -237,18 +236,18 @@ msgstr "Executar o comando numa consola"
 
 #: ../data/lastfm.schemas.in.h:3
 msgid "The command used to handle \"lastfm\" URLs, if enabled."
-msgstr "O comando utilizado para manipular os URLs do \"lastfm\", se activados."
+msgstr "O comando utilizado para operar os URLs do \"lastfm\", se activados."
 
 #: ../data/lastfm.schemas.in.h:4
 msgid "The handler for \"lastfm\" URLs"
-msgstr "O manipulador para URLs do \"lastfm\""
+msgstr "O operador para URLs do \"lastfm\""
 
 #: ../data/lastfm.schemas.in.h:5
 msgid ""
 "True if the command specified in the \"command\" key should handle \"lastfm"
 "\" URLs."
 msgstr ""
-"Verdadeiro se o comando especificado na chave de \"command\" deve manipular os "
+"Verdadeiro se o comando especificado na chave \"command\" deve operar os "
 "URLs do \"lastfm\"."
 
 #: ../data/lastfm.schemas.in.h:6
@@ -256,7 +255,7 @@ msgid ""
 "True if the command used to handle \"lastfm\" URLs should be run in a "
 "terminal."
 msgstr ""
-"Verdadeiro se o comando utilizado para manipular os URLs do \"lastfm\" devem "
+"Verdadeiro se o comando utilizado para operar os URLs do \"lastfm\" devem "
 "ser executados numa consola."
 
 #: ../src/About.cs:32
@@ -333,15 +332,15 @@ msgstr "Música que se parece com"
 
 #: ../src/FindStation.cs:190
 msgid "Music that is tagged as"
-msgstr "Música marcada como"
+msgstr "Música etiquetada como"
 
 #: ../src/FindStation.cs:191
 msgid "A neighbours station"
-msgstr "A estação de um vizinho"
+msgstr "Uma estação de um vizinho"
 
 #: ../src/FindStation.cs:192
 msgid "A users station"
-msgstr "A estação de um utilizador"
+msgstr "Uma estação de um utilizador"
 
 #: ../src/FindStation.cs:193
 msgid "Music from fans of"
@@ -349,27 +348,27 @@ msgstr "Música de fãs de"
 
 #: ../src/FindStation.cs:194
 msgid "A group station"
-msgstr "A estação de um grupo"
+msgstr "Uma estação de um grupo"
 
-#: ../src/FindStation.cs:591
+#: ../src/FindStation.cs:594
 msgid "Artist not found"
 msgstr "Artista não encontrado"
 
-#: ../src/FindStation.cs:600
+#: ../src/FindStation.cs:603
 #, csharp-format
 msgid "{0} is not streamable."
 msgstr "{0} não é transmissível."
 
-#: ../src/FindStation.cs:609
+#: ../src/FindStation.cs:612
 #, csharp-format
 msgid "Music that sounds like <b>{0}</b>"
 msgstr "Música que soa como <b>{0}</b>"
 
-#: ../src/FindStation.cs:614
+#: ../src/FindStation.cs:617
 msgid "Featuring: \n"
 msgstr "A apresentar: \n"
 
-#: ../src/FindStation.cs:630
+#: ../src/FindStation.cs:633
 #, csharp-format
 msgid " and {0} other."
 msgid_plural " and {0} others."
@@ -384,27 +383,27 @@ msgstr "Detalhes da Conta do Last.fm"
 msgid "Sign up for Last.fm"
 msgstr "Registar-se no Last.fm"
 
-#: ../src/PlayerWindow.cs:285
+#: ../src/PlayerWindow.cs:291
 msgid "Neighbour Station"
 msgstr "Estação Vizinha"
 
-#: ../src/PlayerWindow.cs:288
+#: ../src/PlayerWindow.cs:294
 msgid "Personal Station"
 msgstr "Estação Pessoal"
 
-#: ../src/PlayerWindow.cs:292
+#: ../src/PlayerWindow.cs:298
 msgid "Favourites Station"
 msgstr "Estação de Favoritos"
 
-#: ../src/PlayerWindow.cs:296
+#: ../src/PlayerWindow.cs:302
 msgid "Recommended Music Station"
 msgstr "Estação de Música Recomendada"
 
-#: ../src/PlayerWindow.cs:299
+#: ../src/PlayerWindow.cs:305
 msgid "Other Station..."
 msgstr "Outra Estação..."
 
-#: ../src/PlayerWindow.cs:730
+#: ../src/PlayerWindow.cs:781
 #, csharp-format
 msgid ""
 "<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
@@ -413,74 +412,74 @@ msgstr ""
 "<span size=\"smaller\">De <a href=\"{0}\">{1}</a> por <a href=\"{2}\">{3}</"
 "a></span>"
 
-#: ../src/PlayerWindow.cs:732
+#: ../src/PlayerWindow.cs:783
 #, csharp-format
 msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"smaller\">Por <a href=\"{0}\">{1}</a></span>"
 
-#: ../src/PlayerWindow.cs:734
+#: ../src/PlayerWindow.cs:785
 #, csharp-format
 msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
 msgstr "<span size=\"smaller\">De <a href=\"{0}\">{1}</a></span>"
 
-#: ../src/PlayerWindow.cs:741
+#: ../src/PlayerWindow.cs:792
 #, csharp-format
 msgid "{0} by {1}"
 msgstr "{0} por {1}"
 
-#: ../src/PlayerWindow.cs:768
+#: ../src/PlayerWindow.cs:821
 msgid "There is not enough content to play this station."
 msgstr "Não existe conteúdo suficiente para reproduzir esta estação."
 
-#: ../src/PlayerWindow.cs:772
+#: ../src/PlayerWindow.cs:825
 msgid "This group does not have enough members for radio."
 msgstr "Este grupo não possui membros suficientes para formar uma rádio."
 
-#: ../src/PlayerWindow.cs:776
+#: ../src/PlayerWindow.cs:829
 msgid "This artist does not have enough fans for radio."
 msgstr "Este artista não possui fãs suficientes para formar uma rádio."
 
-#: ../src/PlayerWindow.cs:780
+#: ../src/PlayerWindow.cs:833
 msgid "This item is not available for streaming."
 msgstr "Este item não está disponível para transmissão."
 
-#: ../src/PlayerWindow.cs:784
+#: ../src/PlayerWindow.cs:837
 msgid "This feature is only available to subscribers."
 msgstr "Esta funcionalidade apenas está disponível para subscritores."
 
-#: ../src/PlayerWindow.cs:788
+#: ../src/PlayerWindow.cs:841
 msgid "There are not enough neighbours for this radio."
 msgstr "Não existem vizinhos suficientes para esta rádio."
 
-#: ../src/PlayerWindow.cs:792
+#: ../src/PlayerWindow.cs:845
 msgid "This stream has stopped."
 msgstr "A transmissão foi interrompida."
 
-#: ../src/PlayerWindow.cs:796
+#: ../src/PlayerWindow.cs:849
 msgid "There is no such a group."
 msgstr "Este grupo não existe."
 
-#: ../src/PlayerWindow.cs:800
+#: ../src/PlayerWindow.cs:853
 msgid "There is no such an artist."
 msgstr "Este artista não existe."
 
 #: ../src/TagDialog.cs:44
 msgid "Tag A Song"
-msgstr "Marcar uma Música"
+msgstr "Etiquetar uma Música"
 
 #: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
 #, csharp-format
 msgid "Tag '{0}'"
-msgstr "Marcar '{0}'"
+msgstr "Etiquetar '{0}'"
 
 #: ../src/TagSelector.cs:46
 #, csharp-format
 msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
 msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
-msgstr[0] "<span size=\"smaller\"><i>Marcado {0} item</i></span>"
-msgstr[1] "<span size=\"smaller\"><i>Marcados {0} itens</i></span>"
+msgstr[0] "<span size=\"smaller\"><i>{0} item etiquetado</i></span>"
+msgstr[1] "<span size=\"smaller\"><i>{0} itens etiquetados</i></span>"
 
-#: ../src/TagView.cs:48
+#: ../src/TagView.cs:50
 #, csharp-format
 msgid ""
 "\n"
@@ -492,7 +491,7 @@ msgstr ""
 #: ../src/TrayIcon.cs:199
 #, csharp-format
 msgid "<span weight=\"bold\">{0}</span>"
-msgstr "<span weight=\"bold\">{0}</span>"
+msgstr "<span weight=\"blod\">{0}</span>"
 
 #: ../src/TrayIcon.cs:205 ../src/TrayIcon.cs:207
 #, csharp-format
