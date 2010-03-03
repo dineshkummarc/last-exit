@@ -1,0 +1,508 @@
+# Chinese (China) translation for last-exit.
+# Copyright (C) 2010 last-exit's COPYRIGHT HOLDER
+# This file is distributed under the same license as the last-exit package.
+# Yvonne Ye <feidaozhanchen@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: last-exit master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=last-"
+"exit&component=general\n"
+"POT-Creation-Date: 2010-01-11 14:34+0000\n"
+"PO-Revision-Date: 2010-03-03 20:25+0800\n"
+"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../data/glade/FindStation.glade.h:2
+msgid "<b>Results:</b>"
+msgstr "<b>搜索结果：</b>"
+
+#: ../data/glade/FindStation.glade.h:3
+msgid "<b>Search for:</b>"
+msgstr "<b>查找：</b>"
+
+#: ../data/glade/FindStation.glade.h:4
+msgid "Find Station"
+msgstr "搜索频道"
+
+#: ../data/glade/FirstRunDialog.glade.h:1
+msgid "Account Name:"
+msgstr "账号名称："
+
+#: ../data/glade/FirstRunDialog.glade.h:2
+msgid ""
+"Before you can use Last Exit, you need to have a Last.fm\n"
+"account. Please enter the account name and password\n"
+"below."
+msgstr ""
+"使用 Last Exit 前，您需要一个 Last.fm 账号。\n"
+"请在下面输入您的账号名称和口令。"
+
+#: ../data/glade/FirstRunDialog.glade.h:5
+msgid "Don't have a Last.FM account?"
+msgstr "您还没有 Last'FM 账号？"
+
+#: ../data/glade/FirstRunDialog.glade.h:6 ../data/glade/Preferences.glade.h:8
+msgid "Password:"
+msgstr "口令："
+
+#: ../data/glade/FirstRunDialog.glade.h:7 ../src/FirstRunDialog.cs:61
+msgid "Start Player"
+msgstr "启动播放器"
+
+#: ../data/glade/FirstRunDialog.glade.h:8
+msgid "dialog2"
+msgstr "对话框 2"
+
+#: ../data/glade/InfoWindow.glade.h:2
+msgid "<b>Album:</b>"
+msgstr "<b>专辑：</b>"
+
+#: ../data/glade/InfoWindow.glade.h:3
+msgid "<b>Artist:</b>"
+msgstr "<b>艺人：</b>"
+
+#: ../data/glade/InfoWindow.glade.h:4
+msgid "<b>Song:</b>"
+msgstr "<b>歌曲：</b>"
+
+#: ../data/glade/InfoWindow.glade.h:5 ../data/glade/TagDialog.glade.h:5
+msgid "dialog1"
+msgstr "对话框 1"
+
+#: ../data/glade/PlayerWindow.glade.h:1
+msgid "Apply tags"
+msgstr "添加标签"
+
+#: ../data/glade/PlayerWindow.glade.h:2
+msgid "Hate!"
+msgstr "不爱听！"
+
+#: ../data/glade/PlayerWindow.glade.h:3
+msgid "Information"
+msgstr "信息"
+
+#: ../data/glade/PlayerWindow.glade.h:4
+msgid "Love!"
+msgstr "喜欢！"
+
+#: ../data/glade/PlayerWindow.glade.h:5
+msgid "Play the next song"
+msgstr "下一首"
+
+#: ../data/glade/PlayerWindow.glade.h:6
+msgid "Preferences"
+msgstr "首选项"
+
+#: ../data/glade/PlayerWindow.glade.h:7
+msgid "Switch music playback on or off"
+msgstr "是否循环播放"
+
+#: ../data/glade/PlayerWindow.glade.h:8
+msgid "Write a journal entry"
+msgstr "写下每日历程"
+
+#: ../data/glade/PlayerWindow.glade.h:9
+msgid "_Listening to:"
+msgstr "_正在收听："
+
+#: ../data/glade/Preferences.glade.h:1
+msgid "<b>Last.fm Account</b>"
+msgstr "<b>Last.fm 账号</b>"
+
+#: ../data/glade/Preferences.glade.h:2
+msgid "<b>Recommendation Radio</b>"
+msgstr "<b> 推荐电台 </b>"
+
+#: ../data/glade/Preferences.glade.h:3
+msgid "<b>User Interface</b>"
+msgstr "<b>用户界面</b>"
+
+#: ../data/glade/Preferences.glade.h:4
+msgid "Create an account"
+msgstr "创建一个账户"
+
+#: ../data/glade/Preferences.glade.h:5
+msgid "Join Last Exit group"
+msgstr "加入 Last Exit 组"
+
+#: ../data/glade/Preferences.glade.h:6
+msgid "Last Exit Preferences"
+msgstr "Last Exit 首选项"
+
+#: ../data/glade/Preferences.glade.h:7
+msgid "Obscure"
+msgstr "模糊"
+
+#: ../data/glade/Preferences.glade.h:9
+msgid "Popular"
+msgstr "流行"
+
+#: ../data/glade/Preferences.glade.h:10
+msgid "Show notification on song change"
+msgstr "歌曲更换时显示提示"
+
+#: ../data/glade/Preferences.glade.h:11
+msgid "User Name:"
+msgstr "用户名："
+
+#: ../data/glade/TagDialog.glade.h:1
+msgid "<span weight=\"bold\">Tag:</span>"
+msgstr "<span weight=\"bold\"> 标签：</span>"
+
+#: ../data/glade/TagDialog.glade.h:2
+msgid ""
+"Track\n"
+"Album\n"
+"Artist"
+msgstr ""
+"曲目\n"
+"专辑\n"
+"艺人"
+
+#: ../data/last-exit.desktop.in.h:1
+msgid "Last-Exit"
+msgstr "Last-Exit"
+
+#: ../data/last-exit.desktop.in.h:2
+msgid "Last.fm player"
+msgstr "Last.fm 播放器"
+
+#: ../data/last-exit.schemas.in.h:1
+msgid "Account name"
+msgstr "账号名称"
+
+#: ../data/last-exit.schemas.in.h:2
+msgid "Password"
+msgstr "口令"
+
+#: ../data/last-exit.schemas.in.h:3
+msgid "Password for the Last.FM account"
+msgstr "Last.FM 账号的口令"
+
+#: ../data/last-exit.schemas.in.h:4
+msgid "Recommendation Level"
+msgstr "推荐级别"
+
+#: ../data/last-exit.schemas.in.h:5
+msgid "Recommended radio setting (from 0-100)"
+msgstr "推荐电台设置(从 0-100）"
+
+#: ../data/last-exit.schemas.in.h:6
+msgid "Set to true if the first run dialog should be shown"
+msgstr "标记此选项以显示首次运行对话框"
+
+#: ../data/last-exit.schemas.in.h:7
+msgid "Show Notifications"
+msgstr "显示通知"
+
+#: ../data/last-exit.schemas.in.h:8
+msgid "Show first run dialog"
+msgstr "显示首次运行对话框"
+
+#: ../data/last-exit.schemas.in.h:9
+msgid "The Last.FM account name that we should use"
+msgstr "所使用的 Last.FM 账号名称"
+
+#: ../data/last-exit.schemas.in.h:10
+msgid "Volume"
+msgstr "音量"
+
+#: ../data/last-exit.schemas.in.h:11
+msgid "Volume setting (from 0-100)"
+msgstr "音量设置(0-100)"
+
+#: ../data/last-exit.schemas.in.h:12
+msgid "Whether Last-Exit shows notifications when the song changes"
+msgstr "曲目变更时是否让 Last-Exit 进行消息提示"
+
+#: ../data/lastfm.schemas.in.h:1
+msgid "Is the Last-FM handler enabled"
+msgstr "是否启动 Last-FM 处理程序"
+
+#: ../data/lastfm.schemas.in.h:2
+msgid "Run the command in a terminal"
+msgstr "在终端运行此命令"
+
+#: ../data/lastfm.schemas.in.h:3
+msgid "The command used to handle \"lastfm\" URLs, if enabled."
+msgstr "如果启用，此命令将用于处理 \"lastfm\" URL。"
+
+#: ../data/lastfm.schemas.in.h:4
+msgid "The handler for \"lastfm\" URLs"
+msgstr "\"lastfm\" URL 处理程序"
+
+#: ../data/lastfm.schemas.in.h:5
+msgid ""
+"True if the command specified in the \"command\" key should handle \"lastfm"
+"\" URLs."
+msgstr "此项为 True 时，可利用 \"command\" 键中指定的命令处理 \"lastfm\" URL。"
+
+#: ../data/lastfm.schemas.in.h:6
+msgid ""
+"True if the command used to handle \"lastfm\" URLs should be run in a "
+"terminal."
+msgstr "此项为 True 时，用于处理 \"lastfm\" URL 的命令应该在终端中运行。"
+
+#: ../src/About.cs:32
+msgid "Last Exit"
+msgstr "Last Exit"
+
+#: ../src/About.cs:35
+msgid "Copyright © 2006 Iain Holmes"
+msgstr "版权 © 2006 Iain Holmes"
+
+#: ../src/About.cs:38
+msgid "A Last.fm radio player"
+msgstr "Last.fm 电台播放器"
+
+#: ../src/About.cs:45
+msgid "Iain Holmes <iain@gnome.org>"
+msgstr "Iain Holmes <iain@gnome.org>"
+
+#: ../src/About.cs:46
+msgid "Baris Cicek <baris@teamforce.name.tr>"
+msgstr "Baris Cicek <baris@teamforce.name.tr>"
+
+#: ../src/About.cs:47
+msgid "Brandon Hale <brandon@ubuntu.com>"
+msgstr "Brandon Hale <brandon@ubuntu.com>"
+
+#: ../src/About.cs:60
+msgid "translator-credits"
+msgstr "Yvonne Ye <feidaozhanchen@gmail.com>, 2010"
+
+#: ../src/Actions.cs:35
+msgid "Show _Window"
+msgstr "显示窗口(_W)"
+
+#: ../src/Actions.cs:38
+msgid "_Play"
+msgstr "播放(_P)"
+
+#: ../src/Actions.cs:41
+msgid "_Next"
+msgstr "下一首(_N)"
+
+#: ../src/Actions.cs:44
+msgid "_About"
+msgstr "关于(_A)"
+
+#: ../src/Actions.cs:47
+msgid "_Preferences"
+msgstr "首选项(_P)"
+
+#: ../src/Actions.cs:50
+msgid "_Love Song"
+msgstr "喜欢的歌(_L)"
+
+#: ../src/Actions.cs:53
+msgid "_Hate Song"
+msgstr "不爱听的歌(_H)"
+
+#: ../src/FindStation.cs:75
+msgid "Find A Station"
+msgstr "查找频道"
+
+#: ../src/FindStation.cs:105
+msgid "Cancel"
+msgstr "取消"
+
+#: ../src/FindStation.cs:106
+msgid "Change Station"
+msgstr "更换频道"
+
+#: ../src/FindStation.cs:189
+msgid "Music that sounds like"
+msgstr "音乐听起来像"
+
+#: ../src/FindStation.cs:190
+msgid "Music that is tagged as"
+msgstr "音乐被标记为"
+
+#: ../src/FindStation.cs:191
+msgid "A neighbours station"
+msgstr "邻居频道"
+
+#: ../src/FindStation.cs:192
+msgid "A users station"
+msgstr "用户频道"
+
+#: ../src/FindStation.cs:193
+msgid "Music from fans of"
+msgstr "粉丝们搜集的歌曲"
+
+#: ../src/FindStation.cs:194
+msgid "A group station"
+msgstr "一组频道"
+
+#: ../src/FindStation.cs:594
+msgid "Artist not found"
+msgstr "查无此艺人"
+
+#: ../src/FindStation.cs:603
+#, csharp-format
+msgid "{0} is not streamable."
+msgstr "{0} 不可流化。"
+
+#: ../src/FindStation.cs:612
+#, csharp-format
+msgid "Music that sounds like <b>{0}</b>"
+msgstr "听起来像 <b>{0}</b> 的音乐"
+
+#: ../src/FindStation.cs:617
+msgid "Featuring: \n"
+msgstr "特性：\n"
+
+#: ../src/FindStation.cs:633
+#, csharp-format
+msgid " and {0} other."
+msgid_plural " and {0} others."
+msgstr[0] "及 {0} 个其它。"
+
+#: ../src/FirstRunDialog.cs:51
+msgid "Last.fm Account Details"
+msgstr "Last.fm 账号详细信息"
+
+#: ../src/FirstRunDialog.cs:64
+msgid "Sign up for Last.fm"
+msgstr "申请使用 Last.fm"
+
+#: ../src/PlayerWindow.cs:291
+msgid "Neighbour Station"
+msgstr "邻居频道"
+
+#: ../src/PlayerWindow.cs:294
+msgid "Personal Station"
+msgstr "个人频道"
+
+#: ../src/PlayerWindow.cs:298
+msgid "Favourites Station"
+msgstr "喜欢的频道"
+
+#: ../src/PlayerWindow.cs:302
+msgid "Recommended Music Station"
+msgstr "推荐的音乐频道"
+
+#: ../src/PlayerWindow.cs:305
+msgid "Other Station..."
+msgstr "其他频道..."
+
+#: ../src/PlayerWindow.cs:781
+#, csharp-format
+msgid ""
+"<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
+"a></span>"
+msgstr ""
+"<span size=\"smaller\">来自 <a href=\"{0}\">{1}</a> 艺人 <a href=\"{2}\">{3}"
+"</a></span>"
+
+#: ../src/PlayerWindow.cs:783
+#, csharp-format
+msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">艺人 <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:785
+#, csharp-format
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">来自 <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:792
+#, csharp-format
+msgid "{0} by {1}"
+msgstr "{1} 的 {0}"
+
+#: ../src/PlayerWindow.cs:821
+msgid "There is not enough content to play this station."
+msgstr "没有足够的内容以播放此频道。"
+
+#: ../src/PlayerWindow.cs:825
+msgid "This group does not have enough members for radio."
+msgstr "此组没有成为电台所足够的成员。"
+
+#: ../src/PlayerWindow.cs:829
+msgid "This artist does not have enough fans for radio."
+msgstr "此艺人没有成为电台所足够的歌迷。"
+
+#: ../src/PlayerWindow.cs:833
+msgid "This item is not available for streaming."
+msgstr "此项目不可流化。"
+
+#: ../src/PlayerWindow.cs:837
+msgid "This feature is only available to subscribers."
+msgstr "此功能仅对订阅者可用。"
+
+#: ../src/PlayerWindow.cs:841
+msgid "There are not enough neighbours for this radio."
+msgstr "此台无足够电台邻居。"
+
+#: ../src/PlayerWindow.cs:845
+msgid "This stream has stopped."
+msgstr "现已停止播放。"
+
+#: ../src/PlayerWindow.cs:849
+msgid "There is no such a group."
+msgstr "查无此组"
+
+#: ../src/PlayerWindow.cs:853
+msgid "There is no such an artist."
+msgstr "查无此艺人"
+
+#: ../src/TagDialog.cs:44
+msgid "Tag A Song"
+msgstr "为歌曲添加标签"
+
+#: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
+#, csharp-format
+msgid "Tag '{0}'"
+msgstr "标签 '{0}'"
+
+#: ../src/TagSelector.cs:46
+#, csharp-format
+msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
+msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
+msgstr[0] "<span size=\"smaller\"><i>对 {0} 个项目加了标签</i></span>"
+
+#: ../src/TagView.cs:50
+#, csharp-format
+msgid ""
+"\n"
+"<span size=\"smaller\">Relevance: {0}%</span>"
+msgstr ""
+"\n"
+"<span size=\"smaller\"> 关联： {0}%</span>"
+
+#: ../src/TrayIcon.cs:199
+#, csharp-format
+msgid "<span weight=\"bold\">{0}</span>"
+msgstr "<span weight=\"bold\">{0}</span>"
+
+#: ../src/TrayIcon.cs:205 ../src/TrayIcon.cs:207
+#, csharp-format
+msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
+msgstr "<span size=\"smaller\"> 由 <span weight=\"bold\">{0}</span></span>"
+
+#: ../src/TrayIcon.cs:223
+msgid " by "
+msgstr "由"
+
+#. Wait til cover is set before we notify :)
+#: ../src/TrayIcon.cs:229
+msgid "Now playing"
+msgstr "正在播放"
+
+#: ../src/VolumeButton.cs:493
+msgid "Muted"
+msgstr "静音"
+
+#: ../src/VolumeButton.cs:495
+msgid "Full Volume"
+msgstr "最大音量"
