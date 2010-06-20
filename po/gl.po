@@ -6,19 +6,19 @@
 # Proxecto Trasno - Adaptación do software libre á lingua galega: Se desexas
 # colaborar connosco, podes atopar máis información en http://www.trasno.net
 # Fran Diéguez <frandieguez@ubuntu.com>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: last-exit master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=last-"
-"exit&component=general\n"
-"POT-Creation-Date: 2010-03-03 12:37+0000\n"
-"PO-Revision-Date: 2010-03-04 16:55+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-20 02:55+0200\n"
+"PO-Revision-Date: 2010-06-20 02:56+0200\n"
 "Last-Translator: Fran Diéguez <frandieguez@ubuntu.com>\n"
-"Language-Team: Galician <gnome@g11n.net>\n"
+"Language-Team: Galician <gnome@g11.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\\\n"
 
 #: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
 msgid "    "
@@ -143,7 +143,7 @@ msgstr "Preferencias de Last Exit"
 
 #: ../data/glade/Preferences.glade.h:7
 msgid "Obscure"
-msgstr ""
+msgstr "Rara"
 
 #: ../data/glade/Preferences.glade.h:9
 msgid "Popular"
@@ -364,7 +364,7 @@ msgstr "Non se atopou o artista"
 #: ../src/FindStation.cs:603
 #, csharp-format
 msgid "{0} is not streamable."
-msgstr ""
+msgstr "{0} no se pode transmitir"
 
 #: ../src/FindStation.cs:612
 #, csharp-format
@@ -447,9 +447,8 @@ msgid "This artist does not have enough fans for radio."
 msgstr "Este artista non ten seguidores suficientes para a radio."
 
 #: ../src/PlayerWindow.cs:833
-#, fuzzy
 msgid "This item is not available for streaming."
-msgstr "a ampliación non é posíbel neste sistema de ficheiros"
+msgstr "Este elemento non está dispoñíbel para a súa retransmisión."
 
 #: ../src/PlayerWindow.cs:837
 msgid "This feature is only available to subscribers."
@@ -522,4 +521,3 @@ msgstr "Silencio"
 #: ../src/VolumeButton.cs:495
 msgid "Full Volume"
 msgstr "A todo volume"
-
