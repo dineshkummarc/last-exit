@@ -1,0 +1,522 @@
+# Romanian translation for last-exit.
+# Copyright (C) 2010 last-exit's COPYRIGHT HOLDER
+# This file is distributed under the same license as the last-exit package.
+# Simion Ruxandra <ruxy.simion@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: last-exit master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=last-"
+"exit&component=general\n"
+"POT-Creation-Date: 2010-12-20 13:28+0000\n"
+"PO-Revision-Date: 2010-12-30 03:25+0300\n"
+"Last-Translator: Simion Ruxandra <ruxy.simion@gmail.com>\n"
+"Language-Team: Romanian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"X-Generator: Virtaal 0.6.1\n"
+
+#: ../data/glade/FindStation.glade.h:1 ../data/glade/InfoWindow.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../data/glade/FindStation.glade.h:2
+msgid "<b>Results:</b>"
+msgstr "<b>Rezultate:</b>"
+
+#: ../data/glade/FindStation.glade.h:3
+msgid "<b>Search for:</b>"
+msgstr "<b>Caută după:</b>"
+
+#: ../data/glade/FindStation.glade.h:4
+msgid "Find Station"
+msgstr "Caută un post radio"
+
+#: ../data/glade/FirstRunDialog.glade.h:1
+msgid "Account Name:"
+msgstr "Nume cont:"
+
+#: ../data/glade/FirstRunDialog.glade.h:2
+msgid ""
+"Before you can use Last Exit, you need to have a Last.fm\n"
+"account. Please enter the account name and password\n"
+"below."
+msgstr ""
+"Înainte de a putea utiliza Last Exit, trebuie să aveți\n"
+"un cont Last.fm. Introduceți numele contului și parola\n"
+"mai jos."
+
+#: ../data/glade/FirstRunDialog.glade.h:5
+msgid "Don't have a Last.FM account?"
+msgstr "Nu aveți un cont Last.FM?"
+
+#: ../data/glade/FirstRunDialog.glade.h:6 ../data/glade/Preferences.glade.h:8
+msgid "Password:"
+msgstr "Parolă:"
+
+#: ../data/glade/FirstRunDialog.glade.h:7 ../src/FirstRunDialog.cs:61
+msgid "Start Player"
+msgstr "Pornește player-ul"
+
+#: ../data/glade/FirstRunDialog.glade.h:8
+msgid "dialog2"
+msgstr "dialog2"
+
+#: ../data/glade/InfoWindow.glade.h:2
+msgid "<b>Album:</b>"
+msgstr "<b>Album:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:3
+msgid "<b>Artist:</b>"
+msgstr "<b>Artist:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:4
+msgid "<b>Song:</b>"
+msgstr "<b>Piesă:</b>"
+
+#: ../data/glade/InfoWindow.glade.h:5 ../data/glade/TagDialog.glade.h:5
+msgid "dialog1"
+msgstr "dialog1"
+
+#: ../data/glade/PlayerWindow.glade.h:1
+msgid "Apply tags"
+msgstr "Aplică etichete"
+
+#: ../data/glade/PlayerWindow.glade.h:2
+msgid "Hate!"
+msgstr "Nu îmi place!"
+
+#: ../data/glade/PlayerWindow.glade.h:3
+msgid "Information"
+msgstr "Informații"
+
+#: ../data/glade/PlayerWindow.glade.h:4
+msgid "Love!"
+msgstr "Îmi place!"
+
+#: ../data/glade/PlayerWindow.glade.h:5
+msgid "Play the next song"
+msgstr "Redă piesa următoare"
+
+#: ../data/glade/PlayerWindow.glade.h:6
+msgid "Preferences"
+msgstr "Preferințe"
+
+#: ../data/glade/PlayerWindow.glade.h:7
+msgid "Switch music playback on or off"
+msgstr "Comută redarea muzicii"
+
+#: ../data/glade/PlayerWindow.glade.h:8
+msgid "Write a journal entry"
+msgstr "Scrie o intrare în jurnal"
+
+#: ../data/glade/PlayerWindow.glade.h:9
+msgid "_Listening to:"
+msgstr "Se ascu_ltă:"
+
+#: ../data/glade/Preferences.glade.h:1
+msgid "<b>Last.fm Account</b>"
+msgstr "<b>Cont Last.fm</b>"
+
+#: ../data/glade/Preferences.glade.h:2
+msgid "<b>Recommendation Radio</b>"
+msgstr "<b>Recomandarea radio</b>"
+
+#: ../data/glade/Preferences.glade.h:3
+msgid "<b>User Interface</b>"
+msgstr "<b>Interfață pentru utilizator</b>"
+
+#: ../data/glade/Preferences.glade.h:4
+msgid "Create an account"
+msgstr "Creați un cont"
+
+#: ../data/glade/Preferences.glade.h:5
+msgid "Join Last Exit group"
+msgstr "Alăturați-vă grupului Last Exit"
+
+#: ../data/glade/Preferences.glade.h:6
+msgid "Last Exit Preferences"
+msgstr "Preferințe Last Exit"
+
+#: ../data/glade/Preferences.glade.h:7
+msgid "Obscure"
+msgstr "Obscur"
+
+#: ../data/glade/Preferences.glade.h:9
+msgid "Popular"
+msgstr "Popular"
+
+#: ../data/glade/Preferences.glade.h:10
+msgid "Show notification on song change"
+msgstr "Afișează notificări când piesa se schimbă"
+
+#: ../data/glade/Preferences.glade.h:11
+msgid "User Name:"
+msgstr "Nume utilizator:"
+
+#: ../data/glade/TagDialog.glade.h:1
+msgid "<span weight=\"bold\">Tag:</span>"
+msgstr "<span weight=\"bold\">Etichetă:</span>"
+
+#: ../data/glade/TagDialog.glade.h:2
+msgid ""
+"Track\n"
+"Album\n"
+"Artist"
+msgstr ""
+"Piesă\n"
+"Album\n"
+"Artist"
+
+#: ../data/last-exit.desktop.in.h:1
+msgid "Last-Exit"
+msgstr "Last-Exit"
+
+#: ../data/last-exit.desktop.in.h:2
+msgid "Last.fm player"
+msgstr "Player Last.fm"
+
+#: ../data/last-exit.schemas.in.h:1
+msgid "Account name"
+msgstr "Nume cont"
+
+#: ../data/last-exit.schemas.in.h:2
+msgid "Password"
+msgstr "Parolă"
+
+#: ../data/last-exit.schemas.in.h:3
+msgid "Password for the Last.FM account"
+msgstr "Parola pentru contul Last.FM"
+
+#: ../data/last-exit.schemas.in.h:4
+msgid "Recommendation Level"
+msgstr "Nivel recomandări"
+
+#: ../data/last-exit.schemas.in.h:5
+msgid "Recommended radio setting (from 0-100)"
+msgstr "Configurare radio recomandată (de la 0-100)"
+
+#: ../data/last-exit.schemas.in.h:6
+msgid "Set to true if the first run dialog should be shown"
+msgstr ""
+"Stabiliți la adevărat dacă ar trebui arătată caseta de dialog pentru prima "
+"rulare"
+
+#: ../data/last-exit.schemas.in.h:7
+msgid "Show Notifications"
+msgstr "Arată notificări"
+
+#: ../data/last-exit.schemas.in.h:8
+msgid "Show first run dialog"
+msgstr "Afișează caseta de dialog pentru prima rulare"
+
+#: ../data/last-exit.schemas.in.h:9
+msgid "The Last.FM account name that we should use"
+msgstr "Numele contului Last.FM pe care ar trebui să îl folosim"
+
+#: ../data/last-exit.schemas.in.h:10
+msgid "Volume"
+msgstr "Volum"
+
+#: ../data/last-exit.schemas.in.h:11
+msgid "Volume setting (from 0-100)"
+msgstr "Configurări volum (de la 0-100)"
+
+#: ../data/last-exit.schemas.in.h:12
+msgid "Whether Last-Exit shows notifications when the song changes"
+msgstr "Dacă Last-Exit va arăta notificări atunci când piesa se schimbă"
+
+#: ../data/lastfm.schemas.in.h:1
+msgid "Is the Last-FM handler enabled"
+msgstr "Este operatorul Last-FM activat"
+
+#: ../data/lastfm.schemas.in.h:2
+msgid "Run the command in a terminal"
+msgstr "Executați comanda într-un terminal"
+
+#: ../data/lastfm.schemas.in.h:3
+msgid "The command used to handle \"lastfm\" URLs, if enabled."
+msgstr ""
+"Comandă utilizată pentru a gestiona URL-urile „LastFM”, dacă este activat."
+
+#: ../data/lastfm.schemas.in.h:4
+msgid "The handler for \"lastfm\" URLs"
+msgstr "Operatorul pentru URL-uri „lastfm”"
+
+#: ../data/lastfm.schemas.in.h:5
+msgid ""
+"True if the command specified in the \"command\" key should handle \"lastfm"
+"\" URLs."
+msgstr ""
+"Adevărat dacă comanda specificată în cheia „comandă” ar trebui să ocupe de "
+"URL-uri „lastfm”."
+
+#: ../data/lastfm.schemas.in.h:6
+msgid ""
+"True if the command used to handle \"lastfm\" URLs should be run in a "
+"terminal."
+msgstr ""
+"Adevărat în cazul în care comanda utilizată pentru a manipula URL-uri  "
+"„lastfm” trebuie să ruleze într-un terminal."
+
+#: ../src/About.cs:32
+msgid "Last Exit"
+msgstr "Last Exit"
+
+#: ../src/About.cs:35
+msgid "Copyright © 2006 Iain Holmes"
+msgstr "Drepturi de autor © 2006 Iain Holmes"
+
+#: ../src/About.cs:38
+msgid "A Last.fm radio player"
+msgstr "Un player radio Last.fm"
+
+#: ../src/About.cs:45
+msgid "Iain Holmes <iain@gnome.org>"
+msgstr "Iain Holmes <iain@gnome.org>"
+
+#: ../src/About.cs:46
+msgid "Baris Cicek <baris@teamforce.name.tr>"
+msgstr "Baris Cicek <baris@teamforce.name.tr>"
+
+#: ../src/About.cs:47
+msgid "Brandon Hale <brandon@ubuntu.com>"
+msgstr "Brandon Hale <brandon@ubuntu.com>"
+
+#: ../src/About.cs:60
+msgid "translator-credits"
+msgstr "Simion Ruxandra <ruxy.simion@gmail.com>"
+
+#: ../src/Actions.cs:35
+msgid "Show _Window"
+msgstr "Arată _fereastra"
+
+#: ../src/Actions.cs:38
+msgid "_Play"
+msgstr "_Redă"
+
+#: ../src/Actions.cs:41
+msgid "_Next"
+msgstr "Ur_mătorul"
+
+#: ../src/Actions.cs:44
+msgid "_About"
+msgstr "_Despre"
+
+#: ../src/Actions.cs:47
+msgid "_Preferences"
+msgstr "_Preferințe"
+
+#: ../src/Actions.cs:50
+msgid "_Love Song"
+msgstr "Îmi p_lace piesa"
+
+#: ../src/Actions.cs:53
+msgid "_Hate Song"
+msgstr "_Nu îmi place piesa"
+
+#: ../src/FindStation.cs:75
+msgid "Find A Station"
+msgstr "Caută un post radio"
+
+#: ../src/FindStation.cs:105
+msgid "Cancel"
+msgstr "Anulează"
+
+#: ../src/FindStation.cs:106
+msgid "Change Station"
+msgstr "Schimbă stația"
+
+#: ../src/FindStation.cs:189
+msgid "Music that sounds like"
+msgstr "Muzică ce sună ca"
+
+#: ../src/FindStation.cs:190
+msgid "Music that is tagged as"
+msgstr "Muzică etichetată ca"
+
+#: ../src/FindStation.cs:191
+msgid "A neighbours station"
+msgstr "O post radio de vecini"
+
+#: ../src/FindStation.cs:192
+msgid "A users station"
+msgstr "O post radio de utilizatori"
+
+#: ../src/FindStation.cs:193
+msgid "Music from fans of"
+msgstr "Muzica de la fanii lui"
+
+#: ../src/FindStation.cs:194
+msgid "A group station"
+msgstr "Un post radio de grup"
+
+#: ../src/FindStation.cs:594
+msgid "Artist not found"
+msgstr "Artistul nu a fost găsit"
+
+#: ../src/FindStation.cs:603
+#, csharp-format
+msgid "{0} is not streamable."
+msgstr "{0} nu se poate difuza ca flux."
+
+#: ../src/FindStation.cs:612
+#, csharp-format
+msgid "Music that sounds like <b>{0}</b>"
+msgstr "Muzică ce sună ca <b>{0}</b>"
+
+#: ../src/FindStation.cs:617
+msgid "Featuring: \n"
+msgstr "Cu: \n"
+
+#: ../src/FindStation.cs:633
+#, csharp-format
+msgid " and {0} other."
+msgid_plural " and {0} others."
+msgstr[0] " și încă {0}."
+msgstr[1] " și încă {0}."
+msgstr[2] " și încă {0}."
+
+#: ../src/FirstRunDialog.cs:51
+msgid "Last.fm Account Details"
+msgstr "Detaliile contului Last.fm"
+
+#: ../src/FirstRunDialog.cs:64
+msgid "Sign up for Last.fm"
+msgstr "Înscrieți-vă pentru Last.fm"
+
+#: ../src/PlayerWindow.cs:291
+msgid "Neighbour Station"
+msgstr "Post radio de vecini"
+
+#: ../src/PlayerWindow.cs:294
+msgid "Personal Station"
+msgstr "Post radio personal"
+
+#: ../src/PlayerWindow.cs:298
+msgid "Favourites Station"
+msgstr "Posturi radio favorite"
+
+#: ../src/PlayerWindow.cs:302
+msgid "Recommended Music Station"
+msgstr "Post radio cu muzică recomandată"
+
+#: ../src/PlayerWindow.cs:305
+msgid "Other Station..."
+msgstr "Alte posturi radio..."
+
+#: ../src/PlayerWindow.cs:781
+#, csharp-format
+msgid ""
+"<span size=\"smaller\">From <a href=\"{0}\">{1}</a> by <a href=\"{2}\">{3}</"
+"a></span>"
+msgstr ""
+"<span size=\"smaller\">De la <a href=\"{0}\">{1}</a> de <a href=\"{2}\">{3}</"
+"a></span>"
+
+#: ../src/PlayerWindow.cs:783
+#, csharp-format
+msgid "<span size=\"smaller\">By <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">De <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:785
+#, csharp-format
+msgid "<span size=\"smaller\">From <a href=\"{0}\">{1}</a></span>"
+msgstr "<span size=\"smaller\">De la <a href=\"{0}\">{1}</a></span>"
+
+#: ../src/PlayerWindow.cs:792
+#, csharp-format
+msgid "{0} by {1}"
+msgstr "{0} de {1}"
+
+#: ../src/PlayerWindow.cs:821
+msgid "There is not enough content to play this station."
+msgstr "Acest post de radio nu are suficient conținut pentru a putea fi redat."
+
+#: ../src/PlayerWindow.cs:825
+msgid "This group does not have enough members for radio."
+msgstr "Acest grup nu are suficienți membri pentru radio."
+
+#: ../src/PlayerWindow.cs:829
+msgid "This artist does not have enough fans for radio."
+msgstr "Acest artist nu are destui fani pentru radio."
+
+#: ../src/PlayerWindow.cs:833
+msgid "This item is not available for streaming."
+msgstr "Acest element nu este disponibil pentru redare în flux."
+
+#: ../src/PlayerWindow.cs:837
+msgid "This feature is only available to subscribers."
+msgstr "Această funcție este disponibilă doar abonaților."
+
+#: ../src/PlayerWindow.cs:841
+msgid "There are not enough neighbours for this radio."
+msgstr "Nu există suficienți vecini pentru acest radio."
+
+#: ../src/PlayerWindow.cs:845
+msgid "This stream has stopped."
+msgstr "Acest flux s-a oprit."
+
+#: ../src/PlayerWindow.cs:849
+msgid "There is no such a group."
+msgstr "Nu există niciun astfel de grup."
+
+#: ../src/PlayerWindow.cs:853
+msgid "There is no such an artist."
+msgstr "Nu există niciun astfel de artist."
+
+#: ../src/TagDialog.cs:44
+msgid "Tag A Song"
+msgstr "Etichetați o piesă"
+
+#: ../src/TagDialog.cs:87 ../src/TagDialog.cs:91 ../src/TagDialog.cs:95
+#, csharp-format
+msgid "Tag '{0}'"
+msgstr "Eticheta „{0}”"
+
+#: ../src/TagSelector.cs:46
+#, csharp-format
+msgid "<span size=\"smaller\"><i>Tagged {0} item</i></span>"
+msgid_plural "<span size=\"smaller\"><i>Tagged {0} items</i></span>"
+msgstr[0] "<span size=\"smaller\"><i>S-a etichetat {0} element</i></span>"
+msgstr[1] "<span size=\"smaller\"><i>S-au etichetat {0} elemente</i></span>"
+msgstr[2] "<span size=\"smaller\"><i>S-au etichetat {0} de elemente</i></span>"
+
+#: ../src/TagView.cs:50
+#, csharp-format
+msgid ""
+"\n"
+"<span size=\"smaller\">Relevance: {0}%</span>"
+msgstr ""
+"\n"
+"<span size=\"smaller\">Relevanță: {0}%</span>"
+
+#: ../src/TrayIcon.cs:199
+#, csharp-format
+msgid "<span weight=\"bold\">{0}</span>"
+msgstr "<span weight=\"bold\">{0}</span>"
+
+#: ../src/TrayIcon.cs:205 ../src/TrayIcon.cs:207
+#, csharp-format
+msgid "<span size=\"smaller\">By <span weight=\"bold\">{0}</span></span>"
+msgstr "<span size=\"smaller\">De <span weight=\"bold\">{0}</span></span>"
+
+#: ../src/TrayIcon.cs:223
+msgid " by "
+msgstr " de "
+
+#. Wait til cover is set before we notify :)
+#: ../src/TrayIcon.cs:229
+msgid "Now playing"
+msgstr "Se redă"
+
+#: ../src/VolumeButton.cs:493
+msgid "Muted"
+msgstr "Mut"
+
+#: ../src/VolumeButton.cs:495
+msgid "Full Volume"
+msgstr "Volum maxim"
